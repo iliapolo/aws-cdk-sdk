@@ -15,13 +15,19 @@ export interface ServiceApiSpec {
   readonly documentation: string;
 }
 
+export interface Response {
+  readonly declaration: InterfaceDeclaration;
+  readonly operationName: string;
+  readonly operation: any;
+}
+
 export class ServiceGenerator {
 
   private serviceTypes?: File;
   private serviceSpec?: ServiceApiSpec;
   private serivceTypesRaw?: string;
   private shapes: InterfaceDeclaration[] = [];
-  private responses: InterfaceDeclaration[] = [];
+  private responses: Response[] = [];
   private typeAliases: TypeAliasDeclaration[] = [];
   private module?: CodeMaker;
   private serviceId?: string;
@@ -41,8 +47,6 @@ export class ServiceGenerator {
     this.serivceTypesRaw = fs.readFileSync(this.declarationsPath).toString();
     this.serviceId = this.serviceTypes.declarations.filter(d => d instanceof ClassDeclaration)[0].name;
 
-    this.module.openFile(`${this.serviceId.toLowerCase()}.ts`);
-
     for (const operationName of Object.keys(this.serviceSpec.operations)) {
       const operation = this.serviceSpec.operations[operationName];
 
@@ -51,13 +55,17 @@ export class ServiceGenerator {
       }
 
       if (operation.output) {
-        this.responses.push(getShapeDeclaration(operation.output.shape, this.serviceTypes!));
+        this.responses.push({
+          declaration: getShapeDeclaration(operation.output.shape, this.serviceTypes!),
+          operation: operation,
+          operationName: operationName,
+        });
       }
     }
 
     for (const resource of this.serviceTypes!.resources) {
       for (const declaration of resource.declarations) {
-        if (declaration instanceof InterfaceDeclaration && !this.responses.includes(declaration) && declaration.name !== 'ClientApiVersions') {
+        if (declaration instanceof InterfaceDeclaration && !this.responses.map(r => r.declaration).includes(declaration) && declaration.name !== 'ClientApiVersions') {
           this.shapes.push(declaration);
         }
       }
@@ -79,15 +87,27 @@ export class ServiceGenerator {
       throw new Error("Uninitialized. Please call '.init()' first");
     }
 
-    const outputDir = path.join(`${__dirname}/services`);
+    const outputDir = path.join(`${__dirname}/services/${this.serviceId!.toLowerCase()}`);
 
-    this.generateImports();
+    this.module!.openFile('shapes.ts');
     this.generateShapes();
-    this.generateResponses();
-    this.generateApi();
     this.generateTypeAliases();
+    this.module!.closeFile('shapes.ts');
 
-    this.module!.closeFile(`${this.serviceId!.toLowerCase()}.ts`);
+    this.module!.openFile('responses.ts');
+    this.module!.line("import * as cdk from '@aws-cdk/core';");
+    this.module!.line("import * as cr from '@aws-cdk/custom-resources';");
+    this.module!.line("import * as shapes from './shapes';");
+    this.generateResponses();
+    this.module!.closeFile('responses.ts');
+
+    this.module!.openFile('api.ts');
+    this.module!.line("import * as cdk from '@aws-cdk/core';");
+    this.module!.line("import * as cr from '@aws-cdk/custom-resources';");
+    this.module!.line("import * as responses from './responses';");
+    this.module!.line("import * as shapes from './shapes';");
+    this.generateApi();
+    this.module!.closeFile('api.ts');
 
     await this.module!.save(outputDir);
 
@@ -134,30 +154,106 @@ export class ServiceGenerator {
 
     for (const output of this.responses) {
 
-      const argumentType = this.inputsForOutputs[output.name];
+      this.module!.openBlock(`export class ${output.declaration.name}`);
 
-      this.module!.openBlock(`export class ${output.name}`);
+      this.generateResponse(output.operationName, output.operationName, output.declaration, [], [output.declaration.name]);
 
-      for (const property of output.properties) {
-
-        if (!property.type) {
-          throw new Error(`Unexpected propery ${output}.${property.name}: no return type`);
-        }
-
-        this.module!.line(`public get ${this.module!.toCamelCase(property.name)}(): ${property.type} {}`);
-      }
-
-      this.module!.openBlock(`constructor(scope: cdk.Construct${argumentType ? `, input: ${argumentType}`: ''})`);
-      this.module!.closeBlock();
       this.module!.closeBlock();
 
     }
 
   }
 
-  public generateImports() {
-    this.module!.line("import * as cdk from '@aws-cdk/core';");
-    this.module!.line("import * as cr from '@aws-cdk/custom-resources';");
+  private generateResponse(operationName: string, operation: any, response: InterfaceDeclaration, outputPath: string[], typePrefix: string[]) {
+
+    for (const property of response.properties) {
+
+      if (!property.type) {
+        throw new Error(`Unexpected propery ${response.name}.${property.name}: no return type`);
+      }
+
+      if (isTypeAlias(property, this.typeAliases)) {
+        this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): shapes.${property.type}`);
+        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], `shapes.${property.type}`);
+        this.module!.closeBlock();
+      } else if (isPrimitive(property)) {
+        this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): ${property.type}`);
+        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], property.type);
+        this.module!.closeBlock();
+      } else {
+        this.module!.openBlock(`static ${property.name}Response = class`);
+        this.generateResponse(operationName, operation, getShapeDeclaration(property.type, this.serviceTypes!), [...outputPath, property.name], [...typePrefix, `${property.name}Response`]);
+        this.module!.closeBlock();
+        this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): InstanceType<typeof ${[...typePrefix, `${property.name}Response`].join('.')}>`);
+        this.module!.line(`return new ${[...typePrefix, `${property.name}Response`].join('.')}(this.scope, this.resources);`);
+        this.module!.closeBlock();
+      }
+    }
+
+    const inputShape = this.inputsForOutputs[response.name];
+
+    if (inputShape) {
+      this.module!.openBlock(`constructor(public scope: cdk.Construct, public readonly resources: string[], input: shapes.${inputShape})`);
+    } else {
+      this.module!.openBlock('constructor(public scope: cdk.Construct, public readonly resources: string[])');
+    }
+    this.module!.closeBlock();
+
+  }
+
+  private generateAwsCustomResource(operationName: string, operation: any, outputPath: string[], returnType?: string) {
+
+    const originalBlockFormatter = this.module!.closeBlockFormatter;
+
+    this.module!.openBlock('const props: cr.AwsCustomResourceProps =');
+    this.module!.openBlock('onUpdate:');
+    this.module!.line(`action: '${this.module!.toCamelCase(operationName)}',`);
+    this.module!.line(`service: '${this.serviceId}',`);
+    if (outputPath.length > 0) {
+      this.module!.line(`outputPath: '${outputPath.join('.')}',`);
+    }
+
+    function trallingCommaFormatter(s?: string): string | false {
+      const orig = originalBlockFormatter(s);
+      if (typeof(orig) !== 'string') return orig;
+      return `${orig},`;
+    }
+
+    function semiColonFormatter(s?: string): string | false {
+      const orig = originalBlockFormatter(s);
+      if (typeof(orig) !== 'string') return orig;
+      return `${orig};`;
+    }
+
+    this.module!.closeBlockFormatter = trallingCommaFormatter;
+
+    console.log(`Generating for ${operationName}`);
+
+    if (operation.input?.shape) {
+      this.module!.openBlock('parameters:');
+      createParameters(this.module!, getShapeDeclaration(operation.input.shape, this.serviceTypes!), this.serviceTypes!, this.typeAliases);
+      this.module!.closeBlock();
+    } else {
+      console.log(`No input shape for ${operationName}`);
+    }
+
+    this.module!.closeBlock();
+
+    this.module!.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
+
+    this.module!.closeBlockFormatter = semiColonFormatter;
+    this.module!.closeBlock();
+
+    if (outputPath.length > 0) {
+      this.module!.line(`const request = new cr.AwsCustomResource(this.scope, '${operationName}.${outputPath.join('.')}', props);`);
+      this.module!.line(`return request.getResponseField('${outputPath.join('.')}') as unknown as ${returnType};`);
+    } else {
+      this.module!.line(`new cr.AwsCustomResource(this, '${operationName}', props);`);
+    }
+
+
+    this.module!.closeBlockFormatter = originalBlockFormatter;
+
   }
 
   public generateApi() {
@@ -175,11 +271,11 @@ export class ServiceGenerator {
       let output = undefined;
 
       if (operation.input) {
-        input = `input: ${operation.input.shape}`;
+        input = `input: shapes.${operation.input.shape}`;
       }
 
       if (operation.output) {
-        output = operation.output.shape;
+        output = `responses.${operation.output.shape}`;
       }
 
       this.module!.line('/**');
@@ -188,51 +284,13 @@ export class ServiceGenerator {
       this.module!.openBlock(`public ${this.module!.toCamelCase(operationName)}(${input ?? ''}): ${output ?? 'void'}`);
 
       if (output) {
-
         if (input) {
-          this.module!.line(`return new ${output}(this, input);`);
+          this.module!.line(`return new ${output}(this, this.resources, input);`);
         } else {
-          this.module!.line(`return new ${output}(this);`);
+          this.module!.line(`return new ${output}(this, this.resources);`);
         }
       } else {
-
-        const originalBlockFormatter = this.module!.closeBlockFormatter;
-
-        this.module!.openBlock('const props: cr.AwsCustomResourceProps =');
-        this.module!.openBlock('onUpdate:');
-        this.module!.line(`action: '${this.module!.toCamelCase(operationName)}',`);
-        this.module!.line(`service: '${this.serviceId}',`);
-
-        function trallingCommaFormatter(s?: string): string | false {
-          const orig = originalBlockFormatter(s);
-          if (typeof(orig) !== 'string') return orig;
-          return `${orig},`;
-        }
-
-        function semiColonFormatter(s?: string): string | false {
-          const orig = originalBlockFormatter(s);
-          if (typeof(orig) !== 'string') return orig;
-          return `${orig};`;
-        }
-
-        this.module!.closeBlockFormatter = trallingCommaFormatter;
-
-        if (operation.input?.shape) {
-          this.module!.openBlock('parameters:');
-          createParameters(this.module!, getShapeDeclaration(operation.input.shape, this.serviceTypes!), this.serviceTypes!, this.typeAliases);
-          this.module!.closeBlock();
-        }
-
-        this.module!.closeBlock();
-
-        this.module!.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
-
-        this.module!.closeBlockFormatter = semiColonFormatter;
-        this.module!.closeBlock();
-        this.module!.line(`new cr.AwsCustomResource(this, '${operationName}', props);`);
-
-        this.module!.closeBlockFormatter = originalBlockFormatter;
-
+        this.generateAwsCustomResource(operationName, operation, []);
       }
 
       this.module!.closeBlock();
