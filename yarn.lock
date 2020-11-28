@@ -218,7 +218,7 @@
     jsonschema "^1.4.0"
     semver "^7.3.2"
 
-"@aws-cdk/core@*", "@aws-cdk/core@1.75.0":
+"@aws-cdk/core@1.75.0", "@aws-cdk/core@^1.75.0":
   version "1.75.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/core/-/core-1.75.0.tgz#9420d21673bab173c08d1fa3fccc15d4a41cdcc5"
   integrity sha512-CVHoOCraglhdoL7EXiCrZ3aPPr+TCalDyF6R5quh+lDeBPRuXF+ddfGFh2nhusyEtLtuJgxqTMp/OMIPKh+Smg==
@@ -232,7 +232,7 @@
     ignore "^5.1.8"
     minimatch "^3.0.4"
 
-"@aws-cdk/custom-resources@*":
+"@aws-cdk/custom-resources@^1.75.0":
   version "1.75.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/custom-resources/-/custom-resources-1.75.0.tgz#7f67a1111841cc0e8918048c7f0a220f849846e7"
   integrity sha512-dHNm7/yg2Zp4E7QWJLqnDs6hw1IAAp5QybvMInFB0/4Xn3SEOo3CTWNGRGlrYqkjgvBz2uoH8Mez3IqGKRC4hQ==
@@ -3770,9 +3770,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.119:
-  version "0.1.119"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.119.tgz#9ec8628bc110dcfc122fb547a953d6eaebd35979"
-  integrity sha512-/YnKolxTlz2vBcu6mqPoh3vgyVJK9lFiZU9rwNcC/w0FVE3Lu0zXPmKVqLrquEpzMp7OGJ52rwd3dIRhvfzMDw==
+  version "0.1.120"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.120.tgz#a7efc1b30fdc815f180fce2ae927c2d935c1b03f"
+  integrity sha512-ss3RQH1fGnIfiQH/n7EIKajkQRkI9CS0wOf7O3nwrZpKMqTggv0AFCMy8OAlA4IniFyZ6cNjDbvYyFdaS69IEQ==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
