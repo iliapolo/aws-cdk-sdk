@@ -156,7 +156,7 @@ export class ServiceGenerator {
 
       this.module!.openBlock(`export class ${output.declaration.name}`);
 
-      this.generateResponse(output.operationName, output.operationName, output.declaration, [], [output.declaration.name]);
+      this.generateResponse(output.operationName, output.operation, output.declaration, [], [output.declaration.name]);
 
       this.module!.closeBlock();
 
@@ -174,26 +174,26 @@ export class ServiceGenerator {
 
       if (isTypeAlias(property, this.typeAliases)) {
         this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): shapes.${property.type}`);
-        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], `shapes.${property.type}`);
+        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], `shapes.${property.type}`, true);
         this.module!.closeBlock();
       } else if (isPrimitive(property)) {
         this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): ${property.type}`);
-        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], property.type);
+        this.generateAwsCustomResource(operationName, operation, [...outputPath, property.name], property.type, true);
         this.module!.closeBlock();
       } else {
         this.module!.openBlock(`static ${property.name}Response = class`);
         this.generateResponse(operationName, operation, getShapeDeclaration(property.type, this.serviceTypes!), [...outputPath, property.name], [...typePrefix, `${property.name}Response`]);
         this.module!.closeBlock();
         this.module!.openBlock(`public get ${this.module!.toCamelCase(property.name)}(): InstanceType<typeof ${[...typePrefix, `${property.name}Response`].join('.')}>`);
-        this.module!.line(`return new ${[...typePrefix, `${property.name}Response`].join('.')}(this.scope, this.resources);`);
+        this.module!.line(`return new ${[...typePrefix, `${property.name}Response`].join('.')}(this.scope, this.resources, this.input);`);
         this.module!.closeBlock();
       }
     }
 
-    const inputShape = this.inputsForOutputs[response.name];
+    const inputShape = operation.input?.shape;
 
     if (inputShape) {
-      this.module!.openBlock(`constructor(public scope: cdk.Construct, public readonly resources: string[], input: shapes.${inputShape})`);
+      this.module!.openBlock(`constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.${inputShape})`);
     } else {
       this.module!.openBlock('constructor(public scope: cdk.Construct, public readonly resources: string[])');
     }
@@ -201,7 +201,7 @@ export class ServiceGenerator {
 
   }
 
-  private generateAwsCustomResource(operationName: string, operation: any, outputPath: string[], returnType?: string) {
+  private generateAwsCustomResource(operationName: string, operation: any, outputPath: string[], returnType?: string, thisInput?: boolean) {
 
     const originalBlockFormatter = this.module!.closeBlockFormatter;
 
@@ -227,14 +227,10 @@ export class ServiceGenerator {
 
     this.module!.closeBlockFormatter = trallingCommaFormatter;
 
-    console.log(`Generating for ${operationName}`);
-
     if (operation.input?.shape) {
       this.module!.openBlock('parameters:');
-      createParameters(this.module!, getShapeDeclaration(operation.input.shape, this.serviceTypes!), this.serviceTypes!, this.typeAliases);
+      createParameters([], this.module!, getShapeDeclaration(operation.input.shape, this.serviceTypes!), this.serviceTypes!, this.typeAliases, thisInput);
       this.module!.closeBlock();
-    } else {
-      console.log(`No input shape for ${operationName}`);
     }
 
     this.module!.closeBlock();
@@ -290,7 +286,7 @@ export class ServiceGenerator {
           this.module!.line(`return new ${output}(this, this.resources);`);
         }
       } else {
-        this.generateAwsCustomResource(operationName, operation, []);
+        this.generateAwsCustomResource(operationName, operation, [], undefined, false);
       }
 
       this.module!.closeBlock();
@@ -325,15 +321,23 @@ function getShapeDeclaration(name: string, parsed: File): InterfaceDeclaration {
   throw new Error(`No shape: ${name}`);
 }
 
-function createParameters(code: CodeMaker, shape: InterfaceDeclaration, parsed: File, typeAliases: TypeAliasDeclaration[]) {
+function createParameters(propPath: PropertyDeclaration[], code: CodeMaker, shape: InterfaceDeclaration, parsed: File, typeAliases: TypeAliasDeclaration[], thisInput?: boolean) {
 
   for (const property of shape.properties) {
 
+    const newPath = [...propPath, property];
+
+    let a = newPath.map(p => p.isOptional ? `${code.toCamelCase(p.name)}?` : code.toCamelCase(p.name)).join('.');
+
+    if (a.endsWith('?')) {
+      a = a.substring(0, a.length - 1);
+    }
+
     if (isPrimitive(property) || isTypeAlias(property, typeAliases)) {
-      code.line(`${property.name}: input.${code.toCamelCase(property.name)},`);
+      code.line(`${property.name}: ${thisInput ? 'this.' : ''}input.${a},`);
     } else {
       code.openBlock(`${property.name}:`);
-      createParameters(code, getShapeDeclaration(property.type!, parsed), parsed, typeAliases);
+      createParameters(newPath, code, getShapeDeclaration(property.type!, parsed), parsed, typeAliases, thisInput);
       code.closeBlock();
     }
   }
