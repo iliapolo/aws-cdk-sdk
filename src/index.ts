@@ -1,10 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { JSONSchema4 } from 'json-schema';
-import { TypeGenerator } from 'json2jsii';
 import { SyncRequestClient } from 'ts-sync-request/dist';
-import { TypescriptParser, InterfaceDeclaration, TypeAliasDeclaration, PropertyDeclaration, ClassDeclaration } from 'typescript-parser';
+import { TypescriptParser, InterfaceDeclaration, TypeAliasDeclaration, PropertyDeclaration, ClassDeclaration, File } from 'typescript-parser';
 
 export interface ServiceApiSpec {
 
@@ -19,74 +17,191 @@ export interface ServiceApiSpec {
 
 export class ServiceGenerator {
 
-  constructor() {}
+  private serviceTypes?: File;
+  private serviceSpec?: ServiceApiSpec;
+  private serivceTypesRaw?: string;
+  private shapes: InterfaceDeclaration[] = [];
+  private responses: InterfaceDeclaration[] = [];
+  private typeAliases: TypeAliasDeclaration[] = [];
+  private module?: CodeMaker;
+  private serviceId?: string;
+  private inputsForOutputs: Record<string, string> = {};
 
-  public async generate() {
+  constructor(private readonly schemaUrl: string, private readonly declarationsPath: string) {}
 
-    const outputDir = path.join(`${__dirname}/out`);
+  public async init() {
 
     const client = new SyncRequestClient();
     const parser = new TypescriptParser();
 
-    const res = client.get<ServiceApiSpec>('https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/es-2015-01-01.normal.json');
-    const serviceTypes = await parser.parseFile('es.d.ts', '/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk');
+    this.module = new CodeMaker();
+    this.module.indentation = 2;
+    this.serviceSpec = client.get<ServiceApiSpec>(this.schemaUrl);
+    this.serviceTypes = await parser.parseFile(path.basename(this.declarationsPath), path.dirname(this.declarationsPath));
+    this.serivceTypesRaw = fs.readFileSync(this.declarationsPath).toString();
+    this.serviceId = this.serviceTypes.declarations.filter(d => d instanceof ClassDeclaration)[0].name;
 
-    const code = new CodeMaker();
-    code.indentation = 2;
+    this.module.openFile(`${this.serviceId.toLowerCase()}.ts`);
 
-    const serviceId = serviceTypes.declarations.filter(d => d instanceof ClassDeclaration)[0].name;
+    for (const operationName of Object.keys(this.serviceSpec.operations)) {
+      const operation = this.serviceSpec.operations[operationName];
 
-    code.openFile('api.ts');
-    code.line("import * as cdk from '@aws-cdk/core';");
-    code.line("import * as cr from '@aws-cdk/custom-resources';");
-    code.line("import * as outputs from './outputs';");
-    code.line("import * as shapes from './shapes';");
-    code.openBlock(`export class ${serviceId} extends cdk.Construct`);
-    code.openBlock('constructor(scope: cdk.Construct, private readonly resources: string[])');
-    code.line(`super(scope, '${serviceId}');`);
-    code.closeBlock();
+      if (operation.input && operation.output) {
+        this.inputsForOutputs[operation.output.shape] = operation.input.shape;
+      }
 
-    for (const operationName of Object.keys(res.operations)) {
+      if (operation.output) {
+        this.responses.push(getShapeDeclaration(operation.output.shape, this.serviceTypes!));
+      }
+    }
 
-      const operation = res.operations[operationName];
+    for (const resource of this.serviceTypes!.resources) {
+      for (const declaration of resource.declarations) {
+        if (declaration instanceof InterfaceDeclaration && !this.responses.includes(declaration) && declaration.name !== 'ClientApiVersions') {
+          this.shapes.push(declaration);
+        }
+      }
+    }
+
+    for (const resource of this.serviceTypes!.resources) {
+      for (const declaration of resource.declarations) {
+        if (declaration instanceof TypeAliasDeclaration && declaration.name !== 'ClientConfiguration') {
+          this.typeAliases.push(declaration);
+        }
+      }
+    }
+
+  }
+
+  public async gen() {
+
+    if (!this.serviceSpec || !this.serviceTypes || !this.serivceTypesRaw) {
+      throw new Error("Uninitialized. Please call '.init()' first");
+    }
+
+    const outputDir = path.join(`${__dirname}/services`);
+
+    this.generateImports();
+    this.generateShapes();
+    this.generateResponses();
+    this.generateApi();
+    this.generateTypeAliases();
+
+    this.module!.closeFile(`${this.serviceId!.toLowerCase()}.ts`);
+
+    await this.module!.save(outputDir);
+
+  }
+
+  public generateTypeAliases() {
+
+    for (const typeAlias of this.typeAliases) {
+      this.module!.line(this.serivceTypesRaw!.substring(typeAlias.start!, typeAlias.end).replace(/"/g, "'"));
+    }
+
+  }
+
+  public generateShapes() {
+
+    for (const shape of this.shapes) {
+
+      const properties = shape.properties;
+      if (!properties) {
+        throw new Error(`Unexpected declaration: ${shape.name} should have properties`);
+      }
+
+      if (!this.serviceSpec!.shapes[shape.name]) {
+        console.log(`no shape for ${shape.name}`);
+      }
+
+      this.module!.line('/**');
+      this.module!.line(` * ${this.serviceSpec!.shapes[shape.name].documentation}`);
+      this.module!.line(' */');
+      this.module!.openBlock(`export interface ${shape.name}`);
+      for (const property of properties) {
+        const jsiiCompatible = this.module!.toCamelCase(property.name);
+        this.module!.line('/**');
+        this.module!.line(` * ${docsForProperty(this.serivceTypesRaw!, property)}`);
+        this.module!.line(' */');
+        this.module!.line(`readonly ${jsiiCompatible}${property.isOptional ? '?' : ''}: ${property.type};`);
+      }
+      this.module!.closeBlock();
+
+    }
+  }
+
+  public generateResponses() {
+
+    for (const output of this.responses) {
+
+      const argumentType = this.inputsForOutputs[output.name];
+
+      this.module!.openBlock(`export class ${output.name}`);
+
+      for (const property of output.properties) {
+
+        if (!property.type) {
+          throw new Error(`Unexpected propery ${output}.${property.name}: no return type`);
+        }
+
+        this.module!.line(`public get ${this.module!.toCamelCase(property.name)}(): ${property.type} {}`);
+      }
+
+      this.module!.openBlock(`constructor(scope: cdk.Construct${argumentType ? `, input: ${argumentType}`: ''})`);
+      this.module!.closeBlock();
+      this.module!.closeBlock();
+
+    }
+
+  }
+
+  public generateImports() {
+    this.module!.line("import * as cdk from '@aws-cdk/core';");
+    this.module!.line("import * as cr from '@aws-cdk/custom-resources';");
+  }
+
+  public generateApi() {
+
+    this.module!.openBlock(`export class ${this.serviceId} extends cdk.Construct`);
+    this.module!.openBlock('constructor(scope: cdk.Construct, private readonly resources: string[])');
+    this.module!.line(`super(scope, '${this.serviceId}');`);
+    this.module!.closeBlock();
+
+    for (const operationName of Object.keys(this.serviceSpec!.operations)) {
+
+      const operation = this.serviceSpec!.operations[operationName];
 
       let input = undefined;
       let output = undefined;
 
       if (operation.input) {
-        input = `input: shapes.${operation.input.shape}`;
+        input = `input: ${operation.input.shape}`;
       }
 
       if (operation.output) {
-        output = `outputs.${operation.output.shape}`;
+        output = operation.output.shape;
       }
 
-      code.line('/**');
-      code.line(` * ${operation.documentation}`);
-      code.line(' */');
-      code.openBlock(`public ${code.toCamelCase(operationName)}(${input ?? ''}): ${output ?? 'void'}`);
+      this.module!.line('/**');
+      this.module!.line(` * ${operation.documentation}`);
+      this.module!.line(' */');
+      this.module!.openBlock(`public ${this.module!.toCamelCase(operationName)}(${input ?? ''}): ${output ?? 'void'}`);
 
       if (output) {
-        code.line(`return new ${output}();`);
+
+        if (input) {
+          this.module!.line(`return new ${output}(this, input);`);
+        } else {
+          this.module!.line(`return new ${output}(this);`);
+        }
       } else {
 
-        const originalBlockFormatter = code.closeBlockFormatter;
+        const originalBlockFormatter = this.module!.closeBlockFormatter;
 
-        // new cr.AwsCustomResource(this.scope, 'ES.addTags', {
-        //   onUpdate: {
-        //     action: 'addTags',
-        //     service: 'ES',
-        //     physicalResourceId: cr.PhysicalResourceId.of('needed'),
-        //     parameters: input,
-        //   },
-        //   policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: ['*'] }),
-        // });
-
-
-        code.openBlock('const props: cr.AwsCustomResourceProps =');
-        code.openBlock('onUpdate:');
-        code.line(`action: '${code.toCamelCase(operationName)}',`);
-        code.line(`service: '${serviceId}',`);
+        this.module!.openBlock('const props: cr.AwsCustomResourceProps =');
+        this.module!.openBlock('onUpdate:');
+        this.module!.line(`action: '${this.module!.toCamelCase(operationName)}',`);
+        this.module!.line(`service: '${this.serviceId}',`);
 
         function trallingCommaFormatter(s?: string): string | false {
           const orig = originalBlockFormatter(s);
@@ -100,286 +215,31 @@ export class ServiceGenerator {
           return `${orig};`;
         }
 
-        code.closeBlockFormatter = trallingCommaFormatter;
-        code.closeBlock();
+        this.module!.closeBlockFormatter = trallingCommaFormatter;
 
-        code.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
-
-        code.closeBlockFormatter = semiColonFormatter;
-        code.closeBlock();
-        code.line(`new cr.AwsCustomResource(this, '${operationName}', props);`);
-
-        code.closeBlockFormatter = originalBlockFormatter;
-
-      }
-
-      code.closeBlock();
-    }
-
-    code.closeBlock();
-    code.closeFile('api.ts');
-
-
-    await code.save(outputDir);
-
-  }
-
-  public async generateShapes() {
-
-    const outputDir = path.join(`${__dirname}/out`);
-    const client = new SyncRequestClient();
-    const spec = client.get<ServiceApiSpec>('https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/cloudfront-2018-06-18.normal.json');
-
-    const shapeTypes = new TypeGenerator();
-
-    function handlePrimitive(name: string, shape: any) {
-      const normalizedName = TypeGenerator.normalizeTypeName(name);
-      shapeTypes.addDefinition(normalizedName, {
-        description: shape.documentation,
-        type: shape.type,
-      });
-    }
-
-    function handleTimestamp(name: string, shape: any) {
-      const normalizedName = TypeGenerator.normalizeTypeName(name);
-      shapeTypes.addDefinition(normalizedName, {
-        description: shape.documentation,
-        type: 'string',
-        format: 'date-time',
-      });
-    }
-
-    function handleList(name: string, shape: any) {
-      const normalizedName = TypeGenerator.normalizeTypeName(name);
-
-      const memberShape = shape.member.shape;
-
-      switch (memberShape) {
-        case 'timestamp':
-          shapeTypes.addDefinition(normalizedName, {
-            description: shape.documentation,
-            type: 'array',
-            items: {
-              type: 'string',
-              format: 'date-time',
-            },
-          });
-          break;
-        case 'string':
-        case 'boolean':
-        case 'integer':
-        case 'long':
-          shapeTypes.addDefinition(normalizedName, {
-            description: shape.documentation,
-            type: 'array',
-            items: {
-              type: memberShape,
-            },
-          });
-          break;
-        default:
-          shapeTypes.addDefinition(normalizedName, {
-            description: shape.documentation,
-            type: 'array',
-            items: {
-              $ref: `#/definitions/${TypeGenerator.normalizeTypeName(memberShape)}`,
-            },
-          });
-
-      }
-    }
-
-    function handleStructure(name: string, shape: any) {
-
-      const properties: Record<string, JSONSchema4> = {};
-
-      for (const memberName in shape.members) {
-        const member = shape.members[memberName];
-
-        const memberShape = member.shape;
-
-        switch (memberShape) {
-          case 'timestamp':
-            properties[memberName] = {
-              type: 'string',
-              format: 'date-time',
-              description: member.documentation,
-            };
-            break;
-          case 'string':
-          case 'boolean':
-          case 'integer':
-          case 'long':
-            properties[memberName] = {
-              type: memberShape,
-              description: member.documentation,
-            };
-            break;
-          default:
-            properties[memberName] = {
-              $ref: `#/definitions/${TypeGenerator.normalizeTypeName(memberShape)}`,
-              description: member.documentation,
-            };
+        if (operation.input?.shape) {
+          this.module!.openBlock('parameters:');
+          createParameters(this.module!, getShapeDeclaration(operation.input.shape, this.serviceTypes!), this.serviceTypes!, this.typeAliases);
+          this.module!.closeBlock();
         }
 
+        this.module!.closeBlock();
+
+        this.module!.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
+
+        this.module!.closeBlockFormatter = semiColonFormatter;
+        this.module!.closeBlock();
+        this.module!.line(`new cr.AwsCustomResource(this, '${operationName}', props);`);
+
+        this.module!.closeBlockFormatter = originalBlockFormatter;
+
       }
 
-      const normalizedName = TypeGenerator.normalizeTypeName(name);
-      shapeTypes.addDefinition(normalizedName, {
-        description: shape.documentation,
-        type: 'object',
-        properties,
-        required: shape.required,
-      });
+      this.module!.closeBlock();
     }
 
-    for (const name in spec.shapes) {
+    this.module!.closeBlock();
 
-      if (['boolean', 'integer', 'long', 'string', 'timestamp'].includes(name)) {
-        continue;
-      }
-
-      const shape = spec.shapes[name];
-      const type = shape.type;
-
-      switch (type) {
-        case 'structure':
-          handleStructure(name, shape);
-          break;
-        case 'list':
-          handleList(name, shape);
-          break;
-        case 'timestamp':
-          handleTimestamp(name, shape);
-          break;
-        case 'string':
-        case 'boolean':
-        case 'integer':
-        case 'long':
-          handlePrimitive(name, shape);
-          break;
-        default:
-          throw new Error(`Unsupported shape type: ${type} (${name})`);
-      }
-    }
-
-    for (const name in spec.shapes) {
-
-      if (['boolean', 'integer', 'long', 'string', 'timestamp'].includes(name)) {
-        continue;
-      }
-
-      const normalizedName = TypeGenerator.normalizeTypeName(name);
-
-      const shape = spec.shapes[name];
-      const type = shape.type;
-
-      switch (type) {
-        case 'structure':
-          shapeTypes.emitType(normalizedName);
-          break;
-        case 'list':
-          shapeTypes.emitType(normalizedName);
-          break;
-        default:
-          break;
-      }
-
-    }
-
-    fs.mkdirSync(outputDir);
-    fs.writeFileSync(path.join(outputDir, 'shapes.ts'), shapeTypes.render());
-  }
-
-  public async tscExperiment() {
-
-    const outputDir = path.join(`${__dirname}/out`);
-
-    const client = new SyncRequestClient();
-    const outputsCode = new CodeMaker();
-    const parser = new TypescriptParser();
-    const shapes = new CodeMaker();
-    const serviceApi = client.get<ServiceApiSpec>('https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/es-2015-01-01.normal.json');
-    const serviceTypes = await parser.parseFile('es.d.ts', '/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk');
-    const serivceTypesRaw = fs.readFileSync('/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/es.d.ts').toString();
-
-    const inputs: string[] = [];
-    const outputs: string[] = [];
-    const typeAliases: string[] = [];
-
-    for (const operationName of Object.keys(serviceApi.operations)) {
-      const operation = serviceApi.operations[operationName];
-      if (operation.input) {
-        inputs.push(operation.input.shape);
-      }
-      if (operation.output) {
-        outputs.push(operation.output.shape);
-      }
-    }
-
-    shapes.indentation = 2;
-    shapes.openFile('shapes.ts');
-    outputsCode.openFile('outputs.ts');
-
-    for (const resource of serviceTypes.resources) {
-
-      for (const declaration of resource.declarations) {
-
-        if (outputs.includes(declaration.name)) {
-
-          outputsCode.openBlock(`export class ${declaration.name}`);
-          outputsCode.closeBlock();
-          continue;
-        }
-
-        if (declaration.name === 'ClientConfiguration') {
-          // skip because it depends on a type from the core module.
-          // maybe later.
-          continue;
-        }
-
-        if (declaration.name === 'ClientApiVersions') {
-          // skip because it depends on a type from the core module.
-          // maybe later.
-          continue;
-        }
-
-        if (declaration instanceof TypeAliasDeclaration) {
-          typeAliases.push(serivceTypesRaw.substring(declaration.start!, declaration.end));
-        }
-
-        if (declaration instanceof InterfaceDeclaration) {
-          const properties = declaration.properties;
-          if (!properties) {
-            throw new Error(`Unexpected declaration: ${declaration.name} should have properties`);
-          }
-          shapes.line('/**');
-          shapes.line(` * ${serviceApi.shapes[declaration.name].documentation}`);
-          shapes.line(' */');
-          shapes.openBlock(`export interface ${declaration.name}`);
-          for (const property of properties) {
-            const jsiiCompatible = shapes.toCamelCase(property.name);
-            shapes.line('/**');
-            shapes.line(` * ${docsForProperty(serivceTypesRaw, property)}`);
-            shapes.line(' */');
-            shapes.line(`readonly ${jsiiCompatible}${property.isOptional ? '?' : ''}: ${property.type};`);
-          }
-          shapes.closeBlock();
-        }
-      }
-    }
-
-    for (const typeAlias of typeAliases) {
-      shapes.line(typeAlias.replace(/"/g, "'"));
-    }
-
-    shapes.closeFile('shapes.ts');
-    outputsCode.closeFile('outputs.ts');
-
-    await shapes.save(outputDir);
-    await outputsCode.save(outputDir);
-
-    await this.generate();
   }
 
 }
@@ -396,4 +256,35 @@ function docsForProperty(raw: string, declaration: PropertyDeclaration): string 
 
 function reverse(s: string): string {
   return s.split('').reverse().join('');
+}
+
+function getShapeDeclaration(name: string, parsed: File): InterfaceDeclaration {
+  for (const resource of parsed.resources) {
+    for (const declaration of resource.declarations) {
+      if (declaration.name === name && declaration instanceof InterfaceDeclaration) return declaration;
+    }
+  }
+  throw new Error(`No shape: ${name}`);
+}
+
+function createParameters(code: CodeMaker, shape: InterfaceDeclaration, parsed: File, typeAliases: TypeAliasDeclaration[]) {
+
+  for (const property of shape.properties) {
+
+    if (isPrimitive(property) || isTypeAlias(property, typeAliases)) {
+      code.line(`${property.name}: input.${code.toCamelCase(property.name)},`);
+    } else {
+      code.openBlock(`${property.name}:`);
+      createParameters(code, getShapeDeclaration(property.type!, parsed), parsed, typeAliases);
+      code.closeBlock();
+    }
+  }
+}
+
+function isPrimitive(prop: PropertyDeclaration): boolean {
+  return ['boolean', 'number', 'string'].includes(prop.type!.toLowerCase());
+}
+
+function isTypeAlias(prop: PropertyDeclaration, typeAlias: TypeAliasDeclaration[]) {
+  return typeAlias.map(t => t.name).includes(prop.type!);
 }
