@@ -17,7 +17,7 @@
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": false,
+    "noUnusedParameters": true,
     "resolveJsonModule": true,
     "strict": true,
     "strictNullChecks": true,

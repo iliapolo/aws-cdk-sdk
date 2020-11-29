@@ -1,19 +1,28 @@
 const { TypeScriptProject } = require('projen');
 
 const project = new TypeScriptProject({
+  authorName: 'Eli Polonsky',
+  repository: 'https://github.com/iliapolo/aws-cdk-sdk',
   name: "aws-cdk-sdk",
   deps: [
-    'ts-sync-request',
-    'codemaker',
-    'json2jsii',
-    'json-schema',
-    'typescript-parser',
     '@aws-cdk/core',
-    '@aws-cdk/custom-resources'
+    '@aws-cdk/custom-resources',
   ],
+  peerDeps: [
+    '@aws-cdk/core',
+    '@aws-cdk/custom-resources',
+  ],
+  devDeps: [
+    '@aws-cdk/aws-elasticsearch',
+    '@aws-cdk/assert',
+    'codemaker',
+    'typescript-parser',
+    'node-color-log',
+    'ts-node'
+  ]
 });
 
-project.eslint.addRules({
-  'max-len': ['error', { code: 2000 }]
-})
+project.removeScript('build');
+project.addScript('build', './gen/gen.sh && NODE_OPTIONS=--max_old_space_size=4096 yarn run compile');
+project.eslint.addRules({'max-len': ['error', { code: 2000 }]});
 project.synth();

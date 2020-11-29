@@ -7,6 +7,7 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
    */
   readonly crossClusterSearchConnectionId: CrossClusterSearchConnectionId;
 }
+
 /**
  * <p>The configured access rules for the domain's document and search endpoints, and the current status of those rules.</p>
  */
@@ -20,6 +21,7 @@ export interface AccessPoliciesStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>AddTags</a></code> operation. Specify the tags that you want to attach to the Elasticsearch domain.</p>
  */
@@ -33,6 +35,7 @@ export interface AddTagsRequest {
    */
   readonly tagList: TagList;
 }
+
 /**
  * <p> List of limits that are specific to a given InstanceType and for each of it's <code> <a>InstanceRole</a> </code> . </p>
  */
@@ -46,6 +49,7 @@ export interface AdditionalLimit {
    */
   readonly limitValues?: LimitValueList;
 }
+
 /**
  * <p> Status of the advanced options for the specified Elasticsearch domain. Currently, the following advanced options are available:</p> <ul> <li>Option to allow references to indices in an HTTP request body. Must be <code>false</code> when configuring access to individual sub-resources. By default, the value is <code>true</code>. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options" target="_blank">Configuration Advanced Options</a> for more information.</li> <li>Option to specify the percentage of heap space that is allocated to field data. By default, this setting is unbounded.</li> </ul> <p>For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-advanced-options">Configuring Advanced Options</a>.</p>
  */
@@ -59,6 +63,7 @@ export interface AdvancedOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled.</p>
  */
@@ -76,6 +81,7 @@ export interface AdvancedSecurityOptions {
    */
   readonly samlOptions?: SAMLOptionsOutput;
 }
+
 /**
  * <p>Specifies the advanced security configuration: whether advanced security is enabled, whether the internal database option is enabled, master username and password (if internal database is enabled), and master user ARN (if IAM is enabled).</p>
  */
@@ -97,6 +103,7 @@ export interface AdvancedSecurityOptionsInput {
    */
   readonly samlOptions?: SAMLOptionsInput;
 }
+
 /**
  * <p> Specifies the status of advanced security options for the specified Elasticsearch domain.</p>
  */
@@ -110,6 +117,7 @@ export interface AdvancedSecurityOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>AssociatePackage</a> </code> operation. </p>
  */
@@ -123,6 +131,7 @@ export interface AssociatePackageRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
@@ -132,6 +141,7 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Options to specify the Cognito user and identity pools for Kibana authentication. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-cognito-auth.html" target="_blank">Amazon Cognito Authentication for Kibana</a>.</p>
  */
@@ -153,6 +163,7 @@ export interface CognitoOptions {
    */
   readonly roleArn?: RoleArn;
 }
+
 /**
  * <p>Status of the Cognito options for the specified Elasticsearch domain.</p>
  */
@@ -166,6 +177,7 @@ export interface CognitoOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p> A map from an <code> <a>ElasticsearchVersion</a> </code> to a list of compatible <code> <a>ElasticsearchVersion</a> </code> s to which the domain can be upgraded. </p>
  */
@@ -179,6 +191,7 @@ export interface CompatibleVersionsMap {
    */
   readonly targetVersions?: ElasticsearchVersionList;
 }
+
 /**
  * undefined
  */
@@ -240,6 +253,7 @@ export interface CreateElasticsearchDomainRequest {
    */
   readonly advancedSecurityOptions?: AdvancedSecurityOptionsInput;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>CreateOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -257,6 +271,7 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
    */
   readonly connectionAlias: ConnectionAlias;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>CreatePackage</a> </code> operation. </p>
  */
@@ -278,6 +293,7 @@ export interface CreatePackageRequest {
    */
   readonly packageSource: PackageSource;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DeleteElasticsearchDomain</a></code> operation. Specifies the name of the Elasticsearch domain that you want to delete.</p>
  */
@@ -287,6 +303,7 @@ export interface DeleteElasticsearchDomainRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DeleteInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -296,6 +313,7 @@ export interface DeleteInboundCrossClusterSearchConnectionRequest {
    */
   readonly crossClusterSearchConnectionId: CrossClusterSearchConnectionId;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DeleteOutboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -305,6 +323,7 @@ export interface DeleteOutboundCrossClusterSearchConnectionRequest {
    */
   readonly crossClusterSearchConnectionId: CrossClusterSearchConnectionId;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>DeletePackage</a> </code> operation. </p>
  */
@@ -314,6 +333,7 @@ export interface DeletePackageRequest {
    */
   readonly packageId: PackageID;
 }
+
 /**
  * <p> Container for the parameters to the <code>DescribeElasticsearchDomainConfig</code> operation. Specifies the domain name for which you want configuration information.</p>
  */
@@ -323,6 +343,7 @@ export interface DescribeElasticsearchDomainConfigRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomain</a></code> operation.</p>
  */
@@ -332,6 +353,7 @@ export interface DescribeElasticsearchDomainRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DescribeElasticsearchDomains</a></code> operation. By default, the API returns the status of all Elasticsearch domains.</p>
  */
@@ -341,6 +363,7 @@ export interface DescribeElasticsearchDomainsRequest {
    */
   readonly domainNames: DomainNameList;
 }
+
 /**
  * <p> Container for the parameters to <code> <a>DescribeElasticsearchInstanceTypeLimits</a> </code> operation. </p>
  */
@@ -358,6 +381,7 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
    */
   readonly elasticsearchVersion: ElasticsearchVersionString;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DescribeInboundCrossClusterSearchConnections</a></code> operation.</p>
  */
@@ -375,6 +399,7 @@ export interface DescribeInboundCrossClusterSearchConnectionsRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>DescribeOutboundCrossClusterSearchConnections</a></code> operation.</p>
  */
@@ -392,6 +417,7 @@ export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p>Filter to apply in <code>DescribePackage</code> response.</p>
  */
@@ -405,6 +431,7 @@ export interface DescribePackagesFilter {
    */
   readonly value?: DescribePackagesFilterValues;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>DescribePackage</a> </code> operation. </p>
  */
@@ -422,6 +449,7 @@ export interface DescribePackagesRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstanceOfferings</code></p>
  */
@@ -439,6 +467,7 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p>Container for parameters to <code>DescribeReservedElasticsearchInstances</code></p>
  */
@@ -456,6 +485,7 @@ export interface DescribeReservedElasticsearchInstancesRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>DissociatePackage</a> </code> operation. </p>
  */
@@ -469,6 +499,7 @@ export interface DissociatePackageRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Options to configure endpoint for the Elasticsearch domain.</p>
  */
@@ -494,6 +525,7 @@ export interface DomainEndpointOptions {
    */
   readonly customEndpointCertificateArn?: ARN;
 }
+
 /**
  * <p>The configured endpoint options for the domain and their current status.</p>
  */
@@ -507,6 +539,7 @@ export interface DomainEndpointOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * undefined
  */
@@ -516,6 +549,7 @@ export interface DomainInfo {
    */
   readonly domainName?: DomainName;
 }
+
 /**
  * undefined
  */
@@ -533,6 +567,7 @@ export interface DomainInformation {
    */
   readonly region?: Region;
 }
+
 /**
  * <p>Information on a package that is associated with a domain.</p>
  */
@@ -574,6 +609,7 @@ export interface DomainPackageDetails {
    */
   readonly errorDetails?: ErrorDetails;
 }
+
 /**
  * <p>Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs" target="_blank"> Configuring EBS-based Storage</a>.</p>
  */
@@ -595,6 +631,7 @@ export interface EBSOptions {
    */
   readonly iops?: IntegerClass;
 }
+
 /**
  * <p> Status of the EBS options for the specified Elasticsearch domain.</p>
  */
@@ -608,6 +645,7 @@ export interface EBSOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Specifies the configuration for the domain cluster, such as the type and number of instances.</p>
  */
@@ -653,6 +691,7 @@ export interface ElasticsearchClusterConfig {
    */
   readonly warmCount?: IntegerClass;
 }
+
 /**
  * <p> Specifies the configuration status for the specified Elasticsearch domain.</p>
  */
@@ -666,6 +705,7 @@ export interface ElasticsearchClusterConfigStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>The configuration of an Elasticsearch domain.</p>
  */
@@ -723,6 +763,7 @@ export interface ElasticsearchDomainConfig {
    */
   readonly advancedSecurityOptions?: AdvancedSecurityOptionsStatus;
 }
+
 /**
  * <p>The current status of an Elasticsearch domain.</p>
  */
@@ -820,6 +861,7 @@ export interface ElasticsearchDomainStatus {
    */
   readonly advancedSecurityOptions?: AdvancedSecurityOptions;
 }
+
 /**
  * <p> Status of the Elasticsearch version options for the specified Elasticsearch domain.</p>
  */
@@ -833,6 +875,7 @@ export interface ElasticsearchVersionStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Specifies the Encryption At Rest Options.</p>
  */
@@ -846,6 +889,7 @@ export interface EncryptionAtRestOptions {
    */
   readonly kmsKeyId?: KmsKeyId;
 }
+
 /**
  * <p> Status of the Encryption At Rest options for the specified Elasticsearch domain.</p>
  */
@@ -859,6 +903,7 @@ export interface EncryptionAtRestOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * undefined
  */
@@ -872,6 +917,7 @@ export interface ErrorDetails {
    */
   readonly errorMessage?: ErrorMessage;
 }
+
 /**
  * <p> A filter used to limit results when describing inbound or outbound cross-cluster search connections. Multiple values can be specified per filter. A cross-cluster search connection must match at least one of the specified values for it to be returned from an operation. </p>
  */
@@ -885,6 +931,7 @@ export interface Filter {
    */
   readonly values?: ValueStringList;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>GetCompatibleElasticsearchVersions</a> </code> operation. </p>
  */
@@ -894,6 +941,7 @@ export interface GetCompatibleElasticsearchVersionsRequest {
    */
   readonly domainName?: DomainName;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>GetPackageVersionHistory</a> </code> operation. </p>
  */
@@ -911,6 +959,7 @@ export interface GetPackageVersionHistoryRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>GetUpgradeHistory</a> </code> operation. </p>
  */
@@ -928,6 +977,7 @@ export interface GetUpgradeHistoryRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>GetUpgradeStatus</a> </code> operation. </p>
  */
@@ -937,6 +987,7 @@ export interface GetUpgradeStatusRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>Specifies details of an inbound connection.</p>
  */
@@ -958,6 +1009,7 @@ export interface InboundCrossClusterSearchConnection {
    */
   readonly connectionStatus?: InboundCrossClusterSearchConnectionStatus;
 }
+
 /**
  * <p>Specifies the coonection status of an inbound cross-cluster search connection.</p>
  */
@@ -971,6 +1023,7 @@ export interface InboundCrossClusterSearchConnectionStatus {
    */
   readonly message?: CrossClusterSearchConnectionStatusMessage;
 }
+
 /**
  * <p> InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType. </p>
  */
@@ -984,6 +1037,7 @@ export interface InstanceCountLimits {
    */
   readonly maximumInstanceCount?: MaximumInstanceCount;
 }
+
 /**
  * <p>InstanceLimits represents the list of instance related attributes that are available for given InstanceType. </p>
  */
@@ -993,6 +1047,7 @@ export interface InstanceLimits {
    */
   readonly instanceCountLimits?: InstanceCountLimits;
 }
+
 /**
  * <p> Limits for given InstanceType and for each of it's role. <br/> Limits contains following <code> <a>StorageTypes,</a> </code> <code> <a>InstanceLimits</a> </code> and <code> <a>AdditionalLimits</a> </code> </p>
  */
@@ -1010,6 +1065,7 @@ export interface Limits {
    */
   readonly additionalLimits?: AdditionalLimitList;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>ListDomainsForPackage</a> </code> operation. </p>
  */
@@ -1027,6 +1083,7 @@ export interface ListDomainsForPackageRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for the parameters to the <code> <a>ListElasticsearchInstanceTypes</a> </code> operation. </p>
  */
@@ -1048,6 +1105,7 @@ export interface ListElasticsearchInstanceTypesRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for the parameters to the <code> <a>ListElasticsearchVersions</a> </code> operation. <p> Use <code> <a>MaxResults</a> </code> to control the maximum number of results to retrieve in a single call. </p> <p> Use <code> <a>NextToken</a> </code> in response to retrieve more results. If the received response does not contain a NextToken, then there are no more results to retrieve. </p> </p>
  */
@@ -1061,6 +1119,7 @@ export interface ListElasticsearchVersionsRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>ListPackagesForDomain</a> </code> operation. </p>
  */
@@ -1078,6 +1137,7 @@ export interface ListPackagesForDomainRequest {
    */
   readonly nextToken?: NextToken;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>ListTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain to which the tags are attached that you want to view are attached.</p>
  */
@@ -1087,6 +1147,7 @@ export interface ListTagsRequest {
    */
   readonly arn: ARN;
 }
+
 /**
  * <p>Log Publishing option that is set for given domain. <br/>Attributes and their details: <ul> <li>CloudWatchLogsLogGroupArn: ARN of the Cloudwatch log group to which log needs to be published.</li> <li>Enabled: Whether the log publishing for given log type is enabled or not</li> </ul> </p>
  */
@@ -1100,6 +1161,7 @@ export interface LogPublishingOption {
    */
   readonly enabled?: Boolean;
 }
+
 /**
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
@@ -1113,6 +1175,7 @@ export interface LogPublishingOptionsStatus {
    */
   readonly status?: OptionStatus;
 }
+
 /**
  * <p>Credentials for the master user: username and password, ARN, or both.</p>
  */
@@ -1130,6 +1193,7 @@ export interface MasterUserOptions {
    */
   readonly masterUserPassword?: Password;
 }
+
 /**
  * <p>Specifies the node-to-node encryption options.</p>
  */
@@ -1139,6 +1203,7 @@ export interface NodeToNodeEncryptionOptions {
    */
   readonly enabled?: Boolean;
 }
+
 /**
  * <p>Status of the node-to-node encryption options for the specified Elasticsearch domain.</p>
  */
@@ -1152,6 +1217,7 @@ export interface NodeToNodeEncryptionOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Provides the current status of the entity.</p>
  */
@@ -1177,6 +1243,7 @@ export interface OptionStatus {
    */
   readonly pendingDeletion?: Boolean;
 }
+
 /**
  * <p>Specifies details of an outbound connection.</p>
  */
@@ -1202,6 +1269,7 @@ export interface OutboundCrossClusterSearchConnection {
    */
   readonly connectionStatus?: OutboundCrossClusterSearchConnectionStatus;
 }
+
 /**
  * <p>Specifies the connection status of an outbound cross-cluster search connection.</p>
  */
@@ -1215,6 +1283,7 @@ export interface OutboundCrossClusterSearchConnectionStatus {
    */
   readonly message?: CrossClusterSearchConnectionStatusMessage;
 }
+
 /**
  * <p>Basic information about a package.</p>
  */
@@ -1256,6 +1325,7 @@ export interface PackageDetails {
    */
   readonly errorDetails?: ErrorDetails;
 }
+
 /**
  * <p>The S3 location for importing the package specified as <code>S3BucketName</code> and <code>S3Key</code></p>
  */
@@ -1269,6 +1339,7 @@ export interface PackageSource {
    */
   readonly s3Key?: S3Key;
 }
+
 /**
  * <p>Details of a package version.</p>
  */
@@ -1286,6 +1357,7 @@ export interface PackageVersionHistory {
    */
   readonly createdAt?: CreatedAt;
 }
+
 /**
  * <p>Container for parameters to <code>PurchaseReservedElasticsearchInstanceOffering</code></p>
  */
@@ -1303,6 +1375,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
    */
   readonly instanceCount?: InstanceCount;
 }
+
 /**
  * <p>Contains the specific price and frequency of a recurring charges for a reserved Elasticsearch instance, or for a reserved Elasticsearch instance offering.</p>
  */
@@ -1316,6 +1389,7 @@ export interface RecurringCharge {
    */
   readonly recurringChargeFrequency?: String;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>RejectInboundCrossClusterSearchConnection</a></code> operation.</p>
  */
@@ -1325,6 +1399,7 @@ export interface RejectInboundCrossClusterSearchConnectionRequest {
    */
   readonly crossClusterSearchConnectionId: CrossClusterSearchConnectionId;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>RemoveTags</a></code> operation. Specify the <code>ARN</code> for the Elasticsearch domain from which you want to remove the specified <code>TagKey</code>.</p>
  */
@@ -1338,6 +1413,7 @@ export interface RemoveTagsRequest {
    */
   readonly tagKeys: StringList;
 }
+
 /**
  * <p>Details of a reserved Elasticsearch instance.</p>
  */
@@ -1395,6 +1471,7 @@ export interface ReservedElasticsearchInstance {
    */
   readonly recurringCharges?: RecurringChargeList;
 }
+
 /**
  * <p>Details of a reserved Elasticsearch instance offering.</p>
  */
@@ -1432,6 +1509,7 @@ export interface ReservedElasticsearchInstanceOffering {
    */
   readonly recurringCharges?: RecurringChargeList;
 }
+
 /**
  * <p>Specifies the SAML Identity Provider's information.</p>
  */
@@ -1445,6 +1523,7 @@ export interface SAMLIdp {
    */
   readonly entityId: SAMLEntityId;
 }
+
 /**
  * <p>Specifies the SAML application configuration for the domain.</p>
  */
@@ -1478,6 +1557,7 @@ export interface SAMLOptionsInput {
    */
   readonly sessionTimeoutMinutes?: IntegerClass;
 }
+
 /**
  * <p>Describes the SAML application configured for the domain.</p>
  */
@@ -1503,6 +1583,7 @@ export interface SAMLOptionsOutput {
    */
   readonly sessionTimeoutMinutes?: IntegerClass;
 }
+
 /**
  * <p>The current options of an Elasticsearch domain service software options.</p>
  */
@@ -1540,6 +1621,7 @@ export interface ServiceSoftwareOptions {
    */
   readonly optionalDeployment?: Boolean;
 }
+
 /**
  * <p>Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is <code>0</code> hours.</p>
  */
@@ -1549,6 +1631,7 @@ export interface SnapshotOptions {
    */
   readonly automatedSnapshotStartHour?: IntegerClass;
 }
+
 /**
  * <p>Status of a daily automated snapshot.</p>
  */
@@ -1562,6 +1645,7 @@ export interface SnapshotOptionsStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>StartElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to schedule a service software update on.</p>
  */
@@ -1571,6 +1655,7 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
    */
   readonly domainName: DomainName;
 }
+
 /**
  * <p>StorageTypes represents the list of storage related types and their attributes that are available for given InstanceType. </p>
  */
@@ -1588,6 +1673,7 @@ export interface StorageType {
    */
   readonly storageTypeLimits?: StorageTypeLimitList;
 }
+
 /**
  * <p>Limits that are applicable for given storage type. </p>
  */
@@ -1601,6 +1687,7 @@ export interface StorageTypeLimit {
    */
   readonly limitValues?: LimitValueList;
 }
+
 /**
  * <p>Specifies a key value pair for a resource tag.</p>
  */
@@ -1614,6 +1701,7 @@ export interface Tag {
    */
   readonly value: TagValue;
 }
+
 /**
  * <p>Container for the parameters to the <code><a>UpdateElasticsearchDomain</a></code> operation. Specifies the type and number of instances in the domain cluster.</p>
  */
@@ -1663,6 +1751,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
    */
   readonly advancedSecurityOptions?: AdvancedSecurityOptionsInput;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>UpdatePackage</a> </code> operation. </p>
  */
@@ -1684,6 +1773,7 @@ export interface UpdatePackageRequest {
    */
   readonly commitMessage?: CommitMessage;
 }
+
 /**
  * <p> Container for request parameters to <code> <a>UpgradeElasticsearchDomain</a> </code> operation. </p>
  */
@@ -1701,6 +1791,7 @@ export interface UpgradeElasticsearchDomainRequest {
    */
   readonly performCheckOnly?: Boolean;
 }
+
 /**
  * <p>History of the last 10 Upgrades and Upgrade Eligibility Checks.</p>
  */
@@ -1722,6 +1813,7 @@ export interface UpgradeHistory {
    */
   readonly stepsList?: UpgradeStepsList;
 }
+
 /**
  * <p>Represents a single step of the Upgrade or Upgrade Eligibility Check workflow.</p>
  */
@@ -1743,6 +1835,7 @@ export interface UpgradeStepItem {
    */
   readonly progressPercent?: Double;
 }
+
 /**
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
@@ -1764,6 +1857,7 @@ export interface VPCDerivedInfo {
    */
   readonly securityGroupIds?: StringList;
 }
+
 /**
  * <p> Status of the VPC options for the specified Elasticsearch domain.</p>
  */
@@ -1777,6 +1871,7 @@ export interface VPCDerivedInfoStatus {
    */
   readonly status: OptionStatus;
 }
+
 /**
  * <p>Options to specify the subnets and security groups for VPC endpoint. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html" target="_blank"> VPC Endpoints for Amazon Elasticsearch Service Domains</a>.</p>
  */
@@ -1790,6 +1885,7 @@ export interface VPCOptions {
    */
   readonly securityGroupIds?: StringList;
 }
+
 /**
  * <p>Specifies the zone awareness configuration for the domain cluster, such as the number of availability zones.</p>
  */
@@ -1799,6 +1895,7 @@ export interface ZoneAwarenessConfig {
    */
   readonly availabilityZoneCount?: IntegerClass;
 }
+
 export type ARN = string;
 export type AdditionalLimitList = AdditionalLimit[];
 export type AdvancedOptions = {[key: string]: String};
