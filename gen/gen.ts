@@ -6,7 +6,7 @@ import logger = require('node-color-log')
 import * as path from 'path';
 
 const INCLUDE = ['es.d.ts'];
-const EXCLUDE = ['kendra.d.ts', 'docdb.d.ts'];
+// const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {
 
@@ -25,14 +25,15 @@ async function main(repoPath: string) {
       continue;
     }
 
+    logger.info(`Creating generator (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`)
     const generator = new gen.ClientGenerator(client);
     const id = await generator.id();
 
-    logger.color('green').log(`Generating ${id} (client: ${path.basename(client.dtsPath)}, api: ${path.basename(client.specPath)})`);
+    logger.info(`Generating ${id} (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`);
 
     try {
       await generator.gen(clients);
-      codemaker.line(`export * as ${id.toLowerCase()} from './clients/${id.toLowerCase()}';`)
+      // codemaker.line(`export * as ${id.toLowerCase()} from './clients/${id.toLowerCase()}';`)
     } catch (e) {
       logger.color('red').error(`Failed generating ${id}: ${e}`);
       console.error(e);

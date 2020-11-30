@@ -5,7 +5,17 @@ import * as ts from 'typescript-parser';
 import * as sdk from './sdk-repository';
 import logger = require('node-color-log')
 
-export interface ClientSpec {
+export enum ShapeType {
+
+  MAP = 'map',
+
+  LIST = 'list',
+
+  STRUCTURE = 'structure',
+
+}
+
+export interface ClientApi {
 
   readonly metadata: any;
 
@@ -21,6 +31,10 @@ export interface Shape {
   readonly members?: Record<string, Member>;
 
   readonly member?: Member;
+
+  readonly key?: any;
+
+  readonly value?: any;
 
   readonly eventstream?: boolean;
 
@@ -43,7 +57,7 @@ export interface ClientResponseDefinition {
 
 export interface Operation {
 
-  readonly output: Output;
+  readonly output?: Output;
 
   readonly input: Input;
 
@@ -74,103 +88,116 @@ export interface NamedShape extends Shape {
 
 export class ClientGenerator {
 
-  private readonly spec: ClientSpec;
+  private readonly api: ClientApi;
   private readonly dtsRaw: string;
   private readonly parser: ts.TypescriptParser;
   private readonly code: maker.CodeMaker;
   private readonly operations: NamedOperation[];
-  private readonly shapes: Set<NamedShape>;
+  private readonly shapes: Record<string, Shape>;
 
-  private _types?: ts.File;
+  private _dts?: ts.File;
   private _id?: string;
   private _responses?: ClientResponseDefinition[];
   private _declarations?: ts.Declaration[];
 
   constructor(client: sdk.Client) {
     this.parser = new ts.TypescriptParser();
-    this.code = new maker.CodeMaker();
-    this.code.indentation = 2;
-    this.spec = JSON.parse(fs.readFileSync(client.specPath).toString());
+    this.code = new maker.CodeMaker({ indentationLevel: 2 });
+    this.api = JSON.parse(fs.readFileSync(client.apiPath).toString());
     this.dtsRaw = fs.readFileSync(client.dtsPath).toString();
     this.operations = [];
-    this.shapes = new Set<NamedShape>();
+    this.shapes = {};
+    logger.setLevel('info')
 
-    for (const operationName of Object.keys(this.spec.operations)) {
+    for (const operationName of Object.keys(this.api.operations)) {
 
-      const operation = this.spec.operations[operationName];
+      logger.debug(`Inspecting operation ${operationName}`);
 
-      this.collectShapes(operation.input?.shape);
-      this.collectShapes(operation.output?.shape);
+      const operation = this.api.operations[operationName];
 
-      if (!this.isEventStream(operation.input?.shape) && !this.isEventStream(operation.output?.shape)) {
-        this.operations.push({ name: operationName, ...operation });
+      if (operation.output && this.isEventStream(operation.output.shape)) {
+        logger.warn(`Operation ${operationName} has an event stream output. These operations are not supported yet. (Ignoring)`)
+        continue;
+      }
+
+      logger.debug(`Registering operation ${operationName}`);
+      this.operations.push({ name: operationName, ...operation });
+
+      if (operation.input) {
+        logger.debug(`Registering input shapes for ${operationName}`);
+        this.walkOnShapes(operation.input.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
+      }
+
+      if (operation.output) {
+        logger.debug(`Registering output shapes for ${operationName}`);
+        this.walkOnShapes(operation.output.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
       }
 
     }
   }
 
-  private isEventStream(shapeName?: string) {
+  private isEventStream(shapeName: string) {
 
-    if (!shapeName) return false;
+    const shape = this.api.shapes[shapeName];
 
-    const shape = this.spec.shapes[shapeName];
+    let eventStream = shape.eventstream ?? false;
 
-    if (shape.eventstream) {
-      return true;
-    }
+    // a shape is an event stream if any of its references are event streams
+    this.walkOnShapes(shapeName, (_, shape) => {
+      eventStream = shape.eventstream ?? false;
+    })
 
-    const shapeType = shape.type;
-
-    switch (shapeType) {
-      case 'structure':
-        for (const member of Object.values(shape.members ?? {})) {
-          if (this.isEventStream(member.shape)) return true;
-        }
-        break;
-      case 'list':
-        if (this.isEventStream(shape.member?.shape)) return true;
-        break;
-      default:
-        break;
-    }
-
-    return false;
-
+    return eventStream;
   }
 
-  private collectShapes(shapeName?: string) {
+  private walkOnShapes(name: string, visitor: (name: string, shape: Shape) => void) {
 
-    if (!shapeName) return;
+    logger.debug(`Walking on shape ${name}`);
 
-    const shape = this.spec.shapes[shapeName];
+    const shape: Shape = this.api.shapes[name];
+
+    if (name === 'Date') {
+      visitor('_Date', shape);
+      return;
+    }
+
+    if (name === 'Blob') {
+      visitor('_Blob', shape);
+      return;
+    }
+
+    if (['boolean', 'number', 'integer', 'string'].includes(name)) {
+      // just a primitive
+      return;
+    }
 
     const shapeType = shape.type;
 
     switch (shapeType) {
-      case 'structure':
-
-        if (!this.isEventStream(shapeName)) {
-          this.shapes.add({ name: shapeName, ...shape });
-        }
-
-        for (const member of Object.values(shape.members ?? {})) {
-          this.collectShapes(member.shape)
-        }
+      case ShapeType.LIST:
+        this.walkOnShapes(shape.member.shape, visitor);
         break;
-      case 'list':
-        this.collectShapes(shape.member?.shape)
+      case ShapeType.STRUCTURE:
+        Object.values(shape.members ?? {}).forEach(m => this.walkOnShapes(m.shape, visitor));
+        break;
+      case ShapeType.MAP:
+        this.walkOnShapes(shape.key.shape, visitor);
+        this.walkOnShapes(shape.value.shape, visitor);
         break;
       default:
+        // primitives and type aliases ?
         break;
     }
+
+    visitor(name, shape);
 
   }
 
   public async dts(): Promise<ts.File> {
-    if (!this._types) {
-      this._types = await this.parser.parseSource(this.dtsRaw);
+    if (!this._dts) {
+      this._dts = await this.parser.parseSource(this.dtsRaw);
     }
-    return this._types;
+    return this._dts;
   }
 
   public async declarations(): Promise<ts.Declaration[]> {
@@ -246,7 +273,6 @@ export class ClientGenerator {
 
     this.code.openFile('shapes.ts');
     await this.generateShapes();
-    await this.generateTypeAliases();
     this.code.closeFile('shapes.ts');
 
     this.code.openFile('index.ts');
@@ -264,7 +290,7 @@ export class ClientGenerator {
     const id = await this.id();
 
     this.code.line('/**');
-    this.code.line(` * ${this.spec.metadata.serviceFullName} (apiVersion: ${this.spec.metadata.apiVersion})`);
+    this.code.line(` * ${this.api.metadata.serviceFullName} (apiVersion: ${this.api.metadata.apiVersion})`);
     this.code.line(' */');
     this.code.openBlock(`export class ${id} extends cdk.Construct`);
     this.code.line();
@@ -307,63 +333,64 @@ export class ClientGenerator {
 
   }
 
-  public async generateTypeAliases() {
+  public async generateTypeAlias(ta: ts.TypeAliasDeclaration) {
 
-    const typeAliases = (await this.declarations()).filter(d => d instanceof ts.TypeAliasDeclaration);
-
-    for (const t of typeAliases) {
-
-      if (this.spec.shapes[t.name]?.eventstream) {
-        // not supported at the moment
-        logger.warn(`Skipping event stream type alias as they are not supported: ${t.name}`);
-        continue;
-      }
-
-      if (t.name === 'ClientConfiguration') {
-        // not needed since we are not exposing client config - maybe at some point
-        continue;
-      }
-
-      this.code!.line(this.dtsRaw.substring(t.start!, t.end)
-        // eslint compatible
-        .replace(/"/g, "'")
-
-        // Readable is a type from the 'stream' module and corresponds to a 'streaming: true' member in the spec.
-        // unsupported at the moment
-        .replace('|Readable', '')
-
-        // https://github.com/aws/aws-sdk-js/blob/master/clients/s3.d.ts#L13
-        .replace('|Blob', '|{}'));
+    if (this.api.shapes[ta.name]?.eventstream) {
+      // not supported at the moment
+      logger.warn(`Skipping event stream type alias as they are not supported: ${ta.name}`);
+      return;
     }
+
+    if (ta.name === 'ClientConfiguration') {
+      // not needed since we are not exposing client config - maybe at some point
+      return;
+    }
+
+    this.code.line(this.dtsRaw.substring(ta.start!, ta.end)
+      // eslint compatible
+      .replace(/"/g, "'")
+
+      // Readable is a type from the 'stream' module and corresponds to a 'streaming: true' member in the spec.
+      // unsupported at the moment
+      .replace('|Readable', '')
+
+      // https://github.com/aws/aws-sdk-js/blob/master/clients/s3.d.ts#L13
+      .replace('|Blob', '|{}'));
+
   }
 
   public async generateShapes() {
 
-    for (const shape of Array.from(this.shapes.values())) {
+    for (const shapeName of Object.keys(this.shapes)) {
 
-      const shapeDeclaration = await this.findDeclaration(shape.name);
+      const shapeDeclaration = await this.findDeclaration(shapeName);
+
+      if (shapeDeclaration instanceof ts.TypeAliasDeclaration) {
+        this.generateTypeAlias(shapeDeclaration);
+        continue;
+      }
 
       if (!(shapeDeclaration instanceof ts.InterfaceDeclaration)) {
-        throw new Error(`Unexpected declaration type for shape ${shape.name}: ${shapeDeclaration.constructor.name}`);
+        throw new Error(`Unexpected declaration type for shape ${shapeName}: ${shapeDeclaration.constructor.name}`);
       }
 
       const properties = shapeDeclaration.properties;
       if (!properties) {
-        throw new Error(`Unexpected declaration: ${shape.name} should have properties`);
+        throw new Error(`Unexpected declaration: ${shapeName} should have properties`);
       }
 
-      if (shape.name.startsWith('_')) {
+      if (shapeName.startsWith('_')) {
         // private interface, not part of the spec
         continue;
       }
 
-      const specShape = this.spec.shapes[shape.name];
+      const specShape = this.api.shapes[shapeName];
       if (!specShape) {
-        throw new Error(`Unable to locate shape in spec: ${shape.name}`);
+        throw new Error(`Unable to locate shape in spec: ${shapeName}`);
       }
 
-      this.tsDocs(shape).forEach(t => this.code.line(t));
-      this.code.openBlock(`export interface ${shape.name}`);
+      this.tsDocs(shapeDeclaration).forEach(t => this.code.line(t));
+      this.code.openBlock(`export interface ${shapeName}`);
       for (const property of properties) {
         const jsiiCompatible = this.code.toCamelCase(property.name);
         this.tsDocs(property).forEach(t => this.code.line(t));

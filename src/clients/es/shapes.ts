@@ -1,5 +1,6 @@
+export type CrossClusterSearchConnectionId = string;
 /**
- * Contains interfaces for use with the ES client.
+ * The id of the inbound connection that you want to accept.
  */
 export interface AcceptInboundCrossClusterSearchConnectionRequest {
   /**
@@ -8,18 +9,51 @@ export interface AcceptInboundCrossClusterSearchConnectionRequest {
   readonly crossClusterSearchConnectionId: CrossClusterSearchConnectionId;
 }
 
+export type OwnerId = string;
+export type DomainName = string;
+export type Region = string;
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the DomainName.
  */
-export interface AcceptInboundCrossClusterSearchConnectionResponse {
+export interface DomainInformation {
   /**
-   * Specifies the InboundCrossClusterSearchConnection of accepted inbound connection.
+   * Specifies the DomainName.
    */
-  readonly crossClusterSearchConnection?: InboundCrossClusterSearchConnection;
+  readonly ownerId?: OwnerId;
+  /**
+   * Specifies the DomainName.
+   */
+  readonly domainName: DomainName;
+  /**
+   * Specifies the DomainName.
+   */
+  readonly region?: Region;
+}
+
+export type InboundCrossClusterSearchConnectionStatusCode = 'PENDING_ACCEPTANCE'|'APPROVED'|'REJECTING'|'REJECTED'|'DELETING'|'DELETED'|string;
+export type CrossClusterSearchConnectionStatusMessage = string;
+/**
+ * Specifies verbose information for the inbound connection status.
+ */
+export interface InboundCrossClusterSearchConnectionStatus {
+  /**
+   * The state code for inbound connection.
+   * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
+   * APPROVED: Inbound connection is pending acceptance by destination domain owner.
+   * REJECTING: Inbound connection rejection is in process.
+   * REJECTED: Inbound connection is rejected.
+   * DELETING: Inbound connection deletion is in progress.
+   * DELETED: Inbound connection is deleted and cannot be used further.
+   */
+  readonly statusCode?: InboundCrossClusterSearchConnectionStatusCode;
+  /**
+   * Specifies verbose information for the inbound connection status.
+   */
+  readonly message?: CrossClusterSearchConnectionStatusMessage;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the InboundCrossClusterSearchConnectionStatus for the outbound connection.
  */
 export interface InboundCrossClusterSearchConnection {
   /**
@@ -41,77 +75,22 @@ export interface InboundCrossClusterSearchConnection {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the InboundCrossClusterSearchConnection of accepted inbound connection.
  */
-export interface DomainInformation {
+export interface AcceptInboundCrossClusterSearchConnectionResponse {
   /**
-   * Specifies the DomainName.
+   * Specifies the InboundCrossClusterSearchConnection of accepted inbound connection.
    */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
+  readonly crossClusterSearchConnection?: InboundCrossClusterSearchConnection;
 }
 
+export type ARN = string;
+export type TagKey = string;
+export type TagValue = string;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for inbound connection.
-   * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
-   * APPROVED: Inbound connection is pending acceptance by destination domain owner.
-   * REJECTING: Inbound connection rejection is in process.
-   * REJECTED: Inbound connection is rejected.
-   * DELETING: Inbound connection deletion is in progress.
-   * DELETED: Inbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: InboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the inbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AddTagsRequest {
-  /**
-   * Specify the ARN for which you want to add the tags.
-   */
-  readonly arn: ARN;
-  /**
-   * List of Tag that need to be added for the Elasticsearch domain.
-   */
-  readonly tagList: TagList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specifies the TagValue, the value assigned to the corresponding tag key.
+ * Tag values can be null and do not have to be unique in a tag set.
+ * For example, you can have a key value pair in a tag set of project : Trinity and cost-center : Trinity.
  */
 export interface Tag {
   /**
@@ -127,8 +106,24 @@ export interface Tag {
   readonly value: TagValue;
 }
 
+export type TagList = Tag[];
 /**
- * Contains interfaces for use with the ES client.
+ * List of Tag that need to be added for the Elasticsearch domain.
+ */
+export interface AddTagsRequest {
+  /**
+   * Specify the ARN for which you want to add the tags.
+   */
+  readonly arn: ARN;
+  /**
+   * List of Tag that need to be added for the Elasticsearch domain.
+   */
+  readonly tagList: TagList;
+}
+
+export type PackageID = string;
+/**
+ * Name of the domain that you want to associate the package with.
  */
 export interface AssociatePackageRequest {
   /**
@@ -142,18 +137,31 @@ export interface AssociatePackageRequest {
   readonly domainName: DomainName;
 }
 
+export type PackageName = string;
+export type PackageType = 'TXT-DICTIONARY'|string;
+export type LastUpdated = Date;
+export type DomainPackageStatus = 'ASSOCIATING'|'ASSOCIATION_FAILED'|'ACTIVE'|'DISSOCIATING'|'DISSOCIATION_FAILED'|string;
+export type PackageVersion = string;
+export type ReferencePath = string;
+export type ErrorType = string;
+export type ErrorMessage = string;
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
  */
-export interface AssociatePackageResponse {
+export interface ErrorDetails {
   /**
-   * DomainPackageDetails.
+   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
    */
-  readonly domainPackageDetails?: DomainPackageDetails;
+  readonly errorType?: ErrorType;
+  /**
+   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+   */
+  readonly errorMessage?: ErrorMessage;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Additional information if the package is in an error state.
+ * Null otherwise.
  */
 export interface DomainPackageDetails {
   /**
@@ -198,21 +206,17 @@ export interface DomainPackageDetails {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * DomainPackageDetails.
  */
-export interface ErrorDetails {
+export interface AssociatePackageResponse {
   /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+   * DomainPackageDetails.
    */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
+  readonly domainPackageDetails?: DomainPackageDetails;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The name of the domain that you want to stop the latest service software update on.
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
   /**
@@ -221,18 +225,13 @@ export interface CancelElasticsearchServiceSoftwareUpdateRequest {
   readonly domainName: DomainName;
 }
 
+export type String = string;
+export type Boolean = boolean;
+export type DeploymentStatus = 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE'|string;
+export type DeploymentCloseDateTimeStamp = Date;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface CancelElasticsearchServiceSoftwareUpdateResponse {
-  /**
-   * The current status of the Elasticsearch service software update.
-   */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * True if a service software is never automatically updated.
+ * False if a service software is automatically updated after AutomatedUpdateDate.
  */
 export interface ServiceSoftwareOptions {
   /**
@@ -275,7 +274,328 @@ export interface ServiceSoftwareOptions {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The current status of the Elasticsearch service software update.
+ */
+export interface CancelElasticsearchServiceSoftwareUpdateResponse {
+  /**
+   * The current status of the Elasticsearch service software update.
+   */
+  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
+}
+
+export type ElasticsearchVersionString = string;
+export type ESPartitionInstanceType = 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'m5.large.elasticsearch'|'m5.xlarge.elasticsearch'|'m5.2xlarge.elasticsearch'|'m5.4xlarge.elasticsearch'|'m5.12xlarge.elasticsearch'|'r5.large.elasticsearch'|'r5.xlarge.elasticsearch'|'r5.2xlarge.elasticsearch'|'r5.4xlarge.elasticsearch'|'r5.12xlarge.elasticsearch'|'c5.large.elasticsearch'|'c5.xlarge.elasticsearch'|'c5.2xlarge.elasticsearch'|'c5.4xlarge.elasticsearch'|'c5.9xlarge.elasticsearch'|'c5.18xlarge.elasticsearch'|'ultrawarm1.medium.elasticsearch'|'ultrawarm1.large.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch'|string;
+export type IntegerClass = number;
+/**
+ * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+ * This should be equal to number of subnets if VPC endpoints is enabled.
+ */
+export interface ZoneAwarenessConfig {
+  /**
+   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+   * This should be equal to number of subnets if VPC endpoints is enabled.
+   */
+  readonly availabilityZoneCount?: IntegerClass;
+}
+
+export type ESWarmPartitionInstanceType = 'ultrawarm1.medium.elasticsearch'|'ultrawarm1.large.elasticsearch'|string;
+/**
+ * The number of warm nodes in the cluster.
+ */
+export interface ElasticsearchClusterConfig {
+  /**
+   * The instance type for an Elasticsearch cluster.
+   * UltraWarm instance types are not supported for data instances.
+   */
+  readonly instanceType?: ESPartitionInstanceType;
+  /**
+   * The number of instances in the specified domain cluster.
+   */
+  readonly instanceCount?: IntegerClass;
+  /**
+   * A boolean value to indicate whether a dedicated master node is enabled.
+   * See About Dedicated Master Nodes for more information.
+   */
+  readonly dedicatedMasterEnabled?: Boolean;
+  /**
+   * A boolean value to indicate whether zone awareness is enabled.
+   * See About Zone Awareness for more information.
+   */
+  readonly zoneAwarenessEnabled?: Boolean;
+  /**
+   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
+   */
+  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
+  /**
+   * The instance type for a dedicated master node.
+   */
+  readonly dedicatedMasterType?: ESPartitionInstanceType;
+  /**
+   * Total number of dedicated master nodes, active and on standby, for the cluster.
+   */
+  readonly dedicatedMasterCount?: IntegerClass;
+  /**
+   * True to enable warm storage.
+   */
+  readonly warmEnabled?: Boolean;
+  /**
+   * The instance type for the Elasticsearch cluster's warm nodes.
+   */
+  readonly warmType?: ESWarmPartitionInstanceType;
+  /**
+   * The number of warm nodes in the cluster.
+   */
+  readonly warmCount?: IntegerClass;
+}
+
+export type VolumeType = 'standard'|'gp2'|'io1'|string;
+/**
+ * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
+ */
+export interface EBSOptions {
+  /**
+   * Specifies whether EBS-based storage is enabled.
+   */
+  readonly ebsEnabled?: Boolean;
+  /**
+   * Specifies the volume type for EBS-based storage.
+   */
+  readonly volumeType?: VolumeType;
+  /**
+   * Integer to specify the size of an EBS volume.
+   */
+  readonly volumeSize?: IntegerClass;
+  /**
+   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
+   */
+  readonly iops?: IntegerClass;
+}
+
+export type PolicyDocument = string;
+/**
+ * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+ * Default value is 0 hours.
+ */
+export interface SnapshotOptions {
+  /**
+   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+   * Default value is 0 hours.
+   */
+  readonly automatedSnapshotStartHour?: IntegerClass;
+}
+
+export type StringList = String[];
+/**
+ * Specifies the security groups for VPC endpoint.
+ */
+export interface VPCOptions {
+  /**
+   * Specifies the subnets for VPC endpoint.
+   */
+  readonly subnetIds?: StringList;
+  /**
+   * Specifies the security groups for VPC endpoint.
+   */
+  readonly securityGroupIds?: StringList;
+}
+
+export type UserPoolId = string;
+export type IdentityPoolId = string;
+export type RoleArn = string;
+/**
+ * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+ */
+export interface CognitoOptions {
+  /**
+   * Specifies the option to enable Cognito for Kibana authentication.
+   */
+  readonly enabled?: Boolean;
+  /**
+   * Specifies the Cognito user pool ID for Kibana authentication.
+   */
+  readonly userPoolId?: UserPoolId;
+  /**
+   * Specifies the Cognito identity pool ID for Kibana authentication.
+   */
+  readonly identityPoolId?: IdentityPoolId;
+  /**
+   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+   */
+  readonly roleArn?: RoleArn;
+}
+
+export type KmsKeyId = string;
+/**
+ * Specifies the KMS Key ID for Encryption At Rest options.
+ */
+export interface EncryptionAtRestOptions {
+  /**
+   * Specifies the option to enable Encryption At Rest.
+   */
+  readonly enabled?: Boolean;
+  /**
+   * Specifies the KMS Key ID for Encryption At Rest options.
+   */
+  readonly kmsKeyId?: KmsKeyId;
+}
+
+/**
+ * Specify true to enable node-to-node encryption.
+ */
+export interface NodeToNodeEncryptionOptions {
+  /**
+   * Specify true to enable node-to-node encryption.
+   */
+  readonly enabled?: Boolean;
+}
+
+export type AdvancedOptions = {[key: string]: String};
+export type LogType = 'INDEX_SLOW_LOGS'|'SEARCH_SLOW_LOGS'|'ES_APPLICATION_LOGS'|'AUDIT_LOGS'|string;
+export type CloudWatchLogsLogGroupArn = string;
+/**
+ * Specifies whether given log publishing option is enabled or not.
+ */
+export interface LogPublishingOption {
+  /**
+   * List of Tag for the requested Elasticsearch domain.
+   */
+  readonly cloudWatchLogsLogGroupArn?: CloudWatchLogsLogGroupArn;
+  /**
+   * Specifies whether given log publishing option is enabled or not.
+   */
+  readonly enabled?: Boolean;
+}
+
+export type LogPublishingOptions = {[key: string]: LogPublishingOption};
+export type TLSSecurityPolicy = 'Policy-Min-TLS-1-0-2019-07'|'Policy-Min-TLS-1-2-2019-07'|string;
+export type DomainNameFqdn = string;
+/**
+ * Specify ACM certificate ARN for your custom endpoint.
+ */
+export interface DomainEndpointOptions {
+  /**
+   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
+   */
+  readonly enforceHttps?: Boolean;
+  /**
+   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+   * 0 and higher.
+   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+   * 2.
+   */
+  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
+  /**
+   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
+   */
+  readonly customEndpointEnabled?: Boolean;
+  /**
+   * Specify the fully qualified domain for your custom endpoint.
+   */
+  readonly customEndpoint?: DomainNameFqdn;
+  /**
+   * Specify ACM certificate ARN for your custom endpoint.
+   */
+  readonly customEndpointCertificateArn?: ARN;
+}
+
+export type Username = string;
+export type Password = string;
+/**
+ * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+ */
+export interface MasterUserOptions {
+  /**
+   * ARN for the master user (if IAM is enabled).
+   */
+  readonly masterUserArn?: ARN;
+  /**
+   * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+   */
+  readonly masterUserName?: Username;
+  /**
+   * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
+   */
+  readonly masterUserPassword?: Password;
+}
+
+export type SAMLMetadata = string;
+export type SAMLEntityId = string;
+/**
+ * The unique Entity ID of the application in SAML Identity Provider.
+ */
+export interface SAMLIdp {
+  /**
+   * The Metadata of the SAML application in xml format.
+   */
+  readonly metadataContent: SAMLMetadata;
+  /**
+   * The unique Entity ID of the application in SAML Identity Provider.
+   */
+  readonly entityId: SAMLEntityId;
+}
+
+export type BackendRole = string;
+/**
+ * The duration, in minutes, after which a user session becomes inactive.
+ * Acceptable values are between 1 and 1440, and the default value is 60.
+ */
+export interface SAMLOptionsInput {
+  /**
+   * True if SAML is enabled.
+   */
+  readonly enabled?: Boolean;
+  /**
+   * Specifies the SAML Identity Provider's information.
+   */
+  readonly idp?: SAMLIdp;
+  /**
+   * The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+   */
+  readonly masterUserName?: Username;
+  /**
+   * The backend role to which the SAML master user is mapped to.
+   */
+  readonly masterBackendRole?: BackendRole;
+  /**
+   * The key to use for matching the SAML Subject attribute.
+   */
+  readonly subjectKey?: String;
+  /**
+   * The key to use for matching the SAML Roles attribute.
+   */
+  readonly rolesKey?: String;
+  /**
+   * The duration, in minutes, after which a user session becomes inactive.
+   * Acceptable values are between 1 and 1440, and the default value is 60.
+   */
+  readonly sessionTimeoutMinutes?: IntegerClass;
+}
+
+/**
+ * Specifies the SAML application configuration for the domain.
+ */
+export interface AdvancedSecurityOptionsInput {
+  /**
+   * True if advanced security is enabled.
+   */
+  readonly enabled?: Boolean;
+  /**
+   * True if the internal user database is enabled.
+   */
+  readonly internalUserDatabaseEnabled?: Boolean;
+  /**
+   * Credentials for the master user: username and password, ARN, or both.
+   */
+  readonly masterUserOptions?: MasterUserOptions;
+  /**
+   * Specifies the SAML application configuration for the domain.
+   */
+  readonly samlOptions?: SAMLOptionsInput;
+}
+
+/**
+ * Specifies advanced security options.
  */
 export interface CreateElasticsearchDomainRequest {
   /**
@@ -350,107 +670,27 @@ export interface CreateElasticsearchDomainRequest {
   readonly advancedSecurityOptions?: AdvancedSecurityOptionsInput;
 }
 
+export type DomainId = string;
+export type ServiceUrl = string;
+export type EndpointsMap = {[key: string]: ServiceUrl};
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the security groups for VPC endpoint.
  */
-export interface ElasticsearchClusterConfig {
+export interface VPCDerivedInfo {
   /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
+   * The VPC Id for the Elasticsearch domain.
+   * Exists only if the domain was created with VPCOptions.
    */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCOptions {
+  readonly vpcId?: String;
   /**
    * Specifies the subnets for VPC endpoint.
    */
   readonly subnetIds?: StringList;
+  /**
+   * The availability zones for the Elasticsearch domain.
+   * Exists only if the domain was created with VPCOptions.
+   */
+  readonly availabilityZones?: StringList;
   /**
    * Specifies the security groups for VPC endpoint.
    */
@@ -458,85 +698,35 @@ export interface VPCOptions {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The duration, in minutes, after which a user session becomes inactive.
  */
-export interface CognitoOptions {
+export interface SAMLOptionsOutput {
   /**
-   * Specifies the option to enable Cognito for Kibana authentication.
+   * True if SAML is enabled.
    */
   readonly enabled?: Boolean;
   /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
+   * Describes the SAML Identity Provider's information.
    */
-  readonly userPoolId?: UserPoolId;
+  readonly idp?: SAMLIdp;
   /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
+   * The key used for matching the SAML Subject attribute.
    */
-  readonly identityPoolId?: IdentityPoolId;
+  readonly subjectKey?: String;
   /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
+   * The key used for matching the SAML Roles attribute.
    */
-  readonly roleArn?: RoleArn;
+  readonly rolesKey?: String;
+  /**
+   * The duration, in minutes, after which a user session becomes inactive.
+   */
+  readonly sessionTimeoutMinutes?: IntegerClass;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Describes the SAML application configured for a domain.
  */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptionsInput {
+export interface AdvancedSecurityOptions {
   /**
    * True if advanced security is enabled.
    */
@@ -546,94 +736,13 @@ export interface AdvancedSecurityOptionsInput {
    */
   readonly internalUserDatabaseEnabled?: Boolean;
   /**
-   * Credentials for the master user: username and password, ARN, or both.
+   * Describes the SAML application configured for a domain.
    */
-  readonly masterUserOptions?: MasterUserOptions;
-  /**
-   * Specifies the SAML application configuration for the domain.
-   */
-  readonly samlOptions?: SAMLOptionsInput;
+  readonly samlOptions?: SAMLOptionsOutput;
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface MasterUserOptions {
-  /**
-   * ARN for the master user (if IAM is enabled).
-   */
-  readonly masterUserArn?: ARN;
-  /**
-   * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserName?: Username;
-  /**
-   * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserPassword?: Password;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsInput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserName?: Username;
-  /**
-   * The backend role to which the SAML master user is mapped to.
-   */
-  readonly masterBackendRole?: BackendRole;
-  /**
-   * The key to use for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key to use for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   * Acceptable values are between 1 and 1440, and the default value is 60.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CreateElasticsearchDomainResponse {
-  /**
-   * The status of the newly created Elasticsearch domain.
-   */
-  readonly domainStatus?: ElasticsearchDomainStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The current status of the Elasticsearch domain's advanced security options.
  */
 export interface ElasticsearchDomainStatus {
   /**
@@ -753,301 +862,18 @@ export interface ElasticsearchDomainStatus {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The status of the newly created Elasticsearch domain.
  */
-export interface ElasticsearchClusterConfig {
+export interface CreateElasticsearchDomainResponse {
   /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
+   * The status of the newly created Elasticsearch domain.
    */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
+  readonly domainStatus?: ElasticsearchDomainStatus;
 }
 
+export type ConnectionAlias = string;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ServiceSoftwareOptions {
-  /**
-   * The current service software version that is present on the domain.
-   */
-  readonly currentVersion?: String;
-  /**
-   * The new service software version if one is available.
-   */
-  readonly newVersion?: String;
-  /**
-   * True if you are able to update you service software version.
-   * False if you are not able to update your service software version.
-   */
-  readonly updateAvailable?: Boolean;
-  /**
-   * True if you are able to cancel your service software version update.
-   * False if you are not able to cancel your service software version.
-   */
-  readonly cancellable?: Boolean;
-  /**
-   * The status of your service software update.
-   * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-   */
-  readonly updateStatus?: DeploymentStatus;
-  /**
-   * The description of the UpdateStatus.
-   */
-  readonly description?: String;
-  /**
-   * Timestamp, in Epoch time, until which you can manually request a service software update.
-   * After this date, we automatically update your service software.
-   */
-  readonly automatedUpdateDate?: DeploymentCloseDateTimeStamp;
-  /**
-   * True if a service software is never automatically updated.
-   * False if a service software is automatically updated after AutomatedUpdateDate.
-   */
-  readonly optionalDeployment?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specifies the connection alias that will be used by the customer for this connection.
  */
 export interface CreateOutboundCrossClusterSearchConnectionRequest {
   /**
@@ -1064,44 +890,31 @@ export interface CreateOutboundCrossClusterSearchConnectionRequest {
   readonly connectionAlias: ConnectionAlias;
 }
 
+export type OutboundCrossClusterSearchConnectionStatusCode = 'PENDING_ACCEPTANCE'|'VALIDATING'|'VALIDATION_FAILED'|'PROVISIONING'|'ACTIVE'|'REJECTED'|'DELETING'|'DELETED'|string;
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies verbose information for the outbound connection status.
  */
-export interface DomainInformation {
+export interface OutboundCrossClusterSearchConnectionStatus {
   /**
-   * Specifies the DomainName.
+   * The state code for outbound connection.
+   * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
+   * VALIDATION_FAILED: Validation failed for the connection request.
+   * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
+   * PROVISIONING: Outbound connection request is in process.
+   * ACTIVE: Outbound connection is active and ready to use.
+   * REJECTED: Outbound connection request is rejected by destination domain owner.
+   * DELETING: Outbound connection deletion is in progress.
+   * DELETED: Outbound connection is deleted and cannot be used further.
    */
-  readonly ownerId?: OwnerId;
+  readonly statusCode?: OutboundCrossClusterSearchConnectionStatusCode;
   /**
-   * Specifies the DomainName.
+   * Specifies verbose information for the outbound connection status.
    */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
+  readonly message?: CrossClusterSearchConnectionStatusMessage;
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Unique id for the created outbound connection, which is used for subsequent operations on connection.
  */
 export interface CreateOutboundCrossClusterSearchConnectionResponse {
   /**
@@ -1126,66 +939,25 @@ export interface CreateOutboundCrossClusterSearchConnectionResponse {
   readonly crossClusterSearchConnectionId?: CrossClusterSearchConnectionId;
 }
 
+export type PackageDescription = string;
+export type S3BucketName = string;
+export type S3Key = string;
 /**
- * Contains interfaces for use with the ES client.
+ * Key (file name) of the package.
  */
-export interface DomainInformation {
+export interface PackageSource {
   /**
-   * Specifies the DomainName.
+   * Name of the bucket containing the package.
    */
-  readonly ownerId?: OwnerId;
+  readonly s3BucketName?: S3BucketName;
   /**
-   * Specifies the DomainName.
+   * Key (file name) of the package.
    */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
+  readonly s3Key?: S3Key;
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OutboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for outbound connection.
-   * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
-   * VALIDATION_FAILED: Validation failed for the connection request.
-   * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
-   * PROVISIONING: Outbound connection request is in process.
-   * ACTIVE: Outbound connection is active and ready to use.
-   * REJECTED: Outbound connection request is rejected by destination domain owner.
-   * DELETING: Outbound connection deletion is in progress.
-   * DELETED: Outbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: OutboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the outbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The customer S3 location PackageSource for importing the package.
  */
 export interface CreatePackageRequest {
   /**
@@ -1207,32 +979,11 @@ export interface CreatePackageRequest {
   readonly packageSource: PackageSource;
 }
 
+export type PackageStatus = 'COPYING'|'COPY_FAILED'|'VALIDATING'|'VALIDATION_FAILED'|'AVAILABLE'|'DELETING'|'DELETED'|'DELETE_FAILED'|string;
+export type CreatedAt = Date;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageSource {
-  /**
-   * Name of the bucket containing the package.
-   */
-  readonly s3BucketName?: S3BucketName;
-  /**
-   * Key (file name) of the package.
-   */
-  readonly s3Key?: S3Key;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CreatePackageResponse {
-  /**
-   * Information about the package PackageDetails.
-   */
-  readonly packageDetails?: PackageDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Additional information if the package is in an error state.
+ * Null otherwise.
  */
 export interface PackageDetails {
   /**
@@ -1276,21 +1027,17 @@ export interface PackageDetails {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Information about the package PackageDetails.
  */
-export interface ErrorDetails {
+export interface CreatePackageResponse {
   /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+   * Information about the package PackageDetails.
    */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
+  readonly packageDetails?: PackageDetails;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The name of the Elasticsearch domain that you want to permanently delete.
  */
 export interface DeleteElasticsearchDomainRequest {
   /**
@@ -1300,7 +1047,7 @@ export interface DeleteElasticsearchDomainRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The status of the Elasticsearch domain being deleted.
  */
 export interface DeleteElasticsearchDomainResponse {
   /**
@@ -1310,421 +1057,7 @@ export interface DeleteElasticsearchDomainResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchDomainStatus {
-  /**
-   * The unique identifier for the specified Elasticsearch domain.
-   */
-  readonly domainId: DomainId;
-  /**
-   * The name of an Elasticsearch domain.
-   * Domain names are unique across the domains owned by an account within an AWS region.
-   * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-   */
-  readonly domainName: DomainName;
-  /**
-   * The Amazon resource name (ARN) of an Elasticsearch domain.
-   * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
-   */
-  readonly arn: ARN;
-  /**
-   * The domain creation status.
-   * True if the creation of an Elasticsearch domain is complete.
-   * False if domain creation is still in progress.
-   */
-  readonly created?: Boolean;
-  /**
-   * The domain deletion status.
-   * True if a delete request has been received for the domain but resource cleanup is still in progress.
-   * False if the domain has not been deleted.
-   * Once domain deletion is complete, the status of the domain is no longer returned.
-   */
-  readonly deleted?: Boolean;
-  /**
-   * The Elasticsearch domain endpoint that you use to submit index and search requests.
-   */
-  readonly endpoint?: ServiceUrl;
-  /**
-   * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
-   * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
-   * us-east-1.
-   * es.
-   * amazonaws.
-   * com'.
-   */
-  readonly endpoints?: EndpointsMap;
-  /**
-   * The status of the Elasticsearch domain configuration.
-   * True if Amazon Elasticsearch Service is processing configuration changes.
-   * False if the configuration is active.
-   */
-  readonly processing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly upgradeProcessing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly elasticsearchVersion?: ElasticsearchVersionString;
-  /**
-   * The type and number of instances in the domain cluster.
-   */
-  readonly elasticsearchClusterConfig: ElasticsearchClusterConfig;
-  /**
-   * The EBSOptions for the specified domain.
-   * See Configuring EBS-based Storage for more information.
-   */
-  readonly ebsOptions?: EBSOptions;
-  /**
-   * IAM access policy as a JSON-formatted string.
-   */
-  readonly accessPolicies?: PolicyDocument;
-  /**
-   * Specifies the status of the SnapshotOptions.
-   */
-  readonly snapshotOptions?: SnapshotOptions;
-  /**
-   * The VPCOptions for the specified domain.
-   * For more information, see VPC Endpoints for Amazon Elasticsearch Service Domains.
-   */
-  readonly vpcOptions?: VPCDerivedInfo;
-  /**
-   * The CognitoOptions for the specified domain.
-   * For more information, see Amazon Cognito Authentication for Kibana.
-   */
-  readonly cognitoOptions?: CognitoOptions;
-  /**
-   * Specifies the status of the EncryptionAtRestOptions.
-   */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptions;
-  /**
-   * Specifies the status of the NodeToNodeEncryptionOptions.
-   */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
-  /**
-   * Specifies the status of the AdvancedOptions.
-   */
-  readonly advancedOptions?: AdvancedOptions;
-  /**
-   * Log publishing options for the given domain.
-   */
-  readonly logPublishingOptions?: LogPublishingOptions;
-  /**
-   * The current status of the Elasticsearch domain's service software.
-   */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
-  /**
-   * The current status of the Elasticsearch domain's endpoint options.
-   */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
-  /**
-   * The current status of the Elasticsearch domain's advanced security options.
-   */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptions;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ServiceSoftwareOptions {
-  /**
-   * The current service software version that is present on the domain.
-   */
-  readonly currentVersion?: String;
-  /**
-   * The new service software version if one is available.
-   */
-  readonly newVersion?: String;
-  /**
-   * True if you are able to update you service software version.
-   * False if you are not able to update your service software version.
-   */
-  readonly updateAvailable?: Boolean;
-  /**
-   * True if you are able to cancel your service software version update.
-   * False if you are not able to cancel your service software version.
-   */
-  readonly cancellable?: Boolean;
-  /**
-   * The status of your service software update.
-   * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-   */
-  readonly updateStatus?: DeploymentStatus;
-  /**
-   * The description of the UpdateStatus.
-   */
-  readonly description?: String;
-  /**
-   * Timestamp, in Epoch time, until which you can manually request a service software update.
-   * After this date, we automatically update your service software.
-   */
-  readonly automatedUpdateDate?: DeploymentCloseDateTimeStamp;
-  /**
-   * True if a service software is never automatically updated.
-   * False if a service software is automatically updated after AutomatedUpdateDate.
-   */
-  readonly optionalDeployment?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The id of the inbound connection that you want to permanently delete.
  */
 export interface DeleteInboundCrossClusterSearchConnectionRequest {
   /**
@@ -1734,7 +1067,7 @@ export interface DeleteInboundCrossClusterSearchConnectionRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the InboundCrossClusterSearchConnection of deleted inbound connection.
  */
 export interface DeleteInboundCrossClusterSearchConnectionResponse {
   /**
@@ -1744,85 +1077,7 @@ export interface DeleteInboundCrossClusterSearchConnectionResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnection {
-  /**
-   * Specifies the DomainInformation for the source Elasticsearch domain.
-   */
-  readonly sourceDomainInfo?: DomainInformation;
-  /**
-   * Specifies the DomainInformation for the destination Elasticsearch domain.
-   */
-  readonly destinationDomainInfo?: DomainInformation;
-  /**
-   * Specifies the connection id for the inbound cross-cluster search connection.
-   */
-  readonly crossClusterSearchConnectionId?: CrossClusterSearchConnectionId;
-  /**
-   * Specifies the InboundCrossClusterSearchConnectionStatus for the outbound connection.
-   */
-  readonly connectionStatus?: InboundCrossClusterSearchConnectionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for inbound connection.
-   * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
-   * APPROVED: Inbound connection is pending acceptance by destination domain owner.
-   * REJECTING: Inbound connection rejection is in process.
-   * REJECTED: Inbound connection is rejected.
-   * DELETING: Inbound connection deletion is in progress.
-   * DELETED: Inbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: InboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the inbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The id of the outbound connection that you want to permanently delete.
  */
 export interface DeleteOutboundCrossClusterSearchConnectionRequest {
   /**
@@ -1832,17 +1087,7 @@ export interface DeleteOutboundCrossClusterSearchConnectionRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DeleteOutboundCrossClusterSearchConnectionResponse {
-  /**
-   * Specifies the OutboundCrossClusterSearchConnection of deleted outbound connection.
-   */
-  readonly crossClusterSearchConnection?: OutboundCrossClusterSearchConnection;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specifies the OutboundCrossClusterSearchConnectionStatus for the outbound connection.
  */
 export interface OutboundCrossClusterSearchConnection {
   /**
@@ -1868,65 +1113,18 @@ export interface OutboundCrossClusterSearchConnection {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the OutboundCrossClusterSearchConnection of deleted outbound connection.
  */
-export interface DomainInformation {
+export interface DeleteOutboundCrossClusterSearchConnectionResponse {
   /**
-   * Specifies the DomainName.
+   * Specifies the OutboundCrossClusterSearchConnection of deleted outbound connection.
    */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
+  readonly crossClusterSearchConnection?: OutboundCrossClusterSearchConnection;
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OutboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for outbound connection.
-   * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
-   * VALIDATION_FAILED: Validation failed for the connection request.
-   * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
-   * PROVISIONING: Outbound connection request is in process.
-   * ACTIVE: Outbound connection is active and ready to use.
-   * REJECTED: Outbound connection request is rejected by destination domain owner.
-   * DELETING: Outbound connection deletion is in progress.
-   * DELETED: Outbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: OutboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the outbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Internal ID of the package that you want to delete.
+ * Use DescribePackages to find this value.
  */
 export interface DeletePackageRequest {
   /**
@@ -1937,7 +1135,7 @@ export interface DeletePackageRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * PackageDetails.
  */
 export interface DeletePackageResponse {
   /**
@@ -1947,65 +1145,7 @@ export interface DeletePackageResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * User-specified description of the package.
-   */
-  readonly packageDescription?: PackageDescription;
-  /**
-   * Current state of the package.
-   * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
-   */
-  readonly packageStatus?: PackageStatus;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly createdAt?: CreatedAt;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly lastUpdatedAt?: LastUpdated;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly availablePackageVersion?: PackageVersion;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The name of the Elasticsearch domain for which you want information.
  */
 export interface DescribeElasticsearchDomainRequest {
   /**
@@ -2015,7 +1155,7 @@ export interface DescribeElasticsearchDomainRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The current status of the Elasticsearch domain.
  */
 export interface DescribeElasticsearchDomainResponse {
   /**
@@ -2025,421 +1165,7 @@ export interface DescribeElasticsearchDomainResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchDomainStatus {
-  /**
-   * The unique identifier for the specified Elasticsearch domain.
-   */
-  readonly domainId: DomainId;
-  /**
-   * The name of an Elasticsearch domain.
-   * Domain names are unique across the domains owned by an account within an AWS region.
-   * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-   */
-  readonly domainName: DomainName;
-  /**
-   * The Amazon resource name (ARN) of an Elasticsearch domain.
-   * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
-   */
-  readonly arn: ARN;
-  /**
-   * The domain creation status.
-   * True if the creation of an Elasticsearch domain is complete.
-   * False if domain creation is still in progress.
-   */
-  readonly created?: Boolean;
-  /**
-   * The domain deletion status.
-   * True if a delete request has been received for the domain but resource cleanup is still in progress.
-   * False if the domain has not been deleted.
-   * Once domain deletion is complete, the status of the domain is no longer returned.
-   */
-  readonly deleted?: Boolean;
-  /**
-   * The Elasticsearch domain endpoint that you use to submit index and search requests.
-   */
-  readonly endpoint?: ServiceUrl;
-  /**
-   * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
-   * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
-   * us-east-1.
-   * es.
-   * amazonaws.
-   * com'.
-   */
-  readonly endpoints?: EndpointsMap;
-  /**
-   * The status of the Elasticsearch domain configuration.
-   * True if Amazon Elasticsearch Service is processing configuration changes.
-   * False if the configuration is active.
-   */
-  readonly processing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly upgradeProcessing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly elasticsearchVersion?: ElasticsearchVersionString;
-  /**
-   * The type and number of instances in the domain cluster.
-   */
-  readonly elasticsearchClusterConfig: ElasticsearchClusterConfig;
-  /**
-   * The EBSOptions for the specified domain.
-   * See Configuring EBS-based Storage for more information.
-   */
-  readonly ebsOptions?: EBSOptions;
-  /**
-   * IAM access policy as a JSON-formatted string.
-   */
-  readonly accessPolicies?: PolicyDocument;
-  /**
-   * Specifies the status of the SnapshotOptions.
-   */
-  readonly snapshotOptions?: SnapshotOptions;
-  /**
-   * The VPCOptions for the specified domain.
-   * For more information, see VPC Endpoints for Amazon Elasticsearch Service Domains.
-   */
-  readonly vpcOptions?: VPCDerivedInfo;
-  /**
-   * The CognitoOptions for the specified domain.
-   * For more information, see Amazon Cognito Authentication for Kibana.
-   */
-  readonly cognitoOptions?: CognitoOptions;
-  /**
-   * Specifies the status of the EncryptionAtRestOptions.
-   */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptions;
-  /**
-   * Specifies the status of the NodeToNodeEncryptionOptions.
-   */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
-  /**
-   * Specifies the status of the AdvancedOptions.
-   */
-  readonly advancedOptions?: AdvancedOptions;
-  /**
-   * Log publishing options for the given domain.
-   */
-  readonly logPublishingOptions?: LogPublishingOptions;
-  /**
-   * The current status of the Elasticsearch domain's service software.
-   */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
-  /**
-   * The current status of the Elasticsearch domain's endpoint options.
-   */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
-  /**
-   * The current status of the Elasticsearch domain's advanced security options.
-   */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptions;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ServiceSoftwareOptions {
-  /**
-   * The current service software version that is present on the domain.
-   */
-  readonly currentVersion?: String;
-  /**
-   * The new service software version if one is available.
-   */
-  readonly newVersion?: String;
-  /**
-   * True if you are able to update you service software version.
-   * False if you are not able to update your service software version.
-   */
-  readonly updateAvailable?: Boolean;
-  /**
-   * True if you are able to cancel your service software version update.
-   * False if you are not able to cancel your service software version.
-   */
-  readonly cancellable?: Boolean;
-  /**
-   * The status of your service software update.
-   * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-   */
-  readonly updateStatus?: DeploymentStatus;
-  /**
-   * The description of the UpdateStatus.
-   */
-  readonly description?: String;
-  /**
-   * Timestamp, in Epoch time, until which you can manually request a service software update.
-   * After this date, we automatically update your service software.
-   */
-  readonly automatedUpdateDate?: DeploymentCloseDateTimeStamp;
-  /**
-   * True if a service software is never automatically updated.
-   * False if a service software is automatically updated after AutomatedUpdateDate.
-   */
-  readonly optionalDeployment?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The Elasticsearch domain that you want to get information about.
  */
 export interface DescribeElasticsearchDomainConfigRequest {
   /**
@@ -2448,18 +1174,227 @@ export interface DescribeElasticsearchDomainConfigRequest {
   readonly domainName: DomainName;
 }
 
+export type UpdateTimestamp = Date;
+export type UIntValue = number;
+export type OptionState = 'RequiresIndexDocuments'|'Processing'|'Active'|string;
 /**
- * Contains interfaces for use with the ES client.
+ * Indicates whether the Elasticsearch domain is being deleted.
  */
-export interface DescribeElasticsearchDomainConfigResponse {
+export interface OptionStatus {
   /**
-   * The configuration information of the domain requested in the DescribeElasticsearchDomainConfig request.
+   * Timestamp which tells the creation date for the entity.
    */
-  readonly domainConfig: ElasticsearchDomainConfig;
+  readonly creationDate: UpdateTimestamp;
+  /**
+   * Timestamp which tells the last updated time for the entity.
+   */
+  readonly updateDate: UpdateTimestamp;
+  /**
+   * Specifies the latest version for the entity.
+   */
+  readonly updateVersion?: UIntValue;
+  /**
+   * Provides the OptionState for the Elasticsearch domain.
+   */
+  readonly state: OptionState;
+  /**
+   * Indicates whether the Elasticsearch domain is being deleted.
+   */
+  readonly pendingDeletion?: Boolean;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+ */
+export interface ElasticsearchVersionStatus {
+  /**
+   * Specifies the Elasticsearch version for the specified Elasticsearch domain.
+   */
+  readonly options: ElasticsearchVersionString;
+  /**
+   * Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the configuration for the specified Elasticsearch domain.
+ */
+export interface ElasticsearchClusterConfigStatus {
+  /**
+   * Specifies the cluster configuration for the specified Elasticsearch domain.
+   */
+  readonly options: ElasticsearchClusterConfig;
+  /**
+   * Specifies the status of the configuration for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the EBS options for the specified Elasticsearch domain.
+ */
+export interface EBSOptionsStatus {
+  /**
+   * Specifies the EBS options for the specified Elasticsearch domain.
+   */
+  readonly options: EBSOptions;
+  /**
+   * Specifies the status of the EBS options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * The status of the access policy for the Elasticsearch domain.
+ * See OptionStatus for the status information that's included.
+ */
+export interface AccessPoliciesStatus {
+  /**
+   * The access policy configured for the Elasticsearch domain.
+   * Access policies may be resource-based, IP-based, or IAM-based.
+   * See  Configuring Access Policiesfor more information.
+   */
+  readonly options: PolicyDocument;
+  /**
+   * The status of the access policy for the Elasticsearch domain.
+   * See OptionStatus for the status information that's included.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of a daily automated snapshot.
+ */
+export interface SnapshotOptionsStatus {
+  /**
+   * Specifies the daily snapshot options specified for the Elasticsearch domain.
+   */
+  readonly options: SnapshotOptions;
+  /**
+   * Specifies the status of a daily automated snapshot.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the VPC options for the specified Elasticsearch domain.
+ */
+export interface VPCDerivedInfoStatus {
+  /**
+   * Specifies the VPC options for the specified Elasticsearch domain.
+   */
+  readonly options: VPCDerivedInfo;
+  /**
+   * Specifies the status of the VPC options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the Cognito options for the specified Elasticsearch domain.
+ */
+export interface CognitoOptionsStatus {
+  /**
+   * Specifies the Cognito options for the specified Elasticsearch domain.
+   */
+  readonly options: CognitoOptions;
+  /**
+   * Specifies the status of the Cognito options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+ */
+export interface EncryptionAtRestOptionsStatus {
+  /**
+   * Specifies the Encryption At Rest options for the specified Elasticsearch domain.
+   */
+  readonly options: EncryptionAtRestOptions;
+  /**
+   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+ */
+export interface NodeToNodeEncryptionOptionsStatus {
+  /**
+   * Specifies the node-to-node encryption options for the specified Elasticsearch domain.
+   */
+  readonly options: NodeToNodeEncryptionOptions;
+  /**
+   * Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies the status of OptionStatus for advanced options for the specified Elasticsearch domain.
+ */
+export interface AdvancedOptionsStatus {
+  /**
+   * Specifies the status of advanced options for the specified Elasticsearch domain.
+   */
+  readonly options: AdvancedOptions;
+  /**
+   * Specifies the status of OptionStatus for advanced options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * The status of the log publishing options for the Elasticsearch domain.
+ * See OptionStatus for the status information that's included.
+ */
+export interface LogPublishingOptionsStatus {
+  /**
+   * The log publishing options configured for the Elasticsearch domain.
+   */
+  readonly options?: LogPublishingOptions;
+  /**
+   * The status of the log publishing options for the Elasticsearch domain.
+   * See OptionStatus for the status information that's included.
+   */
+  readonly status?: OptionStatus;
+}
+
+/**
+ * The status of the endpoint options for the Elasticsearch domain.
+ * See OptionStatus for the status information that's included.
+ */
+export interface DomainEndpointOptionsStatus {
+  /**
+   * Options to configure endpoint for the Elasticsearch domain.
+   */
+  readonly options: DomainEndpointOptions;
+  /**
+   * The status of the endpoint options for the Elasticsearch domain.
+   * See OptionStatus for the status information that's included.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Status of the advanced security options for the specified Elasticsearch domain.
+ */
+export interface AdvancedSecurityOptionsStatus {
+  /**
+   * Specifies advanced security options for the specified Elasticsearch domain.
+   */
+  readonly options: AdvancedSecurityOptions;
+  /**
+   * Status of the advanced security options for the specified Elasticsearch domain.
+   */
+  readonly status: OptionStatus;
+}
+
+/**
+ * Specifies AdvancedSecurityOptions for the domain.
  */
 export interface ElasticsearchDomainConfig {
   /**
@@ -2521,783 +1456,18 @@ export interface ElasticsearchDomainConfig {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The configuration information of the domain requested in the DescribeElasticsearchDomainConfig request.
  */
-export interface ElasticsearchVersionStatus {
+export interface DescribeElasticsearchDomainConfigResponse {
   /**
-   * Specifies the Elasticsearch version for the specified Elasticsearch domain.
+   * The configuration information of the domain requested in the DescribeElasticsearchDomainConfig request.
    */
-  readonly options: ElasticsearchVersionString;
-  /**
-   * Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
+  readonly domainConfig: ElasticsearchDomainConfig;
 }
 
+export type DomainNameList = DomainName[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfigStatus {
-  /**
-   * Specifies the cluster configuration for the specified Elasticsearch domain.
-   */
-  readonly options: ElasticsearchClusterConfig;
-  /**
-   * Specifies the status of the configuration for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptionsStatus {
-  /**
-   * Specifies the EBS options for the specified Elasticsearch domain.
-   */
-  readonly options: EBSOptions;
-  /**
-   * Specifies the status of the EBS options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AccessPoliciesStatus {
-  /**
-   * The access policy configured for the Elasticsearch domain.
-   * Access policies may be resource-based, IP-based, or IAM-based.
-   * See  Configuring Access Policiesfor more information.
-   */
-  readonly options: PolicyDocument;
-  /**
-   * The status of the access policy for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptionsStatus {
-  /**
-   * Specifies the daily snapshot options specified for the Elasticsearch domain.
-   */
-  readonly options: SnapshotOptions;
-  /**
-   * Specifies the status of a daily automated snapshot.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfoStatus {
-  /**
-   * Specifies the VPC options for the specified Elasticsearch domain.
-   */
-  readonly options: VPCDerivedInfo;
-  /**
-   * Specifies the status of the VPC options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptionsStatus {
-  /**
-   * Specifies the Cognito options for the specified Elasticsearch domain.
-   */
-  readonly options: CognitoOptions;
-  /**
-   * Specifies the status of the Cognito options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptionsStatus {
-  /**
-   * Specifies the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly options: EncryptionAtRestOptions;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptionsStatus {
-  /**
-   * Specifies the node-to-node encryption options for the specified Elasticsearch domain.
-   */
-  readonly options: NodeToNodeEncryptionOptions;
-  /**
-   * Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedOptionsStatus {
-  /**
-   * Specifies the status of advanced options for the specified Elasticsearch domain.
-   */
-  readonly options: AdvancedOptions;
-  /**
-   * Specifies the status of OptionStatus for advanced options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface LogPublishingOptionsStatus {
-  /**
-   * The log publishing options configured for the Elasticsearch domain.
-   */
-  readonly options?: LogPublishingOptions;
-  /**
-   * The status of the log publishing options for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status?: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptionsStatus {
-  /**
-   * Options to configure endpoint for the Elasticsearch domain.
-   */
-  readonly options: DomainEndpointOptions;
-  /**
-   * The status of the endpoint options for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptionsStatus {
-  /**
-   * Specifies advanced security options for the specified Elasticsearch domain.
-   */
-  readonly options: AdvancedSecurityOptions;
-  /**
-   * Status of the advanced security options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The Elasticsearch domains for which you want information.
  */
 export interface DescribeElasticsearchDomainsRequest {
   /**
@@ -3306,8 +1476,9 @@ export interface DescribeElasticsearchDomainsRequest {
   readonly domainNames: DomainNameList;
 }
 
+export type ElasticsearchDomainStatusList = ElasticsearchDomainStatus[];
 /**
- * Contains interfaces for use with the ES client.
+ * The status of the domains requested in the DescribeElasticsearchDomains request.
  */
 export interface DescribeElasticsearchDomainsResponse {
   /**
@@ -3317,421 +1488,7 @@ export interface DescribeElasticsearchDomainsResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchDomainStatus {
-  /**
-   * The unique identifier for the specified Elasticsearch domain.
-   */
-  readonly domainId: DomainId;
-  /**
-   * The name of an Elasticsearch domain.
-   * Domain names are unique across the domains owned by an account within an AWS region.
-   * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
-   */
-  readonly domainName: DomainName;
-  /**
-   * The Amazon resource name (ARN) of an Elasticsearch domain.
-   * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
-   */
-  readonly arn: ARN;
-  /**
-   * The domain creation status.
-   * True if the creation of an Elasticsearch domain is complete.
-   * False if domain creation is still in progress.
-   */
-  readonly created?: Boolean;
-  /**
-   * The domain deletion status.
-   * True if a delete request has been received for the domain but resource cleanup is still in progress.
-   * False if the domain has not been deleted.
-   * Once domain deletion is complete, the status of the domain is no longer returned.
-   */
-  readonly deleted?: Boolean;
-  /**
-   * The Elasticsearch domain endpoint that you use to submit index and search requests.
-   */
-  readonly endpoint?: ServiceUrl;
-  /**
-   * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
-   * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
-   * us-east-1.
-   * es.
-   * amazonaws.
-   * com'.
-   */
-  readonly endpoints?: EndpointsMap;
-  /**
-   * The status of the Elasticsearch domain configuration.
-   * True if Amazon Elasticsearch Service is processing configuration changes.
-   * False if the configuration is active.
-   */
-  readonly processing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly upgradeProcessing?: Boolean;
-  /**
-   * The status of an Elasticsearch domain version upgrade.
-   * True if Amazon Elasticsearch Service is undergoing a version upgrade.
-   * False if the configuration is active.
-   */
-  readonly elasticsearchVersion?: ElasticsearchVersionString;
-  /**
-   * The type and number of instances in the domain cluster.
-   */
-  readonly elasticsearchClusterConfig: ElasticsearchClusterConfig;
-  /**
-   * The EBSOptions for the specified domain.
-   * See Configuring EBS-based Storage for more information.
-   */
-  readonly ebsOptions?: EBSOptions;
-  /**
-   * IAM access policy as a JSON-formatted string.
-   */
-  readonly accessPolicies?: PolicyDocument;
-  /**
-   * Specifies the status of the SnapshotOptions.
-   */
-  readonly snapshotOptions?: SnapshotOptions;
-  /**
-   * The VPCOptions for the specified domain.
-   * For more information, see VPC Endpoints for Amazon Elasticsearch Service Domains.
-   */
-  readonly vpcOptions?: VPCDerivedInfo;
-  /**
-   * The CognitoOptions for the specified domain.
-   * For more information, see Amazon Cognito Authentication for Kibana.
-   */
-  readonly cognitoOptions?: CognitoOptions;
-  /**
-   * Specifies the status of the EncryptionAtRestOptions.
-   */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptions;
-  /**
-   * Specifies the status of the NodeToNodeEncryptionOptions.
-   */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
-  /**
-   * Specifies the status of the AdvancedOptions.
-   */
-  readonly advancedOptions?: AdvancedOptions;
-  /**
-   * Log publishing options for the given domain.
-   */
-  readonly logPublishingOptions?: LogPublishingOptions;
-  /**
-   * The current status of the Elasticsearch domain's service software.
-   */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
-  /**
-   * The current status of the Elasticsearch domain's endpoint options.
-   */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
-  /**
-   * The current status of the Elasticsearch domain's advanced security options.
-   */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptions;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ServiceSoftwareOptions {
-  /**
-   * The current service software version that is present on the domain.
-   */
-  readonly currentVersion?: String;
-  /**
-   * The new service software version if one is available.
-   */
-  readonly newVersion?: String;
-  /**
-   * True if you are able to update you service software version.
-   * False if you are not able to update your service software version.
-   */
-  readonly updateAvailable?: Boolean;
-  /**
-   * True if you are able to cancel your service software version update.
-   * False if you are not able to cancel your service software version.
-   */
-  readonly cancellable?: Boolean;
-  /**
-   * The status of your service software update.
-   * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-   */
-  readonly updateStatus?: DeploymentStatus;
-  /**
-   * The description of the UpdateStatus.
-   */
-  readonly description?: String;
-  /**
-   * Timestamp, in Epoch time, until which you can manually request a service software update.
-   * After this date, we automatically update your service software.
-   */
-  readonly automatedUpdateDate?: DeploymentCloseDateTimeStamp;
-  /**
-   * True if a service software is never automatically updated.
-   * False if a service software is automatically updated after AutomatedUpdateDate.
-   */
-  readonly optionalDeployment?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Version of Elasticsearch for which  Limits  are needed.
  */
 export interface DescribeElasticsearchInstanceTypeLimitsRequest {
   /**
@@ -3749,8 +1506,118 @@ export interface DescribeElasticsearchInstanceTypeLimitsRequest {
   readonly elasticsearchVersion: ElasticsearchVersionString;
 }
 
+export type InstanceRole = string;
+export type StorageTypeName = string;
+export type StorageSubTypeName = string;
+export type LimitName = string;
+export type LimitValue = string;
+export type LimitValueList = LimitValue[];
 /**
- * Contains interfaces for use with the ES client.
+ * Values for the  StorageTypeLimit$LimitName.
+ */
+export interface StorageTypeLimit {
+  /**
+   * Name of storage limits that are applicable for given storage type.
+   * If  StorageType  is ebs, following storage options are applicable  MinimumVolumeSize Minimum amount of volume size that is applicable for given storage type.
+   * It can be empty if it is not applicable.
+   * MaximumVolumeSize Maximum amount of volume size that is applicable for given storage type.
+   * It can be empty if it is not applicable.
+   * MaximumIops Maximum amount of Iops that is applicable for given storage type.
+   * It can be empty if it is not applicable.
+   * MinimumIops Minimum amount of Iops that is applicable for given storage type.
+   * It can be empty if it is not applicable.
+   */
+  readonly limitName?: LimitName;
+  /**
+   * Values for the  StorageTypeLimit$LimitName.
+   */
+  readonly limitValues?: LimitValueList;
+}
+
+export type StorageTypeLimitList = StorageTypeLimit[];
+/**
+ * List of limits that are applicable for given storage type.
+ */
+export interface StorageType {
+  /**
+   * The current status of the Elasticsearch service software update.
+   */
+  readonly storageTypeName?: StorageTypeName;
+  /**
+   * The current status of the Elasticsearch service software update.
+   */
+  readonly storageSubTypeName?: StorageSubTypeName;
+  /**
+   * List of limits that are applicable for given storage type.
+   */
+  readonly storageTypeLimits?: StorageTypeLimitList;
+}
+
+export type StorageTypeList = StorageType[];
+export type MinimumInstanceCount = number;
+export type MaximumInstanceCount = number;
+/**
+ * Specifies verbose information for the inbound connection status.
+ */
+export interface InstanceCountLimits {
+  /**
+   * Specifies verbose information for the inbound connection status.
+   */
+  readonly minimumInstanceCount?: MinimumInstanceCount;
+  /**
+   * Specifies verbose information for the inbound connection status.
+   */
+  readonly maximumInstanceCount?: MaximumInstanceCount;
+}
+
+/**
+ * Specifies verbose information for the inbound connection status.
+ */
+export interface InstanceLimits {
+  /**
+   * Specifies verbose information for the inbound connection status.
+   */
+  readonly instanceCountLimits?: InstanceCountLimits;
+}
+
+/**
+ * Value for given  AdditionalLimit$LimitName.
+ */
+export interface AdditionalLimit {
+  /**
+   * Name of Additional Limit is specific to a given InstanceType and for each of it's  InstanceRole  etc.
+   * Attributes and their details:   MaximumNumberOfDataNodesSupported This attribute will be present in Master node only to specify how much data nodes upto which given  ESPartitionInstanceType  can support as master node.
+   * MaximumNumberOfDataNodesWithoutMasterNode This attribute will be present in Data node only to specify how much data nodes of given  ESPartitionInstanceType  upto which you don't need any master nodes to govern them.
+   */
+  readonly limitName?: LimitName;
+  /**
+   * Value for given  AdditionalLimit$LimitName.
+   */
+  readonly limitValues?: LimitValueList;
+}
+
+export type AdditionalLimitList = AdditionalLimit[];
+/**
+ * List of additional limits that are specific to a given InstanceType and for each of it's  InstanceRole.
+ */
+export interface Limits {
+  /**
+   * StorageType represents the list of storage related types and attributes that are available for given InstanceType.
+   */
+  readonly storageTypes?: StorageTypeList;
+  /**
+   * StorageType represents the list of storage related types and attributes that are available for given InstanceType.
+   */
+  readonly instanceLimits?: InstanceLimits;
+  /**
+   * List of additional limits that are specific to a given InstanceType and for each of it's  InstanceRole.
+   */
+  readonly additionalLimits?: AdditionalLimitList;
+}
+
+export type LimitsByRole = {[key: string]: Limits};
+/**
+ * Version of Elasticsearch for which  Limits  are needed.
  */
 export interface DescribeElasticsearchInstanceTypeLimitsResponse {
   /**
@@ -3759,8 +1626,28 @@ export interface DescribeElasticsearchInstanceTypeLimitsResponse {
   readonly limitsByRole?: LimitsByRole;
 }
 
+export type NonEmptyString = string;
+export type ValueStringList = NonEmptyString[];
 /**
- * Contains interfaces for use with the ES client.
+ * Contains one or more values for the filter.
+ */
+export interface Filter {
+  /**
+   * Specifies the name of the filter.
+   */
+  readonly name?: NonEmptyString;
+  /**
+   * Contains one or more values for the filter.
+   */
+  readonly values?: ValueStringList;
+}
+
+export type FilterList = Filter[];
+export type MaxResults = number;
+export type NextToken = string;
+/**
+ * NextToken is sent in case the earlier API call results contain the NextToken.
+ * It is used for pagination.
  */
 export interface DescribeInboundCrossClusterSearchConnectionsRequest {
   /**
@@ -3784,22 +1671,9 @@ export interface DescribeInboundCrossClusterSearchConnectionsRequest {
   readonly nextToken?: NextToken;
 }
 
+export type InboundCrossClusterSearchConnections = InboundCrossClusterSearchConnection[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface Filter {
-  /**
-   * Specifies the name of the filter.
-   */
-  readonly name?: NonEmptyString;
-  /**
-   * Contains one or more values for the filter.
-   */
-  readonly values?: ValueStringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
  */
 export interface DescribeInboundCrossClusterSearchConnectionsResponse {
   /**
@@ -3813,85 +1687,8 @@ export interface DescribeInboundCrossClusterSearchConnectionsResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnection {
-  /**
-   * Specifies the DomainInformation for the source Elasticsearch domain.
-   */
-  readonly sourceDomainInfo?: DomainInformation;
-  /**
-   * Specifies the DomainInformation for the destination Elasticsearch domain.
-   */
-  readonly destinationDomainInfo?: DomainInformation;
-  /**
-   * Specifies the connection id for the inbound cross-cluster search connection.
-   */
-  readonly crossClusterSearchConnectionId?: CrossClusterSearchConnectionId;
-  /**
-   * Specifies the InboundCrossClusterSearchConnectionStatus for the outbound connection.
-   */
-  readonly connectionStatus?: InboundCrossClusterSearchConnectionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for inbound connection.
-   * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
-   * APPROVED: Inbound connection is pending acceptance by destination domain owner.
-   * REJECTING: Inbound connection rejection is in process.
-   * REJECTED: Inbound connection is rejected.
-   * DELETING: Inbound connection deletion is in progress.
-   * DELETED: Inbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: InboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the inbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * NextToken is sent in case the earlier API call results contain the NextToken.
+ * It is used for pagination.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
   /**
@@ -3915,22 +1712,9 @@ export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
   readonly nextToken?: NextToken;
 }
 
+export type OutboundCrossClusterSearchConnections = OutboundCrossClusterSearchConnection[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface Filter {
-  /**
-   * Specifies the name of the filter.
-   */
-  readonly name?: NonEmptyString;
-  /**
-   * Contains one or more values for the filter.
-   */
-  readonly values?: ValueStringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
  */
 export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
   /**
@@ -3943,92 +1727,28 @@ export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
   readonly nextToken?: NextToken;
 }
 
+export type DescribePackagesFilterName = 'PackageID'|'PackageName'|'PackageStatus'|string;
+export type DescribePackagesFilterValue = string;
+export type DescribePackagesFilterValues = DescribePackagesFilterValue[];
 /**
- * Contains interfaces for use with the ES client.
+ * A list of values for the specified field.
  */
-export interface OutboundCrossClusterSearchConnection {
+export interface DescribePackagesFilter {
   /**
-   * Specifies the DomainInformation for the source Elasticsearch domain.
+   * Any field from PackageDetails.
    */
-  readonly sourceDomainInfo?: DomainInformation;
+  readonly name?: DescribePackagesFilterName;
   /**
-   * Specifies the DomainInformation for the destination Elasticsearch domain.
+   * A list of values for the specified field.
    */
-  readonly destinationDomainInfo?: DomainInformation;
-  /**
-   * Specifies the connection id for the outbound cross-cluster search connection.
-   */
-  readonly crossClusterSearchConnectionId?: CrossClusterSearchConnectionId;
-  /**
-   * Specifies the connection alias for the outbound cross-cluster search connection.
-   */
-  readonly connectionAlias?: ConnectionAlias;
-  /**
-   * Specifies the OutboundCrossClusterSearchConnectionStatus for the outbound connection.
-   */
-  readonly connectionStatus?: OutboundCrossClusterSearchConnectionStatus;
+  readonly value?: DescribePackagesFilterValues;
 }
 
+export type DescribePackagesFilterList = DescribePackagesFilter[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OutboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for outbound connection.
-   * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
-   * VALIDATION_FAILED: Validation failed for the connection request.
-   * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
-   * PROVISIONING: Outbound connection request is in process.
-   * ACTIVE: Outbound connection is active and ready to use.
-   * REJECTED: Outbound connection request is rejected by destination domain owner.
-   * DELETING: Outbound connection deletion is in progress.
-   * DELETED: Outbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: OutboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the outbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Used for pagination.
+ * Only necessary if a previous API call includes a non-null NextToken value.
+ * If provided, returns results for the next page.
  */
 export interface DescribePackagesRequest {
   /**
@@ -4047,22 +1767,9 @@ export interface DescribePackagesRequest {
   readonly nextToken?: NextToken;
 }
 
+export type PackageDetailsList = PackageDetails[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DescribePackagesFilter {
-  /**
-   * Any field from PackageDetails.
-   */
-  readonly name?: DescribePackagesFilterName;
-  /**
-   * A list of values for the specified field.
-   */
-  readonly value?: DescribePackagesFilterValues;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * List of PackageDetails objects.
  */
 export interface DescribePackagesResponse {
   /**
@@ -4075,66 +1782,10 @@ export interface DescribePackagesResponse {
   readonly nextToken?: String;
 }
 
+export type GUID = string;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * User-specified description of the package.
-   */
-  readonly packageDescription?: PackageDescription;
-  /**
-   * Current state of the package.
-   * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
-   */
-  readonly packageStatus?: PackageStatus;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly createdAt?: CreatedAt;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly lastUpdatedAt?: LastUpdated;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly availablePackageVersion?: PackageVersion;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * NextToken should be sent in case if earlier API call produced result containing NextToken.
+ * It is used for pagination.
  */
 export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   /**
@@ -4154,22 +1805,26 @@ export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
   readonly nextToken?: NextToken;
 }
 
+export type Integer = number;
+export type Double = number;
+export type ReservedElasticsearchInstancePaymentOption = 'ALL_UPFRONT'|'PARTIAL_UPFRONT'|'NO_UPFRONT'|string;
 /**
- * Contains interfaces for use with the ES client.
+ * The frequency of the recurring charge.
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
+export interface RecurringCharge {
   /**
-   * Provides an identifier to allow retrieval of paginated results.
+   * The monetary amount of the recurring charge.
    */
-  readonly nextToken?: NextToken;
+  readonly recurringChargeAmount?: Double;
   /**
-   * List of reserved Elasticsearch instance offerings.
+   * The frequency of the recurring charge.
    */
-  readonly reservedElasticsearchInstanceOfferings?: ReservedElasticsearchInstanceOfferingList;
+  readonly recurringChargeFrequency?: String;
 }
 
+export type RecurringChargeList = RecurringCharge[];
 /**
- * Contains interfaces for use with the ES client.
+ * The charge to your account regardless of whether you are creating any domains using the instance offering.
  */
 export interface ReservedElasticsearchInstanceOffering {
   /**
@@ -4206,22 +1861,24 @@ export interface ReservedElasticsearchInstanceOffering {
   readonly recurringCharges?: RecurringChargeList;
 }
 
+export type ReservedElasticsearchInstanceOfferingList = ReservedElasticsearchInstanceOffering[];
 /**
- * Contains interfaces for use with the ES client.
+ * List of reserved Elasticsearch instance offerings.
  */
-export interface RecurringCharge {
+export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
   /**
-   * The monetary amount of the recurring charge.
+   * Provides an identifier to allow retrieval of paginated results.
    */
-  readonly recurringChargeAmount?: Double;
+  readonly nextToken?: NextToken;
   /**
-   * The frequency of the recurring charge.
+   * List of reserved Elasticsearch instance offerings.
    */
-  readonly recurringChargeFrequency?: String;
+  readonly reservedElasticsearchInstanceOfferings?: ReservedElasticsearchInstanceOfferingList;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * NextToken should be sent in case if earlier API call produced result containing NextToken.
+ * It is used for pagination.
  */
 export interface DescribeReservedElasticsearchInstancesRequest {
   /**
@@ -4241,22 +1898,9 @@ export interface DescribeReservedElasticsearchInstancesRequest {
   readonly nextToken?: NextToken;
 }
 
+export type ReservationToken = string;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DescribeReservedElasticsearchInstancesResponse {
-  /**
-   * Provides an identifier to allow retrieval of paginated results.
-   */
-  readonly nextToken?: String;
-  /**
-   * List of reserved Elasticsearch instances.
-   */
-  readonly reservedElasticsearchInstances?: ReservedElasticsearchInstanceList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The charge to your account regardless of whether you are creating any domains using the instance offering.
  */
 export interface ReservedElasticsearchInstance {
   /**
@@ -4313,22 +1957,23 @@ export interface ReservedElasticsearchInstance {
   readonly recurringCharges?: RecurringChargeList;
 }
 
+export type ReservedElasticsearchInstanceList = ReservedElasticsearchInstance[];
 /**
- * Contains interfaces for use with the ES client.
+ * List of reserved Elasticsearch instances.
  */
-export interface RecurringCharge {
+export interface DescribeReservedElasticsearchInstancesResponse {
   /**
-   * The monetary amount of the recurring charge.
+   * Provides an identifier to allow retrieval of paginated results.
    */
-  readonly recurringChargeAmount?: Double;
+  readonly nextToken?: String;
   /**
-   * The frequency of the recurring charge.
+   * List of reserved Elasticsearch instances.
    */
-  readonly recurringChargeFrequency?: String;
+  readonly reservedElasticsearchInstances?: ReservedElasticsearchInstanceList;
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Name of the domain that you want to associate the package with.
  */
 export interface DissociatePackageRequest {
   /**
@@ -4343,7 +1988,7 @@ export interface DissociatePackageRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * DomainPackageDetails.
  */
 export interface DissociatePackageResponse {
   /**
@@ -4353,66 +1998,7 @@ export interface DissociatePackageResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainPackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * Timestamp of the most-recent update to the association status.
-   */
-  readonly lastUpdated?: LastUpdated;
-  /**
-   * Name of the domain you've associated a package with.
-   */
-  readonly domainName?: DomainName;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly domainPackageStatus?: DomainPackageStatus;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly packageVersion?: PackageVersion;
-  /**
-   * The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
-   */
-  readonly referencePath?: ReferencePath;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Contains one or more values for the filter.
  */
 export interface GetCompatibleElasticsearchVersionsRequest {
   /**
@@ -4421,18 +2007,9 @@ export interface GetCompatibleElasticsearchVersionsRequest {
   readonly domainName?: DomainName;
 }
 
+export type ElasticsearchVersionList = ElasticsearchVersionString[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface GetCompatibleElasticsearchVersionsResponse {
-  /**
-   * A map of compatible Elasticsearch versions returned as part of the  GetCompatibleElasticsearchVersions  operation.
-   */
-  readonly compatibleElasticsearchVersions?: CompatibleElasticsearchVersionsList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The current version of Elasticsearch on which a domain is.
  */
 export interface CompatibleVersionsMap {
   /**
@@ -4445,8 +2022,21 @@ export interface CompatibleVersionsMap {
   readonly targetVersions?: ElasticsearchVersionList;
 }
 
+export type CompatibleElasticsearchVersionsList = CompatibleVersionsMap[];
 /**
- * Contains interfaces for use with the ES client.
+ * A map of compatible Elasticsearch versions returned as part of the  GetCompatibleElasticsearchVersions  operation.
+ */
+export interface GetCompatibleElasticsearchVersionsResponse {
+  /**
+   * A map of compatible Elasticsearch versions returned as part of the  GetCompatibleElasticsearchVersions  operation.
+   */
+  readonly compatibleElasticsearchVersions?: CompatibleElasticsearchVersionsList;
+}
+
+/**
+ * Used for pagination.
+ * Only necessary if a previous API call includes a non-null NextToken value.
+ * If provided, returns results for the next page.
  */
 export interface GetPackageVersionHistoryRequest {
   /**
@@ -4465,8 +2055,28 @@ export interface GetPackageVersionHistoryRequest {
   readonly nextToken?: NextToken;
 }
 
+export type CommitMessage = string;
 /**
- * Contains interfaces for use with the ES client.
+ * Timestamp which tells creation time of the package version.
+ */
+export interface PackageVersionHistory {
+  /**
+   * Version of the package.
+   */
+  readonly packageVersion?: PackageVersion;
+  /**
+   * A message associated with the version.
+   */
+  readonly commitMessage?: CommitMessage;
+  /**
+   * Timestamp which tells creation time of the package version.
+   */
+  readonly createdAt?: CreatedAt;
+}
+
+export type PackageVersionHistoryList = PackageVersionHistory[];
+/**
+ * List of PackageVersionHistory objects.
  */
 export interface GetPackageVersionHistoryResponse {
   /**
@@ -4486,25 +2096,7 @@ export interface GetPackageVersionHistoryResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageVersionHistory {
-  /**
-   * Version of the package.
-   */
-  readonly packageVersion?: PackageVersion;
-  /**
-   * A message associated with the version.
-   */
-  readonly commitMessage?: CommitMessage;
-  /**
-   * Timestamp which tells creation time of the package version.
-   */
-  readonly createdAt?: CreatedAt;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * List of PackageVersionHistory objects.
  */
 export interface GetUpgradeHistoryRequest {
   /**
@@ -4521,45 +2113,14 @@ export interface GetUpgradeHistoryRequest {
   readonly nextToken?: NextToken;
 }
 
+export type UpgradeName = string;
+export type StartTimestamp = Date;
+export type UpgradeStatus = 'IN_PROGRESS'|'SUCCEEDED'|'SUCCEEDED_WITH_ISSUES'|'FAILED'|string;
+export type UpgradeStep = 'PRE_UPGRADE_CHECK'|'SNAPSHOT'|'UPGRADE'|string;
+export type Issue = string;
+export type Issues = Issue[];
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface GetUpgradeHistoryResponse {
-  /**
-   * A list of  UpgradeHistory  objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of  GetUpgradeHistoryResponse  object.
-   */
-  readonly upgradeHistories?: UpgradeHistoryList;
-  /**
-   * Pagination token that needs to be supplied to the next call to get the next page of results.
-   */
-  readonly nextToken?: String;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface UpgradeHistory {
-  /**
-   * A string that describes the update briefly.
-   */
-  readonly upgradeName?: UpgradeName;
-  /**
-   * UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
-   */
-  readonly startTimestamp?: StartTimestamp;
-  /**
-   * The overall status of the update.
-   * The status can take one of the following values:  In Progress Succeeded Succeeded with Issues Failed.
-   */
-  readonly upgradeStatus?: UpgradeStatus;
-  /**
-   * A list of  UpgradeStepItem  s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
-   */
-  readonly stepsList?: UpgradeStepsList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The Floating point value representing progress percentage of a particular step.
  */
 export interface UpgradeStepItem {
   /**
@@ -4581,8 +2142,47 @@ export interface UpgradeStepItem {
   readonly progressPercent?: Double;
 }
 
+export type UpgradeStepsList = UpgradeStepItem[];
 /**
- * Contains interfaces for use with the ES client.
+ * A list of  UpgradeStepItem  s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+ */
+export interface UpgradeHistory {
+  /**
+   * A string that describes the update briefly.
+   */
+  readonly upgradeName?: UpgradeName;
+  /**
+   * UTC Timestamp at which the Upgrade API call was made in "yyyy-MM-ddTHH:mm:ssZ" format.
+   */
+  readonly startTimestamp?: StartTimestamp;
+  /**
+   * The overall status of the update.
+   * The status can take one of the following values:  In Progress Succeeded Succeeded with Issues Failed.
+   */
+  readonly upgradeStatus?: UpgradeStatus;
+  /**
+   * A list of  UpgradeStepItem  s representing information about each step performed as pard of a specific Upgrade or Upgrade Eligibility Check.
+   */
+  readonly stepsList?: UpgradeStepsList;
+}
+
+export type UpgradeHistoryList = UpgradeHistory[];
+/**
+ * Pagination token that needs to be supplied to the next call to get the next page of results.
+ */
+export interface GetUpgradeHistoryResponse {
+  /**
+   * A list of  UpgradeHistory  objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of  GetUpgradeHistoryResponse  object.
+   */
+  readonly upgradeHistories?: UpgradeHistoryList;
+  /**
+   * Pagination token that needs to be supplied to the next call to get the next page of results.
+   */
+  readonly nextToken?: String;
+}
+
+/**
+ * Pagination token that needs to be supplied to the next call to get the next page of results.
  */
 export interface GetUpgradeStatusRequest {
   /**
@@ -4592,7 +2192,7 @@ export interface GetUpgradeStatusRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * A string that describes the update briefly.
  */
 export interface GetUpgradeStatusResponse {
   /**
@@ -4611,7 +2211,18 @@ export interface GetUpgradeStatusResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the DomainName.
+ */
+export interface DomainInfo {
+  /**
+   * Specifies the DomainName.
+   */
+  readonly domainName?: DomainName;
+}
+
+export type DomainInfoList = DomainInfo[];
+/**
+ * List of Elasticsearch domain names.
  */
 export interface ListDomainNamesResponse {
   /**
@@ -4621,17 +2232,9 @@ export interface ListDomainNamesResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInfo {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName?: DomainName;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Used for pagination.
+ * Only necessary if a previous API call includes a non-null NextToken value.
+ * If provided, returns results for the next page.
  */
 export interface ListDomainsForPackageRequest {
   /**
@@ -4650,8 +2253,9 @@ export interface ListDomainsForPackageRequest {
   readonly nextToken?: NextToken;
 }
 
+export type DomainPackageDetailsList = DomainPackageDetails[];
 /**
- * Contains interfaces for use with the ES client.
+ * List of DomainPackageDetails objects.
  */
 export interface ListDomainsForPackageResponse {
   /**
@@ -4665,66 +2269,8 @@ export interface ListDomainsForPackageResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainPackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * Timestamp of the most-recent update to the association status.
-   */
-  readonly lastUpdated?: LastUpdated;
-  /**
-   * Name of the domain you've associated a package with.
-   */
-  readonly domainName?: DomainName;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly domainPackageStatus?: DomainPackageStatus;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly packageVersion?: PackageVersion;
-  /**
-   * The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
-   */
-  readonly referencePath?: ReferencePath;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * NextToken should be sent in case if earlier API call produced result containing NextToken.
+ * It is used for pagination.
  */
 export interface ListElasticsearchInstanceTypesRequest {
   /**
@@ -4748,8 +2294,9 @@ export interface ListElasticsearchInstanceTypesRequest {
   readonly nextToken?: NextToken;
 }
 
+export type ElasticsearchInstanceTypeList = ESPartitionInstanceType[];
 /**
- * Contains interfaces for use with the ES client.
+ * In case if there are more results available NextToken would be present, make further request to the same API with received NextToken to paginate remaining results.
  */
 export interface ListElasticsearchInstanceTypesResponse {
   /**
@@ -4763,7 +2310,8 @@ export interface ListElasticsearchInstanceTypesResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Set this value to limit the number of results returned.
+ * Value provided must be greater than 10 else it wont be honored.
  */
 export interface ListElasticsearchVersionsRequest {
   /**
@@ -4779,7 +2327,8 @@ export interface ListElasticsearchVersionsRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Set this value to limit the number of results returned.
+ * Value provided must be greater than 10 else it wont be honored.
  */
 export interface ListElasticsearchVersionsResponse {
   /**
@@ -4795,7 +2344,9 @@ export interface ListElasticsearchVersionsResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Used for pagination.
+ * Only necessary if a previous API call includes a non-null NextToken value.
+ * If provided, returns results for the next page.
  */
 export interface ListPackagesForDomainRequest {
   /**
@@ -4815,7 +2366,7 @@ export interface ListPackagesForDomainRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Pagination token that needs to be supplied to the next call to get the next page of results.
  */
 export interface ListPackagesForDomainResponse {
   /**
@@ -4829,66 +2380,7 @@ export interface ListPackagesForDomainResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainPackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * Timestamp of the most-recent update to the association status.
-   */
-  readonly lastUpdated?: LastUpdated;
-  /**
-   * Name of the domain you've associated a package with.
-   */
-  readonly domainName?: DomainName;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly domainPackageStatus?: DomainPackageStatus;
-  /**
-   * State of the association.
-   * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
-   */
-  readonly packageVersion?: PackageVersion;
-  /**
-   * The relative path on Amazon ES nodes, which can be used as synonym_path when the package is synonym file.
-   */
-  readonly referencePath?: ReferencePath;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specify the ARN for the Elasticsearch domain to which the tags are attached that you want to view.
  */
 export interface ListTagsRequest {
   /**
@@ -4898,7 +2390,7 @@ export interface ListTagsRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * List of Tag for the requested Elasticsearch domain.
  */
 export interface ListTagsResponse {
   /**
@@ -4907,25 +2399,9 @@ export interface ListTagsResponse {
   readonly tagList?: TagList;
 }
 
+export type InstanceCount = number;
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface Tag {
-  /**
-   * Specifies the TagKey, the name of the tag.
-   * Tag keys must be unique for the Elasticsearch domain to which they are attached.
-   */
-  readonly key: TagKey;
-  /**
-   * Specifies the TagValue, the value assigned to the corresponding tag key.
-   * Tag values can be null and do not have to be unique in a tag set.
-   * For example, you can have a key value pair in a tag set of project : Trinity and cost-center : Trinity.
-   */
-  readonly value: TagValue;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The number of Elasticsearch instances to reserve.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
   /**
@@ -4943,7 +2419,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The customer-specified identifier used to track this reservation.
  */
 export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
   /**
@@ -4957,7 +2433,7 @@ export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The id of the inbound connection that you want to reject.
  */
 export interface RejectInboundCrossClusterSearchConnectionRequest {
   /**
@@ -4967,7 +2443,7 @@ export interface RejectInboundCrossClusterSearchConnectionRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * Specifies the InboundCrossClusterSearchConnection of rejected inbound connection.
  */
 export interface RejectInboundCrossClusterSearchConnectionResponse {
   /**
@@ -4977,85 +2453,7 @@ export interface RejectInboundCrossClusterSearchConnectionResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnection {
-  /**
-   * Specifies the DomainInformation for the source Elasticsearch domain.
-   */
-  readonly sourceDomainInfo?: DomainInformation;
-  /**
-   * Specifies the DomainInformation for the destination Elasticsearch domain.
-   */
-  readonly destinationDomainInfo?: DomainInformation;
-  /**
-   * Specifies the connection id for the inbound cross-cluster search connection.
-   */
-  readonly crossClusterSearchConnectionId?: CrossClusterSearchConnectionId;
-  /**
-   * Specifies the InboundCrossClusterSearchConnectionStatus for the outbound connection.
-   */
-  readonly connectionStatus?: InboundCrossClusterSearchConnectionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainInformation {
-  /**
-   * Specifies the DomainName.
-   */
-  readonly ownerId?: OwnerId;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly domainName: DomainName;
-  /**
-   * Specifies the DomainName.
-   */
-  readonly region?: Region;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface InboundCrossClusterSearchConnectionStatus {
-  /**
-   * The state code for inbound connection.
-   * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
-   * APPROVED: Inbound connection is pending acceptance by destination domain owner.
-   * REJECTING: Inbound connection rejection is in process.
-   * REJECTED: Inbound connection is rejected.
-   * DELETING: Inbound connection deletion is in progress.
-   * DELETED: Inbound connection is deleted and cannot be used further.
-   */
-  readonly statusCode?: InboundCrossClusterSearchConnectionStatusCode;
-  /**
-   * Specifies verbose information for the inbound connection status.
-   */
-  readonly message?: CrossClusterSearchConnectionStatusMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specifies the TagKey list which you want to remove from the Elasticsearch domain.
  */
 export interface RemoveTagsRequest {
   /**
@@ -5069,7 +2467,7 @@ export interface RemoveTagsRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The name of the domain that you want to update to the latest service software.
  */
 export interface StartElasticsearchServiceSoftwareUpdateRequest {
   /**
@@ -5079,7 +2477,7 @@ export interface StartElasticsearchServiceSoftwareUpdateRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * The current status of the Elasticsearch service software update.
  */
 export interface StartElasticsearchServiceSoftwareUpdateResponse {
   /**
@@ -5089,50 +2487,7 @@ export interface StartElasticsearchServiceSoftwareUpdateResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ServiceSoftwareOptions {
-  /**
-   * The current service software version that is present on the domain.
-   */
-  readonly currentVersion?: String;
-  /**
-   * The new service software version if one is available.
-   */
-  readonly newVersion?: String;
-  /**
-   * True if you are able to update you service software version.
-   * False if you are not able to update your service software version.
-   */
-  readonly updateAvailable?: Boolean;
-  /**
-   * True if you are able to cancel your service software version update.
-   * False if you are not able to cancel your service software version.
-   */
-  readonly cancellable?: Boolean;
-  /**
-   * The status of your service software update.
-   * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
-   */
-  readonly updateStatus?: DeploymentStatus;
-  /**
-   * The description of the UpdateStatus.
-   */
-  readonly description?: String;
-  /**
-   * Timestamp, in Epoch time, until which you can manually request a service software update.
-   * After this date, we automatically update your service software.
-   */
-  readonly automatedUpdateDate?: DeploymentCloseDateTimeStamp;
-  /**
-   * True if a service software is never automatically updated.
-   * False if a service software is automatically updated after AutomatedUpdateDate.
-   */
-  readonly optionalDeployment?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Specifies advanced security options.
  */
 export interface UpdateElasticsearchDomainConfigRequest {
   /**
@@ -5188,255 +2543,7 @@ export interface UpdateElasticsearchDomainConfigRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCOptions {
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptionsInput {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Credentials for the master user: username and password, ARN, or both.
-   */
-  readonly masterUserOptions?: MasterUserOptions;
-  /**
-   * Specifies the SAML application configuration for the domain.
-   */
-  readonly samlOptions?: SAMLOptionsInput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface MasterUserOptions {
-  /**
-   * ARN for the master user (if IAM is enabled).
-   */
-  readonly masterUserArn?: ARN;
-  /**
-   * The master user's username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserName?: Username;
-  /**
-   * The master user's password, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserPassword?: Password;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsInput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-   */
-  readonly masterUserName?: Username;
-  /**
-   * The backend role to which the SAML master user is mapped to.
-   */
-  readonly masterBackendRole?: BackendRole;
-  /**
-   * The key to use for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key to use for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   * Acceptable values are between 1 and 1440, and the default value is 60.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * The status of the updated Elasticsearch domain.
  */
 export interface UpdateElasticsearchDomainConfigResponse {
   /**
@@ -5446,845 +2553,7 @@ export interface UpdateElasticsearchDomainConfigResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchDomainConfig {
-  /**
-   * String of format X.
-   * Y to specify version for the Elasticsearch domain.
-   */
-  readonly elasticsearchVersion?: ElasticsearchVersionStatus;
-  /**
-   * Specifies the ElasticsearchClusterConfig for the Elasticsearch domain.
-   */
-  readonly elasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;
-  /**
-   * Specifies the EBSOptions for the Elasticsearch domain.
-   */
-  readonly ebsOptions?: EBSOptionsStatus;
-  /**
-   * IAM access policy as a JSON-formatted string.
-   */
-  readonly accessPolicies?: AccessPoliciesStatus;
-  /**
-   * Specifies the SnapshotOptions for the Elasticsearch domain.
-   */
-  readonly snapshotOptions?: SnapshotOptionsStatus;
-  /**
-   * The VPCOptions for the specified domain.
-   * For more information, see VPC Endpoints for Amazon Elasticsearch Service Domains.
-   */
-  readonly vpcOptions?: VPCDerivedInfoStatus;
-  /**
-   * The CognitoOptions for the specified domain.
-   * For more information, see Amazon Cognito Authentication for Kibana.
-   */
-  readonly cognitoOptions?: CognitoOptionsStatus;
-  /**
-   * Specifies the EncryptionAtRestOptions for the Elasticsearch domain.
-   */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptionsStatus;
-  /**
-   * Specifies the NodeToNodeEncryptionOptions for the Elasticsearch domain.
-   */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptionsStatus;
-  /**
-   * Specifies the AdvancedOptions for the domain.
-   * See Configuring Advanced Options for more information.
-   */
-  readonly advancedOptions?: AdvancedOptionsStatus;
-  /**
-   * Log publishing options for the given domain.
-   */
-  readonly logPublishingOptions?: LogPublishingOptionsStatus;
-  /**
-   * Specifies the DomainEndpointOptions for the Elasticsearch domain.
-   */
-  readonly domainEndpointOptions?: DomainEndpointOptionsStatus;
-  /**
-   * Specifies AdvancedSecurityOptions for the domain.
-   */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptionsStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchVersionStatus {
-  /**
-   * Specifies the Elasticsearch version for the specified Elasticsearch domain.
-   */
-  readonly options: ElasticsearchVersionString;
-  /**
-   * Specifies the status of the Elasticsearch version options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfigStatus {
-  /**
-   * Specifies the cluster configuration for the specified Elasticsearch domain.
-   */
-  readonly options: ElasticsearchClusterConfig;
-  /**
-   * Specifies the status of the configuration for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ElasticsearchClusterConfig {
-  /**
-   * The instance type for an Elasticsearch cluster.
-   * UltraWarm instance types are not supported for data instances.
-   */
-  readonly instanceType?: ESPartitionInstanceType;
-  /**
-   * The number of instances in the specified domain cluster.
-   */
-  readonly instanceCount?: IntegerClass;
-  /**
-   * A boolean value to indicate whether a dedicated master node is enabled.
-   * See About Dedicated Master Nodes for more information.
-   */
-  readonly dedicatedMasterEnabled?: Boolean;
-  /**
-   * A boolean value to indicate whether zone awareness is enabled.
-   * See About Zone Awareness for more information.
-   */
-  readonly zoneAwarenessEnabled?: Boolean;
-  /**
-   * Specifies the zone awareness configuration for a domain when zone awareness is enabled.
-   */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
-  /**
-   * The instance type for a dedicated master node.
-   */
-  readonly dedicatedMasterType?: ESPartitionInstanceType;
-  /**
-   * Total number of dedicated master nodes, active and on standby, for the cluster.
-   */
-  readonly dedicatedMasterCount?: IntegerClass;
-  /**
-   * True to enable warm storage.
-   */
-  readonly warmEnabled?: Boolean;
-  /**
-   * The instance type for the Elasticsearch cluster's warm nodes.
-   */
-  readonly warmType?: ESWarmPartitionInstanceType;
-  /**
-   * The number of warm nodes in the cluster.
-   */
-  readonly warmCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ZoneAwarenessConfig {
-  /**
-   * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
-   * This should be equal to number of subnets if VPC endpoints is enabled.
-   */
-  readonly availabilityZoneCount?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptionsStatus {
-  /**
-   * Specifies the EBS options for the specified Elasticsearch domain.
-   */
-  readonly options: EBSOptions;
-  /**
-   * Specifies the status of the EBS options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EBSOptions {
-  /**
-   * Specifies whether EBS-based storage is enabled.
-   */
-  readonly ebsEnabled?: Boolean;
-  /**
-   * Specifies the volume type for EBS-based storage.
-   */
-  readonly volumeType?: VolumeType;
-  /**
-   * Integer to specify the size of an EBS volume.
-   */
-  readonly volumeSize?: IntegerClass;
-  /**
-   * Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-   */
-  readonly iops?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AccessPoliciesStatus {
-  /**
-   * The access policy configured for the Elasticsearch domain.
-   * Access policies may be resource-based, IP-based, or IAM-based.
-   * See  Configuring Access Policiesfor more information.
-   */
-  readonly options: PolicyDocument;
-  /**
-   * The status of the access policy for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptionsStatus {
-  /**
-   * Specifies the daily snapshot options specified for the Elasticsearch domain.
-   */
-  readonly options: SnapshotOptions;
-  /**
-   * Specifies the status of a daily automated snapshot.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SnapshotOptions {
-  /**
-   * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
-   * Default value is 0 hours.
-   */
-  readonly automatedSnapshotStartHour?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfoStatus {
-  /**
-   * Specifies the VPC options for the specified Elasticsearch domain.
-   */
-  readonly options: VPCDerivedInfo;
-  /**
-   * Specifies the status of the VPC options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface VPCDerivedInfo {
-  /**
-   * The VPC Id for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly vpcId?: String;
-  /**
-   * Specifies the subnets for VPC endpoint.
-   */
-  readonly subnetIds?: StringList;
-  /**
-   * The availability zones for the Elasticsearch domain.
-   * Exists only if the domain was created with VPCOptions.
-   */
-  readonly availabilityZones?: StringList;
-  /**
-   * Specifies the security groups for VPC endpoint.
-   */
-  readonly securityGroupIds?: StringList;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptionsStatus {
-  /**
-   * Specifies the Cognito options for the specified Elasticsearch domain.
-   */
-  readonly options: CognitoOptions;
-  /**
-   * Specifies the status of the Cognito options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface CognitoOptions {
-  /**
-   * Specifies the option to enable Cognito for Kibana authentication.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the Cognito user pool ID for Kibana authentication.
-   */
-  readonly userPoolId?: UserPoolId;
-  /**
-   * Specifies the Cognito identity pool ID for Kibana authentication.
-   */
-  readonly identityPoolId?: IdentityPoolId;
-  /**
-   * Specifies the role ARN that provides Elasticsearch permissions for accessing Cognito resources.
-   */
-  readonly roleArn?: RoleArn;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptionsStatus {
-  /**
-   * Specifies the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly options: EncryptionAtRestOptions;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface EncryptionAtRestOptions {
-  /**
-   * Specifies the option to enable Encryption At Rest.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Specifies the KMS Key ID for Encryption At Rest options.
-   */
-  readonly kmsKeyId?: KmsKeyId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptionsStatus {
-  /**
-   * Specifies the node-to-node encryption options for the specified Elasticsearch domain.
-   */
-  readonly options: NodeToNodeEncryptionOptions;
-  /**
-   * Specifies the status of the node-to-node encryption options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface NodeToNodeEncryptionOptions {
-  /**
-   * Specify true to enable node-to-node encryption.
-   */
-  readonly enabled?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedOptionsStatus {
-  /**
-   * Specifies the status of advanced options for the specified Elasticsearch domain.
-   */
-  readonly options: AdvancedOptions;
-  /**
-   * Specifies the status of OptionStatus for advanced options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface LogPublishingOptionsStatus {
-  /**
-   * The log publishing options configured for the Elasticsearch domain.
-   */
-  readonly options?: LogPublishingOptions;
-  /**
-   * The status of the log publishing options for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status?: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptionsStatus {
-  /**
-   * Options to configure endpoint for the Elasticsearch domain.
-   */
-  readonly options: DomainEndpointOptions;
-  /**
-   * The status of the endpoint options for the Elasticsearch domain.
-   * See OptionStatus for the status information that's included.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface DomainEndpointOptions {
-  /**
-   * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly enforceHttps?: Boolean;
-  /**
-   * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
-   * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
-   * 0 and higher.
-   * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
-   * 2.
-   */
-  readonly tlsSecurityPolicy?: TLSSecurityPolicy;
-  /**
-   * Specify if custom endpoint should be enabled for the Elasticsearch domain.
-   */
-  readonly customEndpointEnabled?: Boolean;
-  /**
-   * Specify the fully qualified domain for your custom endpoint.
-   */
-  readonly customEndpoint?: DomainNameFqdn;
-  /**
-   * Specify ACM certificate ARN for your custom endpoint.
-   */
-  readonly customEndpointCertificateArn?: ARN;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptionsStatus {
-  /**
-   * Specifies advanced security options for the specified Elasticsearch domain.
-   */
-  readonly options: AdvancedSecurityOptions;
-  /**
-   * Status of the advanced security options for the specified Elasticsearch domain.
-   */
-  readonly status: OptionStatus;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface AdvancedSecurityOptions {
-  /**
-   * True if advanced security is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * True if the internal user database is enabled.
-   */
-  readonly internalUserDatabaseEnabled?: Boolean;
-  /**
-   * Describes the SAML application configured for a domain.
-   */
-  readonly samlOptions?: SAMLOptionsOutput;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLOptionsOutput {
-  /**
-   * True if SAML is enabled.
-   */
-  readonly enabled?: Boolean;
-  /**
-   * Describes the SAML Identity Provider's information.
-   */
-  readonly idp?: SAMLIdp;
-  /**
-   * The key used for matching the SAML Subject attribute.
-   */
-  readonly subjectKey?: String;
-  /**
-   * The key used for matching the SAML Roles attribute.
-   */
-  readonly rolesKey?: String;
-  /**
-   * The duration, in minutes, after which a user session becomes inactive.
-   */
-  readonly sessionTimeoutMinutes?: IntegerClass;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface SAMLIdp {
-  /**
-   * The Metadata of the SAML application in xml format.
-   */
-  readonly metadataContent: SAMLMetadata;
-  /**
-   * The unique Entity ID of the application in SAML Identity Provider.
-   */
-  readonly entityId: SAMLEntityId;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface OptionStatus {
-  /**
-   * Timestamp which tells the creation date for the entity.
-   */
-  readonly creationDate: UpdateTimestamp;
-  /**
-   * Timestamp which tells the last updated time for the entity.
-   */
-  readonly updateDate: UpdateTimestamp;
-  /**
-   * Specifies the latest version for the entity.
-   */
-  readonly updateVersion?: UIntValue;
-  /**
-   * Provides the OptionState for the Elasticsearch domain.
-   */
-  readonly state: OptionState;
-  /**
-   * Indicates whether the Elasticsearch domain is being deleted.
-   */
-  readonly pendingDeletion?: Boolean;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * An info message for the new version which will be shown as part of GetPackageVersionHistoryResponse.
  */
 export interface UpdatePackageRequest {
   /**
@@ -6306,21 +2575,7 @@ export interface UpdatePackageRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageSource {
-  /**
-   * Name of the bucket containing the package.
-   */
-  readonly s3BucketName?: S3BucketName;
-  /**
-   * Key (file name) of the package.
-   */
-  readonly s3Key?: S3Key;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * Information about the package PackageDetails.
  */
 export interface UpdatePackageResponse {
   /**
@@ -6330,65 +2585,8 @@ export interface UpdatePackageResponse {
 }
 
 /**
- * Contains interfaces for use with the ES client.
- */
-export interface PackageDetails {
-  /**
-   * Internal ID of the package.
-   */
-  readonly packageId?: PackageID;
-  /**
-   * User specified name of the package.
-   */
-  readonly packageName?: PackageName;
-  /**
-   * Currently supports only TXT-DICTIONARY.
-   */
-  readonly packageType?: PackageType;
-  /**
-   * User-specified description of the package.
-   */
-  readonly packageDescription?: PackageDescription;
-  /**
-   * Current state of the package.
-   * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
-   */
-  readonly packageStatus?: PackageStatus;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly createdAt?: CreatedAt;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly lastUpdatedAt?: LastUpdated;
-  /**
-   * Timestamp which tells creation date of the package.
-   */
-  readonly availablePackageVersion?: PackageVersion;
-  /**
-   * Additional information if the package is in an error state.
-   * Null otherwise.
-   */
-  readonly errorDetails?: ErrorDetails;
-}
-
-/**
- * Contains interfaces for use with the ES client.
- */
-export interface ErrorDetails {
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorType?: ErrorType;
-  /**
-   * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
-   */
-  readonly errorMessage?: ErrorMessage;
-}
-
-/**
- * Contains interfaces for use with the ES client.
+ * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
+ * This will not actually perform the Upgrade.
  */
 export interface UpgradeElasticsearchDomainRequest {
   /**
@@ -6407,7 +2605,8 @@ export interface UpgradeElasticsearchDomainRequest {
 }
 
 /**
- * Contains interfaces for use with the ES client.
+ * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
+ * This will not actually perform the Upgrade.
  */
 export interface UpgradeElasticsearchDomainResponse {
   /**
@@ -6426,112 +2625,3 @@ export interface UpgradeElasticsearchDomainResponse {
   readonly performCheckOnly?: Boolean;
 }
 
-export type ARN = string;
-export type AdditionalLimitList = AdditionalLimit[];
-export type AdvancedOptions = {[key: string]: String};
-export type BackendRole = string;
-export type Boolean = boolean;
-export type CloudWatchLogsLogGroupArn = string;
-export type CommitMessage = string;
-export type CompatibleElasticsearchVersionsList = CompatibleVersionsMap[];
-export type ConnectionAlias = string;
-export type CreatedAt = Date;
-export type CrossClusterSearchConnectionId = string;
-export type CrossClusterSearchConnectionStatusMessage = string;
-export type DeploymentCloseDateTimeStamp = Date;
-export type DeploymentStatus = 'PENDING_UPDATE'|'IN_PROGRESS'|'COMPLETED'|'NOT_ELIGIBLE'|'ELIGIBLE'|string;
-export type DescribePackagesFilterList = DescribePackagesFilter[];
-export type DescribePackagesFilterName = 'PackageID'|'PackageName'|'PackageStatus'|string;
-export type DescribePackagesFilterValue = string;
-export type DescribePackagesFilterValues = DescribePackagesFilterValue[];
-export type DomainId = string;
-export type DomainInfoList = DomainInfo[];
-export type DomainName = string;
-export type DomainNameFqdn = string;
-export type DomainNameList = DomainName[];
-export type DomainPackageDetailsList = DomainPackageDetails[];
-export type DomainPackageStatus = 'ASSOCIATING'|'ASSOCIATION_FAILED'|'ACTIVE'|'DISSOCIATING'|'DISSOCIATION_FAILED'|string;
-export type Double = number;
-export type ESPartitionInstanceType = 'm3.medium.elasticsearch'|'m3.large.elasticsearch'|'m3.xlarge.elasticsearch'|'m3.2xlarge.elasticsearch'|'m4.large.elasticsearch'|'m4.xlarge.elasticsearch'|'m4.2xlarge.elasticsearch'|'m4.4xlarge.elasticsearch'|'m4.10xlarge.elasticsearch'|'m5.large.elasticsearch'|'m5.xlarge.elasticsearch'|'m5.2xlarge.elasticsearch'|'m5.4xlarge.elasticsearch'|'m5.12xlarge.elasticsearch'|'r5.large.elasticsearch'|'r5.xlarge.elasticsearch'|'r5.2xlarge.elasticsearch'|'r5.4xlarge.elasticsearch'|'r5.12xlarge.elasticsearch'|'c5.large.elasticsearch'|'c5.xlarge.elasticsearch'|'c5.2xlarge.elasticsearch'|'c5.4xlarge.elasticsearch'|'c5.9xlarge.elasticsearch'|'c5.18xlarge.elasticsearch'|'ultrawarm1.medium.elasticsearch'|'ultrawarm1.large.elasticsearch'|'t2.micro.elasticsearch'|'t2.small.elasticsearch'|'t2.medium.elasticsearch'|'r3.large.elasticsearch'|'r3.xlarge.elasticsearch'|'r3.2xlarge.elasticsearch'|'r3.4xlarge.elasticsearch'|'r3.8xlarge.elasticsearch'|'i2.xlarge.elasticsearch'|'i2.2xlarge.elasticsearch'|'d2.xlarge.elasticsearch'|'d2.2xlarge.elasticsearch'|'d2.4xlarge.elasticsearch'|'d2.8xlarge.elasticsearch'|'c4.large.elasticsearch'|'c4.xlarge.elasticsearch'|'c4.2xlarge.elasticsearch'|'c4.4xlarge.elasticsearch'|'c4.8xlarge.elasticsearch'|'r4.large.elasticsearch'|'r4.xlarge.elasticsearch'|'r4.2xlarge.elasticsearch'|'r4.4xlarge.elasticsearch'|'r4.8xlarge.elasticsearch'|'r4.16xlarge.elasticsearch'|'i3.large.elasticsearch'|'i3.xlarge.elasticsearch'|'i3.2xlarge.elasticsearch'|'i3.4xlarge.elasticsearch'|'i3.8xlarge.elasticsearch'|'i3.16xlarge.elasticsearch'|string;
-export type ESWarmPartitionInstanceType = 'ultrawarm1.medium.elasticsearch'|'ultrawarm1.large.elasticsearch'|string;
-export type ElasticsearchDomainStatusList = ElasticsearchDomainStatus[];
-export type ElasticsearchInstanceTypeList = ESPartitionInstanceType[];
-export type ElasticsearchVersionList = ElasticsearchVersionString[];
-export type ElasticsearchVersionString = string;
-export type EndpointsMap = {[key: string]: ServiceUrl};
-export type ErrorMessage = string;
-export type ErrorType = string;
-export type FilterList = Filter[];
-export type GUID = string;
-export type IdentityPoolId = string;
-export type InboundCrossClusterSearchConnectionStatusCode = 'PENDING_ACCEPTANCE'|'APPROVED'|'REJECTING'|'REJECTED'|'DELETING'|'DELETED'|string;
-export type InboundCrossClusterSearchConnections = InboundCrossClusterSearchConnection[];
-export type InstanceCount = number;
-export type InstanceRole = string;
-export type Integer = number;
-export type IntegerClass = number;
-export type Issue = string;
-export type Issues = Issue[];
-export type KmsKeyId = string;
-export type LastUpdated = Date;
-export type LimitName = string;
-export type LimitValue = string;
-export type LimitValueList = LimitValue[];
-export type LimitsByRole = {[key: string]: Limits};
-export type LogPublishingOptions = {[key: string]: LogPublishingOption};
-export type LogType = 'INDEX_SLOW_LOGS'|'SEARCH_SLOW_LOGS'|'ES_APPLICATION_LOGS'|'AUDIT_LOGS'|string;
-export type MaxResults = number;
-export type MaximumInstanceCount = number;
-export type MinimumInstanceCount = number;
-export type NextToken = string;
-export type NonEmptyString = string;
-export type OptionState = 'RequiresIndexDocuments'|'Processing'|'Active'|string;
-export type OutboundCrossClusterSearchConnectionStatusCode = 'PENDING_ACCEPTANCE'|'VALIDATING'|'VALIDATION_FAILED'|'PROVISIONING'|'ACTIVE'|'REJECTED'|'DELETING'|'DELETED'|string;
-export type OutboundCrossClusterSearchConnections = OutboundCrossClusterSearchConnection[];
-export type OwnerId = string;
-export type PackageDescription = string;
-export type PackageDetailsList = PackageDetails[];
-export type PackageID = string;
-export type PackageName = string;
-export type PackageStatus = 'COPYING'|'COPY_FAILED'|'VALIDATING'|'VALIDATION_FAILED'|'AVAILABLE'|'DELETING'|'DELETED'|'DELETE_FAILED'|string;
-export type PackageType = 'TXT-DICTIONARY'|string;
-export type PackageVersion = string;
-export type PackageVersionHistoryList = PackageVersionHistory[];
-export type Password = string;
-export type PolicyDocument = string;
-export type RecurringChargeList = RecurringCharge[];
-export type ReferencePath = string;
-export type Region = string;
-export type ReservationToken = string;
-export type ReservedElasticsearchInstanceList = ReservedElasticsearchInstance[];
-export type ReservedElasticsearchInstanceOfferingList = ReservedElasticsearchInstanceOffering[];
-export type ReservedElasticsearchInstancePaymentOption = 'ALL_UPFRONT'|'PARTIAL_UPFRONT'|'NO_UPFRONT'|string;
-export type RoleArn = string;
-export type S3BucketName = string;
-export type S3Key = string;
-export type SAMLEntityId = string;
-export type SAMLMetadata = string;
-export type ServiceUrl = string;
-export type StartTimestamp = Date;
-export type StorageSubTypeName = string;
-export type StorageTypeLimitList = StorageTypeLimit[];
-export type StorageTypeList = StorageType[];
-export type StorageTypeName = string;
-export type String = string;
-export type StringList = String[];
-export type TLSSecurityPolicy = 'Policy-Min-TLS-1-0-2019-07'|'Policy-Min-TLS-1-2-2019-07'|string;
-export type TagKey = string;
-export type TagList = Tag[];
-export type TagValue = string;
-export type UIntValue = number;
-export type UpdateTimestamp = Date;
-export type UpgradeHistoryList = UpgradeHistory[];
-export type UpgradeName = string;
-export type UpgradeStatus = 'IN_PROGRESS'|'SUCCEEDED'|'SUCCEEDED_WITH_ISSUES'|'FAILED'|string;
-export type UpgradeStep = 'PRE_UPGRADE_CHECK'|'SNAPSHOT'|'UPGRADE'|string;
-export type UpgradeStepsList = UpgradeStepItem[];
-export type UserPoolId = string;
-export type Username = string;
-export type ValueStringList = NonEmptyString[];
-export type VolumeType = 'standard'|'gp2'|'io1'|string;
-export type apiVersion = '2015-01-01'|'latest'|string;

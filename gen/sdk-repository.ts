@@ -3,7 +3,7 @@ import * as path from 'path';
 
 export interface Client {
   readonly dtsPath: string;
-  readonly specPath: string;
+  readonly apiPath: string;
 }
 
 export class SdkRepository {
@@ -35,7 +35,7 @@ export class SdkRepository {
         this.clients.push({
           dtsPath: path.join(clientsDirectory, clientFile),
           // take the last since it will be the latest
-          specPath: path.join(apisDirectory, clientApiFiles[clientApiFiles.length - 1]),
+          apiPath: path.join(apisDirectory, clientApiFiles[clientApiFiles.length - 1]),
         });
       }
     };

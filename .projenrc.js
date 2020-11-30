@@ -19,7 +19,6 @@ const project = new TypeScriptProject({
     'typescript-parser',
     'node-color-log',
     'ts-node',
-    '@types/showdown',
   ]
 });
 
