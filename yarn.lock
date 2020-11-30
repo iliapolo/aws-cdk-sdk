@@ -103,7 +103,7 @@
     "@aws-cdk/cx-api" "1.75.0"
     constructs "^3.2.0"
 
-"@aws-cdk/aws-elasticsearch@*":
+"@aws-cdk/aws-elasticsearch@^1.75.0":
   version "1.75.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-elasticsearch/-/aws-elasticsearch-1.75.0.tgz#a800785fd6d648cd99c4f9734aa4838fed1187d2"
   integrity sha512-3Ck0fIzqqnja3lpPHd1JQhza+9ELkPVkeOA102XXh8jiB7mmgjYGPyJqMAhZif9BPO/3vKwpDuQDs7DYmEqJCg==
@@ -950,6 +950,11 @@
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.1.5.tgz#b6ab3bba29e16b821d84e09ecfaded462b816b00"
   integrity sha512-UEyp8LwZ4Dg30kVU2Q3amHHyTn1jEdhCIE59ANed76GaT1Vp76DD3ZWSAxgCrw6wJ0TqeoBpqmfUHiUDPs//HQ==
+
+"@types/showdown@^1.9.3":
+  version "1.9.3"
+  resolved "https://registry.yarnpkg.com/@types/showdown/-/showdown-1.9.3.tgz#eaa881b03a32d3720184731754d3025fc450b970"
+  integrity sha512-akvzSmrvY4J5d3tHzUUiQr0xpjd4Nb3uzWW6dtwzYJ+qW/KdWw5F8NLatnor5q/1LURHnzDA1ReEwCVqcatRnw==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.0"

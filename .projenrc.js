@@ -18,11 +18,13 @@ const project = new TypeScriptProject({
     'codemaker',
     'typescript-parser',
     'node-color-log',
-    'ts-node'
+    'ts-node',
+    '@types/showdown',
   ]
 });
 
 project.removeScript('build');
 project.addScript('build', './gen/gen.sh && NODE_OPTIONS=--max_old_space_size=4096 yarn run compile');
+project.eslint.addIgnorePattern('gen/**')
 project.eslint.addRules({'max-len': ['error', { code: 2000 }]});
 project.synth();

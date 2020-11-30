@@ -13,14 +13,23 @@ export class ES extends cdk.Construct {
   }
 
   /**
-   * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.</p>
+   * <p>Allows the destination domain owner to accept an inbound cross-cluster search connection request.
+   * </p>.
    */
-  public acceptInboundCrossClusterSearchConnection(input: shapes.AcceptInboundCrossClusterSearchConnectionRequest): responses.AcceptInboundCrossClusterSearchConnectionResponse {
-    return new responses.AcceptInboundCrossClusterSearchConnectionResponse(this, this.resources, input);
+  public acceptInboundCrossClusterSearchConnection(input: shapes.AcceptInboundCrossClusterSearchConnectionRequest): responses.AcceptInboundCrossClusterSearchConnectionResponseApi {
+    return new responses.AcceptInboundCrossClusterSearchConnectionResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Attaches tags to an existing Elasticsearch domain. Tags are a set of case-sensitive key value pairs. An Elasticsearch domain may have up to 10 tags. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-awsresorcetagging" target="_blank"> Tagging Amazon Elasticsearch Service Domains for more information.</a></p>
+   * <p>Attaches tags to an existing Elasticsearch domain.
+   * Tags are a set of case-sensitive key value pairs.
+   * An Elasticsearch domain may have up to 10 tags.
+   * See <a href="http://docs.
+   * aws.
+   * amazon.
+   * com/elasticsearch-service/latest/developerguide/es-managedomains.
+   * html#es-managedomains-awsresorcetagging" target="_blank"> Tagging Amazon Elasticsearch Service Domains for more information.
+   * </a></p>.
    */
   public addTags(input: shapes.AddTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
@@ -39,49 +48,70 @@ export class ES extends cdk.Construct {
   }
 
   /**
-   * <p>Associates a package with an Amazon ES domain.</p>
+   * <p>Associates a package with an Amazon ES domain.
+   * </p>.
    */
-  public associatePackage(input: shapes.AssociatePackageRequest): responses.AssociatePackageResponse {
-    return new responses.AssociatePackageResponse(this, this.resources, input);
+  public associatePackage(input: shapes.AssociatePackageRequest): responses.AssociatePackageResponseApi {
+    return new responses.AssociatePackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Cancels a scheduled service software update for an Amazon ES domain. You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.</p>
+   * <p>Cancels a scheduled service software update for an Amazon ES domain.
+   * You can only perform this operation before the <code>AutomatedUpdateDate</code> and when the <code>UpdateStatus</code> is in the <code>PENDING_UPDATE</code> state.
+   * </p>.
    */
-  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest): responses.CancelElasticsearchServiceSoftwareUpdateResponse {
-    return new responses.CancelElasticsearchServiceSoftwareUpdateResponse(this, this.resources, input);
+  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest): responses.CancelElasticsearchServiceSoftwareUpdateResponseApi {
+    return new responses.CancelElasticsearchServiceSoftwareUpdateResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Creates a new Elasticsearch domain. For more information, see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.</p>
+   * <p>Creates a new Elasticsearch domain.
+   * For more information, see <a href="http://docs.
+   * aws.
+   * amazon.
+   * com/elasticsearch-service/latest/developerguide/es-createupdatedomains.
+   * html#es-createdomains" target="_blank">Creating Elasticsearch Domains</a> in the <i>Amazon Elasticsearch Service Developer Guide</i>.
+   * </p>.
    */
-  public createElasticsearchDomain(input: shapes.CreateElasticsearchDomainRequest): responses.CreateElasticsearchDomainResponse {
-    return new responses.CreateElasticsearchDomainResponse(this, this.resources, input);
+  public createElasticsearchDomain(input: shapes.CreateElasticsearchDomainRequest): responses.CreateElasticsearchDomainResponseApi {
+    return new responses.CreateElasticsearchDomainResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.</p>
+   * <p>Creates a new cross-cluster search connection from a source domain to a destination domain.
+   * </p>.
    */
-  public createOutboundCrossClusterSearchConnection(input: shapes.CreateOutboundCrossClusterSearchConnectionRequest): responses.CreateOutboundCrossClusterSearchConnectionResponse {
-    return new responses.CreateOutboundCrossClusterSearchConnectionResponse(this, this.resources, input);
+  public createOutboundCrossClusterSearchConnection(input: shapes.CreateOutboundCrossClusterSearchConnectionRequest): responses.CreateOutboundCrossClusterSearchConnectionResponseApi {
+    return new responses.CreateOutboundCrossClusterSearchConnectionResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Create a package for use with Amazon ES domains.</p>
+   * <p>Create a package for use with Amazon ES domains.
+   * </p>.
    */
-  public createPackage(input: shapes.CreatePackageRequest): responses.CreatePackageResponse {
-    return new responses.CreatePackageResponse(this, this.resources, input);
+  public createPackage(input: shapes.CreatePackageRequest): responses.CreatePackageResponseApi {
+    return new responses.CreatePackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Permanently deletes the specified Elasticsearch domain and all of its data. Once a domain is deleted, it cannot be recovered.</p>
+   * <p>Permanently deletes the specified Elasticsearch domain and all of its data.
+   * Once a domain is deleted, it cannot be recovered.
+   * </p>.
    */
-  public deleteElasticsearchDomain(input: shapes.DeleteElasticsearchDomainRequest): responses.DeleteElasticsearchDomainResponse {
-    return new responses.DeleteElasticsearchDomainResponse(this, this.resources, input);
+  public deleteElasticsearchDomain(input: shapes.DeleteElasticsearchDomainRequest): responses.DeleteElasticsearchDomainResponseApi {
+    return new responses.DeleteElasticsearchDomainResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains. Role deletion will fail if any existing VPC domains use the role. You must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.</p>
+   * <p>Deletes the service-linked role that Elasticsearch Service uses to manage and maintain VPC domains.
+   * Role deletion will fail if any existing VPC domains use the role.
+   * You must delete any such Elasticsearch domains before deleting the role.
+   * See <a href="http://docs.
+   * aws.
+   * amazon.
+   * com/elasticsearch-service/latest/developerguide/es-vpc.
+   * html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon Elasticsearch Service Domains</i>.
+   * </p>.
    */
   public deleteElasticsearchServiceRole(): void {
     const props: cr.AwsCustomResourceProps = {
@@ -96,182 +126,209 @@ export class ES extends cdk.Construct {
   }
 
   /**
-   * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.</p>
+   * <p>Allows the destination domain owner to delete an existing inbound cross-cluster search connection.
+   * </p>.
    */
-  public deleteInboundCrossClusterSearchConnection(input: shapes.DeleteInboundCrossClusterSearchConnectionRequest): responses.DeleteInboundCrossClusterSearchConnectionResponse {
-    return new responses.DeleteInboundCrossClusterSearchConnectionResponse(this, this.resources, input);
+  public deleteInboundCrossClusterSearchConnection(input: shapes.DeleteInboundCrossClusterSearchConnectionRequest): responses.DeleteInboundCrossClusterSearchConnectionResponseApi {
+    return new responses.DeleteInboundCrossClusterSearchConnectionResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.</p>
+   * <p>Allows the source domain owner to delete an existing outbound cross-cluster search connection.
+   * </p>.
    */
-  public deleteOutboundCrossClusterSearchConnection(input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest): responses.DeleteOutboundCrossClusterSearchConnectionResponse {
-    return new responses.DeleteOutboundCrossClusterSearchConnectionResponse(this, this.resources, input);
+  public deleteOutboundCrossClusterSearchConnection(input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest): responses.DeleteOutboundCrossClusterSearchConnectionResponseApi {
+    return new responses.DeleteOutboundCrossClusterSearchConnectionResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Delete the package.</p>
+   * <p>Delete the package.
+   * </p>.
    */
-  public deletePackage(input: shapes.DeletePackageRequest): responses.DeletePackageResponse {
-    return new responses.DeletePackageResponse(this, this.resources, input);
+  public deletePackage(input: shapes.DeletePackageRequest): responses.DeletePackageResponseApi {
+    return new responses.DeletePackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.</p>
+   * <p>Returns domain configuration information about the specified Elasticsearch domain, including the domain ID, domain endpoint, and domain ARN.
+   * </p>.
    */
-  public describeElasticsearchDomain(input: shapes.DescribeElasticsearchDomainRequest): responses.DescribeElasticsearchDomainResponse {
-    return new responses.DescribeElasticsearchDomainResponse(this, this.resources, input);
+  public describeElasticsearchDomain(input: shapes.DescribeElasticsearchDomainRequest): responses.DescribeElasticsearchDomainResponseApi {
+    return new responses.DescribeElasticsearchDomainResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.</p>
+   * <p>Provides cluster configuration information about the specified Elasticsearch domain, such as the state, creation date, update version, and update date for cluster options.
+   * </p>.
    */
-  public describeElasticsearchDomainConfig(input: shapes.DescribeElasticsearchDomainConfigRequest): responses.DescribeElasticsearchDomainConfigResponse {
-    return new responses.DescribeElasticsearchDomainConfigResponse(this, this.resources, input);
+  public describeElasticsearchDomainConfig(input: shapes.DescribeElasticsearchDomainConfigRequest): responses.DescribeElasticsearchDomainConfigResponseApi {
+    return new responses.DescribeElasticsearchDomainConfigResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.</p>
+   * <p>Returns domain configuration information about the specified Elasticsearch domains, including the domain ID, domain endpoint, and domain ARN.
+   * </p>.
    */
-  public describeElasticsearchDomains(input: shapes.DescribeElasticsearchDomainsRequest): responses.DescribeElasticsearchDomainsResponse {
-    return new responses.DescribeElasticsearchDomainsResponse(this, this.resources, input);
+  public describeElasticsearchDomains(input: shapes.DescribeElasticsearchDomainsRequest): responses.DescribeElasticsearchDomainsResponseApi {
+    return new responses.DescribeElasticsearchDomainsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p> Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion. When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying. </p>
+   * <p> Describe Elasticsearch Limits for a given InstanceType and ElasticsearchVersion.
+   * When modifying existing Domain, specify the <code> <a>DomainName</a> </code> to know what Limits are supported for modifying.
+   * </p>.
    */
-  public describeElasticsearchInstanceTypeLimits(input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest): responses.DescribeElasticsearchInstanceTypeLimitsResponse {
-    return new responses.DescribeElasticsearchInstanceTypeLimitsResponse(this, this.resources, input);
+  public describeElasticsearchInstanceTypeLimits(input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest): responses.DescribeElasticsearchInstanceTypeLimitsResponseApi {
+    return new responses.DescribeElasticsearchInstanceTypeLimitsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Lists all the inbound cross-cluster search connections for a destination domain.</p>
+   * <p>Lists all the inbound cross-cluster search connections for a destination domain.
+   * </p>.
    */
-  public describeInboundCrossClusterSearchConnections(input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest): responses.DescribeInboundCrossClusterSearchConnectionsResponse {
-    return new responses.DescribeInboundCrossClusterSearchConnectionsResponse(this, this.resources, input);
+  public describeInboundCrossClusterSearchConnections(input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest): responses.DescribeInboundCrossClusterSearchConnectionsResponseApi {
+    return new responses.DescribeInboundCrossClusterSearchConnectionsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Lists all the outbound cross-cluster search connections for a source domain.</p>
+   * <p>Lists all the outbound cross-cluster search connections for a source domain.
+   * </p>.
    */
-  public describeOutboundCrossClusterSearchConnections(input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest): responses.DescribeOutboundCrossClusterSearchConnectionsResponse {
-    return new responses.DescribeOutboundCrossClusterSearchConnectionsResponse(this, this.resources, input);
+  public describeOutboundCrossClusterSearchConnections(input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest): responses.DescribeOutboundCrossClusterSearchConnectionsResponseApi {
+    return new responses.DescribeOutboundCrossClusterSearchConnectionsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Describes all packages available to Amazon ES. Includes options for filtering, limiting the number of results, and pagination.</p>
+   * <p>Describes all packages available to Amazon ES.
+   * Includes options for filtering, limiting the number of results, and pagination.
+   * </p>.
    */
-  public describePackages(input: shapes.DescribePackagesRequest): responses.DescribePackagesResponse {
-    return new responses.DescribePackagesResponse(this, this.resources, input);
+  public describePackages(input: shapes.DescribePackagesRequest): responses.DescribePackagesResponseApi {
+    return new responses.DescribePackagesResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Lists available reserved Elasticsearch instance offerings.</p>
+   * <p>Lists available reserved Elasticsearch instance offerings.
+   * </p>.
    */
-  public describeReservedElasticsearchInstanceOfferings(input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest): responses.DescribeReservedElasticsearchInstanceOfferingsResponse {
-    return new responses.DescribeReservedElasticsearchInstanceOfferingsResponse(this, this.resources, input);
+  public describeReservedElasticsearchInstanceOfferings(input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest): responses.DescribeReservedElasticsearchInstanceOfferingsResponseApi {
+    return new responses.DescribeReservedElasticsearchInstanceOfferingsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns information about reserved Elasticsearch instances for this account.</p>
+   * <p>Returns information about reserved Elasticsearch instances for this account.
+   * </p>.
    */
-  public describeReservedElasticsearchInstances(input: shapes.DescribeReservedElasticsearchInstancesRequest): responses.DescribeReservedElasticsearchInstancesResponse {
-    return new responses.DescribeReservedElasticsearchInstancesResponse(this, this.resources, input);
+  public describeReservedElasticsearchInstances(input: shapes.DescribeReservedElasticsearchInstancesRequest): responses.DescribeReservedElasticsearchInstancesResponseApi {
+    return new responses.DescribeReservedElasticsearchInstancesResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Dissociates a package from the Amazon ES domain.</p>
+   * <p>Dissociates a package from the Amazon ES domain.
+   * </p>.
    */
-  public dissociatePackage(input: shapes.DissociatePackageRequest): responses.DissociatePackageResponse {
-    return new responses.DissociatePackageResponse(this, this.resources, input);
+  public dissociatePackage(input: shapes.DissociatePackageRequest): responses.DissociatePackageResponseApi {
+    return new responses.DissociatePackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p> Returns a list of upgrade compatible Elastisearch versions. You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain. </p>
+   * <p> Returns a list of upgrade compatible Elastisearch versions.
+   * You can optionally pass a <code> <a>DomainName</a> </code> to get all upgrade compatible Elasticsearch versions for that specific domain.
+   * </p>.
    */
-  public getCompatibleElasticsearchVersions(input: shapes.GetCompatibleElasticsearchVersionsRequest): responses.GetCompatibleElasticsearchVersionsResponse {
-    return new responses.GetCompatibleElasticsearchVersionsResponse(this, this.resources, input);
+  public getCompatibleElasticsearchVersions(input: shapes.GetCompatibleElasticsearchVersionsRequest): responses.GetCompatibleElasticsearchVersionsResponseApi {
+    return new responses.GetCompatibleElasticsearchVersionsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns a list of versions of the package, along with their creation time and commit message.</p>
+   * <p>Returns a list of versions of the package, along with their creation time and commit message.
+   * </p>.
    */
-  public getPackageVersionHistory(input: shapes.GetPackageVersionHistoryRequest): responses.GetPackageVersionHistoryResponse {
-    return new responses.GetPackageVersionHistoryResponse(this, this.resources, input);
+  public getPackageVersionHistory(input: shapes.GetPackageVersionHistoryRequest): responses.GetPackageVersionHistoryResponseApi {
+    return new responses.GetPackageVersionHistoryResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.</p>
+   * <p>Retrieves the complete history of the last 10 upgrades that were performed on the domain.
+   * </p>.
    */
-  public getUpgradeHistory(input: shapes.GetUpgradeHistoryRequest): responses.GetUpgradeHistoryResponse {
-    return new responses.GetUpgradeHistoryResponse(this, this.resources, input);
+  public getUpgradeHistory(input: shapes.GetUpgradeHistoryRequest): responses.GetUpgradeHistoryResponseApi {
+    return new responses.GetUpgradeHistoryResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.</p>
+   * <p>Retrieves the latest status of the last upgrade or upgrade eligibility check that was performed on the domain.
+   * </p>.
    */
-  public getUpgradeStatus(input: shapes.GetUpgradeStatusRequest): responses.GetUpgradeStatusResponse {
-    return new responses.GetUpgradeStatusResponse(this, this.resources, input);
+  public getUpgradeStatus(input: shapes.GetUpgradeStatusRequest): responses.GetUpgradeStatusResponseApi {
+    return new responses.GetUpgradeStatusResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns the name of all Elasticsearch domains owned by the current user's account. </p>
+   * <p>Returns the name of all Elasticsearch domains owned by the current user's account.
+   * </p>.
    */
-  public listDomainNames(): responses.ListDomainNamesResponse {
-    return new responses.ListDomainNamesResponse(this, this.resources);
+  public listDomainNames(): responses.ListDomainNamesResponseApi {
+    return new responses.ListDomainNamesResponseApi(this, this.resources);
   }
 
   /**
-   * <p>Lists all Amazon ES domains associated with the package.</p>
+   * <p>Lists all Amazon ES domains associated with the package.
+   * </p>.
    */
-  public listDomainsForPackage(input: shapes.ListDomainsForPackageRequest): responses.ListDomainsForPackageResponse {
-    return new responses.ListDomainsForPackageResponse(this, this.resources, input);
+  public listDomainsForPackage(input: shapes.ListDomainsForPackageRequest): responses.ListDomainsForPackageResponseApi {
+    return new responses.ListDomainsForPackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>
+   * <p>List all Elasticsearch instance types that are supported for given ElasticsearchVersion</p>.
    */
-  public listElasticsearchInstanceTypes(input: shapes.ListElasticsearchInstanceTypesRequest): responses.ListElasticsearchInstanceTypesResponse {
-    return new responses.ListElasticsearchInstanceTypesResponse(this, this.resources, input);
+  public listElasticsearchInstanceTypes(input: shapes.ListElasticsearchInstanceTypesRequest): responses.ListElasticsearchInstanceTypesResponseApi {
+    return new responses.ListElasticsearchInstanceTypesResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>List all supported Elasticsearch versions</p>
+   * <p>List all supported Elasticsearch versions</p>.
    */
-  public listElasticsearchVersions(input: shapes.ListElasticsearchVersionsRequest): responses.ListElasticsearchVersionsResponse {
-    return new responses.ListElasticsearchVersionsResponse(this, this.resources, input);
+  public listElasticsearchVersions(input: shapes.ListElasticsearchVersionsRequest): responses.ListElasticsearchVersionsResponseApi {
+    return new responses.ListElasticsearchVersionsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Lists all packages associated with the Amazon ES domain.</p>
+   * <p>Lists all packages associated with the Amazon ES domain.
+   * </p>.
    */
-  public listPackagesForDomain(input: shapes.ListPackagesForDomainRequest): responses.ListPackagesForDomainResponse {
-    return new responses.ListPackagesForDomainResponse(this, this.resources, input);
+  public listPackagesForDomain(input: shapes.ListPackagesForDomainRequest): responses.ListPackagesForDomainResponseApi {
+    return new responses.ListPackagesForDomainResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Returns all tags for the given Elasticsearch domain.</p>
+   * <p>Returns all tags for the given Elasticsearch domain.
+   * </p>.
    */
-  public listTags(input: shapes.ListTagsRequest): responses.ListTagsResponse {
-    return new responses.ListTagsResponse(this, this.resources, input);
+  public listTags(input: shapes.ListTagsRequest): responses.ListTagsResponseApi {
+    return new responses.ListTagsResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Allows you to purchase reserved Elasticsearch instances.</p>
+   * <p>Allows you to purchase reserved Elasticsearch instances.
+   * </p>.
    */
-  public purchaseReservedElasticsearchInstanceOffering(input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest): responses.PurchaseReservedElasticsearchInstanceOfferingResponse {
-    return new responses.PurchaseReservedElasticsearchInstanceOfferingResponse(this, this.resources, input);
+  public purchaseReservedElasticsearchInstanceOffering(input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest): responses.PurchaseReservedElasticsearchInstanceOfferingResponseApi {
+    return new responses.PurchaseReservedElasticsearchInstanceOfferingResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.</p>
+   * <p>Allows the destination domain owner to reject an inbound cross-cluster search connection request.
+   * </p>.
    */
-  public rejectInboundCrossClusterSearchConnection(input: shapes.RejectInboundCrossClusterSearchConnectionRequest): responses.RejectInboundCrossClusterSearchConnectionResponse {
-    return new responses.RejectInboundCrossClusterSearchConnectionResponse(this, this.resources, input);
+  public rejectInboundCrossClusterSearchConnection(input: shapes.RejectInboundCrossClusterSearchConnectionRequest): responses.RejectInboundCrossClusterSearchConnectionResponseApi {
+    return new responses.RejectInboundCrossClusterSearchConnectionResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Removes the specified set of tags from the specified Elasticsearch domain.</p>
+   * <p>Removes the specified set of tags from the specified Elasticsearch domain.
+   * </p>.
    */
   public removeTags(input: shapes.RemoveTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
@@ -290,31 +347,35 @@ export class ES extends cdk.Construct {
   }
 
   /**
-   * <p>Schedules a service software update for an Amazon ES domain.</p>
+   * <p>Schedules a service software update for an Amazon ES domain.
+   * </p>.
    */
-  public startElasticsearchServiceSoftwareUpdate(input: shapes.StartElasticsearchServiceSoftwareUpdateRequest): responses.StartElasticsearchServiceSoftwareUpdateResponse {
-    return new responses.StartElasticsearchServiceSoftwareUpdateResponse(this, this.resources, input);
+  public startElasticsearchServiceSoftwareUpdate(input: shapes.StartElasticsearchServiceSoftwareUpdateRequest): responses.StartElasticsearchServiceSoftwareUpdateResponseApi {
+    return new responses.StartElasticsearchServiceSoftwareUpdateResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances. </p>
+   * <p>Modifies the cluster configuration of the specified Elasticsearch domain, setting as setting the instance type and the number of instances.
+   * </p>.
    */
-  public updateElasticsearchDomainConfig(input: shapes.UpdateElasticsearchDomainConfigRequest): responses.UpdateElasticsearchDomainConfigResponse {
-    return new responses.UpdateElasticsearchDomainConfigResponse(this, this.resources, input);
+  public updateElasticsearchDomainConfig(input: shapes.UpdateElasticsearchDomainConfigRequest): responses.UpdateElasticsearchDomainConfigResponseApi {
+    return new responses.UpdateElasticsearchDomainConfigResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Updates a package for use with Amazon ES domains.</p>
+   * <p>Updates a package for use with Amazon ES domains.
+   * </p>.
    */
-  public updatePackage(input: shapes.UpdatePackageRequest): responses.UpdatePackageResponse {
-    return new responses.UpdatePackageResponse(this, this.resources, input);
+  public updatePackage(input: shapes.UpdatePackageRequest): responses.UpdatePackageResponseApi {
+    return new responses.UpdatePackageResponseApi(this, this.resources, input);
   }
 
   /**
-   * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.</p>
+   * <p>Allows you to either upgrade your domain or perform an Upgrade eligibility check to a compatible Elasticsearch version.
+   * </p>.
    */
-  public upgradeElasticsearchDomain(input: shapes.UpgradeElasticsearchDomainRequest): responses.UpgradeElasticsearchDomainResponse {
-    return new responses.UpgradeElasticsearchDomainResponse(this, this.resources, input);
+  public upgradeElasticsearchDomain(input: shapes.UpgradeElasticsearchDomainRequest): responses.UpgradeElasticsearchDomainResponseApi {
+    return new responses.UpgradeElasticsearchDomainResponseApi(this, this.resources, input);
   }
 
 }

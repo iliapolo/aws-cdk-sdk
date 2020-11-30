@@ -2,8 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export interface Client {
-  readonly declarations: string;
-  readonly spec: string;
+  readonly dtsPath: string;
+  readonly specPath: string;
 }
 
 export class SdkRepository {
@@ -33,9 +33,9 @@ export class SdkRepository {
         }
 
         this.clients.push({
-          declarations: path.join(clientsDirectory, clientFile),
+          dtsPath: path.join(clientsDirectory, clientFile),
           // take the last since it will be the latest
-          spec: path.join(apisDirectory, clientApiFiles[clientApiFiles.length - 1]),
+          specPath: path.join(apisDirectory, clientApiFiles[clientApiFiles.length - 1]),
         });
       }
     };

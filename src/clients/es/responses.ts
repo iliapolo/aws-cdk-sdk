@@ -5,15 +5,15 @@ import * as shapes from './shapes';
 /**
  * Response for AcceptInboundCrossClusterSearchConnection.
  */
-export class AcceptInboundCrossClusterSearchConnectionResponse {
+export class AcceptInboundCrossClusterSearchConnectionResponseApi {
   /**
-   * Response for AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnection
+   * Response for AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnection
    */
-  static CrossClusterSearchConnectionResponse = class {
+  static CrossClusterSearchConnectionApi = class {
     /**
-     * Response for AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfo
+     * Response for AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfo
      */
-    static SourceDomainInfoResponse = class {
+    static SourceDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -74,14 +74,14 @@ export class AcceptInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get sourceDomainInfo(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse> {
-      return new AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse(this.scope, this.resources, this.input);
+    public get sourceDomainInfo(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi> {
+      return new AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfo
+     * Response for AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfo
      */
-    static DestinationDomainInfoResponse = class {
+    static DestinationDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -142,8 +142,8 @@ export class AcceptInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get destinationDomainInfo(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse> {
-      return new AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse(this.scope, this.resources, this.input);
+    public get destinationDomainInfo(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi> {
+      return new AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -166,11 +166,17 @@ export class AcceptInboundCrossClusterSearchConnectionResponse {
       return request.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as shapes.CrossClusterSearchConnectionId;
     }
     /**
-     * Response for AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatus
+     * Response for AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatus
      */
-    static ConnectionStatusResponse = class {
+    static ConnectionStatusApi = class {
       /**
-       * The state code for inbound connection. This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner. APPROVED: Inbound connection is pending acceptance by destination domain owner. REJECTING: Inbound connection rejection is in process. REJECTED: Inbound connection is rejected. DELETING: Inbound connection deletion is in progress. DELETED: Inbound connection is deleted and cannot be used further.
+       * The state code for inbound connection.
+       * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
+       * APPROVED: Inbound connection is pending acceptance by destination domain owner.
+       * REJECTING: Inbound connection rejection is in process.
+       * REJECTED: Inbound connection is rejected.
+       * DELETING: Inbound connection deletion is in progress.
+       * DELETED: Inbound connection is deleted and cannot be used further.
        */
       public get statusCode(): shapes.InboundCrossClusterSearchConnectionStatusCode {
         const props: cr.AwsCustomResourceProps = {
@@ -210,15 +216,15 @@ export class AcceptInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get connectionStatus(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse> {
-      return new AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse(this.scope, this.resources, this.input);
+    public get connectionStatus(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi> {
+      return new AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get crossClusterSearchConnection(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse> {
-    return new AcceptInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse(this.scope, this.resources, this.input);
+  public get crossClusterSearchConnection(): InstanceType<typeof AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi> {
+    return new AcceptInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
@@ -228,11 +234,11 @@ export class AcceptInboundCrossClusterSearchConnectionResponse {
 /**
  * Response for AssociatePackage.
  */
-export class AssociatePackageResponse {
+export class AssociatePackageResponseApi {
   /**
-   * Response for AssociatePackageResponse.DomainPackageDetails
+   * Response for AssociatePackageResponseApi.DomainPackageDetails
    */
-  static DomainPackageDetailsResponse = class {
+  static DomainPackageDetailsApi = class {
     /**
      * Internal ID of the package.
      */
@@ -334,7 +340,8 @@ export class AssociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.DomainName') as unknown as shapes.DomainName;
     }
     /**
-     * State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+     * State of the association.
+     * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
      */
     public get domainPackageStatus(): shapes.DomainPackageStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -354,7 +361,8 @@ export class AssociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.DomainPackageStatus') as unknown as shapes.DomainPackageStatus;
     }
     /**
-     * State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+     * State of the association.
+     * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
      */
     public get packageVersion(): shapes.PackageVersion {
       const props: cr.AwsCustomResourceProps = {
@@ -394,9 +402,9 @@ export class AssociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.ReferencePath') as unknown as shapes.ReferencePath;
     }
     /**
-     * Response for AssociatePackageResponse.DomainPackageDetailsResponse.ErrorDetails
+     * Response for AssociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetails
      */
-    static ErrorDetailsResponse = class {
+    static ErrorDetailsApi = class {
       /**
        * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
        */
@@ -440,15 +448,15 @@ export class AssociatePackageResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AssociatePackageRequest) {
       }
     }
-    public get errorDetails(): InstanceType<typeof AssociatePackageResponse.DomainPackageDetailsResponse.ErrorDetailsResponse> {
-      return new AssociatePackageResponse.DomainPackageDetailsResponse.ErrorDetailsResponse(this.scope, this.resources, this.input);
+    public get errorDetails(): InstanceType<typeof AssociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetailsApi> {
+      return new AssociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetailsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AssociatePackageRequest) {
     }
   }
-  public get domainPackageDetails(): InstanceType<typeof AssociatePackageResponse.DomainPackageDetailsResponse> {
-    return new AssociatePackageResponse.DomainPackageDetailsResponse(this.scope, this.resources, this.input);
+  public get domainPackageDetails(): InstanceType<typeof AssociatePackageResponseApi.DomainPackageDetailsApi> {
+    return new AssociatePackageResponseApi.DomainPackageDetailsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.AssociatePackageRequest) {
@@ -458,15 +466,15 @@ export class AssociatePackageResponse {
 /**
  * Response for CancelElasticsearchServiceSoftwareUpdate.
  */
-export class CancelElasticsearchServiceSoftwareUpdateResponse {
+export class CancelElasticsearchServiceSoftwareUpdateResponseApi {
   /**
-   * Response for CancelElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptions
+   * Response for CancelElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptions
    */
-  static ServiceSoftwareOptionsResponse = class {
+  static ServiceSoftwareOptionsApi = class {
     /**
      * The current service software version that is present on the domain.
      */
-    public get currentVersion(): shapes.String {
+    public get currentVersion(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -480,12 +488,12 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion', props);
-      return request.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as String;
     }
     /**
      * The new service software version if one is available.
      */
-    public get newVersion(): shapes.String {
+    public get newVersion(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -499,12 +507,13 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion', props);
-      return request.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as String;
     }
     /**
-     * True if you are able to update you service software version. False if you are not able to update your service software version.
+     * True if you are able to update you service software version.
+     * False if you are not able to update your service software version.
      */
-    public get updateAvailable(): shapes.Boolean {
+    public get updateAvailable(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -518,12 +527,13 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable', props);
-      return request.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as Boolean;
     }
     /**
-     * True if you are able to cancel your service software version update. False if you are not able to cancel your service software version.
+     * True if you are able to cancel your service software version update.
+     * False if you are not able to cancel your service software version.
      */
-    public get cancellable(): shapes.Boolean {
+    public get cancellable(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -537,10 +547,11 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable', props);
-      return request.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as Boolean;
     }
     /**
-     * The status of your service software update. This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
+     * The status of your service software update.
+     * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
      */
     public get updateStatus(): shapes.DeploymentStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -561,7 +572,7 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
     /**
      * The description of the UpdateStatus.
      */
-    public get description(): shapes.String {
+    public get description(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -575,10 +586,11 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description', props);
-      return request.getResponseField('ServiceSoftwareOptions.Description') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.Description') as unknown as String;
     }
     /**
-     * Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+     * Timestamp, in Epoch time, until which you can manually request a service software update.
+     * After this date, we automatically update your service software.
      */
     public get automatedUpdateDate(): shapes.DeploymentCloseDateTimeStamp {
       const props: cr.AwsCustomResourceProps = {
@@ -597,9 +609,10 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
       return request.getResponseField('ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as shapes.DeploymentCloseDateTimeStamp;
     }
     /**
-     * True if a service software is never automatically updated. False if a service software is automatically updated after AutomatedUpdateDate.
+     * True if a service software is never automatically updated.
+     * False if a service software is automatically updated after AutomatedUpdateDate.
      */
-    public get optionalDeployment(): shapes.Boolean {
+    public get optionalDeployment(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'cancelElasticsearchServiceSoftwareUpdate',
@@ -613,13 +626,13 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment', props);
-      return request.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as Boolean;
     }
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
     }
   }
-  public get serviceSoftwareOptions(): InstanceType<typeof CancelElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptionsResponse> {
-    return new CancelElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptionsResponse(this.scope, this.resources, this.input);
+  public get serviceSoftwareOptions(): InstanceType<typeof CancelElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptionsApi> {
+    return new CancelElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptionsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
@@ -629,11 +642,11 @@ export class CancelElasticsearchServiceSoftwareUpdateResponse {
 /**
  * Response for CreateElasticsearchDomain.
  */
-export class CreateElasticsearchDomainResponse {
+export class CreateElasticsearchDomainResponseApi {
   /**
-   * Response for CreateElasticsearchDomainResponse.DomainStatus
+   * Response for CreateElasticsearchDomainResponseApi.DomainStatus
    */
-  static DomainStatusResponse = class {
+  static DomainStatusApi = class {
     /**
      * The unique identifier for the specified Elasticsearch domain.
      */
@@ -726,7 +739,9 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainId') as unknown as shapes.DomainId;
     }
     /**
-     * The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+     * The name of an Elasticsearch domain.
+     * Domain names are unique across the domains owned by an account within an AWS region.
+     * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
      */
     public get domainName(): shapes.DomainName {
       const props: cr.AwsCustomResourceProps = {
@@ -817,7 +832,8 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainName') as unknown as shapes.DomainName;
     }
     /**
-     * The Amazon resource name (ARN) of an Elasticsearch domain. See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
+     * The Amazon resource name (ARN) of an Elasticsearch domain.
+     * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
      */
     public get arn(): shapes.ARN {
       const props: cr.AwsCustomResourceProps = {
@@ -908,9 +924,11 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ARN') as unknown as shapes.ARN;
     }
     /**
-     * The domain creation status. True if the creation of an Elasticsearch domain is complete. False if domain creation is still in progress.
+     * The domain creation status.
+     * True if the creation of an Elasticsearch domain is complete.
+     * False if domain creation is still in progress.
      */
-    public get created(): shapes.Boolean {
+    public get created(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'createElasticsearchDomain',
@@ -996,12 +1014,15 @@ export class CreateElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.Created', props);
-      return request.getResponseField('DomainStatus.Created') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Created') as unknown as Boolean;
     }
     /**
-     * The domain deletion status. True if a delete request has been received for the domain but resource cleanup is still in progress. False if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
+     * The domain deletion status.
+     * True if a delete request has been received for the domain but resource cleanup is still in progress.
+     * False if the domain has not been deleted.
+     * Once domain deletion is complete, the status of the domain is no longer returned.
      */
-    public get deleted(): shapes.Boolean {
+    public get deleted(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'createElasticsearchDomain',
@@ -1087,7 +1108,7 @@ export class CreateElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.Deleted', props);
-      return request.getResponseField('DomainStatus.Deleted') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Deleted') as unknown as Boolean;
     }
     /**
      * The Elasticsearch domain endpoint that you use to submit index and search requests.
@@ -1181,7 +1202,12 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoint') as unknown as shapes.ServiceUrl;
     }
     /**
-     * Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'.
+     * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
+     * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
+     * us-east-1.
+     * es.
+     * amazonaws.
+     * com'.
      */
     public get endpoints(): shapes.EndpointsMap {
       const props: cr.AwsCustomResourceProps = {
@@ -1272,9 +1298,11 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoints') as unknown as shapes.EndpointsMap;
     }
     /**
-     * The status of the Elasticsearch domain configuration. True if Amazon Elasticsearch Service is processing configuration changes. False if the configuration is active.
+     * The status of the Elasticsearch domain configuration.
+     * True if Amazon Elasticsearch Service is processing configuration changes.
+     * False if the configuration is active.
      */
-    public get processing(): shapes.Boolean {
+    public get processing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'createElasticsearchDomain',
@@ -1360,12 +1388,14 @@ export class CreateElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.Processing', props);
-      return request.getResponseField('DomainStatus.Processing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Processing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
-    public get upgradeProcessing(): shapes.Boolean {
+    public get upgradeProcessing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'createElasticsearchDomain',
@@ -1451,10 +1481,12 @@ export class CreateElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
-      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
     public get elasticsearchVersion(): shapes.ElasticsearchVersionString {
       const props: cr.AwsCustomResourceProps = {
@@ -1545,11 +1577,12 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as shapes.ElasticsearchVersionString;
     }
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfig
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfig
      */
-    static ElasticsearchClusterConfigResponse = class {
+    static ElasticsearchClusterConfigApi = class {
       /**
-       * The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+       * The instance type for an Elasticsearch cluster.
+       * UltraWarm instance types are not supported for data instances.
        */
       public get instanceType(): shapes.ESPartitionInstanceType {
         const props: cr.AwsCustomResourceProps = {
@@ -1731,9 +1764,10 @@ export class CreateElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as shapes.IntegerClass;
       }
       /**
-       * A boolean value to indicate whether a dedicated master node is enabled. See About Dedicated Master Nodes for more information.
+       * A boolean value to indicate whether a dedicated master node is enabled.
+       * See About Dedicated Master Nodes for more information.
        */
-      public get dedicatedMasterEnabled(): shapes.Boolean {
+      public get dedicatedMasterEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -1819,12 +1853,13 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as Boolean;
       }
       /**
-       * A boolean value to indicate whether zone awareness is enabled. See About Zone Awareness for more information.
+       * A boolean value to indicate whether zone awareness is enabled.
+       * See About Zone Awareness for more information.
        */
-      public get zoneAwarenessEnabled(): shapes.Boolean {
+      public get zoneAwarenessEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -1910,14 +1945,15 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as Boolean;
       }
       /**
-       * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfig
+       * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfig
        */
-      static ZoneAwarenessConfigResponse = class {
+      static ZoneAwarenessConfigApi = class {
         /**
-         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled
+         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+         * This should be equal to number of subnets if VPC endpoints is enabled.
          */
         public get availabilityZoneCount(): shapes.IntegerClass {
           const props: cr.AwsCustomResourceProps = {
@@ -2010,8 +2046,8 @@ export class CreateElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
         }
       }
-      public get zoneAwarenessConfig(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse> {
-        return new CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse(this.scope, this.resources, this.input);
+      public get zoneAwarenessConfig(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi> {
+        return new CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi(this.scope, this.resources, this.input);
       }
 
       /**
@@ -2199,7 +2235,7 @@ export class CreateElasticsearchDomainResponse {
       /**
        * True to enable warm storage.
        */
-      public get warmEnabled(): shapes.Boolean {
+      public get warmEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -2285,7 +2321,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as Boolean;
       }
       /**
        * The instance type for the Elasticsearch cluster's warm nodes.
@@ -2472,18 +2508,18 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get elasticsearchClusterConfig(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse(this.scope, this.resources, this.input);
+    public get elasticsearchClusterConfig(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.EBSOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.EBSOptions
      */
-    static EBSOptionsResponse = class {
+    static EBSOptionsApi = class {
       /**
        * Specifies whether EBS-based storage is enabled.
        */
-      public get ebsEnabled(): shapes.Boolean {
+      public get ebsEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -2569,7 +2605,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
-        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as Boolean;
       }
       /**
        * Specifies the volume type for EBS-based storage.
@@ -2847,8 +2883,8 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get ebsOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse(this.scope, this.resources, this.input);
+    public get ebsOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -2943,11 +2979,12 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.AccessPolicies') as unknown as shapes.PolicyDocument;
     }
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptions
      */
-    static SnapshotOptionsResponse = class {
+    static SnapshotOptionsApi = class {
       /**
-       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is 0 hours.
+       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+       * Default value is 0 hours.
        */
       public get automatedSnapshotStartHour(): shapes.IntegerClass {
         const props: cr.AwsCustomResourceProps = {
@@ -3040,18 +3077,19 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get snapshotOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse(this.scope, this.resources, this.input);
+    public get snapshotOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.VPCOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.VPCOptions
      */
-    static VPCOptionsResponse = class {
+    static VPCOptionsApi = class {
       /**
-       * The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The VPC Id for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
-      public get vpcId(): shapes.String {
+      public get vpcId(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -3137,7 +3175,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
-        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as String;
       }
       /**
        * Specifies the subnets for VPC endpoint.
@@ -3231,7 +3269,8 @@ export class CreateElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as shapes.StringList;
       }
       /**
-       * The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The availability zones for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
       public get availabilityZones(): shapes.StringList {
         const props: cr.AwsCustomResourceProps = {
@@ -3415,18 +3454,18 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get vpcOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse(this.scope, this.resources, this.input);
+    public get vpcOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.CognitoOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptions
      */
-    static CognitoOptionsResponse = class {
+    static CognitoOptionsApi = class {
       /**
        * Specifies the option to enable Cognito for Kibana authentication.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -3512,7 +3551,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the Cognito user pool ID for Kibana authentication.
@@ -3790,18 +3829,18 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get cognitoOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse(this.scope, this.resources, this.input);
+    public get cognitoOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptions
      */
-    static EncryptionAtRestOptionsResponse = class {
+    static EncryptionAtRestOptionsApi = class {
       /**
        * Specifies the option to enable Encryption At Rest.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -3887,7 +3926,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the KMS Key ID for Encryption At Rest options.
@@ -3983,18 +4022,18 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get encryptionAtRestOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse(this.scope, this.resources, this.input);
+    public get encryptionAtRestOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptions
      */
-    static NodeToNodeEncryptionOptionsResponse = class {
+    static NodeToNodeEncryptionOptionsApi = class {
       /**
        * Specify true to enable node-to-node encryption.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4080,17 +4119,17 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get nodeToNodeEncryptionOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse(this.scope, this.resources, this.input);
+    public get nodeToNodeEncryptionOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Specifies the status of the AdvancedOptions
+     * Specifies the status of the AdvancedOptions.
      */
     public get advancedOptions(): shapes.AdvancedOptions {
       const props: cr.AwsCustomResourceProps = {
@@ -4272,13 +4311,13 @@ export class CreateElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.LogPublishingOptions') as unknown as shapes.LogPublishingOptions;
     }
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptions
      */
-    static ServiceSoftwareOptionsResponse = class {
+    static ServiceSoftwareOptionsApi = class {
       /**
        * The current service software version that is present on the domain.
        */
-      public get currentVersion(): shapes.String {
+      public get currentVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4364,12 +4403,12 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as String;
       }
       /**
        * The new service software version if one is available.
        */
-      public get newVersion(): shapes.String {
+      public get newVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4455,12 +4494,13 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as String;
       }
       /**
-       * True if you are able to update you service software version. False if you are not able to update your service software version.
+       * True if you are able to update you service software version.
+       * False if you are not able to update your service software version.
        */
-      public get updateAvailable(): shapes.Boolean {
+      public get updateAvailable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4546,12 +4586,13 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as Boolean;
       }
       /**
-       * True if you are able to cancel your service software version update. False if you are not able to cancel your service software version.
+       * True if you are able to cancel your service software version update.
+       * False if you are not able to cancel your service software version.
        */
-      public get cancellable(): shapes.Boolean {
+      public get cancellable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4637,10 +4678,11 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as Boolean;
       }
       /**
-       * The status of your service software update. This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
+       * The status of your service software update.
+       * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
        */
       public get updateStatus(): shapes.DeploymentStatus {
         const props: cr.AwsCustomResourceProps = {
@@ -4733,7 +4775,7 @@ export class CreateElasticsearchDomainResponse {
       /**
        * The description of the UpdateStatus.
        */
-      public get description(): shapes.String {
+      public get description(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -4819,10 +4861,11 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as String;
       }
       /**
-       * Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+       * Timestamp, in Epoch time, until which you can manually request a service software update.
+       * After this date, we automatically update your service software.
        */
       public get automatedUpdateDate(): shapes.DeploymentCloseDateTimeStamp {
         const props: cr.AwsCustomResourceProps = {
@@ -4913,9 +4956,10 @@ export class CreateElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as shapes.DeploymentCloseDateTimeStamp;
       }
       /**
-       * True if a service software is never automatically updated. False if a service software is automatically updated after AutomatedUpdateDate.
+       * True if a service software is never automatically updated.
+       * False if a service software is automatically updated after AutomatedUpdateDate.
        */
-      public get optionalDeployment(): shapes.Boolean {
+      public get optionalDeployment(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -5001,23 +5045,23 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get serviceSoftwareOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse(this.scope, this.resources, this.input);
+    public get serviceSoftwareOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptions
      */
-    static DomainEndpointOptionsResponse = class {
+    static DomainEndpointOptionsApi = class {
       /**
        * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
        */
-      public get enforceHttps(): shapes.Boolean {
+      public get enforceHttps(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -5103,10 +5147,14 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as Boolean;
       }
       /**
-       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.  It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.0 and higher. Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.2
+       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+       * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+       * 0 and higher.
+       * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+       * 2.
        */
       public get tlsSecurityPolicy(): shapes.TLSSecurityPolicy {
         const props: cr.AwsCustomResourceProps = {
@@ -5199,7 +5247,7 @@ export class CreateElasticsearchDomainResponse {
       /**
        * Specify if custom endpoint should be enabled for the Elasticsearch domain.
        */
-      public get customEndpointEnabled(): shapes.Boolean {
+      public get customEndpointEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -5285,7 +5333,7 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as Boolean;
       }
       /**
        * Specify the fully qualified domain for your custom endpoint.
@@ -5472,18 +5520,18 @@ export class CreateElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get domainEndpointOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse(this.scope, this.resources, this.input);
+    public get domainEndpointOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptions
+     * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptions
      */
-    static AdvancedSecurityOptionsResponse = class {
+    static AdvancedSecurityOptionsApi = class {
       /**
        * True if advanced security is enabled.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -5569,12 +5617,12 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as Boolean;
       }
       /**
        * True if the internal user database is enabled.
        */
-      public get internalUserDatabaseEnabled(): shapes.Boolean {
+      public get internalUserDatabaseEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'createElasticsearchDomain',
@@ -5660,16 +5708,16 @@ export class CreateElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as Boolean;
       }
       /**
-       * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptions
+       * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptions
        */
-      static SAMLOptionsResponse = class {
+      static SAMLOptionsApi = class {
         /**
          * True if SAML is enabled.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'createElasticsearchDomain',
@@ -5755,12 +5803,12 @@ export class CreateElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as Boolean;
         }
         /**
-         * Response for CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.Idp
+         * Response for CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.Idp
          */
-        static IdpResponse = class {
+        static IdpApi = class {
           /**
            * The Metadata of the SAML application in xml format.
            */
@@ -5946,14 +5994,14 @@ export class CreateElasticsearchDomainResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
           }
         }
-        public get idp(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse> {
-          return new CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse(this.scope, this.resources, this.input);
+        public get idp(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi> {
+          return new CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi(this.scope, this.resources, this.input);
         }
 
         /**
          * The key used for matching the SAML Subject attribute.
          */
-        public get subjectKey(): shapes.String {
+        public get subjectKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'createElasticsearchDomain',
@@ -6039,12 +6087,12 @@ export class CreateElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as String;
         }
         /**
          * The key used for matching the SAML Roles attribute.
          */
-        public get rolesKey(): shapes.String {
+        public get rolesKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'createElasticsearchDomain',
@@ -6130,7 +6178,7 @@ export class CreateElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as String;
         }
         /**
          * The duration, in minutes, after which a user session becomes inactive.
@@ -6226,22 +6274,22 @@ export class CreateElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
         }
       }
-      public get samlOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse> {
-        return new CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse(this.scope, this.resources, this.input);
+      public get samlOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi> {
+        return new CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
       }
     }
-    public get advancedSecurityOptions(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse> {
-      return new CreateElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedSecurityOptions(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi> {
+      return new CreateElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
     }
   }
-  public get domainStatus(): InstanceType<typeof CreateElasticsearchDomainResponse.DomainStatusResponse> {
-    return new CreateElasticsearchDomainResponse.DomainStatusResponse(this.scope, this.resources, this.input);
+  public get domainStatus(): InstanceType<typeof CreateElasticsearchDomainResponseApi.DomainStatusApi> {
+    return new CreateElasticsearchDomainResponseApi.DomainStatusApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateElasticsearchDomainRequest) {
@@ -6251,11 +6299,11 @@ export class CreateElasticsearchDomainResponse {
 /**
  * Response for CreateOutboundCrossClusterSearchConnection.
  */
-export class CreateOutboundCrossClusterSearchConnectionResponse {
+export class CreateOutboundCrossClusterSearchConnectionResponseApi {
   /**
-   * Response for CreateOutboundCrossClusterSearchConnectionResponse.SourceDomainInfo
+   * Response for CreateOutboundCrossClusterSearchConnectionResponseApi.SourceDomainInfo
    */
-  static SourceDomainInfoResponse = class {
+  static SourceDomainInfoApi = class {
     /**
      * Specifies the DomainName.
      */
@@ -6346,14 +6394,14 @@ export class CreateOutboundCrossClusterSearchConnectionResponse {
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get sourceDomainInfo(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponse.SourceDomainInfoResponse> {
-    return new CreateOutboundCrossClusterSearchConnectionResponse.SourceDomainInfoResponse(this.scope, this.resources, this.input);
+  public get sourceDomainInfo(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponseApi.SourceDomainInfoApi> {
+    return new CreateOutboundCrossClusterSearchConnectionResponseApi.SourceDomainInfoApi(this.scope, this.resources, this.input);
   }
 
   /**
-   * Response for CreateOutboundCrossClusterSearchConnectionResponse.DestinationDomainInfo
+   * Response for CreateOutboundCrossClusterSearchConnectionResponseApi.DestinationDomainInfo
    */
-  static DestinationDomainInfoResponse = class {
+  static DestinationDomainInfoApi = class {
     /**
      * Specifies the DomainName.
      */
@@ -6444,8 +6492,8 @@ export class CreateOutboundCrossClusterSearchConnectionResponse {
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get destinationDomainInfo(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponse.DestinationDomainInfoResponse> {
-    return new CreateOutboundCrossClusterSearchConnectionResponse.DestinationDomainInfoResponse(this.scope, this.resources, this.input);
+  public get destinationDomainInfo(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponseApi.DestinationDomainInfoApi> {
+    return new CreateOutboundCrossClusterSearchConnectionResponseApi.DestinationDomainInfoApi(this.scope, this.resources, this.input);
   }
 
   /**
@@ -6478,11 +6526,19 @@ export class CreateOutboundCrossClusterSearchConnectionResponse {
     return request.getResponseField('ConnectionAlias') as unknown as shapes.ConnectionAlias;
   }
   /**
-   * Response for CreateOutboundCrossClusterSearchConnectionResponse.ConnectionStatus
+   * Response for CreateOutboundCrossClusterSearchConnectionResponseApi.ConnectionStatus
    */
-  static ConnectionStatusResponse = class {
+  static ConnectionStatusApi = class {
     /**
-     * The state code for outbound connection. This can be one of the following:  VALIDATING: The outbound connection request is being validated. VALIDATION_FAILED: Validation failed for the connection request. PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner. PROVISIONING: Outbound connection request is in process. ACTIVE: Outbound connection is active and ready to use. REJECTED: Outbound connection request is rejected by destination domain owner. DELETING: Outbound connection deletion is in progress. DELETED: Outbound connection is deleted and cannot be used further.
+     * The state code for outbound connection.
+     * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
+     * VALIDATION_FAILED: Validation failed for the connection request.
+     * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
+     * PROVISIONING: Outbound connection request is in process.
+     * ACTIVE: Outbound connection is active and ready to use.
+     * REJECTED: Outbound connection request is rejected by destination domain owner.
+     * DELETING: Outbound connection deletion is in progress.
+     * DELETED: Outbound connection is deleted and cannot be used further.
      */
     public get statusCode(): shapes.OutboundCrossClusterSearchConnectionStatusCode {
       const props: cr.AwsCustomResourceProps = {
@@ -6542,8 +6598,8 @@ export class CreateOutboundCrossClusterSearchConnectionResponse {
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get connectionStatus(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponse.ConnectionStatusResponse> {
-    return new CreateOutboundCrossClusterSearchConnectionResponse.ConnectionStatusResponse(this.scope, this.resources, this.input);
+  public get connectionStatus(): InstanceType<typeof CreateOutboundCrossClusterSearchConnectionResponseApi.ConnectionStatusApi> {
+    return new CreateOutboundCrossClusterSearchConnectionResponseApi.ConnectionStatusApi(this.scope, this.resources, this.input);
   }
 
   /**
@@ -6582,11 +6638,11 @@ export class CreateOutboundCrossClusterSearchConnectionResponse {
 /**
  * Response for CreatePackage.
  */
-export class CreatePackageResponse {
+export class CreatePackageResponseApi {
   /**
-   * Response for CreatePackageResponse.PackageDetails
+   * Response for CreatePackageResponseApi.PackageDetails
    */
-  static PackageDetailsResponse = class {
+  static PackageDetailsApi = class {
     /**
      * Internal ID of the package.
      */
@@ -6688,7 +6744,8 @@ export class CreatePackageResponse {
       return request.getResponseField('PackageDetails.PackageDescription') as unknown as shapes.PackageDescription;
     }
     /**
-     * Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
+     * Current state of the package.
+     * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
      */
     public get packageStatus(): shapes.PackageStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -6788,9 +6845,9 @@ export class CreatePackageResponse {
       return request.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as shapes.PackageVersion;
     }
     /**
-     * Response for CreatePackageResponse.PackageDetailsResponse.ErrorDetails
+     * Response for CreatePackageResponseApi.PackageDetailsApi.ErrorDetails
      */
-    static ErrorDetailsResponse = class {
+    static ErrorDetailsApi = class {
       /**
        * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
        */
@@ -6844,15 +6901,15 @@ export class CreatePackageResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreatePackageRequest) {
       }
     }
-    public get errorDetails(): InstanceType<typeof CreatePackageResponse.PackageDetailsResponse.ErrorDetailsResponse> {
-      return new CreatePackageResponse.PackageDetailsResponse.ErrorDetailsResponse(this.scope, this.resources, this.input);
+    public get errorDetails(): InstanceType<typeof CreatePackageResponseApi.PackageDetailsApi.ErrorDetailsApi> {
+      return new CreatePackageResponseApi.PackageDetailsApi.ErrorDetailsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreatePackageRequest) {
     }
   }
-  public get packageDetails(): InstanceType<typeof CreatePackageResponse.PackageDetailsResponse> {
-    return new CreatePackageResponse.PackageDetailsResponse(this.scope, this.resources, this.input);
+  public get packageDetails(): InstanceType<typeof CreatePackageResponseApi.PackageDetailsApi> {
+    return new CreatePackageResponseApi.PackageDetailsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.CreatePackageRequest) {
@@ -6862,11 +6919,11 @@ export class CreatePackageResponse {
 /**
  * Response for DeleteElasticsearchDomain.
  */
-export class DeleteElasticsearchDomainResponse {
+export class DeleteElasticsearchDomainResponseApi {
   /**
-   * Response for DeleteElasticsearchDomainResponse.DomainStatus
+   * Response for DeleteElasticsearchDomainResponseApi.DomainStatus
    */
-  static DomainStatusResponse = class {
+  static DomainStatusApi = class {
     /**
      * The unique identifier for the specified Elasticsearch domain.
      */
@@ -6887,7 +6944,9 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainId') as unknown as shapes.DomainId;
     }
     /**
-     * The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+     * The name of an Elasticsearch domain.
+     * Domain names are unique across the domains owned by an account within an AWS region.
+     * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
      */
     public get domainName(): shapes.DomainName {
       const props: cr.AwsCustomResourceProps = {
@@ -6906,7 +6965,8 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainName') as unknown as shapes.DomainName;
     }
     /**
-     * The Amazon resource name (ARN) of an Elasticsearch domain. See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
+     * The Amazon resource name (ARN) of an Elasticsearch domain.
+     * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
      */
     public get arn(): shapes.ARN {
       const props: cr.AwsCustomResourceProps = {
@@ -6925,9 +6985,11 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ARN') as unknown as shapes.ARN;
     }
     /**
-     * The domain creation status. True if the creation of an Elasticsearch domain is complete. False if domain creation is still in progress.
+     * The domain creation status.
+     * True if the creation of an Elasticsearch domain is complete.
+     * False if domain creation is still in progress.
      */
-    public get created(): shapes.Boolean {
+    public get created(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'deleteElasticsearchDomain',
@@ -6941,12 +7003,15 @@ export class DeleteElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.Created', props);
-      return request.getResponseField('DomainStatus.Created') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Created') as unknown as Boolean;
     }
     /**
-     * The domain deletion status. True if a delete request has been received for the domain but resource cleanup is still in progress. False if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
+     * The domain deletion status.
+     * True if a delete request has been received for the domain but resource cleanup is still in progress.
+     * False if the domain has not been deleted.
+     * Once domain deletion is complete, the status of the domain is no longer returned.
      */
-    public get deleted(): shapes.Boolean {
+    public get deleted(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'deleteElasticsearchDomain',
@@ -6960,7 +7025,7 @@ export class DeleteElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.Deleted', props);
-      return request.getResponseField('DomainStatus.Deleted') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Deleted') as unknown as Boolean;
     }
     /**
      * The Elasticsearch domain endpoint that you use to submit index and search requests.
@@ -6982,7 +7047,12 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoint') as unknown as shapes.ServiceUrl;
     }
     /**
-     * Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'.
+     * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
+     * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
+     * us-east-1.
+     * es.
+     * amazonaws.
+     * com'.
      */
     public get endpoints(): shapes.EndpointsMap {
       const props: cr.AwsCustomResourceProps = {
@@ -7001,9 +7071,11 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoints') as unknown as shapes.EndpointsMap;
     }
     /**
-     * The status of the Elasticsearch domain configuration. True if Amazon Elasticsearch Service is processing configuration changes. False if the configuration is active.
+     * The status of the Elasticsearch domain configuration.
+     * True if Amazon Elasticsearch Service is processing configuration changes.
+     * False if the configuration is active.
      */
-    public get processing(): shapes.Boolean {
+    public get processing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'deleteElasticsearchDomain',
@@ -7017,12 +7089,14 @@ export class DeleteElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.Processing', props);
-      return request.getResponseField('DomainStatus.Processing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Processing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
-    public get upgradeProcessing(): shapes.Boolean {
+    public get upgradeProcessing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'deleteElasticsearchDomain',
@@ -7036,10 +7110,12 @@ export class DeleteElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
-      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
     public get elasticsearchVersion(): shapes.ElasticsearchVersionString {
       const props: cr.AwsCustomResourceProps = {
@@ -7058,11 +7134,12 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as shapes.ElasticsearchVersionString;
     }
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfig
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfig
      */
-    static ElasticsearchClusterConfigResponse = class {
+    static ElasticsearchClusterConfigApi = class {
       /**
-       * The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+       * The instance type for an Elasticsearch cluster.
+       * UltraWarm instance types are not supported for data instances.
        */
       public get instanceType(): shapes.ESPartitionInstanceType {
         const props: cr.AwsCustomResourceProps = {
@@ -7100,9 +7177,10 @@ export class DeleteElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as shapes.IntegerClass;
       }
       /**
-       * A boolean value to indicate whether a dedicated master node is enabled. See About Dedicated Master Nodes for more information.
+       * A boolean value to indicate whether a dedicated master node is enabled.
+       * See About Dedicated Master Nodes for more information.
        */
-      public get dedicatedMasterEnabled(): shapes.Boolean {
+      public get dedicatedMasterEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7116,12 +7194,13 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as Boolean;
       }
       /**
-       * A boolean value to indicate whether zone awareness is enabled. See About Zone Awareness for more information.
+       * A boolean value to indicate whether zone awareness is enabled.
+       * See About Zone Awareness for more information.
        */
-      public get zoneAwarenessEnabled(): shapes.Boolean {
+      public get zoneAwarenessEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7135,14 +7214,15 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as Boolean;
       }
       /**
-       * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfig
+       * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfig
        */
-      static ZoneAwarenessConfigResponse = class {
+      static ZoneAwarenessConfigApi = class {
         /**
-         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled
+         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+         * This should be equal to number of subnets if VPC endpoints is enabled.
          */
         public get availabilityZoneCount(): shapes.IntegerClass {
           const props: cr.AwsCustomResourceProps = {
@@ -7163,8 +7243,8 @@ export class DeleteElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
         }
       }
-      public get zoneAwarenessConfig(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse> {
-        return new DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse(this.scope, this.resources, this.input);
+      public get zoneAwarenessConfig(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi> {
+        return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi(this.scope, this.resources, this.input);
       }
 
       /**
@@ -7208,7 +7288,7 @@ export class DeleteElasticsearchDomainResponse {
       /**
        * True to enable warm storage.
        */
-      public get warmEnabled(): shapes.Boolean {
+      public get warmEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7222,7 +7302,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as Boolean;
       }
       /**
        * The instance type for the Elasticsearch cluster's warm nodes.
@@ -7265,18 +7345,18 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get elasticsearchClusterConfig(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse(this.scope, this.resources, this.input);
+    public get elasticsearchClusterConfig(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.EBSOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.EBSOptions
      */
-    static EBSOptionsResponse = class {
+    static EBSOptionsApi = class {
       /**
        * Specifies whether EBS-based storage is enabled.
        */
-      public get ebsEnabled(): shapes.Boolean {
+      public get ebsEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7290,7 +7370,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
-        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as Boolean;
       }
       /**
        * Specifies the volume type for EBS-based storage.
@@ -7352,8 +7432,8 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get ebsOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse(this.scope, this.resources, this.input);
+    public get ebsOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -7376,11 +7456,12 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.AccessPolicies') as unknown as shapes.PolicyDocument;
     }
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptions
      */
-    static SnapshotOptionsResponse = class {
+    static SnapshotOptionsApi = class {
       /**
-       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is 0 hours.
+       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+       * Default value is 0 hours.
        */
       public get automatedSnapshotStartHour(): shapes.IntegerClass {
         const props: cr.AwsCustomResourceProps = {
@@ -7401,18 +7482,19 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get snapshotOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse(this.scope, this.resources, this.input);
+    public get snapshotOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.VPCOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.VPCOptions
      */
-    static VPCOptionsResponse = class {
+    static VPCOptionsApi = class {
       /**
-       * The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The VPC Id for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
-      public get vpcId(): shapes.String {
+      public get vpcId(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7426,7 +7508,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
-        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as String;
       }
       /**
        * Specifies the subnets for VPC endpoint.
@@ -7448,7 +7530,8 @@ export class DeleteElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as shapes.StringList;
       }
       /**
-       * The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The availability zones for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
       public get availabilityZones(): shapes.StringList {
         const props: cr.AwsCustomResourceProps = {
@@ -7488,18 +7571,18 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get vpcOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse(this.scope, this.resources, this.input);
+    public get vpcOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.CognitoOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptions
      */
-    static CognitoOptionsResponse = class {
+    static CognitoOptionsApi = class {
       /**
        * Specifies the option to enable Cognito for Kibana authentication.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7513,7 +7596,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the Cognito user pool ID for Kibana authentication.
@@ -7575,18 +7658,18 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get cognitoOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse(this.scope, this.resources, this.input);
+    public get cognitoOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptions
      */
-    static EncryptionAtRestOptionsResponse = class {
+    static EncryptionAtRestOptionsApi = class {
       /**
        * Specifies the option to enable Encryption At Rest.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7600,7 +7683,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the KMS Key ID for Encryption At Rest options.
@@ -7624,18 +7707,18 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get encryptionAtRestOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse(this.scope, this.resources, this.input);
+    public get encryptionAtRestOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptions
      */
-    static NodeToNodeEncryptionOptionsResponse = class {
+    static NodeToNodeEncryptionOptionsApi = class {
       /**
        * Specify true to enable node-to-node encryption.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7649,17 +7732,17 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse(this.scope, this.resources, this.input);
+    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Specifies the status of the AdvancedOptions
+     * Specifies the status of the AdvancedOptions.
      */
     public get advancedOptions(): shapes.AdvancedOptions {
       const props: cr.AwsCustomResourceProps = {
@@ -7697,13 +7780,13 @@ export class DeleteElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.LogPublishingOptions') as unknown as shapes.LogPublishingOptions;
     }
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptions
      */
-    static ServiceSoftwareOptionsResponse = class {
+    static ServiceSoftwareOptionsApi = class {
       /**
        * The current service software version that is present on the domain.
        */
-      public get currentVersion(): shapes.String {
+      public get currentVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7717,12 +7800,12 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as String;
       }
       /**
        * The new service software version if one is available.
        */
-      public get newVersion(): shapes.String {
+      public get newVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7736,12 +7819,13 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as String;
       }
       /**
-       * True if you are able to update you service software version. False if you are not able to update your service software version.
+       * True if you are able to update you service software version.
+       * False if you are not able to update your service software version.
        */
-      public get updateAvailable(): shapes.Boolean {
+      public get updateAvailable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7755,12 +7839,13 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as Boolean;
       }
       /**
-       * True if you are able to cancel your service software version update. False if you are not able to cancel your service software version.
+       * True if you are able to cancel your service software version update.
+       * False if you are not able to cancel your service software version.
        */
-      public get cancellable(): shapes.Boolean {
+      public get cancellable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7774,10 +7859,11 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as Boolean;
       }
       /**
-       * The status of your service software update. This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
+       * The status of your service software update.
+       * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
        */
       public get updateStatus(): shapes.DeploymentStatus {
         const props: cr.AwsCustomResourceProps = {
@@ -7798,7 +7884,7 @@ export class DeleteElasticsearchDomainResponse {
       /**
        * The description of the UpdateStatus.
        */
-      public get description(): shapes.String {
+      public get description(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7812,10 +7898,11 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as String;
       }
       /**
-       * Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+       * Timestamp, in Epoch time, until which you can manually request a service software update.
+       * After this date, we automatically update your service software.
        */
       public get automatedUpdateDate(): shapes.DeploymentCloseDateTimeStamp {
         const props: cr.AwsCustomResourceProps = {
@@ -7834,9 +7921,10 @@ export class DeleteElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as shapes.DeploymentCloseDateTimeStamp;
       }
       /**
-       * True if a service software is never automatically updated. False if a service software is automatically updated after AutomatedUpdateDate.
+       * True if a service software is never automatically updated.
+       * False if a service software is automatically updated after AutomatedUpdateDate.
        */
-      public get optionalDeployment(): shapes.Boolean {
+      public get optionalDeployment(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7850,23 +7938,23 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get serviceSoftwareOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse(this.scope, this.resources, this.input);
+    public get serviceSoftwareOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptions
      */
-    static DomainEndpointOptionsResponse = class {
+    static DomainEndpointOptionsApi = class {
       /**
        * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
        */
-      public get enforceHttps(): shapes.Boolean {
+      public get enforceHttps(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7880,10 +7968,14 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as Boolean;
       }
       /**
-       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.  It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.0 and higher. Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.2
+       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+       * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+       * 0 and higher.
+       * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+       * 2.
        */
       public get tlsSecurityPolicy(): shapes.TLSSecurityPolicy {
         const props: cr.AwsCustomResourceProps = {
@@ -7904,7 +7996,7 @@ export class DeleteElasticsearchDomainResponse {
       /**
        * Specify if custom endpoint should be enabled for the Elasticsearch domain.
        */
-      public get customEndpointEnabled(): shapes.Boolean {
+      public get customEndpointEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7918,7 +8010,7 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as Boolean;
       }
       /**
        * Specify the fully qualified domain for your custom endpoint.
@@ -7961,18 +8053,18 @@ export class DeleteElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get domainEndpointOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse(this.scope, this.resources, this.input);
+    public get domainEndpointOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptions
+     * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptions
      */
-    static AdvancedSecurityOptionsResponse = class {
+    static AdvancedSecurityOptionsApi = class {
       /**
        * True if advanced security is enabled.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -7986,12 +8078,12 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as Boolean;
       }
       /**
        * True if the internal user database is enabled.
        */
-      public get internalUserDatabaseEnabled(): shapes.Boolean {
+      public get internalUserDatabaseEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'deleteElasticsearchDomain',
@@ -8005,16 +8097,16 @@ export class DeleteElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as Boolean;
       }
       /**
-       * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptions
+       * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptions
        */
-      static SAMLOptionsResponse = class {
+      static SAMLOptionsApi = class {
         /**
          * True if SAML is enabled.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'deleteElasticsearchDomain',
@@ -8028,12 +8120,12 @@ export class DeleteElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as Boolean;
         }
         /**
-         * Response for DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.Idp
+         * Response for DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.Idp
          */
-        static IdpResponse = class {
+        static IdpApi = class {
           /**
            * The Metadata of the SAML application in xml format.
            */
@@ -8075,14 +8167,14 @@ export class DeleteElasticsearchDomainResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
           }
         }
-        public get idp(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse> {
-          return new DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse(this.scope, this.resources, this.input);
+        public get idp(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi> {
+          return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi(this.scope, this.resources, this.input);
         }
 
         /**
          * The key used for matching the SAML Subject attribute.
          */
-        public get subjectKey(): shapes.String {
+        public get subjectKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'deleteElasticsearchDomain',
@@ -8096,12 +8188,12 @@ export class DeleteElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as String;
         }
         /**
          * The key used for matching the SAML Roles attribute.
          */
-        public get rolesKey(): shapes.String {
+        public get rolesKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'deleteElasticsearchDomain',
@@ -8115,7 +8207,7 @@ export class DeleteElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as String;
         }
         /**
          * The duration, in minutes, after which a user session becomes inactive.
@@ -8139,22 +8231,22 @@ export class DeleteElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
         }
       }
-      public get samlOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse> {
-        return new DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse(this.scope, this.resources, this.input);
+      public get samlOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi> {
+        return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
       }
     }
-    public get advancedSecurityOptions(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse> {
-      return new DeleteElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedSecurityOptions(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi> {
+      return new DeleteElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
     }
   }
-  public get domainStatus(): InstanceType<typeof DeleteElasticsearchDomainResponse.DomainStatusResponse> {
-    return new DeleteElasticsearchDomainResponse.DomainStatusResponse(this.scope, this.resources, this.input);
+  public get domainStatus(): InstanceType<typeof DeleteElasticsearchDomainResponseApi.DomainStatusApi> {
+    return new DeleteElasticsearchDomainResponseApi.DomainStatusApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteElasticsearchDomainRequest) {
@@ -8164,15 +8256,15 @@ export class DeleteElasticsearchDomainResponse {
 /**
  * Response for DeleteInboundCrossClusterSearchConnection.
  */
-export class DeleteInboundCrossClusterSearchConnectionResponse {
+export class DeleteInboundCrossClusterSearchConnectionResponseApi {
   /**
-   * Response for DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnection
+   * Response for DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnection
    */
-  static CrossClusterSearchConnectionResponse = class {
+  static CrossClusterSearchConnectionApi = class {
     /**
-     * Response for DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfo
+     * Response for DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfo
      */
-    static SourceDomainInfoResponse = class {
+    static SourceDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -8233,14 +8325,14 @@ export class DeleteInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get sourceDomainInfo(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse> {
-      return new DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse(this.scope, this.resources, this.input);
+    public get sourceDomainInfo(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi> {
+      return new DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfo
+     * Response for DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfo
      */
-    static DestinationDomainInfoResponse = class {
+    static DestinationDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -8301,8 +8393,8 @@ export class DeleteInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get destinationDomainInfo(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse> {
-      return new DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse(this.scope, this.resources, this.input);
+    public get destinationDomainInfo(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi> {
+      return new DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -8325,11 +8417,17 @@ export class DeleteInboundCrossClusterSearchConnectionResponse {
       return request.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as shapes.CrossClusterSearchConnectionId;
     }
     /**
-     * Response for DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatus
+     * Response for DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatus
      */
-    static ConnectionStatusResponse = class {
+    static ConnectionStatusApi = class {
       /**
-       * The state code for inbound connection. This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner. APPROVED: Inbound connection is pending acceptance by destination domain owner. REJECTING: Inbound connection rejection is in process. REJECTED: Inbound connection is rejected. DELETING: Inbound connection deletion is in progress. DELETED: Inbound connection is deleted and cannot be used further.
+       * The state code for inbound connection.
+       * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
+       * APPROVED: Inbound connection is pending acceptance by destination domain owner.
+       * REJECTING: Inbound connection rejection is in process.
+       * REJECTED: Inbound connection is rejected.
+       * DELETING: Inbound connection deletion is in progress.
+       * DELETED: Inbound connection is deleted and cannot be used further.
        */
       public get statusCode(): shapes.InboundCrossClusterSearchConnectionStatusCode {
         const props: cr.AwsCustomResourceProps = {
@@ -8369,15 +8467,15 @@ export class DeleteInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get connectionStatus(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse> {
-      return new DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse(this.scope, this.resources, this.input);
+    public get connectionStatus(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi> {
+      return new DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get crossClusterSearchConnection(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse> {
-    return new DeleteInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse(this.scope, this.resources, this.input);
+  public get crossClusterSearchConnection(): InstanceType<typeof DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi> {
+    return new DeleteInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
@@ -8387,15 +8485,15 @@ export class DeleteInboundCrossClusterSearchConnectionResponse {
 /**
  * Response for DeleteOutboundCrossClusterSearchConnection.
  */
-export class DeleteOutboundCrossClusterSearchConnectionResponse {
+export class DeleteOutboundCrossClusterSearchConnectionResponseApi {
   /**
-   * Response for DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnection
+   * Response for DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnection
    */
-  static CrossClusterSearchConnectionResponse = class {
+  static CrossClusterSearchConnectionApi = class {
     /**
-     * Response for DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfo
+     * Response for DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfo
      */
-    static SourceDomainInfoResponse = class {
+    static SourceDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -8456,14 +8554,14 @@ export class DeleteOutboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get sourceDomainInfo(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse> {
-      return new DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse(this.scope, this.resources, this.input);
+    public get sourceDomainInfo(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi> {
+      return new DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfo
+     * Response for DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfo
      */
-    static DestinationDomainInfoResponse = class {
+    static DestinationDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -8524,8 +8622,8 @@ export class DeleteOutboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get destinationDomainInfo(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse> {
-      return new DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse(this.scope, this.resources, this.input);
+    public get destinationDomainInfo(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi> {
+      return new DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -8567,11 +8665,19 @@ export class DeleteOutboundCrossClusterSearchConnectionResponse {
       return request.getResponseField('CrossClusterSearchConnection.ConnectionAlias') as unknown as shapes.ConnectionAlias;
     }
     /**
-     * Response for DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatus
+     * Response for DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatus
      */
-    static ConnectionStatusResponse = class {
+    static ConnectionStatusApi = class {
       /**
-       * The state code for outbound connection. This can be one of the following:  VALIDATING: The outbound connection request is being validated. VALIDATION_FAILED: Validation failed for the connection request. PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner. PROVISIONING: Outbound connection request is in process. ACTIVE: Outbound connection is active and ready to use. REJECTED: Outbound connection request is rejected by destination domain owner. DELETING: Outbound connection deletion is in progress. DELETED: Outbound connection is deleted and cannot be used further.
+       * The state code for outbound connection.
+       * This can be one of the following:  VALIDATING: The outbound connection request is being validated.
+       * VALIDATION_FAILED: Validation failed for the connection request.
+       * PENDING_ACCEPTANCE: Outbound connection request is validated and is not yet accepted by destination domain owner.
+       * PROVISIONING: Outbound connection request is in process.
+       * ACTIVE: Outbound connection is active and ready to use.
+       * REJECTED: Outbound connection request is rejected by destination domain owner.
+       * DELETING: Outbound connection deletion is in progress.
+       * DELETED: Outbound connection is deleted and cannot be used further.
        */
       public get statusCode(): shapes.OutboundCrossClusterSearchConnectionStatusCode {
         const props: cr.AwsCustomResourceProps = {
@@ -8611,15 +8717,15 @@ export class DeleteOutboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get connectionStatus(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse> {
-      return new DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse(this.scope, this.resources, this.input);
+    public get connectionStatus(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi> {
+      return new DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get crossClusterSearchConnection(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse> {
-    return new DeleteOutboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse(this.scope, this.resources, this.input);
+  public get crossClusterSearchConnection(): InstanceType<typeof DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi> {
+    return new DeleteOutboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
@@ -8629,11 +8735,11 @@ export class DeleteOutboundCrossClusterSearchConnectionResponse {
 /**
  * Response for DeletePackage.
  */
-export class DeletePackageResponse {
+export class DeletePackageResponseApi {
   /**
-   * Response for DeletePackageResponse.PackageDetails
+   * Response for DeletePackageResponseApi.PackageDetails
    */
-  static PackageDetailsResponse = class {
+  static PackageDetailsApi = class {
     /**
      * Internal ID of the package.
      */
@@ -8711,7 +8817,8 @@ export class DeletePackageResponse {
       return request.getResponseField('PackageDetails.PackageDescription') as unknown as shapes.PackageDescription;
     }
     /**
-     * Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
+     * Current state of the package.
+     * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
      */
     public get packageStatus(): shapes.PackageStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -8787,9 +8894,9 @@ export class DeletePackageResponse {
       return request.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as shapes.PackageVersion;
     }
     /**
-     * Response for DeletePackageResponse.PackageDetailsResponse.ErrorDetails
+     * Response for DeletePackageResponseApi.PackageDetailsApi.ErrorDetails
      */
-    static ErrorDetailsResponse = class {
+    static ErrorDetailsApi = class {
       /**
        * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
        */
@@ -8831,15 +8938,15 @@ export class DeletePackageResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeletePackageRequest) {
       }
     }
-    public get errorDetails(): InstanceType<typeof DeletePackageResponse.PackageDetailsResponse.ErrorDetailsResponse> {
-      return new DeletePackageResponse.PackageDetailsResponse.ErrorDetailsResponse(this.scope, this.resources, this.input);
+    public get errorDetails(): InstanceType<typeof DeletePackageResponseApi.PackageDetailsApi.ErrorDetailsApi> {
+      return new DeletePackageResponseApi.PackageDetailsApi.ErrorDetailsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeletePackageRequest) {
     }
   }
-  public get packageDetails(): InstanceType<typeof DeletePackageResponse.PackageDetailsResponse> {
-    return new DeletePackageResponse.PackageDetailsResponse(this.scope, this.resources, this.input);
+  public get packageDetails(): InstanceType<typeof DeletePackageResponseApi.PackageDetailsApi> {
+    return new DeletePackageResponseApi.PackageDetailsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DeletePackageRequest) {
@@ -8849,11 +8956,11 @@ export class DeletePackageResponse {
 /**
  * Response for DescribeElasticsearchDomain.
  */
-export class DescribeElasticsearchDomainResponse {
+export class DescribeElasticsearchDomainResponseApi {
   /**
-   * Response for DescribeElasticsearchDomainResponse.DomainStatus
+   * Response for DescribeElasticsearchDomainResponseApi.DomainStatus
    */
-  static DomainStatusResponse = class {
+  static DomainStatusApi = class {
     /**
      * The unique identifier for the specified Elasticsearch domain.
      */
@@ -8874,7 +8981,9 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainId') as unknown as shapes.DomainId;
     }
     /**
-     * The name of an Elasticsearch domain. Domain names are unique across the domains owned by an account within an AWS region. Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
+     * The name of an Elasticsearch domain.
+     * Domain names are unique across the domains owned by an account within an AWS region.
+     * Domain names start with a letter or number and can contain the following characters: a-z (lowercase), 0-9, and - (hyphen).
      */
     public get domainName(): shapes.DomainName {
       const props: cr.AwsCustomResourceProps = {
@@ -8893,7 +9002,8 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.DomainName') as unknown as shapes.DomainName;
     }
     /**
-     * The Amazon resource name (ARN) of an Elasticsearch domain. See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
+     * The Amazon resource name (ARN) of an Elasticsearch domain.
+     * See Identifiers for IAM Entities in Using AWS Identity and Access Management for more information.
      */
     public get arn(): shapes.ARN {
       const props: cr.AwsCustomResourceProps = {
@@ -8912,9 +9022,11 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ARN') as unknown as shapes.ARN;
     }
     /**
-     * The domain creation status. True if the creation of an Elasticsearch domain is complete. False if domain creation is still in progress.
+     * The domain creation status.
+     * True if the creation of an Elasticsearch domain is complete.
+     * False if domain creation is still in progress.
      */
-    public get created(): shapes.Boolean {
+    public get created(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'describeElasticsearchDomain',
@@ -8928,12 +9040,15 @@ export class DescribeElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.Created', props);
-      return request.getResponseField('DomainStatus.Created') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Created') as unknown as Boolean;
     }
     /**
-     * The domain deletion status. True if a delete request has been received for the domain but resource cleanup is still in progress. False if the domain has not been deleted. Once domain deletion is complete, the status of the domain is no longer returned.
+     * The domain deletion status.
+     * True if a delete request has been received for the domain but resource cleanup is still in progress.
+     * False if the domain has not been deleted.
+     * Once domain deletion is complete, the status of the domain is no longer returned.
      */
-    public get deleted(): shapes.Boolean {
+    public get deleted(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'describeElasticsearchDomain',
@@ -8947,7 +9062,7 @@ export class DescribeElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.Deleted', props);
-      return request.getResponseField('DomainStatus.Deleted') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Deleted') as unknown as Boolean;
     }
     /**
      * The Elasticsearch domain endpoint that you use to submit index and search requests.
@@ -8969,7 +9084,12 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoint') as unknown as shapes.ServiceUrl;
     }
     /**
-     * Map containing the Elasticsearch domain endpoints used to submit index and search requests. Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'.
+     * Map containing the Elasticsearch domain endpoints used to submit index and search requests.
+     * Example key, value: 'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.
+     * us-east-1.
+     * es.
+     * amazonaws.
+     * com'.
      */
     public get endpoints(): shapes.EndpointsMap {
       const props: cr.AwsCustomResourceProps = {
@@ -8988,9 +9108,11 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.Endpoints') as unknown as shapes.EndpointsMap;
     }
     /**
-     * The status of the Elasticsearch domain configuration. True if Amazon Elasticsearch Service is processing configuration changes. False if the configuration is active.
+     * The status of the Elasticsearch domain configuration.
+     * True if Amazon Elasticsearch Service is processing configuration changes.
+     * False if the configuration is active.
      */
-    public get processing(): shapes.Boolean {
+    public get processing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'describeElasticsearchDomain',
@@ -9004,12 +9126,14 @@ export class DescribeElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.Processing', props);
-      return request.getResponseField('DomainStatus.Processing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.Processing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
-    public get upgradeProcessing(): shapes.Boolean {
+    public get upgradeProcessing(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'describeElasticsearchDomain',
@@ -9023,10 +9147,12 @@ export class DescribeElasticsearchDomainResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
-      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as shapes.Boolean;
+      return request.getResponseField('DomainStatus.UpgradeProcessing') as unknown as Boolean;
     }
     /**
-     * The status of an Elasticsearch domain version upgrade. True if Amazon Elasticsearch Service is undergoing a version upgrade. False if the configuration is active.
+     * The status of an Elasticsearch domain version upgrade.
+     * True if Amazon Elasticsearch Service is undergoing a version upgrade.
+     * False if the configuration is active.
      */
     public get elasticsearchVersion(): shapes.ElasticsearchVersionString {
       const props: cr.AwsCustomResourceProps = {
@@ -9045,11 +9171,12 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as shapes.ElasticsearchVersionString;
     }
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfig
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfig
      */
-    static ElasticsearchClusterConfigResponse = class {
+    static ElasticsearchClusterConfigApi = class {
       /**
-       * The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+       * The instance type for an Elasticsearch cluster.
+       * UltraWarm instance types are not supported for data instances.
        */
       public get instanceType(): shapes.ESPartitionInstanceType {
         const props: cr.AwsCustomResourceProps = {
@@ -9087,9 +9214,10 @@ export class DescribeElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as shapes.IntegerClass;
       }
       /**
-       * A boolean value to indicate whether a dedicated master node is enabled. See About Dedicated Master Nodes for more information.
+       * A boolean value to indicate whether a dedicated master node is enabled.
+       * See About Dedicated Master Nodes for more information.
        */
-      public get dedicatedMasterEnabled(): shapes.Boolean {
+      public get dedicatedMasterEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9103,12 +9231,13 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as Boolean;
       }
       /**
-       * A boolean value to indicate whether zone awareness is enabled. See About Zone Awareness for more information.
+       * A boolean value to indicate whether zone awareness is enabled.
+       * See About Zone Awareness for more information.
        */
-      public get zoneAwarenessEnabled(): shapes.Boolean {
+      public get zoneAwarenessEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9122,14 +9251,15 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as Boolean;
       }
       /**
-       * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfig
+       * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfig
        */
-      static ZoneAwarenessConfigResponse = class {
+      static ZoneAwarenessConfigApi = class {
         /**
-         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled
+         * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+         * This should be equal to number of subnets if VPC endpoints is enabled.
          */
         public get availabilityZoneCount(): shapes.IntegerClass {
           const props: cr.AwsCustomResourceProps = {
@@ -9150,8 +9280,8 @@ export class DescribeElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
         }
       }
-      public get zoneAwarenessConfig(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse> {
-        return new DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse.ZoneAwarenessConfigResponse(this.scope, this.resources, this.input);
+      public get zoneAwarenessConfig(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi> {
+        return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi.ZoneAwarenessConfigApi(this.scope, this.resources, this.input);
       }
 
       /**
@@ -9195,7 +9325,7 @@ export class DescribeElasticsearchDomainResponse {
       /**
        * True to enable warm storage.
        */
-      public get warmEnabled(): shapes.Boolean {
+      public get warmEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9209,7 +9339,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
-        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as Boolean;
       }
       /**
        * The instance type for the Elasticsearch cluster's warm nodes.
@@ -9252,18 +9382,18 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get elasticsearchClusterConfig(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.ElasticsearchClusterConfigResponse(this.scope, this.resources, this.input);
+    public get elasticsearchClusterConfig(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.ElasticsearchClusterConfigApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.EBSOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.EBSOptions
      */
-    static EBSOptionsResponse = class {
+    static EBSOptionsApi = class {
       /**
        * Specifies whether EBS-based storage is enabled.
        */
-      public get ebsEnabled(): shapes.Boolean {
+      public get ebsEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9277,7 +9407,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
-        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as Boolean;
       }
       /**
        * Specifies the volume type for EBS-based storage.
@@ -9339,8 +9469,8 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get ebsOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.EBSOptionsResponse(this.scope, this.resources, this.input);
+    public get ebsOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.EBSOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -9363,11 +9493,12 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.AccessPolicies') as unknown as shapes.PolicyDocument;
     }
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptions
      */
-    static SnapshotOptionsResponse = class {
+    static SnapshotOptionsApi = class {
       /**
-       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is 0 hours.
+       * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+       * Default value is 0 hours.
        */
       public get automatedSnapshotStartHour(): shapes.IntegerClass {
         const props: cr.AwsCustomResourceProps = {
@@ -9388,18 +9519,19 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get snapshotOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.SnapshotOptionsResponse(this.scope, this.resources, this.input);
+    public get snapshotOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.SnapshotOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.VPCOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.VPCOptions
      */
-    static VPCOptionsResponse = class {
+    static VPCOptionsApi = class {
       /**
-       * The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The VPC Id for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
-      public get vpcId(): shapes.String {
+      public get vpcId(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9413,7 +9545,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
-        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as String;
       }
       /**
        * Specifies the subnets for VPC endpoint.
@@ -9435,7 +9567,8 @@ export class DescribeElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as shapes.StringList;
       }
       /**
-       * The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+       * The availability zones for the Elasticsearch domain.
+       * Exists only if the domain was created with VPCOptions.
        */
       public get availabilityZones(): shapes.StringList {
         const props: cr.AwsCustomResourceProps = {
@@ -9475,18 +9608,18 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get vpcOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.VPCOptionsResponse(this.scope, this.resources, this.input);
+    public get vpcOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.VPCOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.CognitoOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptions
      */
-    static CognitoOptionsResponse = class {
+    static CognitoOptionsApi = class {
       /**
        * Specifies the option to enable Cognito for Kibana authentication.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9500,7 +9633,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the Cognito user pool ID for Kibana authentication.
@@ -9562,18 +9695,18 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get cognitoOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.CognitoOptionsResponse(this.scope, this.resources, this.input);
+    public get cognitoOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.CognitoOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptions
      */
-    static EncryptionAtRestOptionsResponse = class {
+    static EncryptionAtRestOptionsApi = class {
       /**
        * Specifies the option to enable Encryption At Rest.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9587,7 +9720,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as Boolean;
       }
       /**
        * Specifies the KMS Key ID for Encryption At Rest options.
@@ -9611,18 +9744,18 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get encryptionAtRestOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.EncryptionAtRestOptionsResponse(this.scope, this.resources, this.input);
+    public get encryptionAtRestOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.EncryptionAtRestOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptions
      */
-    static NodeToNodeEncryptionOptionsResponse = class {
+    static NodeToNodeEncryptionOptionsApi = class {
       /**
        * Specify true to enable node-to-node encryption.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9636,17 +9769,17 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.NodeToNodeEncryptionOptionsResponse(this.scope, this.resources, this.input);
+    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.NodeToNodeEncryptionOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Specifies the status of the AdvancedOptions
+     * Specifies the status of the AdvancedOptions.
      */
     public get advancedOptions(): shapes.AdvancedOptions {
       const props: cr.AwsCustomResourceProps = {
@@ -9684,13 +9817,13 @@ export class DescribeElasticsearchDomainResponse {
       return request.getResponseField('DomainStatus.LogPublishingOptions') as unknown as shapes.LogPublishingOptions;
     }
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptions
      */
-    static ServiceSoftwareOptionsResponse = class {
+    static ServiceSoftwareOptionsApi = class {
       /**
        * The current service software version that is present on the domain.
        */
-      public get currentVersion(): shapes.String {
+      public get currentVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9704,12 +9837,12 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as String;
       }
       /**
        * The new service software version if one is available.
        */
-      public get newVersion(): shapes.String {
+      public get newVersion(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9723,12 +9856,13 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as String;
       }
       /**
-       * True if you are able to update you service software version. False if you are not able to update your service software version.
+       * True if you are able to update you service software version.
+       * False if you are not able to update your service software version.
        */
-      public get updateAvailable(): shapes.Boolean {
+      public get updateAvailable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9742,12 +9876,13 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as Boolean;
       }
       /**
-       * True if you are able to cancel your service software version update. False if you are not able to cancel your service software version.
+       * True if you are able to cancel your service software version update.
+       * False if you are not able to cancel your service software version.
        */
-      public get cancellable(): shapes.Boolean {
+      public get cancellable(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9761,10 +9896,11 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as Boolean;
       }
       /**
-       * The status of your service software update. This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
+       * The status of your service software update.
+       * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
        */
       public get updateStatus(): shapes.DeploymentStatus {
         const props: cr.AwsCustomResourceProps = {
@@ -9785,7 +9921,7 @@ export class DescribeElasticsearchDomainResponse {
       /**
        * The description of the UpdateStatus.
        */
-      public get description(): shapes.String {
+      public get description(): String {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9799,10 +9935,11 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as shapes.String;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as String;
       }
       /**
-       * Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+       * Timestamp, in Epoch time, until which you can manually request a service software update.
+       * After this date, we automatically update your service software.
        */
       public get automatedUpdateDate(): shapes.DeploymentCloseDateTimeStamp {
         const props: cr.AwsCustomResourceProps = {
@@ -9821,9 +9958,10 @@ export class DescribeElasticsearchDomainResponse {
         return request.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as shapes.DeploymentCloseDateTimeStamp;
       }
       /**
-       * True if a service software is never automatically updated. False if a service software is automatically updated after AutomatedUpdateDate.
+       * True if a service software is never automatically updated.
+       * False if a service software is automatically updated after AutomatedUpdateDate.
        */
-      public get optionalDeployment(): shapes.Boolean {
+      public get optionalDeployment(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9837,23 +9975,23 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
-        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as Boolean;
       }
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get serviceSoftwareOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.ServiceSoftwareOptionsResponse(this.scope, this.resources, this.input);
+    public get serviceSoftwareOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.ServiceSoftwareOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptions
      */
-    static DomainEndpointOptionsResponse = class {
+    static DomainEndpointOptionsApi = class {
       /**
        * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
        */
-      public get enforceHttps(): shapes.Boolean {
+      public get enforceHttps(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9867,10 +10005,14 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as Boolean;
       }
       /**
-       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.  It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.0 and higher. Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.2
+       * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+       * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+       * 0 and higher.
+       * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+       * 2.
        */
       public get tlsSecurityPolicy(): shapes.TLSSecurityPolicy {
         const props: cr.AwsCustomResourceProps = {
@@ -9891,7 +10033,7 @@ export class DescribeElasticsearchDomainResponse {
       /**
        * Specify if custom endpoint should be enabled for the Elasticsearch domain.
        */
-      public get customEndpointEnabled(): shapes.Boolean {
+      public get customEndpointEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9905,7 +10047,7 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
-        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as Boolean;
       }
       /**
        * Specify the fully qualified domain for your custom endpoint.
@@ -9948,18 +10090,18 @@ export class DescribeElasticsearchDomainResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get domainEndpointOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.DomainEndpointOptionsResponse(this.scope, this.resources, this.input);
+    public get domainEndpointOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.DomainEndpointOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptions
+     * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptions
      */
-    static AdvancedSecurityOptionsResponse = class {
+    static AdvancedSecurityOptionsApi = class {
       /**
        * True if advanced security is enabled.
        */
-      public get enabled(): shapes.Boolean {
+      public get enabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9973,12 +10115,12 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as Boolean;
       }
       /**
        * True if the internal user database is enabled.
        */
-      public get internalUserDatabaseEnabled(): shapes.Boolean {
+      public get internalUserDatabaseEnabled(): Boolean {
         const props: cr.AwsCustomResourceProps = {
           onUpdate: {
             action: 'describeElasticsearchDomain',
@@ -9992,16 +10134,16 @@ export class DescribeElasticsearchDomainResponse {
           policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
         };
         const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as shapes.Boolean;
+        return request.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as Boolean;
       }
       /**
-       * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptions
+       * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptions
        */
-      static SAMLOptionsResponse = class {
+      static SAMLOptionsApi = class {
         /**
          * True if SAML is enabled.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomain',
@@ -10015,12 +10157,12 @@ export class DescribeElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as Boolean;
         }
         /**
-         * Response for DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.Idp
+         * Response for DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.Idp
          */
-        static IdpResponse = class {
+        static IdpApi = class {
           /**
            * The Metadata of the SAML application in xml format.
            */
@@ -10062,14 +10204,14 @@ export class DescribeElasticsearchDomainResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
           }
         }
-        public get idp(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse> {
-          return new DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse.IdpResponse(this.scope, this.resources, this.input);
+        public get idp(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi> {
+          return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi.IdpApi(this.scope, this.resources, this.input);
         }
 
         /**
          * The key used for matching the SAML Subject attribute.
          */
-        public get subjectKey(): shapes.String {
+        public get subjectKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomain',
@@ -10083,12 +10225,12 @@ export class DescribeElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as String;
         }
         /**
          * The key used for matching the SAML Roles attribute.
          */
-        public get rolesKey(): shapes.String {
+        public get rolesKey(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomain',
@@ -10102,7 +10244,7 @@ export class DescribeElasticsearchDomainResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
-          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as shapes.String;
+          return request.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as String;
         }
         /**
          * The duration, in minutes, after which a user session becomes inactive.
@@ -10126,22 +10268,22 @@ export class DescribeElasticsearchDomainResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
         }
       }
-      public get samlOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse> {
-        return new DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse.SAMLOptionsResponse(this.scope, this.resources, this.input);
+      public get samlOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi> {
+        return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi.SAMLOptionsApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
       }
     }
-    public get advancedSecurityOptions(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse> {
-      return new DescribeElasticsearchDomainResponse.DomainStatusResponse.AdvancedSecurityOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedSecurityOptions(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi> {
+      return new DescribeElasticsearchDomainResponseApi.DomainStatusApi.AdvancedSecurityOptionsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
     }
   }
-  public get domainStatus(): InstanceType<typeof DescribeElasticsearchDomainResponse.DomainStatusResponse> {
-    return new DescribeElasticsearchDomainResponse.DomainStatusResponse(this.scope, this.resources, this.input);
+  public get domainStatus(): InstanceType<typeof DescribeElasticsearchDomainResponseApi.DomainStatusApi> {
+    return new DescribeElasticsearchDomainResponseApi.DomainStatusApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainRequest) {
@@ -10151,15 +10293,15 @@ export class DescribeElasticsearchDomainResponse {
 /**
  * Response for DescribeElasticsearchDomainConfig.
  */
-export class DescribeElasticsearchDomainConfigResponse {
+export class DescribeElasticsearchDomainConfigResponseApi {
   /**
-   * Response for DescribeElasticsearchDomainConfigResponse.DomainConfig
+   * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfig
    */
-  static DomainConfigResponse = class {
+  static DomainConfigApi = class {
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersion
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersion
      */
-    static ElasticsearchVersionResponse = class {
+    static ElasticsearchVersionApi = class {
       /**
        * Specifies the Elasticsearch version for the specified Elasticsearch domain.
        */
@@ -10180,9 +10322,9 @@ export class DescribeElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as shapes.ElasticsearchVersionString;
       }
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -10262,7 +10404,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10276,32 +10418,33 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get elasticsearchVersion(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse(this.scope, this.resources, this.input);
+    public get elasticsearchVersion(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfig
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfig
      */
-    static ElasticsearchClusterConfigResponse = class {
+    static ElasticsearchClusterConfigApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+         * The instance type for an Elasticsearch cluster.
+         * UltraWarm instance types are not supported for data instances.
          */
         public get instanceType(): shapes.ESPartitionInstanceType {
           const props: cr.AwsCustomResourceProps = {
@@ -10339,9 +10482,10 @@ export class DescribeElasticsearchDomainConfigResponse {
           return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as shapes.IntegerClass;
         }
         /**
-         * A boolean value to indicate whether a dedicated master node is enabled. See About Dedicated Master Nodes for more information.
+         * A boolean value to indicate whether a dedicated master node is enabled.
+         * See About Dedicated Master Nodes for more information.
          */
-        public get dedicatedMasterEnabled(): shapes.Boolean {
+        public get dedicatedMasterEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10355,12 +10499,13 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as Boolean;
         }
         /**
-         * A boolean value to indicate whether zone awareness is enabled. See About Zone Awareness for more information.
+         * A boolean value to indicate whether zone awareness is enabled.
+         * See About Zone Awareness for more information.
          */
-        public get zoneAwarenessEnabled(): shapes.Boolean {
+        public get zoneAwarenessEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10374,14 +10519,15 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as Boolean;
         }
         /**
-         * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfig
+         * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfig
          */
-        static ZoneAwarenessConfigResponse = class {
+        static ZoneAwarenessConfigApi = class {
           /**
-           * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled
+           * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+           * This should be equal to number of subnets if VPC endpoints is enabled.
            */
           public get availabilityZoneCount(): shapes.IntegerClass {
             const props: cr.AwsCustomResourceProps = {
@@ -10402,8 +10548,8 @@ export class DescribeElasticsearchDomainConfigResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
           }
         }
-        public get zoneAwarenessConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfigResponse> {
-          return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfigResponse(this.scope, this.resources, this.input);
+        public get zoneAwarenessConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfigApi> {
+          return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfigApi(this.scope, this.resources, this.input);
         }
 
         /**
@@ -10447,7 +10593,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * True to enable warm storage.
          */
-        public get warmEnabled(): shapes.Boolean {
+        public get warmEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10461,7 +10607,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as Boolean;
         }
         /**
          * The instance type for the Elasticsearch cluster's warm nodes.
@@ -10504,14 +10650,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -10591,7 +10737,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10605,34 +10751,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get elasticsearchClusterConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse(this.scope, this.resources, this.input);
+    public get elasticsearchClusterConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptions
      */
-    static EBSOptionsResponse = class {
+    static EBSOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies whether EBS-based storage is enabled.
          */
-        public get ebsEnabled(): shapes.Boolean {
+        public get ebsEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10646,7 +10792,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
-          return request.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as Boolean;
         }
         /**
          * Specifies the volume type for EBS-based storage.
@@ -10708,14 +10854,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -10795,7 +10941,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10809,28 +10955,30 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get ebsOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse(this.scope, this.resources, this.input);
+    public get ebsOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPolicies
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPolicies
      */
-    static AccessPoliciesResponse = class {
+    static AccessPoliciesApi = class {
       /**
-       * The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See  Configuring Access Policiesfor more information.
+       * The access policy configured for the Elasticsearch domain.
+       * Access policies may be resource-based, IP-based, or IAM-based.
+       * See  Configuring Access Policiesfor more information.
        */
       public get options(): shapes.PolicyDocument {
         const props: cr.AwsCustomResourceProps = {
@@ -10849,9 +10997,9 @@ export class DescribeElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as shapes.PolicyDocument;
       }
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -10931,7 +11079,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -10945,32 +11093,33 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get accessPolicies(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse(this.scope, this.resources, this.input);
+    public get accessPolicies(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptions
      */
-    static SnapshotOptionsResponse = class {
+    static SnapshotOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is 0 hours.
+         * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+         * Default value is 0 hours.
          */
         public get automatedSnapshotStartHour(): shapes.IntegerClass {
           const props: cr.AwsCustomResourceProps = {
@@ -10991,14 +11140,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11078,7 +11227,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11092,34 +11241,35 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get snapshotOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse(this.scope, this.resources, this.input);
+    public get snapshotOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptions
      */
-    static VPCOptionsResponse = class {
+    static VPCOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+         * The VPC Id for the Elasticsearch domain.
+         * Exists only if the domain was created with VPCOptions.
          */
-        public get vpcId(): shapes.String {
+        public get vpcId(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11133,7 +11283,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
-          return request.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as shapes.String;
+          return request.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as String;
         }
         /**
          * Specifies the subnets for VPC endpoint.
@@ -11155,7 +11305,8 @@ export class DescribeElasticsearchDomainConfigResponse {
           return request.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as shapes.StringList;
         }
         /**
-         * The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+         * The availability zones for the Elasticsearch domain.
+         * Exists only if the domain was created with VPCOptions.
          */
         public get availabilityZones(): shapes.StringList {
           const props: cr.AwsCustomResourceProps = {
@@ -11195,14 +11346,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11282,7 +11433,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11296,34 +11447,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get vpcOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse(this.scope, this.resources, this.input);
+    public get vpcOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptions
      */
-    static CognitoOptionsResponse = class {
+    static CognitoOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies the option to enable Cognito for Kibana authentication.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11337,7 +11488,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * Specifies the Cognito user pool ID for Kibana authentication.
@@ -11399,14 +11550,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11486,7 +11637,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11500,34 +11651,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get cognitoOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse(this.scope, this.resources, this.input);
+    public get cognitoOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptions
      */
-    static EncryptionAtRestOptionsResponse = class {
+    static EncryptionAtRestOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies the option to enable Encryption At Rest.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11541,7 +11692,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * Specifies the KMS Key ID for Encryption At Rest options.
@@ -11565,14 +11716,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11652,7 +11803,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11666,34 +11817,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get encryptionAtRestOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse(this.scope, this.resources, this.input);
+    public get encryptionAtRestOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptions
      */
-    static NodeToNodeEncryptionOptionsResponse = class {
+    static NodeToNodeEncryptionOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specify true to enable node-to-node encryption.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11707,19 +11858,19 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11799,7 +11950,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11813,26 +11964,26 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse(this.scope, this.resources, this.input);
+    public get nodeToNodeEncryptionOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptions
      */
-    static AdvancedOptionsResponse = class {
+    static AdvancedOptionsApi = class {
       /**
        * Specifies the status of advanced options for the specified Elasticsearch domain.
        */
@@ -11853,9 +12004,9 @@ export class DescribeElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as shapes.AdvancedOptions;
       }
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -11935,7 +12086,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -11949,26 +12100,26 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get advancedOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptions
      */
-    static LogPublishingOptionsResponse = class {
+    static LogPublishingOptionsApi = class {
       /**
        * The log publishing options configured for the Elasticsearch domain.
        */
@@ -11989,9 +12140,9 @@ export class DescribeElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as shapes.LogPublishingOptions;
       }
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -12071,7 +12222,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12085,34 +12236,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get logPublishingOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse(this.scope, this.resources, this.input);
+    public get logPublishingOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptions
      */
-    static DomainEndpointOptionsResponse = class {
+    static DomainEndpointOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
          */
-        public get enforceHttps(): shapes.Boolean {
+        public get enforceHttps(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12126,10 +12277,14 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as Boolean;
         }
         /**
-         * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.  It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.0 and higher. Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.2
+         * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+         * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+         * 0 and higher.
+         * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+         * 2.
          */
         public get tlsSecurityPolicy(): shapes.TLSSecurityPolicy {
           const props: cr.AwsCustomResourceProps = {
@@ -12150,7 +12305,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Specify if custom endpoint should be enabled for the Elasticsearch domain.
          */
-        public get customEndpointEnabled(): shapes.Boolean {
+        public get customEndpointEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12164,7 +12319,7 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as Boolean;
         }
         /**
          * Specify the fully qualified domain for your custom endpoint.
@@ -12207,14 +12362,14 @@ export class DescribeElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -12294,7 +12449,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12308,34 +12463,34 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get domainEndpointOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse(this.scope, this.resources, this.input);
+    public get domainEndpointOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptions
+     * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptions
      */
-    static AdvancedSecurityOptionsResponse = class {
+    static AdvancedSecurityOptionsApi = class {
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.Options
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * True if advanced security is enabled.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12349,12 +12504,12 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * True if the internal user database is enabled.
          */
-        public get internalUserDatabaseEnabled(): shapes.Boolean {
+        public get internalUserDatabaseEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12368,16 +12523,16 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as Boolean;
         }
         /**
-         * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptions
+         * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptions
          */
-        static SAMLOptionsResponse = class {
+        static SAMLOptionsApi = class {
           /**
            * True if SAML is enabled.
            */
-          public get enabled(): shapes.Boolean {
+          public get enabled(): Boolean {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'describeElasticsearchDomainConfig',
@@ -12391,12 +12546,12 @@ export class DescribeElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as shapes.Boolean;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as Boolean;
           }
           /**
-           * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.Idp
+           * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.Idp
            */
-          static IdpResponse = class {
+          static IdpApi = class {
             /**
              * The Metadata of the SAML application in xml format.
              */
@@ -12438,14 +12593,14 @@ export class DescribeElasticsearchDomainConfigResponse {
             constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
             }
           }
-          public get idp(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.IdpResponse> {
-            return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.IdpResponse(this.scope, this.resources, this.input);
+          public get idp(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.IdpApi> {
+            return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.IdpApi(this.scope, this.resources, this.input);
           }
 
           /**
            * The key used for matching the SAML Subject attribute.
            */
-          public get subjectKey(): shapes.String {
+          public get subjectKey(): String {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'describeElasticsearchDomainConfig',
@@ -12459,12 +12614,12 @@ export class DescribeElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as shapes.String;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as String;
           }
           /**
            * The key used for matching the SAML Roles attribute.
            */
-          public get rolesKey(): shapes.String {
+          public get rolesKey(): String {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'describeElasticsearchDomainConfig',
@@ -12478,7 +12633,7 @@ export class DescribeElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as shapes.String;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as String;
           }
           /**
            * The duration, in minutes, after which a user session becomes inactive.
@@ -12502,21 +12657,21 @@ export class DescribeElasticsearchDomainConfigResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
           }
         }
-        public get samlOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse> {
-          return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse(this.scope, this.resources, this.input);
+        public get samlOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi> {
+          return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi(this.scope, this.resources, this.input);
         }
 
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.Status
+       * Response for DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -12596,7 +12751,7 @@ export class DescribeElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'describeElasticsearchDomainConfig',
@@ -12610,27 +12765,27 @@ export class DescribeElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.StatusResponse> {
-        return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.StatusApi> {
+        return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
       }
     }
-    public get advancedSecurityOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse> {
-      return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedSecurityOptions(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi> {
+      return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     }
   }
-  public get domainConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponse.DomainConfigResponse> {
-    return new DescribeElasticsearchDomainConfigResponse.DomainConfigResponse(this.scope, this.resources, this.input);
+  public get domainConfig(): InstanceType<typeof DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi> {
+    return new DescribeElasticsearchDomainConfigResponseApi.DomainConfigApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
@@ -12640,7 +12795,7 @@ export class DescribeElasticsearchDomainConfigResponse {
 /**
  * Response for DescribeElasticsearchDomains.
  */
-export class DescribeElasticsearchDomainsResponse {
+export class DescribeElasticsearchDomainsResponseApi {
   /**
    * The status of the domains requested in the DescribeElasticsearchDomains request.
    */
@@ -12667,7 +12822,7 @@ export class DescribeElasticsearchDomainsResponse {
 /**
  * Response for DescribeElasticsearchInstanceTypeLimits.
  */
-export class DescribeElasticsearchInstanceTypeLimitsResponse {
+export class DescribeElasticsearchInstanceTypeLimitsResponseApi {
   /**
    * Version of Elasticsearch for which  Limits  are needed.
    */
@@ -12696,7 +12851,7 @@ export class DescribeElasticsearchInstanceTypeLimitsResponse {
 /**
  * Response for DescribeInboundCrossClusterSearchConnections.
  */
-export class DescribeInboundCrossClusterSearchConnectionsResponse {
+export class DescribeInboundCrossClusterSearchConnectionsResponseApi {
   /**
    * Consists of list of InboundCrossClusterSearchConnection matching the specified filter criteria.
    */
@@ -12746,7 +12901,7 @@ export class DescribeInboundCrossClusterSearchConnectionsResponse {
 /**
  * Response for DescribeOutboundCrossClusterSearchConnections.
  */
-export class DescribeOutboundCrossClusterSearchConnectionsResponse {
+export class DescribeOutboundCrossClusterSearchConnectionsResponseApi {
   /**
    * Consists of list of OutboundCrossClusterSearchConnection matching the specified filter criteria.
    */
@@ -12796,7 +12951,7 @@ export class DescribeOutboundCrossClusterSearchConnectionsResponse {
 /**
  * Response for DescribePackages.
  */
-export class DescribePackagesResponse {
+export class DescribePackagesResponseApi {
   /**
    * List of PackageDetails objects.
    */
@@ -12821,7 +12976,7 @@ export class DescribePackagesResponse {
   /**
    * List of PackageDetails objects.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'describePackages',
@@ -12837,7 +12992,7 @@ export class DescribePackagesResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'DescribePackages.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DescribePackagesRequest) {
   }
@@ -12846,7 +13001,7 @@ export class DescribePackagesResponse {
 /**
  * Response for DescribeReservedElasticsearchInstanceOfferings.
  */
-export class DescribeReservedElasticsearchInstanceOfferingsResponse {
+export class DescribeReservedElasticsearchInstanceOfferingsResponseApi {
   /**
    * Provides an identifier to allow retrieval of paginated results.
    */
@@ -12869,7 +13024,7 @@ export class DescribeReservedElasticsearchInstanceOfferingsResponse {
     return request.getResponseField('NextToken') as unknown as shapes.NextToken;
   }
   /**
-   * List of reserved Elasticsearch instance offerings
+   * List of reserved Elasticsearch instance offerings.
    */
   public get reservedElasticsearchInstanceOfferings(): shapes.ReservedElasticsearchInstanceOfferingList {
     const props: cr.AwsCustomResourceProps = {
@@ -12896,11 +13051,11 @@ export class DescribeReservedElasticsearchInstanceOfferingsResponse {
 /**
  * Response for DescribeReservedElasticsearchInstances.
  */
-export class DescribeReservedElasticsearchInstancesResponse {
+export class DescribeReservedElasticsearchInstancesResponseApi {
   /**
    * Provides an identifier to allow retrieval of paginated results.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'describeReservedElasticsearchInstances',
@@ -12916,7 +13071,7 @@ export class DescribeReservedElasticsearchInstancesResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'DescribeReservedElasticsearchInstances.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   /**
    * List of reserved Elasticsearch instances.
@@ -12946,11 +13101,11 @@ export class DescribeReservedElasticsearchInstancesResponse {
 /**
  * Response for DissociatePackage.
  */
-export class DissociatePackageResponse {
+export class DissociatePackageResponseApi {
   /**
-   * Response for DissociatePackageResponse.DomainPackageDetails
+   * Response for DissociatePackageResponseApi.DomainPackageDetails
    */
-  static DomainPackageDetailsResponse = class {
+  static DomainPackageDetailsApi = class {
     /**
      * Internal ID of the package.
      */
@@ -13052,7 +13207,8 @@ export class DissociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.DomainName') as unknown as shapes.DomainName;
     }
     /**
-     * State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+     * State of the association.
+     * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
      */
     public get domainPackageStatus(): shapes.DomainPackageStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -13072,7 +13228,8 @@ export class DissociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.DomainPackageStatus') as unknown as shapes.DomainPackageStatus;
     }
     /**
-     * State of the association. Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
+     * State of the association.
+     * Values are ASSOCIATING/ASSOCIATION_FAILED/ACTIVE/DISSOCIATING/DISSOCIATION_FAILED.
      */
     public get packageVersion(): shapes.PackageVersion {
       const props: cr.AwsCustomResourceProps = {
@@ -13112,9 +13269,9 @@ export class DissociatePackageResponse {
       return request.getResponseField('DomainPackageDetails.ReferencePath') as unknown as shapes.ReferencePath;
     }
     /**
-     * Response for DissociatePackageResponse.DomainPackageDetailsResponse.ErrorDetails
+     * Response for DissociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetails
      */
-    static ErrorDetailsResponse = class {
+    static ErrorDetailsApi = class {
       /**
        * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
        */
@@ -13158,15 +13315,15 @@ export class DissociatePackageResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DissociatePackageRequest) {
       }
     }
-    public get errorDetails(): InstanceType<typeof DissociatePackageResponse.DomainPackageDetailsResponse.ErrorDetailsResponse> {
-      return new DissociatePackageResponse.DomainPackageDetailsResponse.ErrorDetailsResponse(this.scope, this.resources, this.input);
+    public get errorDetails(): InstanceType<typeof DissociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetailsApi> {
+      return new DissociatePackageResponseApi.DomainPackageDetailsApi.ErrorDetailsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DissociatePackageRequest) {
     }
   }
-  public get domainPackageDetails(): InstanceType<typeof DissociatePackageResponse.DomainPackageDetailsResponse> {
-    return new DissociatePackageResponse.DomainPackageDetailsResponse(this.scope, this.resources, this.input);
+  public get domainPackageDetails(): InstanceType<typeof DissociatePackageResponseApi.DomainPackageDetailsApi> {
+    return new DissociatePackageResponseApi.DomainPackageDetailsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.DissociatePackageRequest) {
@@ -13176,7 +13333,7 @@ export class DissociatePackageResponse {
 /**
  * Response for GetCompatibleElasticsearchVersions.
  */
-export class GetCompatibleElasticsearchVersionsResponse {
+export class GetCompatibleElasticsearchVersionsResponseApi {
   /**
    * A map of compatible Elasticsearch versions returned as part of the  GetCompatibleElasticsearchVersions  operation.
    */
@@ -13203,9 +13360,11 @@ export class GetCompatibleElasticsearchVersionsResponse {
 /**
  * Response for GetPackageVersionHistory.
  */
-export class GetPackageVersionHistoryResponse {
+export class GetPackageVersionHistoryResponseApi {
   /**
-   * Used for pagination. Only necessary if a previous API call includes a non-null NextToken value. If provided, returns results for the next page.
+   * Used for pagination.
+   * Only necessary if a previous API call includes a non-null NextToken value.
+   * If provided, returns results for the next page.
    */
   public get packageId(): shapes.PackageID {
     const props: cr.AwsCustomResourceProps = {
@@ -13249,7 +13408,7 @@ export class GetPackageVersionHistoryResponse {
   /**
    * List of PackageVersionHistory objects.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'getPackageVersionHistory',
@@ -13265,7 +13424,7 @@ export class GetPackageVersionHistoryResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'GetPackageVersionHistory.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.GetPackageVersionHistoryRequest) {
   }
@@ -13274,7 +13433,7 @@ export class GetPackageVersionHistoryResponse {
 /**
  * Response for GetUpgradeHistory.
  */
-export class GetUpgradeHistoryResponse {
+export class GetUpgradeHistoryResponseApi {
   /**
    * A list of  UpgradeHistory  objects corresponding to each Upgrade or Upgrade Eligibility Check performed on a domain returned as part of  GetUpgradeHistoryResponse  object.
    */
@@ -13297,9 +13456,9 @@ export class GetUpgradeHistoryResponse {
     return request.getResponseField('UpgradeHistories') as unknown as shapes.UpgradeHistoryList;
   }
   /**
-   * Pagination token that needs to be supplied to the next call to get the next page of results
+   * Pagination token that needs to be supplied to the next call to get the next page of results.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'getUpgradeHistory',
@@ -13315,7 +13474,7 @@ export class GetUpgradeHistoryResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'GetUpgradeHistory.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.GetUpgradeHistoryRequest) {
   }
@@ -13324,9 +13483,9 @@ export class GetUpgradeHistoryResponse {
 /**
  * Response for GetUpgradeStatus.
  */
-export class GetUpgradeStatusResponse {
+export class GetUpgradeStatusResponseApi {
   /**
-   * Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:  PreUpgradeCheck Snapshot Upgrade
+   * Represents one of 3 steps that an Upgrade or Upgrade Eligibility Check does through:  PreUpgradeCheck Snapshot Upgrade.
    */
   public get upgradeStep(): shapes.UpgradeStep {
     const props: cr.AwsCustomResourceProps = {
@@ -13345,7 +13504,8 @@ export class GetUpgradeStatusResponse {
     return request.getResponseField('UpgradeStep') as unknown as shapes.UpgradeStep;
   }
   /**
-   * One of 4 statuses that a step can go through returned as part of the  GetUpgradeStatusResponse  object. The status can take one of the following values:  In Progress Succeeded Succeeded with Issues Failed
+   * One of 4 statuses that a step can go through returned as part of the  GetUpgradeStatusResponse  object.
+   * The status can take one of the following values:  In Progress Succeeded Succeeded with Issues Failed.
    */
   public get stepStatus(): shapes.UpgradeStatus {
     const props: cr.AwsCustomResourceProps = {
@@ -13364,7 +13524,7 @@ export class GetUpgradeStatusResponse {
     return request.getResponseField('StepStatus') as unknown as shapes.UpgradeStatus;
   }
   /**
-   * A string that describes the update briefly
+   * A string that describes the update briefly.
    */
   public get upgradeName(): shapes.UpgradeName {
     const props: cr.AwsCustomResourceProps = {
@@ -13389,7 +13549,7 @@ export class GetUpgradeStatusResponse {
 /**
  * Response for ListDomainNames.
  */
-export class ListDomainNamesResponse {
+export class ListDomainNamesResponseApi {
   /**
    * List of Elasticsearch domain names.
    */
@@ -13413,7 +13573,7 @@ export class ListDomainNamesResponse {
 /**
  * Response for ListDomainsForPackage.
  */
-export class ListDomainsForPackageResponse {
+export class ListDomainsForPackageResponseApi {
   /**
    * List of DomainPackageDetails objects.
    */
@@ -13438,7 +13598,7 @@ export class ListDomainsForPackageResponse {
   /**
    * List of DomainPackageDetails objects.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'listDomainsForPackage',
@@ -13454,7 +13614,7 @@ export class ListDomainsForPackageResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'ListDomainsForPackage.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.ListDomainsForPackageRequest) {
   }
@@ -13463,9 +13623,9 @@ export class ListDomainsForPackageResponse {
 /**
  * Response for ListElasticsearchInstanceTypes.
  */
-export class ListElasticsearchInstanceTypesResponse {
+export class ListElasticsearchInstanceTypesResponseApi {
   /**
-   * List of instance types supported by Amazon Elasticsearch service for given  ElasticsearchVersion
+   * List of instance types supported by Amazon Elasticsearch service for given  ElasticsearchVersion.
    */
   public get elasticsearchInstanceTypes(): shapes.ElasticsearchInstanceTypeList {
     const props: cr.AwsCustomResourceProps = {
@@ -13515,9 +13675,10 @@ export class ListElasticsearchInstanceTypesResponse {
 /**
  * Response for ListElasticsearchVersions.
  */
-export class ListElasticsearchVersionsResponse {
+export class ListElasticsearchVersionsResponseApi {
   /**
-   * Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
+   * Set this value to limit the number of results returned.
+   * Value provided must be greater than 10 else it wont be honored.
    */
   public get elasticsearchVersions(): shapes.ElasticsearchVersionList {
     const props: cr.AwsCustomResourceProps = {
@@ -13537,7 +13698,8 @@ export class ListElasticsearchVersionsResponse {
     return request.getResponseField('ElasticsearchVersions') as unknown as shapes.ElasticsearchVersionList;
   }
   /**
-   * Set this value to limit the number of results returned. Value provided must be greater than 10 else it wont be honored.
+   * Set this value to limit the number of results returned.
+   * Value provided must be greater than 10 else it wont be honored.
    */
   public get nextToken(): shapes.NextToken {
     const props: cr.AwsCustomResourceProps = {
@@ -13563,7 +13725,7 @@ export class ListElasticsearchVersionsResponse {
 /**
  * Response for ListPackagesForDomain.
  */
-export class ListPackagesForDomainResponse {
+export class ListPackagesForDomainResponseApi {
   /**
    * List of DomainPackageDetails objects.
    */
@@ -13588,7 +13750,7 @@ export class ListPackagesForDomainResponse {
   /**
    * Pagination token that needs to be supplied to the next call to get the next page of results.
    */
-  public get nextToken(): shapes.String {
+  public get nextToken(): String {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'listPackagesForDomain',
@@ -13604,7 +13766,7 @@ export class ListPackagesForDomainResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'ListPackagesForDomain.NextToken', props);
-    return request.getResponseField('NextToken') as unknown as shapes.String;
+    return request.getResponseField('NextToken') as unknown as String;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.ListPackagesForDomainRequest) {
   }
@@ -13613,7 +13775,7 @@ export class ListPackagesForDomainResponse {
 /**
  * Response for ListTags.
  */
-export class ListTagsResponse {
+export class ListTagsResponseApi {
   /**
    * List of Tag for the requested Elasticsearch domain.
    */
@@ -13640,7 +13802,7 @@ export class ListTagsResponse {
 /**
  * Response for PurchaseReservedElasticsearchInstanceOffering.
  */
-export class PurchaseReservedElasticsearchInstanceOfferingResponse {
+export class PurchaseReservedElasticsearchInstanceOfferingResponseApi {
   /**
    * Details of the reserved Elasticsearch instance which was purchased.
    */
@@ -13690,15 +13852,15 @@ export class PurchaseReservedElasticsearchInstanceOfferingResponse {
 /**
  * Response for RejectInboundCrossClusterSearchConnection.
  */
-export class RejectInboundCrossClusterSearchConnectionResponse {
+export class RejectInboundCrossClusterSearchConnectionResponseApi {
   /**
-   * Response for RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnection
+   * Response for RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnection
    */
-  static CrossClusterSearchConnectionResponse = class {
+  static CrossClusterSearchConnectionApi = class {
     /**
-     * Response for RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfo
+     * Response for RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfo
      */
-    static SourceDomainInfoResponse = class {
+    static SourceDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -13759,14 +13921,14 @@ export class RejectInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get sourceDomainInfo(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse> {
-      return new RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.SourceDomainInfoResponse(this.scope, this.resources, this.input);
+    public get sourceDomainInfo(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi> {
+      return new RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.SourceDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfo
+     * Response for RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfo
      */
-    static DestinationDomainInfoResponse = class {
+    static DestinationDomainInfoApi = class {
       /**
        * Specifies the DomainName.
        */
@@ -13827,8 +13989,8 @@ export class RejectInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get destinationDomainInfo(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse> {
-      return new RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.DestinationDomainInfoResponse(this.scope, this.resources, this.input);
+    public get destinationDomainInfo(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi> {
+      return new RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.DestinationDomainInfoApi(this.scope, this.resources, this.input);
     }
 
     /**
@@ -13851,11 +14013,17 @@ export class RejectInboundCrossClusterSearchConnectionResponse {
       return request.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as shapes.CrossClusterSearchConnectionId;
     }
     /**
-     * Response for RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatus
+     * Response for RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatus
      */
-    static ConnectionStatusResponse = class {
+    static ConnectionStatusApi = class {
       /**
-       * The state code for inbound connection. This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner. APPROVED: Inbound connection is pending acceptance by destination domain owner. REJECTING: Inbound connection rejection is in process. REJECTED: Inbound connection is rejected. DELETING: Inbound connection deletion is in progress. DELETED: Inbound connection is deleted and cannot be used further.
+       * The state code for inbound connection.
+       * This can be one of the following:  PENDING_ACCEPTANCE: Inbound connection is not yet accepted by destination domain owner.
+       * APPROVED: Inbound connection is pending acceptance by destination domain owner.
+       * REJECTING: Inbound connection rejection is in process.
+       * REJECTED: Inbound connection is rejected.
+       * DELETING: Inbound connection deletion is in progress.
+       * DELETED: Inbound connection is deleted and cannot be used further.
        */
       public get statusCode(): shapes.InboundCrossClusterSearchConnectionStatusCode {
         const props: cr.AwsCustomResourceProps = {
@@ -13895,15 +14063,15 @@ export class RejectInboundCrossClusterSearchConnectionResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
       }
     }
-    public get connectionStatus(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse> {
-      return new RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse.ConnectionStatusResponse(this.scope, this.resources, this.input);
+    public get connectionStatus(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi> {
+      return new RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi.ConnectionStatusApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
     }
   }
-  public get crossClusterSearchConnection(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse> {
-    return new RejectInboundCrossClusterSearchConnectionResponse.CrossClusterSearchConnectionResponse(this.scope, this.resources, this.input);
+  public get crossClusterSearchConnection(): InstanceType<typeof RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi> {
+    return new RejectInboundCrossClusterSearchConnectionResponseApi.CrossClusterSearchConnectionApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
@@ -13913,15 +14081,15 @@ export class RejectInboundCrossClusterSearchConnectionResponse {
 /**
  * Response for StartElasticsearchServiceSoftwareUpdate.
  */
-export class StartElasticsearchServiceSoftwareUpdateResponse {
+export class StartElasticsearchServiceSoftwareUpdateResponseApi {
   /**
-   * Response for StartElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptions
+   * Response for StartElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptions
    */
-  static ServiceSoftwareOptionsResponse = class {
+  static ServiceSoftwareOptionsApi = class {
     /**
      * The current service software version that is present on the domain.
      */
-    public get currentVersion(): shapes.String {
+    public get currentVersion(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -13935,12 +14103,12 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion', props);
-      return request.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as String;
     }
     /**
      * The new service software version if one is available.
      */
-    public get newVersion(): shapes.String {
+    public get newVersion(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -13954,12 +14122,13 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion', props);
-      return request.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as String;
     }
     /**
-     * True if you are able to update you service software version. False if you are not able to update your service software version.
+     * True if you are able to update you service software version.
+     * False if you are not able to update your service software version.
      */
-    public get updateAvailable(): shapes.Boolean {
+    public get updateAvailable(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -13973,12 +14142,13 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable', props);
-      return request.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as Boolean;
     }
     /**
-     * True if you are able to cancel your service software version update. False if you are not able to cancel your service software version.
+     * True if you are able to cancel your service software version update.
+     * False if you are not able to cancel your service software version.
      */
-    public get cancellable(): shapes.Boolean {
+    public get cancellable(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -13992,10 +14162,11 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable', props);
-      return request.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as Boolean;
     }
     /**
-     * The status of your service software update. This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
+     * The status of your service software update.
+     * This field can take the following values: ELIGIBLE, PENDING_UPDATE, IN_PROGRESS, COMPLETED, and NOT_ELIGIBLE.
      */
     public get updateStatus(): shapes.DeploymentStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -14016,7 +14187,7 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
     /**
      * The description of the UpdateStatus.
      */
-    public get description(): shapes.String {
+    public get description(): String {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -14030,10 +14201,11 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description', props);
-      return request.getResponseField('ServiceSoftwareOptions.Description') as unknown as shapes.String;
+      return request.getResponseField('ServiceSoftwareOptions.Description') as unknown as String;
     }
     /**
-     * Timestamp, in Epoch time, until which you can manually request a service software update. After this date, we automatically update your service software.
+     * Timestamp, in Epoch time, until which you can manually request a service software update.
+     * After this date, we automatically update your service software.
      */
     public get automatedUpdateDate(): shapes.DeploymentCloseDateTimeStamp {
       const props: cr.AwsCustomResourceProps = {
@@ -14052,9 +14224,10 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
       return request.getResponseField('ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as shapes.DeploymentCloseDateTimeStamp;
     }
     /**
-     * True if a service software is never automatically updated. False if a service software is automatically updated after AutomatedUpdateDate.
+     * True if a service software is never automatically updated.
+     * False if a service software is automatically updated after AutomatedUpdateDate.
      */
-    public get optionalDeployment(): shapes.Boolean {
+    public get optionalDeployment(): Boolean {
       const props: cr.AwsCustomResourceProps = {
         onUpdate: {
           action: 'startElasticsearchServiceSoftwareUpdate',
@@ -14068,13 +14241,13 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
         policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       };
       const request = new cr.AwsCustomResource(this.scope, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment', props);
-      return request.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as shapes.Boolean;
+      return request.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as Boolean;
     }
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
     }
   }
-  public get serviceSoftwareOptions(): InstanceType<typeof StartElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptionsResponse> {
-    return new StartElasticsearchServiceSoftwareUpdateResponse.ServiceSoftwareOptionsResponse(this.scope, this.resources, this.input);
+  public get serviceSoftwareOptions(): InstanceType<typeof StartElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptionsApi> {
+    return new StartElasticsearchServiceSoftwareUpdateResponseApi.ServiceSoftwareOptionsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
@@ -14084,15 +14257,15 @@ export class StartElasticsearchServiceSoftwareUpdateResponse {
 /**
  * Response for UpdateElasticsearchDomainConfig.
  */
-export class UpdateElasticsearchDomainConfigResponse {
+export class UpdateElasticsearchDomainConfigResponseApi {
   /**
-   * Response for UpdateElasticsearchDomainConfigResponse.DomainConfig
+   * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfig
    */
-  static DomainConfigResponse = class {
+  static DomainConfigApi = class {
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersion
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersion
      */
-    static ElasticsearchVersionResponse = class {
+    static ElasticsearchVersionApi = class {
       /**
        * Specifies the Elasticsearch version for the specified Elasticsearch domain.
        */
@@ -14177,9 +14350,9 @@ export class UpdateElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as shapes.ElasticsearchVersionString;
       }
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -14515,7 +14688,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -14593,32 +14766,33 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get elasticsearchVersion(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchVersionResponse(this.scope, this.resources, this.input);
+    public get elasticsearchVersion(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchVersionApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfig
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfig
      */
-    static ElasticsearchClusterConfigResponse = class {
+    static ElasticsearchClusterConfigApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * The instance type for an Elasticsearch cluster. UltraWarm instance types are not supported for data instances.
+         * The instance type for an Elasticsearch cluster.
+         * UltraWarm instance types are not supported for data instances.
          */
         public get instanceType(): shapes.ESPartitionInstanceType {
           const props: cr.AwsCustomResourceProps = {
@@ -14784,9 +14958,10 @@ export class UpdateElasticsearchDomainConfigResponse {
           return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as shapes.IntegerClass;
         }
         /**
-         * A boolean value to indicate whether a dedicated master node is enabled. See About Dedicated Master Nodes for more information.
+         * A boolean value to indicate whether a dedicated master node is enabled.
+         * See About Dedicated Master Nodes for more information.
          */
-        public get dedicatedMasterEnabled(): shapes.Boolean {
+        public get dedicatedMasterEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -14864,12 +15039,13 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as Boolean;
         }
         /**
-         * A boolean value to indicate whether zone awareness is enabled. See About Zone Awareness for more information.
+         * A boolean value to indicate whether zone awareness is enabled.
+         * See About Zone Awareness for more information.
          */
-        public get zoneAwarenessEnabled(): shapes.Boolean {
+        public get zoneAwarenessEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -14947,14 +15123,15 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as Boolean;
         }
         /**
-         * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfig
+         * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfig
          */
-        static ZoneAwarenessConfigResponse = class {
+        static ZoneAwarenessConfigApi = class {
           /**
-           * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled. This should be equal to number of subnets if VPC endpoints is enabled
+           * An integer value to indicate the number of availability zones for a domain when zone awareness is enabled.
+           * This should be equal to number of subnets if VPC endpoints is enabled.
            */
           public get availabilityZoneCount(): shapes.IntegerClass {
             const props: cr.AwsCustomResourceProps = {
@@ -15039,8 +15216,8 @@ export class UpdateElasticsearchDomainConfigResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
           }
         }
-        public get zoneAwarenessConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfigResponse> {
-          return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse.ZoneAwarenessConfigResponse(this.scope, this.resources, this.input);
+        public get zoneAwarenessConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfigApi> {
+          return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi.ZoneAwarenessConfigApi(this.scope, this.resources, this.input);
         }
 
         /**
@@ -15212,7 +15389,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * True to enable warm storage.
          */
-        public get warmEnabled(): shapes.Boolean {
+        public get warmEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -15290,7 +15467,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as Boolean;
         }
         /**
          * The instance type for the Elasticsearch cluster's warm nodes.
@@ -15461,14 +15638,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -15804,7 +15981,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -15882,34 +16059,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get elasticsearchClusterConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.ElasticsearchClusterConfigResponse(this.scope, this.resources, this.input);
+    public get elasticsearchClusterConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.ElasticsearchClusterConfigApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptions
      */
-    static EBSOptionsResponse = class {
+    static EBSOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies whether EBS-based storage is enabled.
          */
-        public get ebsEnabled(): shapes.Boolean {
+        public get ebsEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -15987,7 +16164,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
-          return request.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as Boolean;
         }
         /**
          * Specifies the volume type for EBS-based storage.
@@ -16241,14 +16418,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -16584,7 +16761,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -16662,28 +16839,30 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get ebsOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EBSOptionsResponse(this.scope, this.resources, this.input);
+    public get ebsOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EBSOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPolicies
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPolicies
      */
-    static AccessPoliciesResponse = class {
+    static AccessPoliciesApi = class {
       /**
-       * The access policy configured for the Elasticsearch domain. Access policies may be resource-based, IP-based, or IAM-based. See  Configuring Access Policiesfor more information.
+       * The access policy configured for the Elasticsearch domain.
+       * Access policies may be resource-based, IP-based, or IAM-based.
+       * See  Configuring Access Policiesfor more information.
        */
       public get options(): shapes.PolicyDocument {
         const props: cr.AwsCustomResourceProps = {
@@ -16766,9 +16945,9 @@ export class UpdateElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as shapes.PolicyDocument;
       }
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -17104,7 +17283,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -17182,32 +17361,33 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get accessPolicies(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AccessPoliciesResponse(this.scope, this.resources, this.input);
+    public get accessPolicies(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AccessPoliciesApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptions
      */
-    static SnapshotOptionsResponse = class {
+    static SnapshotOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain. Default value is 0 hours.
+         * Specifies the time, in UTC format, when the service takes a daily automated snapshot of the specified Elasticsearch domain.
+         * Default value is 0 hours.
          */
         public get automatedSnapshotStartHour(): shapes.IntegerClass {
           const props: cr.AwsCustomResourceProps = {
@@ -17292,14 +17472,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -17635,7 +17815,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -17713,34 +17893,35 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get snapshotOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.SnapshotOptionsResponse(this.scope, this.resources, this.input);
+    public get snapshotOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.SnapshotOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptions
      */
-    static VPCOptionsResponse = class {
+    static VPCOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
-         * The VPC Id for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+         * The VPC Id for the Elasticsearch domain.
+         * Exists only if the domain was created with VPCOptions.
          */
-        public get vpcId(): shapes.String {
+        public get vpcId(): String {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -17818,7 +17999,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
-          return request.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as shapes.String;
+          return request.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as String;
         }
         /**
          * Specifies the subnets for VPC endpoint.
@@ -17904,7 +18085,8 @@ export class UpdateElasticsearchDomainConfigResponse {
           return request.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as shapes.StringList;
         }
         /**
-         * The availability zones for the Elasticsearch domain. Exists only if the domain was created with VPCOptions.
+         * The availability zones for the Elasticsearch domain.
+         * Exists only if the domain was created with VPCOptions.
          */
         public get availabilityZones(): shapes.StringList {
           const props: cr.AwsCustomResourceProps = {
@@ -18072,14 +18254,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -18415,7 +18597,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -18493,34 +18675,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get vpcOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.VPCOptionsResponse(this.scope, this.resources, this.input);
+    public get vpcOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.VPCOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptions
      */
-    static CognitoOptionsResponse = class {
+    static CognitoOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies the option to enable Cognito for Kibana authentication.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -18598,7 +18780,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * Specifies the Cognito user pool ID for Kibana authentication.
@@ -18852,14 +19034,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -19195,7 +19377,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -19273,34 +19455,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get cognitoOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.CognitoOptionsResponse(this.scope, this.resources, this.input);
+    public get cognitoOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.CognitoOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptions
      */
-    static EncryptionAtRestOptionsResponse = class {
+    static EncryptionAtRestOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specifies the option to enable Encryption At Rest.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -19378,7 +19560,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * Specifies the KMS Key ID for Encryption At Rest options.
@@ -19466,14 +19648,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -19809,7 +19991,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -19887,34 +20069,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get encryptionAtRestOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.EncryptionAtRestOptionsResponse(this.scope, this.resources, this.input);
+    public get encryptionAtRestOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.EncryptionAtRestOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptions
      */
-    static NodeToNodeEncryptionOptionsResponse = class {
+    static NodeToNodeEncryptionOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specify true to enable node-to-node encryption.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -19992,19 +20174,19 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -20340,7 +20522,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -20418,26 +20600,26 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get nodeToNodeEncryptionOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.NodeToNodeEncryptionOptionsResponse(this.scope, this.resources, this.input);
+    public get nodeToNodeEncryptionOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.NodeToNodeEncryptionOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptions
      */
-    static AdvancedOptionsResponse = class {
+    static AdvancedOptionsApi = class {
       /**
        * Specifies the status of advanced options for the specified Elasticsearch domain.
        */
@@ -20522,9 +20704,9 @@ export class UpdateElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as shapes.AdvancedOptions;
       }
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -20860,7 +21042,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -20938,26 +21120,26 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get advancedOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptions
      */
-    static LogPublishingOptionsResponse = class {
+    static LogPublishingOptionsApi = class {
       /**
        * The log publishing options configured for the Elasticsearch domain.
        */
@@ -21042,9 +21224,9 @@ export class UpdateElasticsearchDomainConfigResponse {
         return request.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as shapes.LogPublishingOptions;
       }
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -21380,7 +21562,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -21458,34 +21640,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get logPublishingOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.LogPublishingOptionsResponse(this.scope, this.resources, this.input);
+    public get logPublishingOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.LogPublishingOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptions
      */
-    static DomainEndpointOptionsResponse = class {
+    static DomainEndpointOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * Specify if only HTTPS endpoint should be enabled for the Elasticsearch domain.
          */
-        public get enforceHttps(): shapes.Boolean {
+        public get enforceHttps(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -21563,10 +21745,14 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as Boolean;
         }
         /**
-         * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.  It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.0 and higher. Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.2
+         * Specify the TLS security policy that needs to be applied to the HTTPS endpoint of Elasticsearch domain.
+         * It can be one of the following values:  Policy-Min-TLS-1-0-2019-07:  TLS security policy which supports TLSv1.
+         * 0 and higher.
+         * Policy-Min-TLS-1-2-2019-07:  TLS security policy which supports only TLSv1.
+         * 2.
          */
         public get tlsSecurityPolicy(): shapes.TLSSecurityPolicy {
           const props: cr.AwsCustomResourceProps = {
@@ -21651,7 +21837,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Specify if custom endpoint should be enabled for the Elasticsearch domain.
          */
-        public get customEndpointEnabled(): shapes.Boolean {
+        public get customEndpointEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -21729,7 +21915,7 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as Boolean;
         }
         /**
          * Specify the fully qualified domain for your custom endpoint.
@@ -21900,14 +22086,14 @@ export class UpdateElasticsearchDomainConfigResponse {
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -22243,7 +22429,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -22321,34 +22507,34 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get domainEndpointOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.DomainEndpointOptionsResponse(this.scope, this.resources, this.input);
+    public get domainEndpointOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.DomainEndpointOptionsApi(this.scope, this.resources, this.input);
     }
 
     /**
-     * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptions
+     * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptions
      */
-    static AdvancedSecurityOptionsResponse = class {
+    static AdvancedSecurityOptionsApi = class {
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.Options
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.Options
        */
-      static OptionsResponse = class {
+      static OptionsApi = class {
         /**
          * True if advanced security is enabled.
          */
-        public get enabled(): shapes.Boolean {
+        public get enabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -22426,12 +22612,12 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as Boolean;
         }
         /**
          * True if the internal user database is enabled.
          */
-        public get internalUserDatabaseEnabled(): shapes.Boolean {
+        public get internalUserDatabaseEnabled(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -22509,16 +22695,16 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as Boolean;
         }
         /**
-         * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptions
+         * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptions
          */
-        static SAMLOptionsResponse = class {
+        static SAMLOptionsApi = class {
           /**
            * True if SAML is enabled.
            */
-          public get enabled(): shapes.Boolean {
+          public get enabled(): Boolean {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'updateElasticsearchDomainConfig',
@@ -22596,12 +22782,12 @@ export class UpdateElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as shapes.Boolean;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as Boolean;
           }
           /**
-           * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.Idp
+           * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.Idp
            */
-          static IdpResponse = class {
+          static IdpApi = class {
             /**
              * The Metadata of the SAML application in xml format.
              */
@@ -22771,14 +22957,14 @@ export class UpdateElasticsearchDomainConfigResponse {
             constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
             }
           }
-          public get idp(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.IdpResponse> {
-            return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse.IdpResponse(this.scope, this.resources, this.input);
+          public get idp(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.IdpApi> {
+            return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi.IdpApi(this.scope, this.resources, this.input);
           }
 
           /**
            * The key used for matching the SAML Subject attribute.
            */
-          public get subjectKey(): shapes.String {
+          public get subjectKey(): String {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'updateElasticsearchDomainConfig',
@@ -22856,12 +23042,12 @@ export class UpdateElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as shapes.String;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as String;
           }
           /**
            * The key used for matching the SAML Roles attribute.
            */
-          public get rolesKey(): shapes.String {
+          public get rolesKey(): String {
             const props: cr.AwsCustomResourceProps = {
               onUpdate: {
                 action: 'updateElasticsearchDomainConfig',
@@ -22939,7 +23125,7 @@ export class UpdateElasticsearchDomainConfigResponse {
               policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
             };
             const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
-            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as shapes.String;
+            return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as String;
           }
           /**
            * The duration, in minutes, after which a user session becomes inactive.
@@ -23027,21 +23213,21 @@ export class UpdateElasticsearchDomainConfigResponse {
           constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
           }
         }
-        public get samlOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse> {
-          return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse.SAMLOptionsResponse(this.scope, this.resources, this.input);
+        public get samlOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi> {
+          return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi.SAMLOptionsApi(this.scope, this.resources, this.input);
         }
 
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.OptionsResponse(this.scope, this.resources, this.input);
+      public get options(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.OptionsApi(this.scope, this.resources, this.input);
       }
 
       /**
-       * Response for UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.Status
+       * Response for UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.Status
        */
-      static StatusResponse = class {
+      static StatusApi = class {
         /**
          * Timestamp which tells the creation date for the entity.
          */
@@ -23377,7 +23563,7 @@ export class UpdateElasticsearchDomainConfigResponse {
         /**
          * Indicates whether the Elasticsearch domain is being deleted.
          */
-        public get pendingDeletion(): shapes.Boolean {
+        public get pendingDeletion(): Boolean {
           const props: cr.AwsCustomResourceProps = {
             onUpdate: {
               action: 'updateElasticsearchDomainConfig',
@@ -23455,27 +23641,27 @@ export class UpdateElasticsearchDomainConfigResponse {
             policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
           };
           const request = new cr.AwsCustomResource(this.scope, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
-          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as shapes.Boolean;
+          return request.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as Boolean;
         }
         constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
         }
       }
-      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.StatusResponse> {
-        return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse.StatusResponse(this.scope, this.resources, this.input);
+      public get status(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.StatusApi> {
+        return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi.StatusApi(this.scope, this.resources, this.input);
       }
 
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
       }
     }
-    public get advancedSecurityOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse> {
-      return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse.AdvancedSecurityOptionsResponse(this.scope, this.resources, this.input);
+    public get advancedSecurityOptions(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi> {
+      return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi.AdvancedSecurityOptionsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     }
   }
-  public get domainConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponse.DomainConfigResponse> {
-    return new UpdateElasticsearchDomainConfigResponse.DomainConfigResponse(this.scope, this.resources, this.input);
+  public get domainConfig(): InstanceType<typeof UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi> {
+    return new UpdateElasticsearchDomainConfigResponseApi.DomainConfigApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
@@ -23485,11 +23671,11 @@ export class UpdateElasticsearchDomainConfigResponse {
 /**
  * Response for UpdatePackage.
  */
-export class UpdatePackageResponse {
+export class UpdatePackageResponseApi {
   /**
-   * Response for UpdatePackageResponse.PackageDetails
+   * Response for UpdatePackageResponseApi.PackageDetails
    */
-  static PackageDetailsResponse = class {
+  static PackageDetailsApi = class {
     /**
      * Internal ID of the package.
      */
@@ -23591,7 +23777,8 @@ export class UpdatePackageResponse {
       return request.getResponseField('PackageDetails.PackageDescription') as unknown as shapes.PackageDescription;
     }
     /**
-     * Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
+     * Current state of the package.
+     * Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED.
      */
     public get packageStatus(): shapes.PackageStatus {
       const props: cr.AwsCustomResourceProps = {
@@ -23691,9 +23878,9 @@ export class UpdatePackageResponse {
       return request.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as shapes.PackageVersion;
     }
     /**
-     * Response for UpdatePackageResponse.PackageDetailsResponse.ErrorDetails
+     * Response for UpdatePackageResponseApi.PackageDetailsApi.ErrorDetails
      */
-    static ErrorDetailsResponse = class {
+    static ErrorDetailsApi = class {
       /**
        * Specifies the status of the Encryption At Rest options for the specified Elasticsearch domain.
        */
@@ -23747,15 +23934,15 @@ export class UpdatePackageResponse {
       constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdatePackageRequest) {
       }
     }
-    public get errorDetails(): InstanceType<typeof UpdatePackageResponse.PackageDetailsResponse.ErrorDetailsResponse> {
-      return new UpdatePackageResponse.PackageDetailsResponse.ErrorDetailsResponse(this.scope, this.resources, this.input);
+    public get errorDetails(): InstanceType<typeof UpdatePackageResponseApi.PackageDetailsApi.ErrorDetailsApi> {
+      return new UpdatePackageResponseApi.PackageDetailsApi.ErrorDetailsApi(this.scope, this.resources, this.input);
     }
 
     constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdatePackageRequest) {
     }
   }
-  public get packageDetails(): InstanceType<typeof UpdatePackageResponse.PackageDetailsResponse> {
-    return new UpdatePackageResponse.PackageDetailsResponse(this.scope, this.resources, this.input);
+  public get packageDetails(): InstanceType<typeof UpdatePackageResponseApi.PackageDetailsApi> {
+    return new UpdatePackageResponseApi.PackageDetailsApi(this.scope, this.resources, this.input);
   }
 
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpdatePackageRequest) {
@@ -23765,9 +23952,10 @@ export class UpdatePackageResponse {
 /**
  * Response for UpgradeElasticsearchDomain.
  */
-export class UpgradeElasticsearchDomainResponse {
+export class UpgradeElasticsearchDomainResponseApi {
   /**
-   * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+   * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
+   * This will not actually perform the Upgrade.
    */
   public get domainName(): shapes.DomainName {
     const props: cr.AwsCustomResourceProps = {
@@ -23809,9 +23997,10 @@ export class UpgradeElasticsearchDomainResponse {
     return request.getResponseField('TargetVersion') as unknown as shapes.ElasticsearchVersionString;
   }
   /**
-   * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed. This will not actually perform the Upgrade.
+   * This flag, when set to True, indicates that an Upgrade Eligibility Check needs to be performed.
+   * This will not actually perform the Upgrade.
    */
-  public get performCheckOnly(): shapes.Boolean {
+  public get performCheckOnly(): Boolean {
     const props: cr.AwsCustomResourceProps = {
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
@@ -23827,7 +24016,7 @@ export class UpgradeElasticsearchDomainResponse {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
     };
     const request = new cr.AwsCustomResource(this.scope, 'UpgradeElasticsearchDomain.PerformCheckOnly', props);
-    return request.getResponseField('PerformCheckOnly') as unknown as shapes.Boolean;
+    return request.getResponseField('PerformCheckOnly') as unknown as Boolean;
   }
   constructor(public scope: cdk.Construct, public readonly resources: string[], public readonly input: shapes.UpgradeElasticsearchDomainRequest) {
   }

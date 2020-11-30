@@ -1,6 +1,6 @@
 import * as elastic from '@aws-cdk/aws-elasticsearch';
 import * as cdk from '@aws-cdk/core';
-import { es } from '../src';
+import { ES } from '../src/clients/es/api';
 
 test('hello', () => {
 
@@ -11,7 +11,7 @@ test('hello', () => {
     version: elastic.ElasticsearchVersion.V7_7,
   });
 
-  const domainRuntime = new es.ES(stack, [domain.domainArn]);
+  const domainRuntime = new ES(stack, [domain.domainArn]);
 
   const value = domainRuntime.describeElasticsearchDomain(
     { domainName: domain.domainName },

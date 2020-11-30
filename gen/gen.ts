@@ -5,7 +5,8 @@ import * as maker from 'codemaker';
 import logger = require('node-color-log')
 import * as path from 'path';
 
-const ONLY_THESE = ['ES', 'S3'];
+const INCLUDE = ['es.d.ts'];
+const EXCLUDE = ['kendra.d.ts', 'docdb.d.ts'];
 
 async function main(repoPath: string) {
 
@@ -19,20 +20,22 @@ async function main(repoPath: string) {
   deleteFolderRecursive(clients);
 
   for (const client of repo.clients) {
-    const generator = new gen.ClientGenerator(client);
-    const id = await generator.id();
 
-    if (!ONLY_THESE.includes(id)) {
+    if (!INCLUDE.includes(path.basename(client.dtsPath))) {
       continue;
     }
 
-    logger.color('green').log(`Generating ${id} (client: ${path.basename(client.declarations)}, api: ${path.basename(client.spec)})`);
+    const generator = new gen.ClientGenerator(client);
+    const id = await generator.id();
+
+    logger.color('green').log(`Generating ${id} (client: ${path.basename(client.dtsPath)}, api: ${path.basename(client.specPath)})`);
 
     try {
       await generator.gen(clients);
       codemaker.line(`export * as ${id.toLowerCase()} from './clients/${id.toLowerCase()}';`)
     } catch (e) {
       logger.color('red').error(`Failed generating ${id}: ${e}`);
+      console.error(e);
     }
   }
 
