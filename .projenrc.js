@@ -1,6 +1,7 @@
 const { TypeScriptProject } = require('projen');
 
 const project = new TypeScriptProject({
+  dependabot: true,
   authorName: 'Eli Polonsky',
   repository: 'https://github.com/iliapolo/aws-cdk-sdk',
   name: "aws-cdk-sdk",

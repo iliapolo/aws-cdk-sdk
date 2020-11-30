@@ -107,7 +107,7 @@ export class ClientGenerator {
     this.dtsRaw = fs.readFileSync(client.dtsPath).toString();
     this.operations = [];
     this.shapes = {};
-    logger.setLevel('info')
+    logger.setLevel('info');
 
     for (const operationName of Object.keys(this.api.operations)) {
 
@@ -125,12 +125,12 @@ export class ClientGenerator {
 
       if (operation.input) {
         logger.debug(`Registering input shapes for ${operationName}`);
-        this.walkOnShapes(operation.input.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
+        this.visitShapes(operation.input.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
       }
 
       if (operation.output) {
         logger.debug(`Registering output shapes for ${operationName}`);
-        this.walkOnShapes(operation.output.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
+        this.visitShapes(operation.output.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
       }
 
     }
@@ -143,53 +143,68 @@ export class ClientGenerator {
     let eventStream = shape.eventstream ?? false;
 
     // a shape is an event stream if any of its references are event streams
-    this.walkOnShapes(shapeName, (_, shape) => {
+    this.visitShapes(shapeName, (_, shape) => {
       eventStream = shape.eventstream ?? false;
     })
 
     return eventStream;
   }
 
-  private walkOnShapes(name: string, visitor: (name: string, shape: Shape) => void) {
+  private visitShapes(name: string, visitor: (name: string, shape: Shape) => void) {
 
-    logger.debug(`Walking on shape ${name}`);
+    const memo = new Set<string>();
 
-    const shape: Shape = this.api.shapes[name];
+    const shapes = this.api.shapes;
 
-    if (name === 'Date') {
-      visitor('_Date', shape);
-      return;
+    function visit(_name: string) {
+
+      if (memo.has(_name)) {
+        return;
+      }
+
+      logger.debug(`Visting shape: ${_name}`);
+
+      const shape: Shape = shapes[_name];
+
+      if (_name === 'Date') {
+        visitor('_Date', shape);
+        memo.add(_name);
+        return;
+      }
+
+      if (_name === 'Blob') {
+        visitor('_Blob', shape);
+        memo.add(_name);
+        return;
+      }
+
+      if (['boolean', 'number', 'integer', 'string'].includes(_name)) {
+        // just a primitive
+        return;
+      }
+
+      const shapeType = shape.type;
+
+      switch (shapeType) {
+        case ShapeType.LIST:
+          visit(shape.member.shape);
+          break;
+        case ShapeType.STRUCTURE:
+          Object.values(shape.members ?? {}).forEach(m => visit(m.shape));
+          break;
+        case ShapeType.MAP:
+          visit(shape.key.shape);
+          visit(shape.value.shape);
+          break;
+        default:
+          // primitives and type aliases ?
+          break;
+      }
+      visitor(_name, shape);
+      memo.add(_name);
     }
 
-    if (name === 'Blob') {
-      visitor('_Blob', shape);
-      return;
-    }
-
-    if (['boolean', 'number', 'integer', 'string'].includes(name)) {
-      // just a primitive
-      return;
-    }
-
-    const shapeType = shape.type;
-
-    switch (shapeType) {
-      case ShapeType.LIST:
-        this.walkOnShapes(shape.member.shape, visitor);
-        break;
-      case ShapeType.STRUCTURE:
-        Object.values(shape.members ?? {}).forEach(m => this.walkOnShapes(m.shape, visitor));
-        break;
-      case ShapeType.MAP:
-        this.walkOnShapes(shape.key.shape, visitor);
-        this.walkOnShapes(shape.value.shape, visitor);
-        break;
-      default:
-        // primitives and type aliases ?
-        break;
-    }
-
-    visitor(name, shape);
+    visit(name);
 
   }
 
@@ -254,32 +269,32 @@ export class ClientGenerator {
 
     const outputDir = path.join(`${root}/${id.toLowerCase()}`);
 
-    this.code.openFile('responses.ts');
-    this.code.line("import * as cdk from '@aws-cdk/core';");
-    this.code.line("import * as cr from '@aws-cdk/custom-resources';");
-    this.code.line("import * as shapes from './shapes';");
-    this.code.line();
-    await this.generateResponses();
-    this.code!.closeFile('responses.ts');
+    // this.code.openFile('responses.ts');
+    // this.code.line("import * as cdk from '@aws-cdk/core';");
+    // this.code.line("import * as cr from '@aws-cdk/custom-resources';");
+    // this.code.line("import * as shapes from './shapes';");
+    // this.code.line();
+    // await this.generateResponses();
+    // this.code.closeFile('responses.ts');
 
-    this.code.openFile('api.ts');
-    this.code.line("import * as cdk from '@aws-cdk/core';");
-    this.code.line("import * as cr from '@aws-cdk/custom-resources';");
-    this.code.line("import * as responses from './responses';");
-    this.code.line("import * as shapes from './shapes';");
-    this.code.line();
-    await this.generateApi();
-    this.code!.closeFile('api.ts');
+    // this.code.openFile('api.ts');
+    // this.code.line("import * as cdk from '@aws-cdk/core';");
+    // this.code.line("import * as cr from '@aws-cdk/custom-resources';");
+    // this.code.line("import * as responses from './responses';");
+    // this.code.line("import * as shapes from './shapes';");
+    // this.code.line();
+    // await this.generateApi();
+    // this.code.closeFile('api.ts');
 
     this.code.openFile('shapes.ts');
     await this.generateShapes();
     this.code.closeFile('shapes.ts');
 
-    this.code.openFile('index.ts');
-    this.code.line("export * from './shapes';")
-    this.code.line("export * from './api';")
-    this.code.line("export * from './responses';")
-    this.code.closeFile('index.ts');
+    // this.code.openFile('index.ts');
+    // this.code.line("export * from './shapes';")
+    // this.code.line("export * from './api';")
+    // this.code.line("export * from './responses';")
+    // this.code.closeFile('index.ts');
 
     await this.code!.save(outputDir);
 
@@ -363,6 +378,11 @@ export class ClientGenerator {
 
     for (const shapeName of Object.keys(this.shapes)) {
 
+      if (shapeName.startsWith('_')) {
+        // private interface, not part of the spec
+        continue;
+      }
+
       const shapeDeclaration = await this.findDeclaration(shapeName);
 
       if (shapeDeclaration instanceof ts.TypeAliasDeclaration) {
@@ -377,16 +397,6 @@ export class ClientGenerator {
       const properties = shapeDeclaration.properties;
       if (!properties) {
         throw new Error(`Unexpected declaration: ${shapeName} should have properties`);
-      }
-
-      if (shapeName.startsWith('_')) {
-        // private interface, not part of the spec
-        continue;
-      }
-
-      const specShape = this.api.shapes[shapeName];
-      if (!specShape) {
-        throw new Error(`Unable to locate shape in spec: ${shapeName}`);
       }
 
       this.tsDocs(shapeDeclaration).forEach(t => this.code.line(t));

@@ -5,10 +5,12 @@ import * as maker from 'codemaker';
 import logger = require('node-color-log')
 import * as path from 'path';
 
-const INCLUDE = ['es.d.ts'];
-// const EXCLUDE = ['kendra.d.ts'];
+const INCLUDE = ['cloudfront.d.ts'];
+const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {
+
+  logger.setLevel('info');
 
   const repo = new sdk.SdkRepository(repoPath);
   const src = path.join(__dirname, '..', 'src');
@@ -25,7 +27,11 @@ async function main(repoPath: string) {
       continue;
     }
 
-    logger.info(`Creating generator (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`)
+    if (EXCLUDE.includes(path.basename(client.dtsPath))) {
+      continue;
+    }
+
+    logger.debug(`Creating generator (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`)
     const generator = new gen.ClientGenerator(client);
     const id = await generator.id();
 
