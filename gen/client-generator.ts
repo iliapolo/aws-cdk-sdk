@@ -3,15 +3,33 @@ import * as path from 'path';
 import * as maker from 'codemaker';
 import * as ts from 'typescript-parser';
 import * as sdk from './sdk-repository';
+import * as j2j from 'json2jsii';
+import { JSONSchema4 } from 'json-schema';
 import logger = require('node-color-log')
 
 export enum ShapeType {
+
+  DOUBLE = 'double',
+
+  BLOB = 'blob',
 
   MAP = 'map',
 
   LIST = 'list',
 
   STRUCTURE = 'structure',
+
+  BOOLEAN = 'boolean',
+
+  INTEGER = 'integer',
+
+  LONG = 'long',
+
+  FLOAT = 'float',
+
+  STRING = 'string',
+
+  TIMESTAMP = 'timestamp',
 
 }
 
@@ -28,22 +46,40 @@ export interface ClientApi {
 
 export interface Shape {
 
+  readonly required?: string[];
+
   readonly members?: Record<string, Member>;
 
   readonly member?: Member;
 
-  readonly key?: any;
+  readonly key?: Key;
 
-  readonly value?: any;
+  readonly value?: Value;
 
   readonly eventstream?: boolean;
 
   readonly type: string;
+
+  readonly documentation?: string;
+}
+
+export interface Key {
+
+  readonly shape: string;
+
+}
+
+export interface Value {
+
+  readonly shape: string;
+
 }
 
 export interface Member {
 
   readonly shape: string;
+
+  readonly documentation?: string;
 }
 
 export interface ClientResponseDefinition {
@@ -91,9 +127,11 @@ export class ClientGenerator {
   private readonly api: ClientApi;
   private readonly dtsRaw: string;
   private readonly parser: ts.TypescriptParser;
+  private readonly typeGenerator: j2j.TypeGenerator;
   private readonly code: maker.CodeMaker;
   private readonly operations: NamedOperation[];
   private readonly shapes: Record<string, Shape>;
+  private readonly memo = new Set<string>();
 
   private _dts?: ts.File;
   private _id?: string;
@@ -102,6 +140,7 @@ export class ClientGenerator {
 
   constructor(client: sdk.Client) {
     this.parser = new ts.TypescriptParser();
+    this.typeGenerator = new j2j.TypeGenerator();
     this.code = new maker.CodeMaker({ indentationLevel: 2 });
     this.api = JSON.parse(fs.readFileSync(client.apiPath).toString());
     this.dtsRaw = fs.readFileSync(client.dtsPath).toString();
@@ -115,96 +154,124 @@ export class ClientGenerator {
 
       const operation = this.api.operations[operationName];
 
-      if (operation.output && this.isEventStream(operation.output.shape)) {
-        logger.warn(`Operation ${operationName} has an event stream output. These operations are not supported yet. (Ignoring)`)
-        continue;
-      }
-
       logger.debug(`Registering operation ${operationName}`);
       this.operations.push({ name: operationName, ...operation });
 
       if (operation.input) {
-        logger.debug(`Registering input shapes for ${operationName}`);
-        this.visitShapes(operation.input.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
+        logger.info(`Registering input shapes for ${operationName}`);
+        this.registerShape(operation.input.shape);
+        this.typeGenerator.emitType(j2j.TypeGenerator.normalizeTypeName(operation.input.shape));
       }
 
       if (operation.output) {
-        logger.debug(`Registering output shapes for ${operationName}`);
-        this.visitShapes(operation.output.shape, (name: string, shape: Shape) => this.shapes[name] = shape );
+        logger.info(`Registering output shapes for ${operationName}`);
+        this.registerShape(operation.output.shape);
+        this.typeGenerator.emitType(j2j.TypeGenerator.normalizeTypeName(operation.output.shape));
       }
 
     }
+
+
   }
 
-  private isEventStream(shapeName: string) {
+  private registerShape(name: string) {
 
-    const shape = this.api.shapes[shapeName];
-
-    let eventStream = shape.eventstream ?? false;
-
-    // a shape is an event stream if any of its references are event streams
-    this.visitShapes(shapeName, (_, shape) => {
-      eventStream = shape.eventstream ?? false;
-    })
-
-    return eventStream;
-  }
-
-  private visitShapes(name: string, visitor: (name: string, shape: Shape) => void) {
-
-    const memo = new Set<string>();
-
-    const shapes = this.api.shapes;
-
-    function visit(_name: string) {
-
-      if (memo.has(_name)) {
-        return;
-      }
-
-      logger.debug(`Visting shape: ${_name}`);
-
-      const shape: Shape = shapes[_name];
-
-      if (_name === 'Date') {
-        visitor('_Date', shape);
-        memo.add(_name);
-        return;
-      }
-
-      if (_name === 'Blob') {
-        visitor('_Blob', shape);
-        memo.add(_name);
-        return;
-      }
-
-      if (['boolean', 'number', 'integer', 'string'].includes(_name)) {
-        // just a primitive
-        return;
-      }
-
-      const shapeType = shape.type;
-
-      switch (shapeType) {
-        case ShapeType.LIST:
-          visit(shape.member.shape);
-          break;
-        case ShapeType.STRUCTURE:
-          Object.values(shape.members ?? {}).forEach(m => visit(m.shape));
-          break;
-        case ShapeType.MAP:
-          visit(shape.key.shape);
-          visit(shape.value.shape);
-          break;
-        default:
-          // primitives and type aliases ?
-          break;
-      }
-      visitor(_name, shape);
-      memo.add(_name);
+    if (this.memo.has(name)) {
+      return;
     }
 
-    visit(name);
+    this.memo.add(name);
+
+    logger.debug(`Registering shape ${name}`);
+
+    const shape = this.api.shapes[name];
+    const normalized = j2j.TypeGenerator.normalizeTypeName(name);
+
+    switch (shape.type) {
+      case ShapeType.LIST:
+
+        if (!shape.member) {
+          throw new Error(`Shape ${name} should have .member since its type is a ${ShapeType.LIST}`);
+        }
+
+        this.registerShape(shape.member.shape);
+
+        this.typeGenerator.addDefinition(normalized, {
+          type: 'array',
+          items: {
+            $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(shape.member.shape)}`,
+          }
+        })
+
+        break;
+      case ShapeType.STRUCTURE:
+
+        if (!shape.members) {
+          throw new Error(`Shape ${name} should have .members since its type is a ${ShapeType.STRUCTURE}`);
+        }
+
+        const properties: Record<string, JSONSchema4> = {};
+        for (const entry of Object.entries(shape.members ?? {})) {
+
+
+          properties[entry[0]] = {
+            $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(entry[1].shape)}`,
+            // description: entry[1].documentation,
+          };
+          this.registerShape(entry[1].shape);
+        }
+
+        this.typeGenerator.addDefinition(normalized, {
+          type: 'object',
+          // description: shape.documentation,
+          properties,
+          required: shape.required?.map(r => this.code.toCamelCase(r)),
+        });
+
+        break;
+      case ShapeType.BLOB:
+        this.typeGenerator.addDefinition(normalized, {
+          type: 'object',
+        })
+        break;
+      case ShapeType.MAP:
+
+        if (!shape.key) {
+          throw new Error(`Shape ${name} must have .key since its type is a ${ShapeType.MAP}`);
+        }
+
+        if (!shape.value) {
+          throw new Error(`Shape ${name} must have .value since its type is a ${ShapeType.MAP}`);
+        }
+
+        this.registerShape(shape.key.shape);
+        this.registerShape(shape.value.shape);
+
+        this.typeGenerator.addDefinition(normalized, {
+          type: 'object',
+          additionalProperties: {
+            $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(shape.value.shape)}`,
+          }
+        })
+        break;
+      case ShapeType.BOOLEAN:
+      case ShapeType.STRING:
+        this.typeGenerator.addDefinition(normalized, { type: shape.type });
+        break;
+      case ShapeType.INTEGER:
+      case ShapeType.DOUBLE:
+      case ShapeType.FLOAT:
+      case ShapeType.LONG:
+        this.typeGenerator.addDefinition(normalized, { type: 'number' });
+        break;
+      case ShapeType.TIMESTAMP:
+        this.typeGenerator.addDefinition(normalized, {
+          type: 'string',
+        })
+        break;
+      default:
+        throw new Error(`Unexpected shape type '${shape.type}' for shape ${name}`);
+    }
 
   }
 
@@ -286,9 +353,8 @@ export class ClientGenerator {
     // await this.generateApi();
     // this.code.closeFile('api.ts');
 
-    this.code.openFile('shapes.ts');
-    await this.generateShapes();
-    this.code.closeFile('shapes.ts');
+    fs.mkdirSync(outputDir, { recursive: true });
+    fs.writeFileSync(path.join(outputDir, 'shapes.ts'), this.typeGenerator.render());
 
     // this.code.openFile('index.ts');
     // this.code.line("export * from './shapes';")
@@ -328,7 +394,7 @@ export class ClientGenerator {
       }
 
       this.htmlDocs(operation).forEach(l => this.code.line(l));
-      this.code.openBlock(`public ${this.code!.toCamelCase(operation.name)}(${input ?? ''}): ${output ?? 'void'}`);
+      this.code.openBlock(`public ${this.code.toCamelCase(operation.name)}(${input ?? ''}): ${output ?? 'void'}`);
 
       if (output) {
         if (input) {
@@ -340,8 +406,8 @@ export class ClientGenerator {
         await this.generateAwsCustomResource(operation.name, operation, [], undefined, false);
       }
 
-      this.code!.closeBlock();
-      this.code!.line();
+      this.code.closeBlock();
+      this.code.line();
     }
 
     this.code!.closeBlock();
@@ -588,7 +654,6 @@ export class ClientGenerator {
 
     const docs = operation.documentation ?? operation.name;
     return [
-      '/**',
       ...docs.split('.').filter(s => s.length > 0).map(s => ` * ${s.trim()}.`),
       ' */'
     ];

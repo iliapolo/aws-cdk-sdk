@@ -17,6 +17,8 @@ const project = new TypeScriptProject({
     '@aws-cdk/aws-elasticsearch',
     '@aws-cdk/assert',
     'codemaker',
+    'json-schema',
+    'json2jsii',
     'typescript-parser',
     'node-color-log',
     'ts-node',

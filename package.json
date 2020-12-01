@@ -43,6 +43,7 @@
     "jest": "^26.6.3",
     "jest-junit": "^12",
     "json-schema": "^0.2.5",
+    "json2jsii": "^0.1.122",
     "node-color-log": "^5.2.0",
     "projen": "^0.5.3",
     "standard-version": "^9.0.0",
