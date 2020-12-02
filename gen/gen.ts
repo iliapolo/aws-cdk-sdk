@@ -5,7 +5,7 @@ import * as maker from 'codemaker';
 import logger = require('node-color-log')
 import * as path from 'path';
 
-// const INCLUDE = ['cloudfront.d.ts'];
+const INCLUDE = ['cloudfront.d.ts'];
 // const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {
@@ -23,9 +23,9 @@ async function main(repoPath: string) {
 
   for (const client of repo.clients) {
 
-    // if (!INCLUDE.includes(path.basename(client.dtsPath))) {
-    //   continue;
-    // }
+    if (!INCLUDE.includes(path.basename(client.dtsPath))) {
+      continue;
+    }
 
     // if (EXCLUDE.includes(path.basename(client.dtsPath))) {
     //   continue;
@@ -33,15 +33,14 @@ async function main(repoPath: string) {
 
     logger.debug(`Creating generator (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`)
     const generator = new gen.ClientGenerator(client);
-    const id = await generator.id();
 
-    logger.info(`Generating ${id} (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`);
+    logger.info(`Generating client for ${client.apiPath})`);
 
     try {
       await generator.gen(clients);
       // codemaker.line(`export * as ${id.toLowerCase()} from './clients/${id.toLowerCase()}';`)
     } catch (e) {
-      logger.color('red').error(`Failed generating ${id}: ${e}`);
+      logger.color('red').error(`Failed generating client for ${client.apiPath}: ${e}`);
       console.error(e);
     }
   }
