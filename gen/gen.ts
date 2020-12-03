@@ -5,7 +5,7 @@ import * as maker from 'codemaker';
 import logger = require('node-color-log')
 import * as path from 'path';
 
-const INCLUDE = ['xray.d.ts', 'es.d.ts'];
+const INCLUDE = ['es.d.ts'];
 // const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {

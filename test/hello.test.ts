@@ -12,7 +12,6 @@ test('hello', () => {
   });
 
   const domainRuntime = new elasticsearchservice.AmazonElasticsearchService(stack, 'ES', [domain.domainArn]);
-
   const value = domainRuntime.describeElasticsearchDomain(
     { domainName: domain.domainName },
   ).domainStatus.elasticsearchClusterConfig.instanceType;
