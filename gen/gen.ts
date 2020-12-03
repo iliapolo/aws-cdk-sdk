@@ -5,7 +5,7 @@ import * as maker from 'codemaker';
 import logger = require('node-color-log')
 import * as path from 'path';
 
-const INCLUDE = ['xray.d.ts'];
+const INCLUDE = ['xray.d.ts', 'es.d.ts'];
 // const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {
@@ -31,14 +31,13 @@ async function main(repoPath: string) {
     //   continue;
     // }
 
-    logger.debug(`Creating generator (dts: ${path.basename(client.dtsPath)}, api: ${path.basename(client.apiPath)})`)
     const generator = new gen.ClientGenerator(client);
 
-    logger.info(`Generating client for ${client.apiPath})`);
+    logger.info(`Generating client for ${path.basename(client.apiPath)}`);
 
     try {
       await generator.gen(clients);
-      // codemaker.line(`export * as ${id.toLowerCase()} from './clients/${id.toLowerCase()}';`)
+      codemaker.line(`export * from './clients/${generator.service}';`)
     } catch (e) {
       logger.color('red').error(`Failed generating client for ${client.apiPath}: ${e}`);
       console.error(e);

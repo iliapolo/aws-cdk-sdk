@@ -198,11 +198,11 @@ export class XRay_CreateGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_CreateGroupResult_Group_Group {
-    return new XRay_CreateGroupResult_Group_Group(this, 'Group', this.resources, this.input);
+  public get group(): XRay_CreateGroupResult_Group {
+    return new XRay_CreateGroupResult_Group(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_CreateGroupResult_Group_Group extends cdk.Construct {
+export class XRay_CreateGroupResult_Group extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
@@ -272,11 +272,11 @@ export class XRay_CreateGroupResult_Group_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreateGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_CreateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration {
-    return new XRay_CreateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): XRay_CreateGroupResult_Group_InsightsConfiguration {
+    return new XRay_CreateGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_CreateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration extends cdk.Construct {
+export class XRay_CreateGroupResult_Group_InsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
@@ -329,16 +329,16 @@ export class XRay_CreateSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord {
-    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): XRay_CreateSamplingRuleResult_SamplingRuleRecord {
+    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord extends cdk.Construct {
+export class XRay_CreateSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule {
-    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule {
+    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -403,7 +403,7 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule extends cdk.Construct {
+export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
@@ -815,16 +815,16 @@ export class XRay_DeleteSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord {
-    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord {
+    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord extends cdk.Construct {
+export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule {
-    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule {
+    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -861,7 +861,7 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule extends cdk.Construct {
+export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
@@ -1091,11 +1091,11 @@ export class XRay_GetEncryptionConfigResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public get encryptionConfig(): XRay_GetEncryptionConfigResult_EncryptionConfig_EncryptionConfig {
-    return new XRay_GetEncryptionConfigResult_EncryptionConfig_EncryptionConfig(this, 'EncryptionConfig', this.resources);
+  public get encryptionConfig(): XRay_GetEncryptionConfigResult_EncryptionConfig {
+    return new XRay_GetEncryptionConfigResult_EncryptionConfig(this, 'EncryptionConfig', this.resources);
   }
 }
-export class XRay_GetEncryptionConfigResult_EncryptionConfig_EncryptionConfig extends cdk.Construct {
+export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
@@ -1149,11 +1149,11 @@ export class XRay_GetGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_GetGroupResult_Group_Group {
-    return new XRay_GetGroupResult_Group_Group(this, 'Group', this.resources, this.input);
+  public get group(): XRay_GetGroupResult_Group {
+    return new XRay_GetGroupResult_Group(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_GetGroupResult_Group_Group extends cdk.Construct {
+export class XRay_GetGroupResult_Group extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
@@ -1208,11 +1208,11 @@ export class XRay_GetGroupResult_Group_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_GetGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration {
-    return new XRay_GetGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): XRay_GetGroupResult_Group_InsightsConfiguration {
+    return new XRay_GetGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_GetGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration extends cdk.Construct {
+export class XRay_GetGroupResult_Group_InsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
@@ -1292,11 +1292,11 @@ export class XRay_GetInsightResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
-  public get insight(): XRay_GetInsightResult_Insight_Insight {
-    return new XRay_GetInsightResult_Insight_Insight(this, 'Insight', this.resources, this.input);
+  public get insight(): XRay_GetInsightResult_Insight {
+    return new XRay_GetInsightResult_Insight(this, 'Insight', this.resources, this.input);
   }
 }
-export class XRay_GetInsightResult_Insight_Insight extends cdk.Construct {
+export class XRay_GetInsightResult_Insight extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1348,8 +1348,8 @@ export class XRay_GetInsightResult_Insight_Insight extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.GroupName', props);
     return resource.getResponseField('Insight.GroupName') as unknown as string;
   }
-  public get rootCauseServiceId(): XRay_GetInsightResult_Insight_Insight_ServiceId_RootCauseServiceId {
-    return new XRay_GetInsightResult_Insight_Insight_ServiceId_RootCauseServiceId(this, 'ServiceId', this.resources, this.input);
+  public get rootCauseServiceId(): XRay_GetInsightResult_Insight_ServiceId {
+    return new XRay_GetInsightResult_Insight_ServiceId(this, 'ServiceId', this.resources, this.input);
   }
   public get categories(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -1431,11 +1431,11 @@ export class XRay_GetInsightResult_Insight_Insight extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.Summary', props);
     return resource.getResponseField('Insight.Summary') as unknown as string;
   }
-  public get clientRequestImpactStatistics(): XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_ClientRequestImpactStatistics {
-    return new XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_ClientRequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
+  public get clientRequestImpactStatistics(): XRay_GetInsightResult_Insight_RequestImpactStatistics {
+    return new XRay_GetInsightResult_Insight_RequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
   }
-  public get rootCauseServiceRequestImpactStatistics(): XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_RootCauseServiceRequestImpactStatistics {
-    return new XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_RootCauseServiceRequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
+  public get rootCauseServiceRequestImpactStatistics(): XRay_GetInsightResult_Insight_RequestImpactStatistics {
+    return new XRay_GetInsightResult_Insight_RequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
   }
   public get topAnomalousServices(): shapes.AnomalousService[] {
     const props: cr.AwsCustomResourceProps = {
@@ -1454,7 +1454,7 @@ export class XRay_GetInsightResult_Insight_Insight extends cdk.Construct {
     return resource.getResponseField('Insight.TopAnomalousServices') as unknown as shapes.AnomalousService[];
   }
 }
-export class XRay_GetInsightResult_Insight_Insight_ServiceId_RootCauseServiceId extends cdk.Construct {
+export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1523,7 +1523,7 @@ export class XRay_GetInsightResult_Insight_Insight_ServiceId_RootCauseServiceId 
     return resource.getResponseField('Insight.RootCauseServiceId.RootCauseServiceId.Type') as unknown as string;
   }
 }
-export class XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_ClientRequestImpactStatistics extends cdk.Construct {
+export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1574,59 +1574,6 @@ export class XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_Clien
     };
     const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount', props);
     return resource.getResponseField('Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount') as unknown as number;
-  }
-}
-export class XRay_GetInsightResult_Insight_Insight_RequestImpactStatistics_RootCauseServiceRequestImpactStatistics extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
-    super(scope, id);
-  }
-  public get faultCount(): number {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
-      onUpdate: {
-        action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.FaultCount'),
-        outputPath: 'Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.FaultCount',
-        parameters: {
-          insightId: this.input.insightId,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.FaultCount', props);
-    return resource.getResponseField('Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.FaultCount') as unknown as number;
-  }
-  public get okCount(): number {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
-      onUpdate: {
-        action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.OkCount'),
-        outputPath: 'Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.OkCount',
-        parameters: {
-          insightId: this.input.insightId,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.OkCount', props);
-    return resource.getResponseField('Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.OkCount') as unknown as number;
-  }
-  public get totalCount(): number {
-    const props: cr.AwsCustomResourceProps = {
-      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
-      onUpdate: {
-        action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.TotalCount'),
-        outputPath: 'Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.TotalCount',
-        parameters: {
-          insightId: this.input.insightId,
-        },
-      },
-    };
-    const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.TotalCount', props);
-    return resource.getResponseField('Insight.RootCauseServiceRequestImpactStatistics.RootCauseServiceRequestImpactStatistics.TotalCount') as unknown as number;
   }
 }
 export class XRay_GetInsightEventsResult extends cdk.Construct {
@@ -2350,11 +2297,11 @@ export class XRay_PutEncryptionConfigResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PutEncryptionConfigRequest) {
     super(scope, id);
   }
-  public get encryptionConfig(): XRay_PutEncryptionConfigResult_EncryptionConfig_EncryptionConfig {
-    return new XRay_PutEncryptionConfigResult_EncryptionConfig_EncryptionConfig(this, 'EncryptionConfig', this.resources, this.input);
+  public get encryptionConfig(): XRay_PutEncryptionConfigResult_EncryptionConfig {
+    return new XRay_PutEncryptionConfigResult_EncryptionConfig(this, 'EncryptionConfig', this.resources, this.input);
   }
 }
-export class XRay_PutEncryptionConfigResult_EncryptionConfig_EncryptionConfig extends cdk.Construct {
+export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PutEncryptionConfigRequest) {
     super(scope, id);
   }
@@ -2435,11 +2382,11 @@ export class XRay_UpdateGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_UpdateGroupResult_Group_Group {
-    return new XRay_UpdateGroupResult_Group_Group(this, 'Group', this.resources, this.input);
+  public get group(): XRay_UpdateGroupResult_Group {
+    return new XRay_UpdateGroupResult_Group(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_UpdateGroupResult_Group_Group extends cdk.Construct {
+export class XRay_UpdateGroupResult_Group extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
@@ -2509,11 +2456,11 @@ export class XRay_UpdateGroupResult_Group_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdateGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_UpdateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration {
-    return new XRay_UpdateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): XRay_UpdateGroupResult_Group_InsightsConfiguration {
+    return new XRay_UpdateGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_UpdateGroupResult_Group_Group_InsightsConfiguration_InsightsConfiguration extends cdk.Construct {
+export class XRay_UpdateGroupResult_Group_InsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
@@ -2566,16 +2513,16 @@ export class XRay_UpdateSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord {
-    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord {
+    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord extends cdk.Construct {
+export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule {
-    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule {
+    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -2636,7 +2583,7 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRuleRecord_SamplingRule_SamplingRule extends cdk.Construct {
+export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }

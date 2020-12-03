@@ -21,3 +21,5 @@ jobs:
       - run: yarn run build
       - name: Anti-tamper check
         run: git diff --exit-code
+    container:
+      image: jsii/superchain

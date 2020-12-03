@@ -96,29 +96,34 @@ export class ResponseGenerator {
     this.code.closeBlock();
 
     const responseGenerators: ResponseGenerator[] = [];
+    const responses = new Map<string, ResponseGenerator>();
 
     for (const property of this.properties) {
-      const responseName = `${this.name}_${property.output}_${property.name}`;
+      const responseName = `${this.name}_${property.output}`;
       this.code.openBlock(`public get ${this.code.toCamelCase(property.name)}(): ${this.isPrimitive(property.output) ?  this.getTsType(property.output) : responseName}`);
 
+      const q = this.isPrimitive(property.output);
       if (this.isPrimitive(property.output)) {
         this.renderAwsCustomResource(property.action, property.outputPath, property.output, this.input);
       } else {
-        const responseGenerator = new ResponseGenerator({
-          code: this.code,
-          name: responseName,
-          service: this.service,
-          action: this.action,
-          output: property.output,
-          input: this.input,
-          spec: this.spec,
-          outputPath: [...property.outputPath, property.name],
-        });
-
+        let responseGenerator = responses.get(responseName);
+        if (!responseGenerator) {
+          responseGenerator = new ResponseGenerator({
+            code: this.code,
+            name: responseName,
+            service: this.service,
+            action: this.action,
+            output: property.output,
+            input: this.input,
+            spec: this.spec,
+            outputPath: [...property.outputPath, property.name],
+          });
+          responseGenerators.push(responseGenerator);
+          responses.set(responseName, responseGenerator);
+        }
         const resourcesIn = responseGenerator.acceptsResources ? ', this.resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.input) ? ', this.input' : '';
         this.code.line(`return new ${responseName}(this, '${property.output}'${resourcesIn}${inputIn});`);
-        responseGenerators.push(responseGenerator);
       }
       this.code.closeBlock();
     }
@@ -232,7 +237,7 @@ export class ResponseGenerator {
 
     const type = s ? s.type : shape;
 
-    return [
+    const result = [
       structs.ShapeType.BOOLEAN.toString(),
       structs.ShapeType.DOUBLE.toString(),
       structs.ShapeType.FLOAT.toString(),
@@ -243,6 +248,8 @@ export class ResponseGenerator {
       structs.ShapeType.LIST.toString(),
       structs.ShapeType.MAP.toString(),
     ].includes(type);
+
+    return result;
   }
 
   private getTsType(sdkType: string): string {

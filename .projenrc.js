@@ -1,6 +1,6 @@
-const { TypeScriptProject } = require('projen');
+const { JsiiProject } = require('projen');
 
-const project = new TypeScriptProject({
+const project = new JsiiProject({
   dependabot: true,
   authorName: 'Eli Polonsky',
   repository: 'https://github.com/iliapolo/aws-cdk-sdk',
@@ -8,10 +8,12 @@ const project = new TypeScriptProject({
   deps: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
+    'constructs',
   ],
   peerDeps: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
+    'constructs',
   ],
   devDeps: [
     '@aws-cdk/aws-elasticsearch',
@@ -25,11 +27,7 @@ const project = new TypeScriptProject({
   ]
 });
 
-project.removeScript('build');
-project.addScript('build', './gen/gen.sh && yarn run compile');
-
-project.removeScript('compile');
-project.addScript('compile', './compile.sh');
+project.addScript('gen', './gen/gen.sh');
 
 project.eslint.addIgnorePattern('gen/**')
 project.eslint.addRules({'max-len': ['error', { code: 2000 }]});

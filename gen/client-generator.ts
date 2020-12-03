@@ -12,27 +12,23 @@ import { CodeMaker } from 'codemaker';
 export class ClientGenerator {
 
   private readonly spec: structs.Spec;
-  private readonly dtsPath: string;
   private readonly types: j2j.TypeGenerator;
   private readonly api: ApiGenerator;
-  private readonly parser: ts.TypescriptParser;
   private readonly code: CodeMaker;
+  public readonly service: string;
   private readonly memo = new Set<string>();
 
   constructor(client: sdk.Client) {
-    this.dtsPath = client.dtsPath;
     this.types = new j2j.TypeGenerator();
-    this.parser = new ts.TypescriptParser();
     this.spec = JSON.parse(fs.readFileSync(client.apiPath).toString());
     this.code = new CodeMaker({ indentationLevel: 2 });
     logger.setLevel('info');
-
-    const service = this.code.toPascalCase(this.spec.metadata.serviceId);
+    this.service = this.code.toPascalCase(this.spec.metadata.serviceId);
 
     this.api = new ApiGenerator({
       code: this.code,
-      name: service,
-      service: service,
+      name: this.service,
+      service: this.service,
       spec: this.spec,
     });
 
@@ -65,15 +61,6 @@ export class ClientGenerator {
 
     }
 
-  }
-
-  public async service(): Promise<string> {
-    const parsed = await this.parser.parseSource(fs.readFileSync(this.dtsPath).toString());
-    const classDeclarations = parsed.declarations.filter(d => d instanceof ts.ClassDeclaration);
-    if (classDeclarations.length !== 1) {
-      throw new Error(`Unexpected number of class declarations while reading service for ${this.dtsPath}: ${classDeclarations.map(d => d.name).join(',')}`);
-    }
-    return classDeclarations[0].name;
   }
 
   private registerShape(name: string) {
@@ -189,6 +176,10 @@ export class ClientGenerator {
     this.code.line();
     this.api.render();
     this.code.closeFile(path.join(this.api.service, 'api.ts'));
+
+    this.code.openFile(path.join(this.api.service, 'index.ts'));
+    this.code.line("export * from './api';")
+    this.code.closeFile(path.join(this.api.service, 'index.ts'));
     await this.code.save(root);
   }
 
