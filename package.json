@@ -64,12 +64,12 @@
   "peerDependencies": {
     "@aws-cdk/core": "^1.75.0",
     "@aws-cdk/custom-resources": "^1.75.0",
-    "constructs": "^0.0.0"
+    "constructs": "^3.2.0"
   },
   "dependencies": {
     "@aws-cdk/core": "^1.75.0",
     "@aws-cdk/custom-resources": "^1.75.0",
-    "constructs": "^0.0.0"
+    "constructs": "^3.2.0"
   },
   "bundledDependencies": [],
   "keywords": [],

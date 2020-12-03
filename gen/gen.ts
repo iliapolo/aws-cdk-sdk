@@ -37,7 +37,7 @@ async function main(repoPath: string) {
 
     try {
       await generator.gen(clients);
-      codemaker.line(`export * from './clients/${generator.service}';`)
+      codemaker.line(`export * as ${generator.id} from './clients/${generator.service}';`)
     } catch (e) {
       logger.color('red').error(`Failed generating client for ${client.apiPath}: ${e}`);
       console.error(e);

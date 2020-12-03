@@ -81,7 +81,7 @@ export class ResponseGenerator {
 
   public async render() {
 
-    const parts = this.name.split('_');
+    const parts = this.code.toSnakeCase(this.name).split('_');
     if (this.isPrimitive(parts[parts.length - 1])) {
       return;
     }
@@ -99,7 +99,7 @@ export class ResponseGenerator {
     const responses = new Map<string, ResponseGenerator>();
 
     for (const property of this.properties) {
-      const responseName = `${this.name}_${property.output}`;
+      const responseName = `${this.name}${property.output}`;
       this.code.openBlock(`public get ${this.code.toCamelCase(property.name)}(): ${this.isPrimitive(property.output) ?  this.getTsType(property.output) : responseName}`);
 
       const q = this.isPrimitive(property.output);
@@ -314,7 +314,7 @@ export class ApiGenerator {
 
   public async render() {
 
-    const parts = this.name.split('_');
+    const parts = this.code.toSnakeCase(this.name).split('_');
     if (this.isPrimitive(parts[parts.length - 1])) {
       return;
     }
@@ -328,11 +328,18 @@ export class ApiGenerator {
     const responseGenerators: ResponseGenerator[] = [];
 
     for (const method of this.methods) {
-      this.code.openBlock(`public ${this.code.toCamelCase(method.name)}(${method.input && !this.isEmptyShape(method.input) ? `input: shapes.${this.code.toPascalCase(method.input)}` : ''}): ${method.output && !this.isEmptyShape(method.output) ? `${this.name}_${method.output}` : 'void'}`);
+      const responseName = `${this.name}${method.output}`;
+
+      let methodName = method.name;
+
+      if (methodName.startsWith('Get')) {
+        methodName = methodName.replace('Get', 'Fetch');
+      }
+      this.code.openBlock(`public ${this.code.toCamelCase(methodName)}(${method.input && !this.isEmptyShape(method.input) ? `input: shapes.${this.code.toPascalCase(method.input)}` : ''}): ${method.output && !this.isEmptyShape(method.output) ? responseName : 'void'}`);
       if (method.output && !this.isEmptyShape(method.output)) {
         const responseGenerator = new ResponseGenerator({
           code: this.code,
-          name: `${this.name}_${method.output}`,
+          name: responseName,
           service: this.service,
           action: method.name,
           output: method.output,
@@ -344,7 +351,7 @@ export class ApiGenerator {
         const resourcesIn = responseGenerator.acceptsResources ? ', this.resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(method.input) ? ', input' : '';
 
-        this.code.line(`return new ${this.name}_${method.output}(this, '${method.output}'${resourcesIn}${inputIn});`)
+        this.code.line(`return new ${responseName}(this, '${method.output}'${resourcesIn}${inputIn});`)
         responseGenerators.push(responseGenerator);
       } else {
         this.renderAwsCustomResource(method.name, method.outputPath ?? [], method.output, method.input);

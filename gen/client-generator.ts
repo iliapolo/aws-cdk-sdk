@@ -16,6 +16,7 @@ export class ClientGenerator {
   private readonly api: ApiGenerator;
   private readonly code: CodeMaker;
   public readonly service: string;
+  public readonly id: string;
   private readonly memo = new Set<string>();
 
   constructor(client: sdk.Client) {
@@ -23,7 +24,8 @@ export class ClientGenerator {
     this.spec = JSON.parse(fs.readFileSync(client.apiPath).toString());
     this.code = new CodeMaker({ indentationLevel: 2 });
     logger.setLevel('info');
-    this.service = this.code.toPascalCase(this.spec.metadata.serviceId);
+    this.service = this.code.toPascalCase(this.spec.metadata.serviceFullName);
+    this.id = this.code.toPascalCase(this.spec.metadata.serviceId).toLowerCase();
 
     this.api = new ApiGenerator({
       code: this.code,
@@ -179,6 +181,7 @@ export class ClientGenerator {
 
     this.code.openFile(path.join(this.api.service, 'index.ts'));
     this.code.line("export * from './api';")
+    this.code.line("export * from './shapes';")
     this.code.closeFile(path.join(this.api.service, 'index.ts'));
     await this.code.save(root);
   }

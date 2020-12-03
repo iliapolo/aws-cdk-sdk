@@ -2,26 +2,26 @@ import * as cdk from '@aws-cdk/core';
 import * as cr from '@aws-cdk/custom-resources';
 import * as shapes from './shapes';
 
-export class XRay extends cdk.Construct {
+export class AwsXRay extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public batchGetTraces(input: shapes.BatchGetTracesRequest): XRay_BatchGetTracesResult {
-    return new XRay_BatchGetTracesResult(this, 'BatchGetTracesResult', this.resources, input);
+  public batchGetTraces(input: shapes.BatchGetTracesRequest): AwsXRayBatchGetTracesResult {
+    return new AwsXRayBatchGetTracesResult(this, 'BatchGetTracesResult', this.resources, input);
   }
-  public createGroup(input: shapes.CreateGroupRequest): XRay_CreateGroupResult {
-    return new XRay_CreateGroupResult(this, 'CreateGroupResult', this.resources, input);
+  public createGroup(input: shapes.CreateGroupRequest): AwsXRayCreateGroupResult {
+    return new AwsXRayCreateGroupResult(this, 'CreateGroupResult', this.resources, input);
   }
-  public createSamplingRule(input: shapes.CreateSamplingRuleRequest): XRay_CreateSamplingRuleResult {
-    return new XRay_CreateSamplingRuleResult(this, 'CreateSamplingRuleResult', this.resources, input);
+  public createSamplingRule(input: shapes.CreateSamplingRuleRequest): AwsXRayCreateSamplingRuleResult {
+    return new AwsXRayCreateSamplingRuleResult(this, 'CreateSamplingRuleResult', this.resources, input);
   }
   public deleteGroup(input: shapes.DeleteGroupRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteGroup.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteGroup.'),
         parameters: {
           groupName: input.groupName,
           groupArn: input.groupArn,
@@ -30,64 +30,64 @@ export class XRay extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'DeleteGroup', props);
   }
-  public deleteSamplingRule(input: shapes.DeleteSamplingRuleRequest): XRay_DeleteSamplingRuleResult {
-    return new XRay_DeleteSamplingRuleResult(this, 'DeleteSamplingRuleResult', this.resources, input);
+  public deleteSamplingRule(input: shapes.DeleteSamplingRuleRequest): AwsXRayDeleteSamplingRuleResult {
+    return new AwsXRayDeleteSamplingRuleResult(this, 'DeleteSamplingRuleResult', this.resources, input);
   }
-  public getEncryptionConfig(): XRay_GetEncryptionConfigResult {
-    return new XRay_GetEncryptionConfigResult(this, 'GetEncryptionConfigResult', this.resources);
+  public fetchEncryptionConfig(): AwsXRayGetEncryptionConfigResult {
+    return new AwsXRayGetEncryptionConfigResult(this, 'GetEncryptionConfigResult', this.resources);
   }
-  public getGroup(input: shapes.GetGroupRequest): XRay_GetGroupResult {
-    return new XRay_GetGroupResult(this, 'GetGroupResult', this.resources, input);
+  public fetchGroup(input: shapes.GetGroupRequest): AwsXRayGetGroupResult {
+    return new AwsXRayGetGroupResult(this, 'GetGroupResult', this.resources, input);
   }
-  public getGroups(input: shapes.GetGroupsRequest): XRay_GetGroupsResult {
-    return new XRay_GetGroupsResult(this, 'GetGroupsResult', this.resources, input);
+  public fetchGroups(input: shapes.GetGroupsRequest): AwsXRayGetGroupsResult {
+    return new AwsXRayGetGroupsResult(this, 'GetGroupsResult', this.resources, input);
   }
-  public getInsight(input: shapes.GetInsightRequest): XRay_GetInsightResult {
-    return new XRay_GetInsightResult(this, 'GetInsightResult', this.resources, input);
+  public fetchInsight(input: shapes.GetInsightRequest): AwsXRayGetInsightResult {
+    return new AwsXRayGetInsightResult(this, 'GetInsightResult', this.resources, input);
   }
-  public getInsightEvents(input: shapes.GetInsightEventsRequest): XRay_GetInsightEventsResult {
-    return new XRay_GetInsightEventsResult(this, 'GetInsightEventsResult', this.resources, input);
+  public fetchInsightEvents(input: shapes.GetInsightEventsRequest): AwsXRayGetInsightEventsResult {
+    return new AwsXRayGetInsightEventsResult(this, 'GetInsightEventsResult', this.resources, input);
   }
-  public getInsightImpactGraph(input: shapes.GetInsightImpactGraphRequest): XRay_GetInsightImpactGraphResult {
-    return new XRay_GetInsightImpactGraphResult(this, 'GetInsightImpactGraphResult', this.resources, input);
+  public fetchInsightImpactGraph(input: shapes.GetInsightImpactGraphRequest): AwsXRayGetInsightImpactGraphResult {
+    return new AwsXRayGetInsightImpactGraphResult(this, 'GetInsightImpactGraphResult', this.resources, input);
   }
-  public getInsightSummaries(input: shapes.GetInsightSummariesRequest): XRay_GetInsightSummariesResult {
-    return new XRay_GetInsightSummariesResult(this, 'GetInsightSummariesResult', this.resources, input);
+  public fetchInsightSummaries(input: shapes.GetInsightSummariesRequest): AwsXRayGetInsightSummariesResult {
+    return new AwsXRayGetInsightSummariesResult(this, 'GetInsightSummariesResult', this.resources, input);
   }
-  public getSamplingRules(input: shapes.GetSamplingRulesRequest): XRay_GetSamplingRulesResult {
-    return new XRay_GetSamplingRulesResult(this, 'GetSamplingRulesResult', this.resources, input);
+  public fetchSamplingRules(input: shapes.GetSamplingRulesRequest): AwsXRayGetSamplingRulesResult {
+    return new AwsXRayGetSamplingRulesResult(this, 'GetSamplingRulesResult', this.resources, input);
   }
-  public getSamplingStatisticSummaries(input: shapes.GetSamplingStatisticSummariesRequest): XRay_GetSamplingStatisticSummariesResult {
-    return new XRay_GetSamplingStatisticSummariesResult(this, 'GetSamplingStatisticSummariesResult', this.resources, input);
+  public fetchSamplingStatisticSummaries(input: shapes.GetSamplingStatisticSummariesRequest): AwsXRayGetSamplingStatisticSummariesResult {
+    return new AwsXRayGetSamplingStatisticSummariesResult(this, 'GetSamplingStatisticSummariesResult', this.resources, input);
   }
-  public getSamplingTargets(input: shapes.GetSamplingTargetsRequest): XRay_GetSamplingTargetsResult {
-    return new XRay_GetSamplingTargetsResult(this, 'GetSamplingTargetsResult', this.resources, input);
+  public fetchSamplingTargets(input: shapes.GetSamplingTargetsRequest): AwsXRayGetSamplingTargetsResult {
+    return new AwsXRayGetSamplingTargetsResult(this, 'GetSamplingTargetsResult', this.resources, input);
   }
-  public getServiceGraph(input: shapes.GetServiceGraphRequest): XRay_GetServiceGraphResult {
-    return new XRay_GetServiceGraphResult(this, 'GetServiceGraphResult', this.resources, input);
+  public fetchServiceGraph(input: shapes.GetServiceGraphRequest): AwsXRayGetServiceGraphResult {
+    return new AwsXRayGetServiceGraphResult(this, 'GetServiceGraphResult', this.resources, input);
   }
-  public getTimeSeriesServiceStatistics(input: shapes.GetTimeSeriesServiceStatisticsRequest): XRay_GetTimeSeriesServiceStatisticsResult {
-    return new XRay_GetTimeSeriesServiceStatisticsResult(this, 'GetTimeSeriesServiceStatisticsResult', this.resources, input);
+  public fetchTimeSeriesServiceStatistics(input: shapes.GetTimeSeriesServiceStatisticsRequest): AwsXRayGetTimeSeriesServiceStatisticsResult {
+    return new AwsXRayGetTimeSeriesServiceStatisticsResult(this, 'GetTimeSeriesServiceStatisticsResult', this.resources, input);
   }
-  public getTraceGraph(input: shapes.GetTraceGraphRequest): XRay_GetTraceGraphResult {
-    return new XRay_GetTraceGraphResult(this, 'GetTraceGraphResult', this.resources, input);
+  public fetchTraceGraph(input: shapes.GetTraceGraphRequest): AwsXRayGetTraceGraphResult {
+    return new AwsXRayGetTraceGraphResult(this, 'GetTraceGraphResult', this.resources, input);
   }
-  public getTraceSummaries(input: shapes.GetTraceSummariesRequest): XRay_GetTraceSummariesResult {
-    return new XRay_GetTraceSummariesResult(this, 'GetTraceSummariesResult', this.resources, input);
+  public fetchTraceSummaries(input: shapes.GetTraceSummariesRequest): AwsXRayGetTraceSummariesResult {
+    return new AwsXRayGetTraceSummariesResult(this, 'GetTraceSummariesResult', this.resources, input);
   }
-  public listTagsForResource(input: shapes.ListTagsForResourceRequest): XRay_ListTagsForResourceResponse {
-    return new XRay_ListTagsForResourceResponse(this, 'ListTagsForResourceResponse', this.resources, input);
+  public listTagsForResource(input: shapes.ListTagsForResourceRequest): AwsXRayListTagsForResourceResponse {
+    return new AwsXRayListTagsForResourceResponse(this, 'ListTagsForResourceResponse', this.resources, input);
   }
-  public putEncryptionConfig(input: shapes.PutEncryptionConfigRequest): XRay_PutEncryptionConfigResult {
-    return new XRay_PutEncryptionConfigResult(this, 'PutEncryptionConfigResult', this.resources, input);
+  public putEncryptionConfig(input: shapes.PutEncryptionConfigRequest): AwsXRayPutEncryptionConfigResult {
+    return new AwsXRayPutEncryptionConfigResult(this, 'PutEncryptionConfigResult', this.resources, input);
   }
   public putTelemetryRecords(input: shapes.PutTelemetryRecordsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'putTelemetryRecords',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.PutTelemetryRecords.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.PutTelemetryRecords.'),
         parameters: {
           telemetryRecords: input.telemetryRecords,
           ec2InstanceId: input.ec2InstanceId,
@@ -98,16 +98,16 @@ export class XRay extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'PutTelemetryRecords', props);
   }
-  public putTraceSegments(input: shapes.PutTraceSegmentsRequest): XRay_PutTraceSegmentsResult {
-    return new XRay_PutTraceSegmentsResult(this, 'PutTraceSegmentsResult', this.resources, input);
+  public putTraceSegments(input: shapes.PutTraceSegmentsRequest): AwsXRayPutTraceSegmentsResult {
+    return new AwsXRayPutTraceSegmentsResult(this, 'PutTraceSegmentsResult', this.resources, input);
   }
   public tagResource(input: shapes.TagResourceRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'tagResource',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.TagResource.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.TagResource.'),
         parameters: {
           resourceArn: input.resourceArn,
           tags: input.tags,
@@ -121,8 +121,8 @@ export class XRay extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'untagResource',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UntagResource.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UntagResource.'),
         parameters: {
           resourceArn: input.resourceArn,
           tagKeys: input.tagKeys,
@@ -131,14 +131,14 @@ export class XRay extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'UntagResource', props);
   }
-  public updateGroup(input: shapes.UpdateGroupRequest): XRay_UpdateGroupResult {
-    return new XRay_UpdateGroupResult(this, 'UpdateGroupResult', this.resources, input);
+  public updateGroup(input: shapes.UpdateGroupRequest): AwsXRayUpdateGroupResult {
+    return new AwsXRayUpdateGroupResult(this, 'UpdateGroupResult', this.resources, input);
   }
-  public updateSamplingRule(input: shapes.UpdateSamplingRuleRequest): XRay_UpdateSamplingRuleResult {
-    return new XRay_UpdateSamplingRuleResult(this, 'UpdateSamplingRuleResult', this.resources, input);
+  public updateSamplingRule(input: shapes.UpdateSamplingRuleRequest): AwsXRayUpdateSamplingRuleResult {
+    return new AwsXRayUpdateSamplingRuleResult(this, 'UpdateSamplingRuleResult', this.resources, input);
   }
 }
-export class XRay_BatchGetTracesResult extends cdk.Construct {
+export class AwsXRayBatchGetTracesResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.BatchGetTracesRequest) {
     super(scope, id);
   }
@@ -147,8 +147,8 @@ export class XRay_BatchGetTracesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'batchGetTraces',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.BatchGetTraces.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.BatchGetTraces.'),
         outputPath: '',
         parameters: {
           traceIds: this.input.traceIds,
@@ -164,8 +164,8 @@ export class XRay_BatchGetTracesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'batchGetTraces',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.BatchGetTraces.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.BatchGetTraces.'),
         outputPath: '',
         parameters: {
           traceIds: this.input.traceIds,
@@ -181,8 +181,8 @@ export class XRay_BatchGetTracesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'batchGetTraces',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.BatchGetTraces.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.BatchGetTraces.'),
         outputPath: '',
         parameters: {
           traceIds: this.input.traceIds,
@@ -194,15 +194,15 @@ export class XRay_BatchGetTracesResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_CreateGroupResult extends cdk.Construct {
+export class AwsXRayCreateGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_CreateGroupResult_Group {
-    return new XRay_CreateGroupResult_Group(this, 'Group', this.resources, this.input);
+  public get group(): AwsXRayCreateGroupResultGroup {
+    return new AwsXRayCreateGroupResultGroup(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_CreateGroupResult_Group extends cdk.Construct {
+export class AwsXRayCreateGroupResultGroup extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
@@ -211,8 +211,8 @@ export class XRay_CreateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateGroup.Group.GroupName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateGroup.Group.GroupName'),
         outputPath: 'Group.GroupName',
         parameters: {
           groupName: this.input.groupName,
@@ -233,8 +233,8 @@ export class XRay_CreateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateGroup.Group.GroupARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateGroup.Group.GroupARN'),
         outputPath: 'Group.GroupARN',
         parameters: {
           groupName: this.input.groupName,
@@ -255,8 +255,8 @@ export class XRay_CreateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateGroup.Group.FilterExpression'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateGroup.Group.FilterExpression'),
         outputPath: 'Group.FilterExpression',
         parameters: {
           groupName: this.input.groupName,
@@ -272,11 +272,11 @@ export class XRay_CreateGroupResult_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreateGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_CreateGroupResult_Group_InsightsConfiguration {
-    return new XRay_CreateGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): AwsXRayCreateGroupResultGroupInsightsConfiguration {
+    return new AwsXRayCreateGroupResultGroupInsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_CreateGroupResult_Group_InsightsConfiguration extends cdk.Construct {
+export class AwsXRayCreateGroupResultGroupInsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateGroupRequest) {
     super(scope, id);
   }
@@ -285,8 +285,8 @@ export class XRay_CreateGroupResult_Group_InsightsConfiguration extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -307,8 +307,8 @@ export class XRay_CreateGroupResult_Group_InsightsConfiguration extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -325,28 +325,28 @@ export class XRay_CreateGroupResult_Group_InsightsConfiguration extends cdk.Cons
     return resource.getResponseField('Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled') as unknown as boolean;
   }
 }
-export class XRay_CreateSamplingRuleResult extends cdk.Construct {
+export class AwsXRayCreateSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_CreateSamplingRuleResult_SamplingRuleRecord {
-    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): AwsXRayCreateSamplingRuleResultSamplingRuleRecord {
+    return new AwsXRayCreateSamplingRuleResultSamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_CreateSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
+export class AwsXRayCreateSamplingRuleResultSamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule {
-    return new XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): AwsXRayCreateSamplingRuleResultSamplingRuleRecordSamplingRule {
+    return new AwsXRayCreateSamplingRuleResultSamplingRuleRecordSamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.CreatedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.CreatedAt'),
         outputPath: 'SamplingRuleRecord.CreatedAt',
         parameters: {
           samplingRule: {
@@ -376,8 +376,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.ModifiedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.ModifiedAt'),
         outputPath: 'SamplingRuleRecord.ModifiedAt',
         parameters: {
           samplingRule: {
@@ -403,7 +403,7 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
+export class AwsXRayCreateSamplingRuleResultSamplingRuleRecordSamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateSamplingRuleRequest) {
     super(scope, id);
   }
@@ -412,8 +412,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleName',
         parameters: {
           samplingRule: {
@@ -443,8 +443,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN',
         parameters: {
           samplingRule: {
@@ -474,8 +474,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN',
         parameters: {
           samplingRule: {
@@ -505,8 +505,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Priority',
         parameters: {
           samplingRule: {
@@ -536,8 +536,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate',
         parameters: {
           samplingRule: {
@@ -567,8 +567,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize',
         parameters: {
           samplingRule: {
@@ -598,8 +598,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName',
         parameters: {
           samplingRule: {
@@ -629,8 +629,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType',
         parameters: {
           samplingRule: {
@@ -660,8 +660,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Host',
         parameters: {
           samplingRule: {
@@ -691,8 +691,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod',
         parameters: {
           samplingRule: {
@@ -722,8 +722,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.URLPath',
         parameters: {
           samplingRule: {
@@ -753,8 +753,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Version',
         parameters: {
           samplingRule: {
@@ -784,8 +784,8 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.CreateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Attributes',
         parameters: {
           samplingRule: {
@@ -811,28 +811,28 @@ export class XRay_CreateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
     return resource.getResponseField('SamplingRuleRecord.SamplingRule.SamplingRule.Attributes') as unknown as Record<string, string>;
   }
 }
-export class XRay_DeleteSamplingRuleResult extends cdk.Construct {
+export class AwsXRayDeleteSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord {
-    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): AwsXRayDeleteSamplingRuleResultSamplingRuleRecord {
+    return new AwsXRayDeleteSamplingRuleResultSamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
+export class AwsXRayDeleteSamplingRuleResultSamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule {
-    return new XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): AwsXRayDeleteSamplingRuleResultSamplingRuleRecordSamplingRule {
+    return new AwsXRayDeleteSamplingRuleResultSamplingRuleRecordSamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.CreatedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.CreatedAt'),
         outputPath: 'SamplingRuleRecord.CreatedAt',
         parameters: {
           ruleName: this.input.ruleName,
@@ -848,8 +848,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.ModifiedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.ModifiedAt'),
         outputPath: 'SamplingRuleRecord.ModifiedAt',
         parameters: {
           ruleName: this.input.ruleName,
@@ -861,7 +861,7 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
+export class AwsXRayDeleteSamplingRuleResultSamplingRuleRecordSamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteSamplingRuleRequest) {
     super(scope, id);
   }
@@ -870,8 +870,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleName',
         parameters: {
           ruleName: this.input.ruleName,
@@ -887,8 +887,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN',
         parameters: {
           ruleName: this.input.ruleName,
@@ -904,8 +904,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN',
         parameters: {
           ruleName: this.input.ruleName,
@@ -921,8 +921,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Priority',
         parameters: {
           ruleName: this.input.ruleName,
@@ -938,8 +938,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate',
         parameters: {
           ruleName: this.input.ruleName,
@@ -955,8 +955,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize',
         parameters: {
           ruleName: this.input.ruleName,
@@ -972,8 +972,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName',
         parameters: {
           ruleName: this.input.ruleName,
@@ -989,8 +989,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1006,8 +1006,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Host',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1023,8 +1023,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1040,8 +1040,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.URLPath',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1057,8 +1057,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Version',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1074,8 +1074,8 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.DeleteSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Attributes',
         parameters: {
           ruleName: this.input.ruleName,
@@ -1087,15 +1087,15 @@ export class XRay_DeleteSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
     return resource.getResponseField('SamplingRuleRecord.SamplingRule.SamplingRule.Attributes') as unknown as Record<string, string>;
   }
 }
-export class XRay_GetEncryptionConfigResult extends cdk.Construct {
+export class AwsXRayGetEncryptionConfigResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public get encryptionConfig(): XRay_GetEncryptionConfigResult_EncryptionConfig {
-    return new XRay_GetEncryptionConfigResult_EncryptionConfig(this, 'EncryptionConfig', this.resources);
+  public get encryptionConfig(): AwsXRayGetEncryptionConfigResultEncryptionConfig {
+    return new AwsXRayGetEncryptionConfigResultEncryptionConfig(this, 'EncryptionConfig', this.resources);
   }
 }
-export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Construct {
+export class AwsXRayGetEncryptionConfigResultEncryptionConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
@@ -1104,8 +1104,8 @@ export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetEncryptionConfig.EncryptionConfig.KeyId'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetEncryptionConfig.EncryptionConfig.KeyId'),
         outputPath: 'EncryptionConfig.KeyId',
         parameters: {
         },
@@ -1119,8 +1119,8 @@ export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetEncryptionConfig.EncryptionConfig.Status'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetEncryptionConfig.EncryptionConfig.Status'),
         outputPath: 'EncryptionConfig.Status',
         parameters: {
         },
@@ -1134,8 +1134,8 @@ export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetEncryptionConfig.EncryptionConfig.Type'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetEncryptionConfig.EncryptionConfig.Type'),
         outputPath: 'EncryptionConfig.Type',
         parameters: {
         },
@@ -1145,15 +1145,15 @@ export class XRay_GetEncryptionConfigResult_EncryptionConfig extends cdk.Constru
     return resource.getResponseField('EncryptionConfig.Type') as unknown as string;
   }
 }
-export class XRay_GetGroupResult extends cdk.Construct {
+export class AwsXRayGetGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_GetGroupResult_Group {
-    return new XRay_GetGroupResult_Group(this, 'Group', this.resources, this.input);
+  public get group(): AwsXRayGetGroupResultGroup {
+    return new AwsXRayGetGroupResultGroup(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_GetGroupResult_Group extends cdk.Construct {
+export class AwsXRayGetGroupResultGroup extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
@@ -1162,8 +1162,8 @@ export class XRay_GetGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroup.Group.GroupName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroup.Group.GroupName'),
         outputPath: 'Group.GroupName',
         parameters: {
           groupName: this.input.groupName,
@@ -1179,8 +1179,8 @@ export class XRay_GetGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroup.Group.GroupARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroup.Group.GroupARN'),
         outputPath: 'Group.GroupARN',
         parameters: {
           groupName: this.input.groupName,
@@ -1196,8 +1196,8 @@ export class XRay_GetGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroup.Group.FilterExpression'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroup.Group.FilterExpression'),
         outputPath: 'Group.FilterExpression',
         parameters: {
           groupName: this.input.groupName,
@@ -1208,11 +1208,11 @@ export class XRay_GetGroupResult_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_GetGroupResult_Group_InsightsConfiguration {
-    return new XRay_GetGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): AwsXRayGetGroupResultGroupInsightsConfiguration {
+    return new AwsXRayGetGroupResultGroupInsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_GetGroupResult_Group_InsightsConfiguration extends cdk.Construct {
+export class AwsXRayGetGroupResultGroupInsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupRequest) {
     super(scope, id);
   }
@@ -1221,8 +1221,8 @@ export class XRay_GetGroupResult_Group_InsightsConfiguration extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -1238,8 +1238,8 @@ export class XRay_GetGroupResult_Group_InsightsConfiguration extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -1251,7 +1251,7 @@ export class XRay_GetGroupResult_Group_InsightsConfiguration extends cdk.Constru
     return resource.getResponseField('Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled') as unknown as boolean;
   }
 }
-export class XRay_GetGroupsResult extends cdk.Construct {
+export class AwsXRayGetGroupsResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetGroupsRequest) {
     super(scope, id);
   }
@@ -1260,8 +1260,8 @@ export class XRay_GetGroupsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroups',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroups.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroups.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1276,8 +1276,8 @@ export class XRay_GetGroupsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getGroups',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetGroups.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetGroups.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1288,15 +1288,15 @@ export class XRay_GetGroupsResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetInsightResult extends cdk.Construct {
+export class AwsXRayGetInsightResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
-  public get insight(): XRay_GetInsightResult_Insight {
-    return new XRay_GetInsightResult_Insight(this, 'Insight', this.resources, this.input);
+  public get insight(): AwsXRayGetInsightResultInsight {
+    return new AwsXRayGetInsightResultInsight(this, 'Insight', this.resources, this.input);
   }
 }
-export class XRay_GetInsightResult_Insight extends cdk.Construct {
+export class AwsXRayGetInsightResultInsight extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1305,8 +1305,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.InsightId'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.InsightId'),
         outputPath: 'Insight.InsightId',
         parameters: {
           insightId: this.input.insightId,
@@ -1321,8 +1321,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.GroupARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.GroupARN'),
         outputPath: 'Insight.GroupARN',
         parameters: {
           insightId: this.input.insightId,
@@ -1337,8 +1337,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.GroupName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.GroupName'),
         outputPath: 'Insight.GroupName',
         parameters: {
           insightId: this.input.insightId,
@@ -1348,16 +1348,16 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.GroupName', props);
     return resource.getResponseField('Insight.GroupName') as unknown as string;
   }
-  public get rootCauseServiceId(): XRay_GetInsightResult_Insight_ServiceId {
-    return new XRay_GetInsightResult_Insight_ServiceId(this, 'ServiceId', this.resources, this.input);
+  public get rootCauseServiceId(): AwsXRayGetInsightResultInsightServiceId {
+    return new AwsXRayGetInsightResultInsightServiceId(this, 'ServiceId', this.resources, this.input);
   }
   public get categories(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.Categories'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.Categories'),
         outputPath: 'Insight.Categories',
         parameters: {
           insightId: this.input.insightId,
@@ -1372,8 +1372,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.State'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.State'),
         outputPath: 'Insight.State',
         parameters: {
           insightId: this.input.insightId,
@@ -1388,8 +1388,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.StartTime'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.StartTime'),
         outputPath: 'Insight.StartTime',
         parameters: {
           insightId: this.input.insightId,
@@ -1404,8 +1404,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.EndTime'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.EndTime'),
         outputPath: 'Insight.EndTime',
         parameters: {
           insightId: this.input.insightId,
@@ -1420,8 +1420,8 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.Summary'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.Summary'),
         outputPath: 'Insight.Summary',
         parameters: {
           insightId: this.input.insightId,
@@ -1431,19 +1431,19 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetInsight.Insight.Summary', props);
     return resource.getResponseField('Insight.Summary') as unknown as string;
   }
-  public get clientRequestImpactStatistics(): XRay_GetInsightResult_Insight_RequestImpactStatistics {
-    return new XRay_GetInsightResult_Insight_RequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
+  public get clientRequestImpactStatistics(): AwsXRayGetInsightResultInsightRequestImpactStatistics {
+    return new AwsXRayGetInsightResultInsightRequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
   }
-  public get rootCauseServiceRequestImpactStatistics(): XRay_GetInsightResult_Insight_RequestImpactStatistics {
-    return new XRay_GetInsightResult_Insight_RequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
+  public get rootCauseServiceRequestImpactStatistics(): AwsXRayGetInsightResultInsightRequestImpactStatistics {
+    return new AwsXRayGetInsightResultInsightRequestImpactStatistics(this, 'RequestImpactStatistics', this.resources, this.input);
   }
   public get topAnomalousServices(): shapes.AnomalousService[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.TopAnomalousServices'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.TopAnomalousServices'),
         outputPath: 'Insight.TopAnomalousServices',
         parameters: {
           insightId: this.input.insightId,
@@ -1454,7 +1454,7 @@ export class XRay_GetInsightResult_Insight extends cdk.Construct {
     return resource.getResponseField('Insight.TopAnomalousServices') as unknown as shapes.AnomalousService[];
   }
 }
-export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
+export class AwsXRayGetInsightResultInsightServiceId extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1463,8 +1463,8 @@ export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Name'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Name'),
         outputPath: 'Insight.RootCauseServiceId.RootCauseServiceId.Name',
         parameters: {
           insightId: this.input.insightId,
@@ -1479,8 +1479,8 @@ export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Names'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Names'),
         outputPath: 'Insight.RootCauseServiceId.RootCauseServiceId.Names',
         parameters: {
           insightId: this.input.insightId,
@@ -1495,8 +1495,8 @@ export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.AccountId'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.AccountId'),
         outputPath: 'Insight.RootCauseServiceId.RootCauseServiceId.AccountId',
         parameters: {
           insightId: this.input.insightId,
@@ -1511,8 +1511,8 @@ export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Type'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.RootCauseServiceId.RootCauseServiceId.Type'),
         outputPath: 'Insight.RootCauseServiceId.RootCauseServiceId.Type',
         parameters: {
           insightId: this.input.insightId,
@@ -1523,7 +1523,7 @@ export class XRay_GetInsightResult_Insight_ServiceId extends cdk.Construct {
     return resource.getResponseField('Insight.RootCauseServiceId.RootCauseServiceId.Type') as unknown as string;
   }
 }
-export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.Construct {
+export class AwsXRayGetInsightResultInsightRequestImpactStatistics extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightRequest) {
     super(scope, id);
   }
@@ -1532,8 +1532,8 @@ export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.C
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.FaultCount'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.FaultCount'),
         outputPath: 'Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.FaultCount',
         parameters: {
           insightId: this.input.insightId,
@@ -1548,8 +1548,8 @@ export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.C
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.OkCount'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.OkCount'),
         outputPath: 'Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.OkCount',
         parameters: {
           insightId: this.input.insightId,
@@ -1564,8 +1564,8 @@ export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.C
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsight',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsight.Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount'),
         outputPath: 'Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount',
         parameters: {
           insightId: this.input.insightId,
@@ -1576,7 +1576,7 @@ export class XRay_GetInsightResult_Insight_RequestImpactStatistics extends cdk.C
     return resource.getResponseField('Insight.ClientRequestImpactStatistics.ClientRequestImpactStatistics.TotalCount') as unknown as number;
   }
 }
-export class XRay_GetInsightEventsResult extends cdk.Construct {
+export class AwsXRayGetInsightEventsResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightEventsRequest) {
     super(scope, id);
   }
@@ -1585,8 +1585,8 @@ export class XRay_GetInsightEventsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightEvents',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightEvents.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightEvents.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1603,8 +1603,8 @@ export class XRay_GetInsightEventsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightEvents',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightEvents.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightEvents.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1617,7 +1617,7 @@ export class XRay_GetInsightEventsResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
+export class AwsXRayGetInsightImpactGraphResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightImpactGraphRequest) {
     super(scope, id);
   }
@@ -1626,8 +1626,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1645,8 +1645,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1664,8 +1664,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1683,8 +1683,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1702,8 +1702,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1721,8 +1721,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1740,8 +1740,8 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightImpactGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightImpactGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightImpactGraph.'),
         outputPath: '',
         parameters: {
           insightId: this.input.insightId,
@@ -1755,7 +1755,7 @@ export class XRay_GetInsightImpactGraphResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetInsightSummariesResult extends cdk.Construct {
+export class AwsXRayGetInsightSummariesResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetInsightSummariesRequest) {
     super(scope, id);
   }
@@ -1764,8 +1764,8 @@ export class XRay_GetInsightSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightSummaries.'),
         outputPath: '',
         parameters: {
           states: this.input.states,
@@ -1786,8 +1786,8 @@ export class XRay_GetInsightSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getInsightSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetInsightSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetInsightSummaries.'),
         outputPath: '',
         parameters: {
           states: this.input.states,
@@ -1804,7 +1804,7 @@ export class XRay_GetInsightSummariesResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetSamplingRulesResult extends cdk.Construct {
+export class AwsXRayGetSamplingRulesResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetSamplingRulesRequest) {
     super(scope, id);
   }
@@ -1813,8 +1813,8 @@ export class XRay_GetSamplingRulesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingRules',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingRules.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingRules.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1829,8 +1829,8 @@ export class XRay_GetSamplingRulesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingRules',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingRules.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingRules.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1841,7 +1841,7 @@ export class XRay_GetSamplingRulesResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetSamplingStatisticSummariesResult extends cdk.Construct {
+export class AwsXRayGetSamplingStatisticSummariesResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetSamplingStatisticSummariesRequest) {
     super(scope, id);
   }
@@ -1850,8 +1850,8 @@ export class XRay_GetSamplingStatisticSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingStatisticSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingStatisticSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingStatisticSummaries.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1866,8 +1866,8 @@ export class XRay_GetSamplingStatisticSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingStatisticSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingStatisticSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingStatisticSummaries.'),
         outputPath: '',
         parameters: {
           nextToken: this.input.nextToken,
@@ -1878,7 +1878,7 @@ export class XRay_GetSamplingStatisticSummariesResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetSamplingTargetsResult extends cdk.Construct {
+export class AwsXRayGetSamplingTargetsResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetSamplingTargetsRequest) {
     super(scope, id);
   }
@@ -1887,8 +1887,8 @@ export class XRay_GetSamplingTargetsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingTargets',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingTargets.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingTargets.'),
         outputPath: '',
         parameters: {
           samplingStatisticsDocuments: this.input.samplingStatisticsDocuments,
@@ -1903,8 +1903,8 @@ export class XRay_GetSamplingTargetsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingTargets',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingTargets.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingTargets.'),
         outputPath: '',
         parameters: {
           samplingStatisticsDocuments: this.input.samplingStatisticsDocuments,
@@ -1919,8 +1919,8 @@ export class XRay_GetSamplingTargetsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getSamplingTargets',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetSamplingTargets.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetSamplingTargets.'),
         outputPath: '',
         parameters: {
           samplingStatisticsDocuments: this.input.samplingStatisticsDocuments,
@@ -1931,7 +1931,7 @@ export class XRay_GetSamplingTargetsResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as shapes.UnprocessedStatistics[];
   }
 }
-export class XRay_GetServiceGraphResult extends cdk.Construct {
+export class AwsXRayGetServiceGraphResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetServiceGraphRequest) {
     super(scope, id);
   }
@@ -1940,8 +1940,8 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getServiceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetServiceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetServiceGraph.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -1960,8 +1960,8 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getServiceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetServiceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetServiceGraph.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -1980,8 +1980,8 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getServiceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetServiceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetServiceGraph.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2000,8 +2000,8 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getServiceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetServiceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetServiceGraph.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2020,8 +2020,8 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getServiceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetServiceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetServiceGraph.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2036,7 +2036,7 @@ export class XRay_GetServiceGraphResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetTimeSeriesServiceStatisticsResult extends cdk.Construct {
+export class AwsXRayGetTimeSeriesServiceStatisticsResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetTimeSeriesServiceStatisticsRequest) {
     super(scope, id);
   }
@@ -2045,8 +2045,8 @@ export class XRay_GetTimeSeriesServiceStatisticsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTimeSeriesServiceStatistics',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTimeSeriesServiceStatistics.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTimeSeriesServiceStatistics.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2068,8 +2068,8 @@ export class XRay_GetTimeSeriesServiceStatisticsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTimeSeriesServiceStatistics',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTimeSeriesServiceStatistics.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTimeSeriesServiceStatistics.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2091,8 +2091,8 @@ export class XRay_GetTimeSeriesServiceStatisticsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTimeSeriesServiceStatistics',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTimeSeriesServiceStatistics.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTimeSeriesServiceStatistics.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2110,7 +2110,7 @@ export class XRay_GetTimeSeriesServiceStatisticsResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetTraceGraphResult extends cdk.Construct {
+export class AwsXRayGetTraceGraphResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetTraceGraphRequest) {
     super(scope, id);
   }
@@ -2119,8 +2119,8 @@ export class XRay_GetTraceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceGraph.'),
         outputPath: '',
         parameters: {
           traceIds: this.input.traceIds,
@@ -2136,8 +2136,8 @@ export class XRay_GetTraceGraphResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceGraph',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceGraph.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceGraph.'),
         outputPath: '',
         parameters: {
           traceIds: this.input.traceIds,
@@ -2149,7 +2149,7 @@ export class XRay_GetTraceGraphResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_GetTraceSummariesResult extends cdk.Construct {
+export class AwsXRayGetTraceSummariesResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetTraceSummariesRequest) {
     super(scope, id);
   }
@@ -2158,8 +2158,8 @@ export class XRay_GetTraceSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceSummaries.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2183,8 +2183,8 @@ export class XRay_GetTraceSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceSummaries.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2208,8 +2208,8 @@ export class XRay_GetTraceSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceSummaries.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2233,8 +2233,8 @@ export class XRay_GetTraceSummariesResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getTraceSummaries',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.GetTraceSummaries.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.GetTraceSummaries.'),
         outputPath: '',
         parameters: {
           startTime: this.input.startTime,
@@ -2254,7 +2254,7 @@ export class XRay_GetTraceSummariesResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_ListTagsForResourceResponse extends cdk.Construct {
+export class AwsXRayListTagsForResourceResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListTagsForResourceRequest) {
     super(scope, id);
   }
@@ -2263,8 +2263,8 @@ export class XRay_ListTagsForResourceResponse extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listTagsForResource',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.ListTagsForResource.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.ListTagsForResource.'),
         outputPath: '',
         parameters: {
           resourceArn: this.input.resourceArn,
@@ -2280,8 +2280,8 @@ export class XRay_ListTagsForResourceResponse extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listTagsForResource',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.ListTagsForResource.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.ListTagsForResource.'),
         outputPath: '',
         parameters: {
           resourceArn: this.input.resourceArn,
@@ -2293,15 +2293,15 @@ export class XRay_ListTagsForResourceResponse extends cdk.Construct {
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class XRay_PutEncryptionConfigResult extends cdk.Construct {
+export class AwsXRayPutEncryptionConfigResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PutEncryptionConfigRequest) {
     super(scope, id);
   }
-  public get encryptionConfig(): XRay_PutEncryptionConfigResult_EncryptionConfig {
-    return new XRay_PutEncryptionConfigResult_EncryptionConfig(this, 'EncryptionConfig', this.resources, this.input);
+  public get encryptionConfig(): AwsXRayPutEncryptionConfigResultEncryptionConfig {
+    return new AwsXRayPutEncryptionConfigResultEncryptionConfig(this, 'EncryptionConfig', this.resources, this.input);
   }
 }
-export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Construct {
+export class AwsXRayPutEncryptionConfigResultEncryptionConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PutEncryptionConfigRequest) {
     super(scope, id);
   }
@@ -2310,8 +2310,8 @@ export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'putEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.PutEncryptionConfig.EncryptionConfig.KeyId'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.PutEncryptionConfig.EncryptionConfig.KeyId'),
         outputPath: 'EncryptionConfig.KeyId',
         parameters: {
           keyId: this.input.keyId,
@@ -2327,8 +2327,8 @@ export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'putEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.PutEncryptionConfig.EncryptionConfig.Status'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.PutEncryptionConfig.EncryptionConfig.Status'),
         outputPath: 'EncryptionConfig.Status',
         parameters: {
           keyId: this.input.keyId,
@@ -2344,8 +2344,8 @@ export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Constru
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'putEncryptionConfig',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.PutEncryptionConfig.EncryptionConfig.Type'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.PutEncryptionConfig.EncryptionConfig.Type'),
         outputPath: 'EncryptionConfig.Type',
         parameters: {
           keyId: this.input.keyId,
@@ -2357,7 +2357,7 @@ export class XRay_PutEncryptionConfigResult_EncryptionConfig extends cdk.Constru
     return resource.getResponseField('EncryptionConfig.Type') as unknown as string;
   }
 }
-export class XRay_PutTraceSegmentsResult extends cdk.Construct {
+export class AwsXRayPutTraceSegmentsResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PutTraceSegmentsRequest) {
     super(scope, id);
   }
@@ -2366,8 +2366,8 @@ export class XRay_PutTraceSegmentsResult extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'putTraceSegments',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.PutTraceSegments.'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.PutTraceSegments.'),
         outputPath: '',
         parameters: {
           traceSegmentDocuments: this.input.traceSegmentDocuments,
@@ -2378,15 +2378,15 @@ export class XRay_PutTraceSegmentsResult extends cdk.Construct {
     return resource.getResponseField('') as unknown as shapes.UnprocessedTraceSegment[];
   }
 }
-export class XRay_UpdateGroupResult extends cdk.Construct {
+export class AwsXRayUpdateGroupResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
-  public get group(): XRay_UpdateGroupResult_Group {
-    return new XRay_UpdateGroupResult_Group(this, 'Group', this.resources, this.input);
+  public get group(): AwsXRayUpdateGroupResultGroup {
+    return new AwsXRayUpdateGroupResultGroup(this, 'Group', this.resources, this.input);
   }
 }
-export class XRay_UpdateGroupResult_Group extends cdk.Construct {
+export class AwsXRayUpdateGroupResultGroup extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
@@ -2395,8 +2395,8 @@ export class XRay_UpdateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateGroup.Group.GroupName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateGroup.Group.GroupName'),
         outputPath: 'Group.GroupName',
         parameters: {
           groupName: this.input.groupName,
@@ -2417,8 +2417,8 @@ export class XRay_UpdateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateGroup.Group.GroupARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateGroup.Group.GroupARN'),
         outputPath: 'Group.GroupARN',
         parameters: {
           groupName: this.input.groupName,
@@ -2439,8 +2439,8 @@ export class XRay_UpdateGroupResult_Group extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateGroup.Group.FilterExpression'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateGroup.Group.FilterExpression'),
         outputPath: 'Group.FilterExpression',
         parameters: {
           groupName: this.input.groupName,
@@ -2456,11 +2456,11 @@ export class XRay_UpdateGroupResult_Group extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdateGroup.Group.FilterExpression', props);
     return resource.getResponseField('Group.FilterExpression') as unknown as string;
   }
-  public get insightsConfiguration(): XRay_UpdateGroupResult_Group_InsightsConfiguration {
-    return new XRay_UpdateGroupResult_Group_InsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
+  public get insightsConfiguration(): AwsXRayUpdateGroupResultGroupInsightsConfiguration {
+    return new AwsXRayUpdateGroupResultGroupInsightsConfiguration(this, 'InsightsConfiguration', this.resources, this.input);
   }
 }
-export class XRay_UpdateGroupResult_Group_InsightsConfiguration extends cdk.Construct {
+export class AwsXRayUpdateGroupResultGroupInsightsConfiguration extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateGroupRequest) {
     super(scope, id);
   }
@@ -2469,8 +2469,8 @@ export class XRay_UpdateGroupResult_Group_InsightsConfiguration extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateGroup.Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.InsightsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -2491,8 +2491,8 @@ export class XRay_UpdateGroupResult_Group_InsightsConfiguration extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateGroup',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateGroup.Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled'),
         outputPath: 'Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled',
         parameters: {
           groupName: this.input.groupName,
@@ -2509,28 +2509,28 @@ export class XRay_UpdateGroupResult_Group_InsightsConfiguration extends cdk.Cons
     return resource.getResponseField('Group.InsightsConfiguration.InsightsConfiguration.NotificationsEnabled') as unknown as boolean;
   }
 }
-export class XRay_UpdateSamplingRuleResult extends cdk.Construct {
+export class AwsXRayUpdateSamplingRuleResult extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRuleRecord(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord {
-    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
+  public get samplingRuleRecord(): AwsXRayUpdateSamplingRuleResultSamplingRuleRecord {
+    return new AwsXRayUpdateSamplingRuleResultSamplingRuleRecord(this, 'SamplingRuleRecord', this.resources, this.input);
   }
 }
-export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord extends cdk.Construct {
+export class AwsXRayUpdateSamplingRuleResultSamplingRuleRecord extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }
-  public get samplingRule(): XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule {
-    return new XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule(this, 'SamplingRule', this.resources, this.input);
+  public get samplingRule(): AwsXRayUpdateSamplingRuleResultSamplingRuleRecordSamplingRule {
+    return new AwsXRayUpdateSamplingRuleResultSamplingRuleRecordSamplingRule(this, 'SamplingRule', this.resources, this.input);
   }
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.CreatedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.CreatedAt'),
         outputPath: 'SamplingRuleRecord.CreatedAt',
         parameters: {
           samplingRuleUpdate: {
@@ -2558,8 +2558,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.ModifiedAt'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.ModifiedAt'),
         outputPath: 'SamplingRuleRecord.ModifiedAt',
         parameters: {
           samplingRuleUpdate: {
@@ -2583,7 +2583,7 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord extends cdk.Constr
     return resource.getResponseField('SamplingRuleRecord.ModifiedAt') as unknown as string;
   }
 }
-export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule extends cdk.Construct {
+export class AwsXRayUpdateSamplingRuleResultSamplingRuleRecordSamplingRule extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateSamplingRuleRequest) {
     super(scope, id);
   }
@@ -2592,8 +2592,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleName',
         parameters: {
           samplingRuleUpdate: {
@@ -2621,8 +2621,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.RuleARN',
         parameters: {
           samplingRuleUpdate: {
@@ -2650,8 +2650,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ResourceARN',
         parameters: {
           samplingRuleUpdate: {
@@ -2679,8 +2679,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Priority'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Priority',
         parameters: {
           samplingRuleUpdate: {
@@ -2708,8 +2708,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.FixedRate',
         parameters: {
           samplingRuleUpdate: {
@@ -2737,8 +2737,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ReservoirSize',
         parameters: {
           samplingRuleUpdate: {
@@ -2766,8 +2766,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceName',
         parameters: {
           samplingRuleUpdate: {
@@ -2795,8 +2795,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.ServiceType',
         parameters: {
           samplingRuleUpdate: {
@@ -2824,8 +2824,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Host'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Host',
         parameters: {
           samplingRuleUpdate: {
@@ -2853,8 +2853,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.HTTPMethod',
         parameters: {
           samplingRuleUpdate: {
@@ -2882,8 +2882,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.URLPath'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.URLPath',
         parameters: {
           samplingRuleUpdate: {
@@ -2911,8 +2911,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Version'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Version',
         parameters: {
           samplingRuleUpdate: {
@@ -2940,8 +2940,8 @@ export class XRay_UpdateSamplingRuleResult_SamplingRuleRecord_SamplingRule exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateSamplingRule',
-        service: 'XRay',
-        physicalResourceId: cr.PhysicalResourceId.of('XRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
+        service: 'AwsXRay',
+        physicalResourceId: cr.PhysicalResourceId.of('AwsXRay.UpdateSamplingRule.SamplingRuleRecord.SamplingRule.SamplingRule.Attributes'),
         outputPath: 'SamplingRuleRecord.SamplingRule.SamplingRule.Attributes',
         parameters: {
           samplingRuleUpdate: {
