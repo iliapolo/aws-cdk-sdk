@@ -23,6 +23,7 @@ const project = new JsiiProject({
     'json2jsii',
     'typescript-parser',
     'node-color-log',
+    'typescript-json-schema',
     'ts-node',
   ]
 });

@@ -1,0 +1,1973 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "definitions": {
+        "AcceptInboundCrossClusterSearchConnectionRequest": {
+            "properties": {
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AcceptInboundCrossClusterSearchConnectionResponse": {
+            "properties": {
+                "crossClusterSearchConnection": {
+                    "$ref": "#/definitions/InboundCrossClusterSearchConnection"
+                }
+            },
+            "type": "object"
+        },
+        "AccessPoliciesStatus": {
+            "properties": {
+                "options": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "AddTagsRequest": {
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "tagList": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AdditionalLimit": {
+            "properties": {
+                "limitName": {
+                    "type": "string"
+                },
+                "limitValues": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "AdvancedOptionsStatus": {
+            "properties": {
+                "options": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "AdvancedSecurityOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "internalUserDatabaseEnabled": {
+                    "type": "boolean"
+                },
+                "samlOptions": {
+                    "$ref": "#/definitions/SamlOptionsOutput"
+                }
+            },
+            "type": "object"
+        },
+        "AdvancedSecurityOptionsInput": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "internalUserDatabaseEnabled": {
+                    "type": "boolean"
+                },
+                "masterUserOptions": {
+                    "$ref": "#/definitions/MasterUserOptions"
+                },
+                "samlOptions": {
+                    "$ref": "#/definitions/SamlOptionsInput"
+                }
+            },
+            "type": "object"
+        },
+        "AdvancedSecurityOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/AdvancedSecurityOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "AssociatePackageRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "AssociatePackageResponse": {
+            "properties": {
+                "domainPackageDetails": {
+                    "$ref": "#/definitions/DomainPackageDetails"
+                }
+            },
+            "type": "object"
+        },
+        "CancelElasticsearchServiceSoftwareUpdateRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CancelElasticsearchServiceSoftwareUpdateResponse": {
+            "properties": {
+                "serviceSoftwareOptions": {
+                    "$ref": "#/definitions/ServiceSoftwareOptions"
+                }
+            },
+            "type": "object"
+        },
+        "CognitoOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "identityPoolId": {
+                    "type": "string"
+                },
+                "roleArn": {
+                    "type": "string"
+                },
+                "userPoolId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CognitoOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/CognitoOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "CompatibleVersionsMap": {
+            "properties": {
+                "sourceVersion": {
+                    "type": "string"
+                },
+                "targetVersions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "CreateElasticsearchDomainRequest": {
+            "properties": {
+                "accessPolicies": {
+                    "type": "string"
+                },
+                "advancedOptions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/definitions/AdvancedSecurityOptionsInput"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/definitions/CognitoOptions"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/definitions/DomainEndpointOptions"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "ebsOptions": {
+                    "$ref": "#/definitions/EbsOptions"
+                },
+                "elasticsearchClusterConfig": {
+                    "$ref": "#/definitions/ElasticsearchClusterConfig"
+                },
+                "elasticsearchVersion": {
+                    "type": "string"
+                },
+                "encryptionAtRestOptions": {
+                    "$ref": "#/definitions/EncryptionAtRestOptions"
+                },
+                "logPublishingOptions": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/LogPublishingOption"
+                    },
+                    "type": "object"
+                },
+                "nodeToNodeEncryptionOptions": {
+                    "$ref": "#/definitions/NodeToNodeEncryptionOptions"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/definitions/SnapshotOptions"
+                },
+                "vpcOptions": {
+                    "$ref": "#/definitions/VpcOptions"
+                }
+            },
+            "type": "object"
+        },
+        "CreateElasticsearchDomainResponse": {
+            "properties": {
+                "domainStatus": {
+                    "$ref": "#/definitions/ElasticsearchDomainStatus"
+                }
+            },
+            "type": "object"
+        },
+        "CreateOutboundCrossClusterSearchConnectionRequest": {
+            "properties": {
+                "connectionAlias": {
+                    "type": "string"
+                },
+                "destinationDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                },
+                "sourceDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                }
+            },
+            "type": "object"
+        },
+        "CreateOutboundCrossClusterSearchConnectionResponse": {
+            "properties": {
+                "connectionAlias": {
+                    "type": "string"
+                },
+                "connectionStatus": {
+                    "$ref": "#/definitions/OutboundCrossClusterSearchConnectionStatus"
+                },
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                },
+                "destinationDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                },
+                "sourceDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                }
+            },
+            "type": "object"
+        },
+        "CreatePackageRequest": {
+            "properties": {
+                "packageDescription": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "packageSource": {
+                    "$ref": "#/definitions/PackageSource"
+                },
+                "packageType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "CreatePackageResponse": {
+            "properties": {
+                "packageDetails": {
+                    "$ref": "#/definitions/PackageDetails"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteElasticsearchDomainRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteElasticsearchDomainResponse": {
+            "properties": {
+                "domainStatus": {
+                    "$ref": "#/definitions/ElasticsearchDomainStatus"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteInboundCrossClusterSearchConnectionRequest": {
+            "properties": {
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteInboundCrossClusterSearchConnectionResponse": {
+            "properties": {
+                "crossClusterSearchConnection": {
+                    "$ref": "#/definitions/InboundCrossClusterSearchConnection"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteOutboundCrossClusterSearchConnectionRequest": {
+            "properties": {
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeleteOutboundCrossClusterSearchConnectionResponse": {
+            "properties": {
+                "crossClusterSearchConnection": {
+                    "$ref": "#/definitions/OutboundCrossClusterSearchConnection"
+                }
+            },
+            "type": "object"
+        },
+        "DeletePackageRequest": {
+            "properties": {
+                "packageId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DeletePackageResponse": {
+            "properties": {
+                "packageDetails": {
+                    "$ref": "#/definitions/PackageDetails"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainConfigRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainConfigResponse": {
+            "properties": {
+                "domainConfig": {
+                    "$ref": "#/definitions/ElasticsearchDomainConfig"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainResponse": {
+            "properties": {
+                "domainStatus": {
+                    "$ref": "#/definitions/ElasticsearchDomainStatus"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainsRequest": {
+            "properties": {
+                "domainNames": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchDomainsResponse": {
+            "properties": {
+                "domainStatusList": {
+                    "items": {
+                        "$ref": "#/definitions/ElasticsearchDomainStatus"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchInstanceTypeLimitsRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "elasticsearchVersion": {
+                    "type": "string"
+                },
+                "instanceType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeElasticsearchInstanceTypeLimitsResponse": {
+            "properties": {
+                "limitsByRole": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/Limits"
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeInboundCrossClusterSearchConnectionsRequest": {
+            "properties": {
+                "filters": {
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    },
+                    "type": "array"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeInboundCrossClusterSearchConnectionsResponse": {
+            "properties": {
+                "crossClusterSearchConnections": {
+                    "items": {
+                        "$ref": "#/definitions/InboundCrossClusterSearchConnection"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeOutboundCrossClusterSearchConnectionsRequest": {
+            "properties": {
+                "filters": {
+                    "items": {
+                        "$ref": "#/definitions/Filter"
+                    },
+                    "type": "array"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeOutboundCrossClusterSearchConnectionsResponse": {
+            "properties": {
+                "crossClusterSearchConnections": {
+                    "items": {
+                        "$ref": "#/definitions/OutboundCrossClusterSearchConnection"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribePackagesFilter": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DescribePackagesRequest": {
+            "properties": {
+                "filters": {
+                    "items": {
+                        "$ref": "#/definitions/DescribePackagesFilter"
+                    },
+                    "type": "array"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribePackagesResponse": {
+            "properties": {
+                "nextToken": {
+                    "type": "string"
+                },
+                "packageDetailsList": {
+                    "items": {
+                        "$ref": "#/definitions/PackageDetails"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeReservedElasticsearchInstanceOfferingsRequest": {
+            "properties": {
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceOfferingId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeReservedElasticsearchInstanceOfferingsResponse": {
+            "properties": {
+                "nextToken": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceOfferings": {
+                    "items": {
+                        "$ref": "#/definitions/ReservedElasticsearchInstanceOffering"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeReservedElasticsearchInstancesRequest": {
+            "properties": {
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DescribeReservedElasticsearchInstancesResponse": {
+            "properties": {
+                "nextToken": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstances": {
+                    "items": {
+                        "$ref": "#/definitions/ReservedElasticsearchInstance"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "DissociatePackageRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DissociatePackageResponse": {
+            "properties": {
+                "domainPackageDetails": {
+                    "$ref": "#/definitions/DomainPackageDetails"
+                }
+            },
+            "type": "object"
+        },
+        "DomainEndpointOptions": {
+            "properties": {
+                "customEndpoint": {
+                    "type": "string"
+                },
+                "customEndpointCertificateArn": {
+                    "type": "string"
+                },
+                "customEndpointEnabled": {
+                    "type": "boolean"
+                },
+                "enforceHttps": {
+                    "type": "boolean"
+                },
+                "tlsSecurityPolicy": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DomainEndpointOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/DomainEndpointOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "DomainInfo": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DomainInformation": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "ownerId": {
+                    "type": "string"
+                },
+                "region": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "DomainPackageDetails": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "domainPackageStatus": {
+                    "type": "string"
+                },
+                "errorDetails": {
+                    "$ref": "#/definitions/ErrorDetails"
+                },
+                "lastUpdated": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "packageType": {
+                    "type": "string"
+                },
+                "packageVersion": {
+                    "type": "string"
+                },
+                "referencePath": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EbsOptions": {
+            "properties": {
+                "ebsEnabled": {
+                    "type": "boolean"
+                },
+                "iops": {
+                    "type": "number"
+                },
+                "volumeSize": {
+                    "type": "number"
+                },
+                "volumeType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EbsOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/EbsOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "ElasticsearchClusterConfig": {
+            "properties": {
+                "dedicatedMasterCount": {
+                    "type": "number"
+                },
+                "dedicatedMasterEnabled": {
+                    "type": "boolean"
+                },
+                "dedicatedMasterType": {
+                    "type": "string"
+                },
+                "instanceCount": {
+                    "type": "number"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "warmCount": {
+                    "type": "number"
+                },
+                "warmEnabled": {
+                    "type": "boolean"
+                },
+                "warmType": {
+                    "type": "string"
+                },
+                "zoneAwarenessConfig": {
+                    "$ref": "#/definitions/ZoneAwarenessConfig"
+                },
+                "zoneAwarenessEnabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "ElasticsearchClusterConfigStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/ElasticsearchClusterConfig"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "ElasticsearchDomainConfig": {
+            "properties": {
+                "accessPolicies": {
+                    "$ref": "#/definitions/AccessPoliciesStatus"
+                },
+                "advancedOptions": {
+                    "$ref": "#/definitions/AdvancedOptionsStatus"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/definitions/AdvancedSecurityOptionsStatus"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/definitions/CognitoOptionsStatus"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/definitions/DomainEndpointOptionsStatus"
+                },
+                "ebsOptions": {
+                    "$ref": "#/definitions/EbsOptionsStatus"
+                },
+                "elasticsearchClusterConfig": {
+                    "$ref": "#/definitions/ElasticsearchClusterConfigStatus"
+                },
+                "elasticsearchVersion": {
+                    "$ref": "#/definitions/ElasticsearchVersionStatus"
+                },
+                "encryptionAtRestOptions": {
+                    "$ref": "#/definitions/EncryptionAtRestOptionsStatus"
+                },
+                "logPublishingOptions": {
+                    "$ref": "#/definitions/LogPublishingOptionsStatus"
+                },
+                "nodeToNodeEncryptionOptions": {
+                    "$ref": "#/definitions/NodeToNodeEncryptionOptionsStatus"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/definitions/SnapshotOptionsStatus"
+                },
+                "vpcOptions": {
+                    "$ref": "#/definitions/VpcDerivedInfoStatus"
+                }
+            },
+            "type": "object"
+        },
+        "ElasticsearchDomainStatus": {
+            "properties": {
+                "accessPolicies": {
+                    "type": "string"
+                },
+                "advancedOptions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/definitions/AdvancedSecurityOptions"
+                },
+                "arn": {
+                    "type": "string"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/definitions/CognitoOptions"
+                },
+                "created": {
+                    "type": "boolean"
+                },
+                "deleted": {
+                    "type": "boolean"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/definitions/DomainEndpointOptions"
+                },
+                "domainId": {
+                    "type": "string"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "ebsOptions": {
+                    "$ref": "#/definitions/EbsOptions"
+                },
+                "elasticsearchClusterConfig": {
+                    "$ref": "#/definitions/ElasticsearchClusterConfig"
+                },
+                "elasticsearchVersion": {
+                    "type": "string"
+                },
+                "encryptionAtRestOptions": {
+                    "$ref": "#/definitions/EncryptionAtRestOptions"
+                },
+                "endpoint": {
+                    "type": "string"
+                },
+                "endpoints": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "logPublishingOptions": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/LogPublishingOption"
+                    },
+                    "type": "object"
+                },
+                "nodeToNodeEncryptionOptions": {
+                    "$ref": "#/definitions/NodeToNodeEncryptionOptions"
+                },
+                "processing": {
+                    "type": "boolean"
+                },
+                "serviceSoftwareOptions": {
+                    "$ref": "#/definitions/ServiceSoftwareOptions"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/definitions/SnapshotOptions"
+                },
+                "upgradeProcessing": {
+                    "type": "boolean"
+                },
+                "vpcOptions": {
+                    "$ref": "#/definitions/VpcDerivedInfo"
+                }
+            },
+            "type": "object"
+        },
+        "ElasticsearchVersionStatus": {
+            "properties": {
+                "options": {
+                    "type": "string"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "EncryptionAtRestOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "kmsKeyId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "EncryptionAtRestOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/EncryptionAtRestOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "ErrorDetails": {
+            "properties": {
+                "errorMessage": {
+                    "type": "string"
+                },
+                "errorType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "Filter": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "values": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetCompatibleElasticsearchVersionsRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetCompatibleElasticsearchVersionsResponse": {
+            "properties": {
+                "compatibleElasticsearchVersions": {
+                    "items": {
+                        "$ref": "#/definitions/CompatibleVersionsMap"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetPackageVersionHistoryRequest": {
+            "properties": {
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetPackageVersionHistoryResponse": {
+            "properties": {
+                "nextToken": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageVersionHistoryList": {
+                    "items": {
+                        "$ref": "#/definitions/PackageVersionHistory"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetUpgradeHistoryRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetUpgradeHistoryResponse": {
+            "properties": {
+                "nextToken": {
+                    "type": "string"
+                },
+                "upgradeHistories": {
+                    "items": {
+                        "$ref": "#/definitions/UpgradeHistory"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "GetUpgradeStatusRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "GetUpgradeStatusResponse": {
+            "properties": {
+                "stepStatus": {
+                    "type": "string"
+                },
+                "upgradeName": {
+                    "type": "string"
+                },
+                "upgradeStep": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InboundCrossClusterSearchConnection": {
+            "properties": {
+                "connectionStatus": {
+                    "$ref": "#/definitions/InboundCrossClusterSearchConnectionStatus"
+                },
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                },
+                "destinationDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                },
+                "sourceDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                }
+            },
+            "type": "object"
+        },
+        "InboundCrossClusterSearchConnectionStatus": {
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "statusCode": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "InstanceCountLimits": {
+            "properties": {
+                "maximumInstanceCount": {
+                    "type": "number"
+                },
+                "minimumInstanceCount": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "InstanceLimits": {
+            "properties": {
+                "instanceCountLimits": {
+                    "$ref": "#/definitions/InstanceCountLimits"
+                }
+            },
+            "type": "object"
+        },
+        "Limits": {
+            "properties": {
+                "additionalLimits": {
+                    "items": {
+                        "$ref": "#/definitions/AdditionalLimit"
+                    },
+                    "type": "array"
+                },
+                "instanceLimits": {
+                    "$ref": "#/definitions/InstanceLimits"
+                },
+                "storageTypes": {
+                    "items": {
+                        "$ref": "#/definitions/StorageType"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDomainNamesResponse": {
+            "properties": {
+                "domainNames": {
+                    "items": {
+                        "$ref": "#/definitions/DomainInfo"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ListDomainsForPackageRequest": {
+            "properties": {
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListDomainsForPackageResponse": {
+            "properties": {
+                "domainPackageDetailsList": {
+                    "items": {
+                        "$ref": "#/definitions/DomainPackageDetails"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListElasticsearchInstanceTypesRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "elasticsearchVersion": {
+                    "type": "string"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListElasticsearchInstanceTypesResponse": {
+            "properties": {
+                "elasticsearchInstanceTypes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListElasticsearchVersionsRequest": {
+            "properties": {
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListElasticsearchVersionsResponse": {
+            "properties": {
+                "elasticsearchVersions": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPackagesForDomainRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "maxResults": {
+                    "type": "number"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListPackagesForDomainResponse": {
+            "properties": {
+                "domainPackageDetailsList": {
+                    "items": {
+                        "$ref": "#/definitions/DomainPackageDetails"
+                    },
+                    "type": "array"
+                },
+                "nextToken": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListTagsRequest": {
+            "properties": {
+                "arn": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ListTagsResponse": {
+            "properties": {
+                "tagList": {
+                    "items": {
+                        "$ref": "#/definitions/Tag"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "LogPublishingOption": {
+            "properties": {
+                "cloudWatchLogsLogGroupArn": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "LogPublishingOptionsStatus": {
+            "properties": {
+                "options": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/LogPublishingOption"
+                    },
+                    "type": "object"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "MasterUserOptions": {
+            "properties": {
+                "masterUserArn": {
+                    "type": "string"
+                },
+                "masterUserName": {
+                    "type": "string"
+                },
+                "masterUserPassword": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "NodeToNodeEncryptionOptions": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                }
+            },
+            "type": "object"
+        },
+        "NodeToNodeEncryptionOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/NodeToNodeEncryptionOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "OptionStatus": {
+            "properties": {
+                "creationDate": {
+                    "type": "string"
+                },
+                "pendingDeletion": {
+                    "type": "boolean"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "updateDate": {
+                    "type": "string"
+                },
+                "updateVersion": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "OutboundCrossClusterSearchConnection": {
+            "properties": {
+                "connectionAlias": {
+                    "type": "string"
+                },
+                "connectionStatus": {
+                    "$ref": "#/definitions/OutboundCrossClusterSearchConnectionStatus"
+                },
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                },
+                "destinationDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                },
+                "sourceDomainInfo": {
+                    "$ref": "#/definitions/DomainInformation"
+                }
+            },
+            "type": "object"
+        },
+        "OutboundCrossClusterSearchConnectionStatus": {
+            "properties": {
+                "message": {
+                    "type": "string"
+                },
+                "statusCode": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PackageDetails": {
+            "properties": {
+                "availablePackageVersion": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "errorDetails": {
+                    "$ref": "#/definitions/ErrorDetails"
+                },
+                "lastUpdatedAt": {
+                    "type": "string"
+                },
+                "packageDescription": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageName": {
+                    "type": "string"
+                },
+                "packageStatus": {
+                    "type": "string"
+                },
+                "packageType": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PackageSource": {
+            "properties": {
+                "s3BucketName": {
+                    "type": "string"
+                },
+                "s3Key": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PackageVersionHistory": {
+            "properties": {
+                "commitMessage": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "packageVersion": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PurchaseReservedElasticsearchInstanceOfferingRequest": {
+            "properties": {
+                "instanceCount": {
+                    "type": "number"
+                },
+                "reservationName": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceOfferingId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "PurchaseReservedElasticsearchInstanceOfferingResponse": {
+            "properties": {
+                "reservationName": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RecurringCharge": {
+            "properties": {
+                "recurringChargeAmount": {
+                    "type": "number"
+                },
+                "recurringChargeFrequency": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectInboundCrossClusterSearchConnectionRequest": {
+            "properties": {
+                "crossClusterSearchConnectionId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "RejectInboundCrossClusterSearchConnectionResponse": {
+            "properties": {
+                "crossClusterSearchConnection": {
+                    "$ref": "#/definitions/InboundCrossClusterSearchConnection"
+                }
+            },
+            "type": "object"
+        },
+        "RemoveTagsRequest": {
+            "properties": {
+                "arn": {
+                    "type": "string"
+                },
+                "tagKeys": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ReservedElasticsearchInstance": {
+            "properties": {
+                "currencyCode": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "elasticsearchInstanceCount": {
+                    "type": "number"
+                },
+                "elasticsearchInstanceType": {
+                    "type": "string"
+                },
+                "fixedPrice": {
+                    "type": "number"
+                },
+                "paymentOption": {
+                    "type": "string"
+                },
+                "recurringCharges": {
+                    "items": {
+                        "$ref": "#/definitions/RecurringCharge"
+                    },
+                    "type": "array"
+                },
+                "reservationName": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceId": {
+                    "type": "string"
+                },
+                "reservedElasticsearchInstanceOfferingId": {
+                    "type": "string"
+                },
+                "startTime": {
+                    "type": "string"
+                },
+                "state": {
+                    "type": "string"
+                },
+                "usagePrice": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "ReservedElasticsearchInstanceOffering": {
+            "properties": {
+                "currencyCode": {
+                    "type": "string"
+                },
+                "duration": {
+                    "type": "number"
+                },
+                "elasticsearchInstanceType": {
+                    "type": "string"
+                },
+                "fixedPrice": {
+                    "type": "number"
+                },
+                "paymentOption": {
+                    "type": "string"
+                },
+                "recurringCharges": {
+                    "items": {
+                        "$ref": "#/definitions/RecurringCharge"
+                    },
+                    "type": "array"
+                },
+                "reservedElasticsearchInstanceOfferingId": {
+                    "type": "string"
+                },
+                "usagePrice": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SamlIdp": {
+            "properties": {
+                "entityId": {
+                    "type": "string"
+                },
+                "metadataContent": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SamlOptionsInput": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "idp": {
+                    "$ref": "#/definitions/SamlIdp"
+                },
+                "masterBackendRole": {
+                    "type": "string"
+                },
+                "masterUserName": {
+                    "type": "string"
+                },
+                "rolesKey": {
+                    "type": "string"
+                },
+                "sessionTimeoutMinutes": {
+                    "type": "number"
+                },
+                "subjectKey": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SamlOptionsOutput": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "idp": {
+                    "$ref": "#/definitions/SamlIdp"
+                },
+                "rolesKey": {
+                    "type": "string"
+                },
+                "sessionTimeoutMinutes": {
+                    "type": "number"
+                },
+                "subjectKey": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ServiceSoftwareOptions": {
+            "properties": {
+                "automatedUpdateDate": {
+                    "type": "string"
+                },
+                "cancellable": {
+                    "type": "boolean"
+                },
+                "currentVersion": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "newVersion": {
+                    "type": "string"
+                },
+                "optionalDeployment": {
+                    "type": "boolean"
+                },
+                "updateAvailable": {
+                    "type": "boolean"
+                },
+                "updateStatus": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "SnapshotOptions": {
+            "properties": {
+                "automatedSnapshotStartHour": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        },
+        "SnapshotOptionsStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/SnapshotOptions"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "StartElasticsearchServiceSoftwareUpdateRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StartElasticsearchServiceSoftwareUpdateResponse": {
+            "properties": {
+                "serviceSoftwareOptions": {
+                    "$ref": "#/definitions/ServiceSoftwareOptions"
+                }
+            },
+            "type": "object"
+        },
+        "StorageType": {
+            "properties": {
+                "storageSubTypeName": {
+                    "type": "string"
+                },
+                "storageTypeLimits": {
+                    "items": {
+                        "$ref": "#/definitions/StorageTypeLimit"
+                    },
+                    "type": "array"
+                },
+                "storageTypeName": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "StorageTypeLimit": {
+            "properties": {
+                "limitName": {
+                    "type": "string"
+                },
+                "limitValues": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "Tag": {
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateElasticsearchDomainConfigRequest": {
+            "properties": {
+                "accessPolicies": {
+                    "type": "string"
+                },
+                "advancedOptions": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "type": "object"
+                },
+                "advancedSecurityOptions": {
+                    "$ref": "#/definitions/AdvancedSecurityOptionsInput"
+                },
+                "cognitoOptions": {
+                    "$ref": "#/definitions/CognitoOptions"
+                },
+                "domainEndpointOptions": {
+                    "$ref": "#/definitions/DomainEndpointOptions"
+                },
+                "domainName": {
+                    "type": "string"
+                },
+                "ebsOptions": {
+                    "$ref": "#/definitions/EbsOptions"
+                },
+                "elasticsearchClusterConfig": {
+                    "$ref": "#/definitions/ElasticsearchClusterConfig"
+                },
+                "logPublishingOptions": {
+                    "additionalProperties": {
+                        "$ref": "#/definitions/LogPublishingOption"
+                    },
+                    "type": "object"
+                },
+                "snapshotOptions": {
+                    "$ref": "#/definitions/SnapshotOptions"
+                },
+                "vpcOptions": {
+                    "$ref": "#/definitions/VpcOptions"
+                }
+            },
+            "type": "object"
+        },
+        "UpdateElasticsearchDomainConfigResponse": {
+            "properties": {
+                "domainConfig": {
+                    "$ref": "#/definitions/ElasticsearchDomainConfig"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePackageRequest": {
+            "properties": {
+                "commitMessage": {
+                    "type": "string"
+                },
+                "packageDescription": {
+                    "type": "string"
+                },
+                "packageId": {
+                    "type": "string"
+                },
+                "packageSource": {
+                    "$ref": "#/definitions/PackageSource"
+                }
+            },
+            "type": "object"
+        },
+        "UpdatePackageResponse": {
+            "properties": {
+                "packageDetails": {
+                    "$ref": "#/definitions/PackageDetails"
+                }
+            },
+            "type": "object"
+        },
+        "UpgradeElasticsearchDomainRequest": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "performCheckOnly": {
+                    "type": "boolean"
+                },
+                "targetVersion": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpgradeElasticsearchDomainResponse": {
+            "properties": {
+                "domainName": {
+                    "type": "string"
+                },
+                "performCheckOnly": {
+                    "type": "boolean"
+                },
+                "targetVersion": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpgradeHistory": {
+            "properties": {
+                "startTimestamp": {
+                    "type": "string"
+                },
+                "stepsList": {
+                    "items": {
+                        "$ref": "#/definitions/UpgradeStepItem"
+                    },
+                    "type": "array"
+                },
+                "upgradeName": {
+                    "type": "string"
+                },
+                "upgradeStatus": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "UpgradeStepItem": {
+            "properties": {
+                "issues": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "progressPercent": {
+                    "type": "number"
+                },
+                "upgradeStep": {
+                    "type": "string"
+                },
+                "upgradeStepStatus": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VpcDerivedInfo": {
+            "properties": {
+                "availabilityZones": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "securityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "vpcId": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "VpcDerivedInfoStatus": {
+            "properties": {
+                "options": {
+                    "$ref": "#/definitions/VpcDerivedInfo"
+                },
+                "status": {
+                    "$ref": "#/definitions/OptionStatus"
+                }
+            },
+            "type": "object"
+        },
+        "VpcOptions": {
+            "properties": {
+                "securityGroupIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "subnetIds": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "ZoneAwarenessConfig": {
+            "properties": {
+                "availabilityZoneCount": {
+                    "type": "number"
+                }
+            },
+            "type": "object"
+        }
+    }
+}
+

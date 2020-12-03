@@ -59,6 +59,7 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.5",
+    "typescript-json-schema": "^0.45.0",
     "typescript-parser": "^2.6.1"
   },
   "peerDependencies": {
