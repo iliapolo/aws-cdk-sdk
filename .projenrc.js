@@ -26,7 +26,11 @@ const project = new TypeScriptProject({
 });
 
 project.removeScript('build');
-project.addScript('build', './gen/gen.sh && NODE_OPTIONS=--max_old_space_size=4096 yarn run compile');
+project.addScript('build', './gen/gen.sh && yarn run compile');
+
+project.removeScript('compile');
+project.addScript('compile', './compile.sh');
+
 project.eslint.addIgnorePattern('gen/**')
 project.eslint.addRules({'max-len': ['error', { code: 2000 }]});
 project.synth();

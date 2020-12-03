@@ -27,29 +27,31 @@ export class ClientGenerator {
     this.code = new CodeMaker({ indentationLevel: 2 });
     logger.setLevel('info');
 
+    const service = this.code.toPascalCase(this.spec.metadata.serviceId);
+
     this.api = new ApiGenerator({
       code: this.code,
-      name: this.spec.metadata.serviceId,
-      service: this.spec.metadata.serviceId,
+      name: service,
+      service: service,
       spec: this.spec,
     });
 
     for (const operationName of Object.keys(this.spec.operations)) {
 
-      logger.debug(`Inspecting operation ${operationName}`);
+      // logger.debug(`Inspecting operation ${operationName}`);
 
       const operation = this.spec.operations[operationName];
 
-      logger.debug(`Registering operation ${operationName}`);
+      // logger.debug(`Registering operation ${operationName}`);
 
       if (operation.input) {
-        logger.info(`Registering input shapes for ${operationName}`);
+        // logger.info(`Registering input shapes for ${operationName}`);
         this.registerShape(operation.input.shape);
         this.types.emitType(j2j.TypeGenerator.normalizeTypeName(operation.input.shape));
       }
 
       if (operation.output) {
-        logger.info(`Registering output shapes for ${operationName}`);
+        // logger.info(`Registering output shapes for ${operationName}`);
         this.registerShape(operation.output.shape);
         this.types.emitType(j2j.TypeGenerator.normalizeTypeName(operation.output.shape));
       }
@@ -176,16 +178,17 @@ export class ClientGenerator {
   }
 
   public async gen(root: string) {
-    fs.mkdirSync(root, { recursive: true });
-    fs.writeFileSync(path.join(root, 'shapes.ts'), this.types.render());
 
-    this.code.openFile('api.ts');
+    fs.mkdirSync(path.join(root, this.api.service), { recursive: true });
+    fs.writeFileSync(path.join(root, this.api.service, 'shapes.ts'), this.types.render());
+
+    this.code.openFile(path.join(this.api.service, 'api.ts'));
     this.code.line("import * as cdk from '@aws-cdk/core';");
     this.code.line("import * as cr from '@aws-cdk/custom-resources';");
     this.code.line("import * as shapes from './shapes';");
     this.code.line();
     this.api.render();
-    this.code.closeFile('api.ts');
+    this.code.closeFile(path.join(this.api.service, 'api.ts'));
     await this.code.save(root);
   }
 
