@@ -4084,9 +4084,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.122:
-  version "0.1.122"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.122.tgz#bc05db70fd25c993877bbffeb4625613a847b8e2"
-  integrity sha512-XmF2ko0Yg8Lqfuk0D6QkJAFLPUh+SxJcyFS6B7kS4bBFIyut39HR4X24WbGgFBYCCadUC3eT7TEo5ruWsMqyBA==
+  version "0.1.130"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.130.tgz#2276f2c10b6517f7e3cb0a297cfd0b67f87809bb"
+  integrity sha512-7GYrL7LAFk/6VAGVtVpBKUvkzKQ7CXUpCYSNVvmiWBLz2GDEAOz4XmileA1zZDSK9eAx5eDZDNcVvPGuZ5gTxw==
   dependencies:
     camelcase "^6.0.0"
     json-schema "^0.2.5"
@@ -6271,7 +6271,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-json-schema@*:
+typescript-json-schema@^0.45.0:
   version "0.45.0"
   resolved "https://registry.yarnpkg.com/typescript-json-schema/-/typescript-json-schema-0.45.0.tgz#2f244e99518e589a442ee5f9c1d2c85a1ec7dc84"
   integrity sha512-4MeX0HIODRd+K1/sIbkPryGXG43PVQ9cvIC8gDYml6yBgcsWLjvPMpTNr9VV+bQwpDLncB8Ie4qSenuKUwNZpg==
