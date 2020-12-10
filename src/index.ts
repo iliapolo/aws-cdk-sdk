@@ -1,1 +1,1 @@
-export * as elasticsearchservice from './clients/ES';
+export * from './clients/es';

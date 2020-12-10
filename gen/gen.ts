@@ -36,8 +36,9 @@ async function main(repoPath: string) {
     logger.info(`Generating client for ${path.basename(client.apiPath)}`);
 
     try {
+      const service = codemaker.toSnakeCase(await generator.api.service()).replace(/_/g, '');
       await generator.gen(clients);
-      codemaker.line(`export * as ${generator.id} from './clients/${await generator.api.service()}';`)
+      codemaker.line(`export * from './clients/${service}';`)
     } catch (e) {
       logger.color('red').error(`Failed generating client for ${client.apiPath}: ${e}`);
       console.error(e);

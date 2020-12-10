@@ -333,7 +333,7 @@ export class ApiGenerator {
       return;
     }
 
-    this.code.openBlock(`export class ${this.code.toPascalCase(await this.service())} extends cdk.Construct`);
+    this.code.openBlock(`export class ${this.code.toPascalCase(await this.service())}Client extends cdk.Construct`);
 
     this.code.openBlock(`constructor(scope: cdk.Construct, id: string, private readonly resources: string[])`);
     this.code.line('super(scope, id);')

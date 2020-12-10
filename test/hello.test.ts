@@ -1,6 +1,6 @@
 import * as elastic from '@aws-cdk/aws-elasticsearch';
 import * as cdk from '@aws-cdk/core';
-import { elasticsearchservice } from '../src';
+import * as AWS from '../src';
 
 test('hello', () => {
 
@@ -11,7 +11,7 @@ test('hello', () => {
     version: elastic.ElasticsearchVersion.V7_7,
   });
 
-  const domainRuntime = new elasticsearchservice.AmazonElasticsearchService(stack, 'ES', [domain.domainArn]);
+  const domainRuntime = new AWS.EsClient(stack, 'ES', [domain.domainArn]);
   const value = domainRuntime.describeElasticsearchDomain(
     { domainName: domain.domainName },
   ).domainStatus.elasticsearchClusterConfig.instanceType;

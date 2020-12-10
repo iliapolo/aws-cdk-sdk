@@ -2,7 +2,7 @@ import * as cdk from '@aws-cdk/core';
 import * as cr from '@aws-cdk/custom-resources';
 import * as shapes from './shapes';
 
-export class Es extends cdk.Construct {
+export class EsClient extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
