@@ -2,16 +2,17 @@
 import * as structs from './structs';
 import { CodeMaker } from 'codemaker';
 import * as crypto from 'crypto';
+import * as sdk from './sdk-repository';
+import * as ts from 'typescript-parser';
+import * as fs from 'fs';
 
 export interface ApiGeneratorProps {
 
-  readonly service: string;
-
   readonly spec: structs.Spec;
 
-  readonly name: string;
-
   readonly code: CodeMaker;
+
+  readonly client: sdk.Client;
 }
 
 export interface ResponseGeneratorProps {
@@ -287,18 +288,31 @@ export class ResponseGenerator {
 
 export class ApiGenerator {
 
-  public readonly service: string;
-
   private readonly methods: structs.Method[] = [];
   private readonly spec: structs.Spec;
-  private readonly name: string;
   private readonly code: CodeMaker;
+  private readonly client: sdk.Client;
+  private readonly parser: ts.TypescriptParser;
+
+  private _service: string;
 
   constructor(props: ApiGeneratorProps) {
     this.spec = props.spec;
-    this.name = props.name;
-    this.service = props.service;
     this.code = props.code;
+    this.client = props.client;
+    this.parser = new ts.TypescriptParser();
+  }
+
+  public async service(): Promise<string> {
+    if (!this._service) {
+      const types = await this.parser.parseSource(fs.readFileSync(this.client.dtsPath, 'utf8').toString());
+      const classDeclarations = types.declarations.filter(d => d instanceof ts.ClassDeclaration);
+      if (classDeclarations.length !== 1) {
+        throw new Error(`Unable to extract client id -> Unexpected number of class declarations for ${types.filePath}: ${classDeclarations.map(d => d.name).join(',')}`)
+      }
+      this._service = classDeclarations[0].name;
+    }
+    return this._service;
   }
 
   public addMethod(method: structs.Method) {
@@ -314,12 +328,12 @@ export class ApiGenerator {
 
   public async render() {
 
-    const parts = this.code.toSnakeCase(this.name).split('_');
-    if (this.isPrimitive(parts[parts.length - 1])) {
+    const parts = this.code.toSnakeCase(await this.service()).split('_');
+    if (await this.isPrimitive(parts[parts.length - 1])) {
       return;
     }
 
-    this.code.openBlock(`export class ${this.name} extends cdk.Construct`);
+    this.code.openBlock(`export class ${this.code.toPascalCase(await this.service())} extends cdk.Construct`);
 
     this.code.openBlock(`constructor(scope: cdk.Construct, id: string, private readonly resources: string[])`);
     this.code.line('super(scope, id);')
@@ -328,7 +342,7 @@ export class ApiGenerator {
     const responseGenerators: ResponseGenerator[] = [];
 
     for (const method of this.methods) {
-      const responseName = `${this.name}${method.output}`;
+      const responseName = `${await this.service()}${method.output}`;
 
       let methodName = method.name;
 
@@ -340,7 +354,7 @@ export class ApiGenerator {
         const responseGenerator = new ResponseGenerator({
           code: this.code,
           name: responseName,
-          service: this.service,
+          service: await this.service(),
           action: method.name,
           output: method.output,
           spec: this.spec,
@@ -354,7 +368,7 @@ export class ApiGenerator {
         this.code.line(`return new ${responseName}(this, '${method.output}'${resourcesIn}${inputIn});`)
         responseGenerators.push(responseGenerator);
       } else {
-        this.renderAwsCustomResource(method.name, method.outputPath ?? [], method.output, method.input);
+        await this.renderAwsCustomResource(method.name, method.outputPath ?? [], method.output, method.input);
       }
       this.code.closeBlock();
     }
@@ -366,18 +380,18 @@ export class ApiGenerator {
     }
   }
 
-  private renderAwsCustomResource(action: string, outputPath: string[], output: string, input?: string) {
+  private async renderAwsCustomResource(action: string, outputPath: string[], output: string, input?: string) {
 
     const originalBlockFormatter = this.code.closeBlockFormatter;
 
     const outputPathString = outputPath.slice(2, outputPath.length).join('.');
-    const physicalResourceId = [this.service, action, outputPathString].join('.');
+    const physicalResourceId = [await this.service(), action, outputPathString].join('.');
 
     this.code.openBlock('const props: cr.AwsCustomResourceProps =');
     this.code.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
     this.code.openBlock('onUpdate:');
     this.code.line(`action: '${this.code.toCamelCase(action)}',`);
-    this.code.line(`service: '${this.service}',`);
+    this.code.line(`service: '${await this.service()}',`);
     this.code.line(`physicalResourceId: cr.PhysicalResourceId.of('${physicalResourceId}'),`);
 
     if (outputPath.length > 0) {
@@ -400,7 +414,7 @@ export class ApiGenerator {
 
     if (input) {
       this.code.openBlock('parameters:');
-      this.renderParameters(input, []);
+      await this.renderParameters(input, []);
       this.code.closeBlock();
     }
     this.code.closeBlock();
@@ -419,7 +433,7 @@ export class ApiGenerator {
 
   }
 
-  private renderParameters(input: string, inputPath: string[]) {
+  private async renderParameters(input: string, inputPath: string[]) {
 
     const shape = this.spec.shapes[input];
 
@@ -440,19 +454,19 @@ export class ApiGenerator {
         parameterPath = parameterPath.substring(0, parameterPath.length - 1);
       }
 
-      if (this.isPrimitive(member.shape)) {
+      if (await this.isPrimitive(member.shape)) {
         this.code.line(`${camelCasedMemberName}: input.${parameterPath},`);
       } else {
         this.code.openBlock(`${camelCasedMemberName}:`);
-        this.renderParameters(member.shape, newInputPath);
+        await this.renderParameters(member.shape, newInputPath);
         this.code.closeBlock();
       }
     }
   }
 
-  private isPrimitive(shape: string): boolean {
+  private async isPrimitive(shape: string): Promise<boolean> {
 
-    if (shape === this.service) {
+    if (shape === await this.service()) {
       return false;
     }
 

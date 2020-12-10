@@ -1,1 +1,1 @@
-export * as elasticsearchservice from './clients/AmazonElasticsearchService';
+export * as elasticsearchservice from './clients/ES';

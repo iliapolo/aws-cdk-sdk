@@ -2,20 +2,20 @@ import * as cdk from '@aws-cdk/core';
 import * as cr from '@aws-cdk/custom-resources';
 import * as shapes from './shapes';
 
-export class AmazonElasticsearchService extends cdk.Construct {
+export class Es extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public acceptInboundCrossClusterSearchConnection(input: shapes.AcceptInboundCrossClusterSearchConnectionRequest): AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponse {
-    return new AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponse(this, 'AcceptInboundCrossClusterSearchConnectionResponse', this.resources, input);
+  public acceptInboundCrossClusterSearchConnection(input: shapes.AcceptInboundCrossClusterSearchConnectionRequest): ESAcceptInboundCrossClusterSearchConnectionResponse {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponse(this, 'AcceptInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
   public addTags(input: shapes.AddTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'addTags',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AddTags.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AddTags.'),
         parameters: {
           arn: input.arn,
           tagList: input.tagList,
@@ -24,117 +24,117 @@ export class AmazonElasticsearchService extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'AddTags', props);
   }
-  public associatePackage(input: shapes.AssociatePackageRequest): AmazonElasticsearchServiceAssociatePackageResponse {
-    return new AmazonElasticsearchServiceAssociatePackageResponse(this, 'AssociatePackageResponse', this.resources, input);
+  public associatePackage(input: shapes.AssociatePackageRequest): ESAssociatePackageResponse {
+    return new ESAssociatePackageResponse(this, 'AssociatePackageResponse', this.resources, input);
   }
-  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest): AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponse {
-    return new AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponse(this, 'CancelElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
+  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest): ESCancelElasticsearchServiceSoftwareUpdateResponse {
+    return new ESCancelElasticsearchServiceSoftwareUpdateResponse(this, 'CancelElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
   }
-  public createElasticsearchDomain(input: shapes.CreateElasticsearchDomainRequest): AmazonElasticsearchServiceCreateElasticsearchDomainResponse {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponse(this, 'CreateElasticsearchDomainResponse', this.resources, input);
+  public createElasticsearchDomain(input: shapes.CreateElasticsearchDomainRequest): ESCreateElasticsearchDomainResponse {
+    return new ESCreateElasticsearchDomainResponse(this, 'CreateElasticsearchDomainResponse', this.resources, input);
   }
-  public createOutboundCrossClusterSearchConnection(input: shapes.CreateOutboundCrossClusterSearchConnectionRequest): AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponse {
-    return new AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponse(this, 'CreateOutboundCrossClusterSearchConnectionResponse', this.resources, input);
+  public createOutboundCrossClusterSearchConnection(input: shapes.CreateOutboundCrossClusterSearchConnectionRequest): ESCreateOutboundCrossClusterSearchConnectionResponse {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponse(this, 'CreateOutboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public createPackage(input: shapes.CreatePackageRequest): AmazonElasticsearchServiceCreatePackageResponse {
-    return new AmazonElasticsearchServiceCreatePackageResponse(this, 'CreatePackageResponse', this.resources, input);
+  public createPackage(input: shapes.CreatePackageRequest): ESCreatePackageResponse {
+    return new ESCreatePackageResponse(this, 'CreatePackageResponse', this.resources, input);
   }
-  public deleteElasticsearchDomain(input: shapes.DeleteElasticsearchDomainRequest): AmazonElasticsearchServiceDeleteElasticsearchDomainResponse {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponse(this, 'DeleteElasticsearchDomainResponse', this.resources, input);
+  public deleteElasticsearchDomain(input: shapes.DeleteElasticsearchDomainRequest): ESDeleteElasticsearchDomainResponse {
+    return new ESDeleteElasticsearchDomainResponse(this, 'DeleteElasticsearchDomainResponse', this.resources, input);
   }
   public deleteElasticsearchServiceRole(): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchServiceRole',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchServiceRole.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchServiceRole.'),
       },
     };
     new cr.AwsCustomResource(this, 'DeleteElasticsearchServiceRole', props);
   }
-  public deleteInboundCrossClusterSearchConnection(input: shapes.DeleteInboundCrossClusterSearchConnectionRequest): AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponse {
-    return new AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponse(this, 'DeleteInboundCrossClusterSearchConnectionResponse', this.resources, input);
+  public deleteInboundCrossClusterSearchConnection(input: shapes.DeleteInboundCrossClusterSearchConnectionRequest): ESDeleteInboundCrossClusterSearchConnectionResponse {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponse(this, 'DeleteInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public deleteOutboundCrossClusterSearchConnection(input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest): AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponse {
-    return new AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponse(this, 'DeleteOutboundCrossClusterSearchConnectionResponse', this.resources, input);
+  public deleteOutboundCrossClusterSearchConnection(input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest): ESDeleteOutboundCrossClusterSearchConnectionResponse {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponse(this, 'DeleteOutboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public deletePackage(input: shapes.DeletePackageRequest): AmazonElasticsearchServiceDeletePackageResponse {
-    return new AmazonElasticsearchServiceDeletePackageResponse(this, 'DeletePackageResponse', this.resources, input);
+  public deletePackage(input: shapes.DeletePackageRequest): ESDeletePackageResponse {
+    return new ESDeletePackageResponse(this, 'DeletePackageResponse', this.resources, input);
   }
-  public describeElasticsearchDomain(input: shapes.DescribeElasticsearchDomainRequest): AmazonElasticsearchServiceDescribeElasticsearchDomainResponse {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponse(this, 'DescribeElasticsearchDomainResponse', this.resources, input);
+  public describeElasticsearchDomain(input: shapes.DescribeElasticsearchDomainRequest): ESDescribeElasticsearchDomainResponse {
+    return new ESDescribeElasticsearchDomainResponse(this, 'DescribeElasticsearchDomainResponse', this.resources, input);
   }
-  public describeElasticsearchDomainConfig(input: shapes.DescribeElasticsearchDomainConfigRequest): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse(this, 'DescribeElasticsearchDomainConfigResponse', this.resources, input);
+  public describeElasticsearchDomainConfig(input: shapes.DescribeElasticsearchDomainConfigRequest): ESDescribeElasticsearchDomainConfigResponse {
+    return new ESDescribeElasticsearchDomainConfigResponse(this, 'DescribeElasticsearchDomainConfigResponse', this.resources, input);
   }
-  public describeElasticsearchDomains(input: shapes.DescribeElasticsearchDomainsRequest): AmazonElasticsearchServiceDescribeElasticsearchDomainsResponse {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainsResponse(this, 'DescribeElasticsearchDomainsResponse', this.resources, input);
+  public describeElasticsearchDomains(input: shapes.DescribeElasticsearchDomainsRequest): ESDescribeElasticsearchDomainsResponse {
+    return new ESDescribeElasticsearchDomainsResponse(this, 'DescribeElasticsearchDomainsResponse', this.resources, input);
   }
-  public describeElasticsearchInstanceTypeLimits(input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest): AmazonElasticsearchServiceDescribeElasticsearchInstanceTypeLimitsResponse {
-    return new AmazonElasticsearchServiceDescribeElasticsearchInstanceTypeLimitsResponse(this, 'DescribeElasticsearchInstanceTypeLimitsResponse', this.resources, input);
+  public describeElasticsearchInstanceTypeLimits(input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest): ESDescribeElasticsearchInstanceTypeLimitsResponse {
+    return new ESDescribeElasticsearchInstanceTypeLimitsResponse(this, 'DescribeElasticsearchInstanceTypeLimitsResponse', this.resources, input);
   }
-  public describeInboundCrossClusterSearchConnections(input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest): AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnectionsResponse {
-    return new AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnectionsResponse(this, 'DescribeInboundCrossClusterSearchConnectionsResponse', this.resources, input);
+  public describeInboundCrossClusterSearchConnections(input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest): ESDescribeInboundCrossClusterSearchConnectionsResponse {
+    return new ESDescribeInboundCrossClusterSearchConnectionsResponse(this, 'DescribeInboundCrossClusterSearchConnectionsResponse', this.resources, input);
   }
-  public describeOutboundCrossClusterSearchConnections(input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest): AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnectionsResponse {
-    return new AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnectionsResponse(this, 'DescribeOutboundCrossClusterSearchConnectionsResponse', this.resources, input);
+  public describeOutboundCrossClusterSearchConnections(input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest): ESDescribeOutboundCrossClusterSearchConnectionsResponse {
+    return new ESDescribeOutboundCrossClusterSearchConnectionsResponse(this, 'DescribeOutboundCrossClusterSearchConnectionsResponse', this.resources, input);
   }
-  public describePackages(input: shapes.DescribePackagesRequest): AmazonElasticsearchServiceDescribePackagesResponse {
-    return new AmazonElasticsearchServiceDescribePackagesResponse(this, 'DescribePackagesResponse', this.resources, input);
+  public describePackages(input: shapes.DescribePackagesRequest): ESDescribePackagesResponse {
+    return new ESDescribePackagesResponse(this, 'DescribePackagesResponse', this.resources, input);
   }
-  public describeReservedElasticsearchInstanceOfferings(input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest): AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOfferingsResponse {
-    return new AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOfferingsResponse(this, 'DescribeReservedElasticsearchInstanceOfferingsResponse', this.resources, input);
+  public describeReservedElasticsearchInstanceOfferings(input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest): ESDescribeReservedElasticsearchInstanceOfferingsResponse {
+    return new ESDescribeReservedElasticsearchInstanceOfferingsResponse(this, 'DescribeReservedElasticsearchInstanceOfferingsResponse', this.resources, input);
   }
-  public describeReservedElasticsearchInstances(input: shapes.DescribeReservedElasticsearchInstancesRequest): AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesResponse {
-    return new AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesResponse(this, 'DescribeReservedElasticsearchInstancesResponse', this.resources, input);
+  public describeReservedElasticsearchInstances(input: shapes.DescribeReservedElasticsearchInstancesRequest): ESDescribeReservedElasticsearchInstancesResponse {
+    return new ESDescribeReservedElasticsearchInstancesResponse(this, 'DescribeReservedElasticsearchInstancesResponse', this.resources, input);
   }
-  public dissociatePackage(input: shapes.DissociatePackageRequest): AmazonElasticsearchServiceDissociatePackageResponse {
-    return new AmazonElasticsearchServiceDissociatePackageResponse(this, 'DissociatePackageResponse', this.resources, input);
+  public dissociatePackage(input: shapes.DissociatePackageRequest): ESDissociatePackageResponse {
+    return new ESDissociatePackageResponse(this, 'DissociatePackageResponse', this.resources, input);
   }
-  public fetchCompatibleElasticsearchVersions(input: shapes.GetCompatibleElasticsearchVersionsRequest): AmazonElasticsearchServiceGetCompatibleElasticsearchVersionsResponse {
-    return new AmazonElasticsearchServiceGetCompatibleElasticsearchVersionsResponse(this, 'GetCompatibleElasticsearchVersionsResponse', this.resources, input);
+  public fetchCompatibleElasticsearchVersions(input: shapes.GetCompatibleElasticsearchVersionsRequest): ESGetCompatibleElasticsearchVersionsResponse {
+    return new ESGetCompatibleElasticsearchVersionsResponse(this, 'GetCompatibleElasticsearchVersionsResponse', this.resources, input);
   }
-  public fetchPackageVersionHistory(input: shapes.GetPackageVersionHistoryRequest): AmazonElasticsearchServiceGetPackageVersionHistoryResponse {
-    return new AmazonElasticsearchServiceGetPackageVersionHistoryResponse(this, 'GetPackageVersionHistoryResponse', this.resources, input);
+  public fetchPackageVersionHistory(input: shapes.GetPackageVersionHistoryRequest): ESGetPackageVersionHistoryResponse {
+    return new ESGetPackageVersionHistoryResponse(this, 'GetPackageVersionHistoryResponse', this.resources, input);
   }
-  public fetchUpgradeHistory(input: shapes.GetUpgradeHistoryRequest): AmazonElasticsearchServiceGetUpgradeHistoryResponse {
-    return new AmazonElasticsearchServiceGetUpgradeHistoryResponse(this, 'GetUpgradeHistoryResponse', this.resources, input);
+  public fetchUpgradeHistory(input: shapes.GetUpgradeHistoryRequest): ESGetUpgradeHistoryResponse {
+    return new ESGetUpgradeHistoryResponse(this, 'GetUpgradeHistoryResponse', this.resources, input);
   }
-  public fetchUpgradeStatus(input: shapes.GetUpgradeStatusRequest): AmazonElasticsearchServiceGetUpgradeStatusResponse {
-    return new AmazonElasticsearchServiceGetUpgradeStatusResponse(this, 'GetUpgradeStatusResponse', this.resources, input);
+  public fetchUpgradeStatus(input: shapes.GetUpgradeStatusRequest): ESGetUpgradeStatusResponse {
+    return new ESGetUpgradeStatusResponse(this, 'GetUpgradeStatusResponse', this.resources, input);
   }
-  public listDomainNames(): AmazonElasticsearchServiceListDomainNamesResponse {
-    return new AmazonElasticsearchServiceListDomainNamesResponse(this, 'ListDomainNamesResponse', this.resources);
+  public listDomainNames(): ESListDomainNamesResponse {
+    return new ESListDomainNamesResponse(this, 'ListDomainNamesResponse', this.resources);
   }
-  public listDomainsForPackage(input: shapes.ListDomainsForPackageRequest): AmazonElasticsearchServiceListDomainsForPackageResponse {
-    return new AmazonElasticsearchServiceListDomainsForPackageResponse(this, 'ListDomainsForPackageResponse', this.resources, input);
+  public listDomainsForPackage(input: shapes.ListDomainsForPackageRequest): ESListDomainsForPackageResponse {
+    return new ESListDomainsForPackageResponse(this, 'ListDomainsForPackageResponse', this.resources, input);
   }
-  public listElasticsearchInstanceTypes(input: shapes.ListElasticsearchInstanceTypesRequest): AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse {
-    return new AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse(this, 'ListElasticsearchInstanceTypesResponse', this.resources, input);
+  public listElasticsearchInstanceTypes(input: shapes.ListElasticsearchInstanceTypesRequest): ESListElasticsearchInstanceTypesResponse {
+    return new ESListElasticsearchInstanceTypesResponse(this, 'ListElasticsearchInstanceTypesResponse', this.resources, input);
   }
-  public listElasticsearchVersions(input: shapes.ListElasticsearchVersionsRequest): AmazonElasticsearchServiceListElasticsearchVersionsResponse {
-    return new AmazonElasticsearchServiceListElasticsearchVersionsResponse(this, 'ListElasticsearchVersionsResponse', this.resources, input);
+  public listElasticsearchVersions(input: shapes.ListElasticsearchVersionsRequest): ESListElasticsearchVersionsResponse {
+    return new ESListElasticsearchVersionsResponse(this, 'ListElasticsearchVersionsResponse', this.resources, input);
   }
-  public listPackagesForDomain(input: shapes.ListPackagesForDomainRequest): AmazonElasticsearchServiceListPackagesForDomainResponse {
-    return new AmazonElasticsearchServiceListPackagesForDomainResponse(this, 'ListPackagesForDomainResponse', this.resources, input);
+  public listPackagesForDomain(input: shapes.ListPackagesForDomainRequest): ESListPackagesForDomainResponse {
+    return new ESListPackagesForDomainResponse(this, 'ListPackagesForDomainResponse', this.resources, input);
   }
-  public listTags(input: shapes.ListTagsRequest): AmazonElasticsearchServiceListTagsResponse {
-    return new AmazonElasticsearchServiceListTagsResponse(this, 'ListTagsResponse', this.resources, input);
+  public listTags(input: shapes.ListTagsRequest): ESListTagsResponse {
+    return new ESListTagsResponse(this, 'ListTagsResponse', this.resources, input);
   }
-  public purchaseReservedElasticsearchInstanceOffering(input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest): AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOfferingResponse {
-    return new AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOfferingResponse(this, 'PurchaseReservedElasticsearchInstanceOfferingResponse', this.resources, input);
+  public purchaseReservedElasticsearchInstanceOffering(input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest): ESPurchaseReservedElasticsearchInstanceOfferingResponse {
+    return new ESPurchaseReservedElasticsearchInstanceOfferingResponse(this, 'PurchaseReservedElasticsearchInstanceOfferingResponse', this.resources, input);
   }
-  public rejectInboundCrossClusterSearchConnection(input: shapes.RejectInboundCrossClusterSearchConnectionRequest): AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponse {
-    return new AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponse(this, 'RejectInboundCrossClusterSearchConnectionResponse', this.resources, input);
+  public rejectInboundCrossClusterSearchConnection(input: shapes.RejectInboundCrossClusterSearchConnectionRequest): ESRejectInboundCrossClusterSearchConnectionResponse {
+    return new ESRejectInboundCrossClusterSearchConnectionResponse(this, 'RejectInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
   public removeTags(input: shapes.RemoveTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'removeTags',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RemoveTags.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RemoveTags.'),
         parameters: {
           arn: input.arn,
           tagKeys: input.tagKeys,
@@ -143,44 +143,44 @@ export class AmazonElasticsearchService extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'RemoveTags', props);
   }
-  public startElasticsearchServiceSoftwareUpdate(input: shapes.StartElasticsearchServiceSoftwareUpdateRequest): AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponse {
-    return new AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponse(this, 'StartElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
+  public startElasticsearchServiceSoftwareUpdate(input: shapes.StartElasticsearchServiceSoftwareUpdateRequest): ESStartElasticsearchServiceSoftwareUpdateResponse {
+    return new ESStartElasticsearchServiceSoftwareUpdateResponse(this, 'StartElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
   }
-  public updateElasticsearchDomainConfig(input: shapes.UpdateElasticsearchDomainConfigRequest): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponse {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponse(this, 'UpdateElasticsearchDomainConfigResponse', this.resources, input);
+  public updateElasticsearchDomainConfig(input: shapes.UpdateElasticsearchDomainConfigRequest): ESUpdateElasticsearchDomainConfigResponse {
+    return new ESUpdateElasticsearchDomainConfigResponse(this, 'UpdateElasticsearchDomainConfigResponse', this.resources, input);
   }
-  public updatePackage(input: shapes.UpdatePackageRequest): AmazonElasticsearchServiceUpdatePackageResponse {
-    return new AmazonElasticsearchServiceUpdatePackageResponse(this, 'UpdatePackageResponse', this.resources, input);
+  public updatePackage(input: shapes.UpdatePackageRequest): ESUpdatePackageResponse {
+    return new ESUpdatePackageResponse(this, 'UpdatePackageResponse', this.resources, input);
   }
-  public upgradeElasticsearchDomain(input: shapes.UpgradeElasticsearchDomainRequest): AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse {
-    return new AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse(this, 'UpgradeElasticsearchDomainResponse', this.resources, input);
+  public upgradeElasticsearchDomain(input: shapes.UpgradeElasticsearchDomainRequest): ESUpgradeElasticsearchDomainResponse {
+    return new ESUpgradeElasticsearchDomainResponse(this, 'UpgradeElasticsearchDomainResponse', this.resources, input);
   }
 }
-export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnection(): AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get sourceDomainInfo(): AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
-  public get destinationDomainInfo(): AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
         outputPath: 'CrossClusterSearchConnection.CrossClusterSearchConnectionId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -190,11 +190,11 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
-  public get connectionStatus(): AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -203,8 +203,8 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -219,8 +219,8 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -235,8 +235,8 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -247,7 +247,7 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -256,8 +256,8 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -272,8 +272,8 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -284,15 +284,15 @@ export class AmazonElasticsearchServiceAcceptInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceAssociatePackageResponse extends cdk.Construct {
+export class ESAssociatePackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
     super(scope, id);
   }
-  public get domainPackageDetails(): AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetails {
-    return new AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
+  public get domainPackageDetails(): ESAssociatePackageResponseDomainPackageDetails {
+    return new ESAssociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetails extends cdk.Construct {
+export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
     super(scope, id);
   }
@@ -301,8 +301,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.PackageID'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.PackageID'),
         outputPath: 'DomainPackageDetails.PackageID',
         parameters: {
           packageId: this.input.packageId,
@@ -318,8 +318,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.PackageName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.PackageName'),
         outputPath: 'DomainPackageDetails.PackageName',
         parameters: {
           packageId: this.input.packageId,
@@ -335,8 +335,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.PackageType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.PackageType'),
         outputPath: 'DomainPackageDetails.PackageType',
         parameters: {
           packageId: this.input.packageId,
@@ -352,8 +352,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.LastUpdated'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.LastUpdated'),
         outputPath: 'DomainPackageDetails.LastUpdated',
         parameters: {
           packageId: this.input.packageId,
@@ -369,8 +369,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.DomainName'),
         outputPath: 'DomainPackageDetails.DomainName',
         parameters: {
           packageId: this.input.packageId,
@@ -386,8 +386,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.DomainPackageStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.DomainPackageStatus'),
         outputPath: 'DomainPackageDetails.DomainPackageStatus',
         parameters: {
           packageId: this.input.packageId,
@@ -403,8 +403,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.PackageVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.PackageVersion'),
         outputPath: 'DomainPackageDetails.PackageVersion',
         parameters: {
           packageId: this.input.packageId,
@@ -420,8 +420,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.ReferencePath'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ReferencePath'),
         outputPath: 'DomainPackageDetails.ReferencePath',
         parameters: {
           packageId: this.input.packageId,
@@ -432,11 +432,11 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ReferencePath', props);
     return resource.getResponseField('DomainPackageDetails.ReferencePath') as unknown as string;
   }
-  public get errorDetails(): AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetailsErrorDetails {
-    return new AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
+  public get errorDetails(): ESAssociatePackageResponseDomainPackageDetailsErrorDetails {
+    return new ESAssociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
+export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
     super(scope, id);
   }
@@ -445,8 +445,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
         outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
@@ -462,8 +462,8 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'associatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
         outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
@@ -475,15 +475,15 @@ export class AmazonElasticsearchServiceAssociatePackageResponseDomainPackageDeta
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
+export class ESCancelElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
-  public get serviceSoftwareOptions(): AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
-    return new AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
+    return new ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
+export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
@@ -492,8 +492,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion'),
         outputPath: 'ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -508,8 +508,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion'),
         outputPath: 'ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -524,8 +524,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable'),
         outputPath: 'ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
@@ -540,8 +540,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable'),
         outputPath: 'ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
@@ -556,8 +556,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus'),
         outputPath: 'ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
@@ -572,8 +572,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description'),
         outputPath: 'ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
@@ -588,8 +588,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate'),
         outputPath: 'ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -604,8 +604,8 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'cancelElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment'),
         outputPath: 'ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
@@ -616,15 +616,15 @@ export class AmazonElasticsearchServiceCancelElasticsearchServiceSoftwareUpdateR
     return resource.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponse extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
-  public get domainStatus(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatus {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -633,8 +633,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainId'),
         outputPath: 'DomainStatus.DomainId',
         parameters: {
           domainName: this.input.domainName,
@@ -721,8 +721,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainName'),
         outputPath: 'DomainStatus.DomainName',
         parameters: {
           domainName: this.input.domainName,
@@ -809,8 +809,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ARN'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ARN'),
         outputPath: 'DomainStatus.ARN',
         parameters: {
           domainName: this.input.domainName,
@@ -897,8 +897,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.Created'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.Created'),
         outputPath: 'DomainStatus.Created',
         parameters: {
           domainName: this.input.domainName,
@@ -985,8 +985,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.Deleted'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.Deleted'),
         outputPath: 'DomainStatus.Deleted',
         parameters: {
           domainName: this.input.domainName,
@@ -1073,8 +1073,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.Endpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.Endpoint'),
         outputPath: 'DomainStatus.Endpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -1161,8 +1161,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.Endpoints'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.Endpoints'),
         outputPath: 'DomainStatus.Endpoints',
         parameters: {
           domainName: this.input.domainName,
@@ -1249,8 +1249,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.Processing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.Processing'),
         outputPath: 'DomainStatus.Processing',
         parameters: {
           domainName: this.input.domainName,
@@ -1337,8 +1337,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.UpgradeProcessing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.UpgradeProcessing'),
         outputPath: 'DomainStatus.UpgradeProcessing',
         parameters: {
           domainName: this.input.domainName,
@@ -1425,8 +1425,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
         outputPath: 'DomainStatus.ElasticsearchVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -1508,19 +1508,19 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
-  public get elasticsearchClusterConfig(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
-  public get ebsOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AccessPolicies'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AccessPolicies'),
         outputPath: 'DomainStatus.AccessPolicies',
         parameters: {
           domainName: this.input.domainName,
@@ -1602,28 +1602,28 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
-  public get snapshotOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
-  public get vpcOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
-  public get cognitoOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
-  public get encryptionAtRestOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
-  public get nodeToNodeEncryptionOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedOptions'),
         outputPath: 'DomainStatus.AdvancedOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -1710,8 +1710,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.LogPublishingOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.LogPublishingOptions'),
         outputPath: 'DomainStatus.LogPublishingOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -1793,17 +1793,17 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
   }
-  public get serviceSoftwareOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
-  public get domainEndpointOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
-  public get advancedSecurityOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -1812,8 +1812,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
@@ -1900,8 +1900,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
@@ -1988,8 +1988,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -2076,8 +2076,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -2159,16 +2159,16 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
-  public get zoneAwarenessConfig(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
@@ -2255,8 +2255,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
@@ -2343,8 +2343,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -2431,8 +2431,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
@@ -2519,8 +2519,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
@@ -2603,7 +2603,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -2612,8 +2612,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
@@ -2696,7 +2696,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -2705,8 +2705,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -2793,8 +2793,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
@@ -2881,8 +2881,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
@@ -2969,8 +2969,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
@@ -3053,7 +3053,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -3062,8 +3062,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
         outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
@@ -3146,7 +3146,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -3155,8 +3155,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
@@ -3243,8 +3243,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
@@ -3331,8 +3331,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
@@ -3419,8 +3419,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
@@ -3503,7 +3503,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -3512,8 +3512,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -3600,8 +3600,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -3688,8 +3688,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -3776,8 +3776,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
@@ -3860,7 +3860,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -3869,8 +3869,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -3957,8 +3957,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
@@ -4041,7 +4041,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -4050,8 +4050,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
         outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -4134,7 +4134,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -4143,8 +4143,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -4231,8 +4231,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -4319,8 +4319,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
@@ -4407,8 +4407,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
@@ -4495,8 +4495,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
@@ -4583,8 +4583,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
@@ -4671,8 +4671,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -4759,8 +4759,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
@@ -4843,7 +4843,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -4852,8 +4852,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
@@ -4940,8 +4940,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
@@ -5028,8 +5028,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -5116,8 +5116,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -5204,8 +5204,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
@@ -5288,7 +5288,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -5297,8 +5297,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -5385,8 +5385,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -5468,11 +5468,11 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
-  public get samlOptions(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -5481,8 +5481,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -5564,16 +5564,16 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
-  public get idp(): AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
+    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
@@ -5660,8 +5660,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
@@ -5748,8 +5748,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
@@ -5832,7 +5832,7 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -5841,8 +5841,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
@@ -5929,8 +5929,8 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
@@ -6013,23 +6013,23 @@ export class AmazonElasticsearchServiceCreateElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
+export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get sourceDomainInfo(): AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
-    return new AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
-  public get destinationDomainInfo(): AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
-    return new AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
   public get connectionAlias(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.'),
         outputPath: '',
         parameters: {
           sourceDomainInfo: {
@@ -6049,16 +6049,16 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.', props);
     return resource.getResponseField('') as unknown as string;
   }
-  public get connectionStatus(): AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus {
-    return new AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.'),
         outputPath: '',
         parameters: {
           sourceDomainInfo: {
@@ -6079,7 +6079,7 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseDomainInformation extends cdk.Construct {
+export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -6088,8 +6088,8 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
         outputPath: 'SourceDomainInfo.OwnerId',
         parameters: {
           sourceDomainInfo: {
@@ -6114,8 +6114,8 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.DomainName'),
         outputPath: 'SourceDomainInfo.DomainName',
         parameters: {
           sourceDomainInfo: {
@@ -6140,8 +6140,8 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.Region'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.Region'),
         outputPath: 'SourceDomainInfo.Region',
         parameters: {
           sourceDomainInfo: {
@@ -6162,7 +6162,7 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
     return resource.getResponseField('SourceDomainInfo.Region') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -6171,8 +6171,8 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.ConnectionStatus.StatusCode'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.ConnectionStatus.StatusCode'),
         outputPath: 'ConnectionStatus.StatusCode',
         parameters: {
           sourceDomainInfo: {
@@ -6197,8 +6197,8 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreateOutboundCrossClusterSearchConnection.ConnectionStatus.Message'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.ConnectionStatus.Message'),
         outputPath: 'ConnectionStatus.Message',
         parameters: {
           sourceDomainInfo: {
@@ -6219,15 +6219,15 @@ export class AmazonElasticsearchServiceCreateOutboundCrossClusterSearchConnectio
     return resource.getResponseField('ConnectionStatus.Message') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceCreatePackageResponse extends cdk.Construct {
+export class ESCreatePackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
     super(scope, id);
   }
-  public get packageDetails(): AmazonElasticsearchServiceCreatePackageResponsePackageDetails {
-    return new AmazonElasticsearchServiceCreatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
+  public get packageDetails(): ESCreatePackageResponsePackageDetails {
+    return new ESCreatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails extends cdk.Construct {
+export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
     super(scope, id);
   }
@@ -6236,8 +6236,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.PackageID'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.PackageID'),
         outputPath: 'PackageDetails.PackageID',
         parameters: {
           packageName: this.input.packageName,
@@ -6258,8 +6258,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.PackageName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.PackageName'),
         outputPath: 'PackageDetails.PackageName',
         parameters: {
           packageName: this.input.packageName,
@@ -6280,8 +6280,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.PackageType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.PackageType'),
         outputPath: 'PackageDetails.PackageType',
         parameters: {
           packageName: this.input.packageName,
@@ -6302,8 +6302,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.PackageDescription'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.PackageDescription'),
         outputPath: 'PackageDetails.PackageDescription',
         parameters: {
           packageName: this.input.packageName,
@@ -6324,8 +6324,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.PackageStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.PackageStatus'),
         outputPath: 'PackageDetails.PackageStatus',
         parameters: {
           packageName: this.input.packageName,
@@ -6346,8 +6346,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.CreatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.CreatedAt'),
         outputPath: 'PackageDetails.CreatedAt',
         parameters: {
           packageName: this.input.packageName,
@@ -6368,8 +6368,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.LastUpdatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.LastUpdatedAt'),
         outputPath: 'PackageDetails.LastUpdatedAt',
         parameters: {
           packageName: this.input.packageName,
@@ -6390,8 +6390,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.AvailablePackageVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.AvailablePackageVersion'),
         outputPath: 'PackageDetails.AvailablePackageVersion',
         parameters: {
           packageName: this.input.packageName,
@@ -6407,11 +6407,11 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetails exten
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
-  public get errorDetails(): AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorDetails {
-    return new AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
+  public get errorDetails(): ESCreatePackageResponsePackageDetailsErrorDetails {
+    return new ESCreatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
+export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
     super(scope, id);
   }
@@ -6420,8 +6420,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
         parameters: {
           packageName: this.input.packageName,
@@ -6442,8 +6442,8 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'createPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageName: this.input.packageName,
@@ -6460,15 +6460,15 @@ export class AmazonElasticsearchServiceCreatePackageResponsePackageDetailsErrorD
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponse extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
-  public get domainStatus(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6477,8 +6477,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainId'),
         outputPath: 'DomainStatus.DomainId',
         parameters: {
           domainName: this.input.domainName,
@@ -6493,8 +6493,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainName'),
         outputPath: 'DomainStatus.DomainName',
         parameters: {
           domainName: this.input.domainName,
@@ -6509,8 +6509,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ARN'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ARN'),
         outputPath: 'DomainStatus.ARN',
         parameters: {
           domainName: this.input.domainName,
@@ -6525,8 +6525,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.Created'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.Created'),
         outputPath: 'DomainStatus.Created',
         parameters: {
           domainName: this.input.domainName,
@@ -6541,8 +6541,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.Deleted'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.Deleted'),
         outputPath: 'DomainStatus.Deleted',
         parameters: {
           domainName: this.input.domainName,
@@ -6557,8 +6557,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.Endpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.Endpoint'),
         outputPath: 'DomainStatus.Endpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -6573,8 +6573,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.Endpoints'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.Endpoints'),
         outputPath: 'DomainStatus.Endpoints',
         parameters: {
           domainName: this.input.domainName,
@@ -6589,8 +6589,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.Processing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.Processing'),
         outputPath: 'DomainStatus.Processing',
         parameters: {
           domainName: this.input.domainName,
@@ -6605,8 +6605,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.UpgradeProcessing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.UpgradeProcessing'),
         outputPath: 'DomainStatus.UpgradeProcessing',
         parameters: {
           domainName: this.input.domainName,
@@ -6621,8 +6621,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
         outputPath: 'DomainStatus.ElasticsearchVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -6632,19 +6632,19 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
-  public get elasticsearchClusterConfig(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
-  public get ebsOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AccessPolicies'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AccessPolicies'),
         outputPath: 'DomainStatus.AccessPolicies',
         parameters: {
           domainName: this.input.domainName,
@@ -6654,28 +6654,28 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
-  public get snapshotOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
-  public get vpcOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
-  public get cognitoOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
-  public get encryptionAtRestOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
-  public get nodeToNodeEncryptionOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedOptions'),
         outputPath: 'DomainStatus.AdvancedOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -6690,8 +6690,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.LogPublishingOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.LogPublishingOptions'),
         outputPath: 'DomainStatus.LogPublishingOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -6701,17 +6701,17 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
   }
-  public get serviceSoftwareOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
-  public get domainEndpointOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
-  public get advancedSecurityOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6720,8 +6720,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
@@ -6736,8 +6736,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
@@ -6752,8 +6752,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -6768,8 +6768,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -6779,16 +6779,16 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
-  public get zoneAwarenessConfig(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
@@ -6803,8 +6803,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
@@ -6819,8 +6819,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -6835,8 +6835,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
@@ -6851,8 +6851,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
@@ -6863,7 +6863,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6872,8 +6872,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
@@ -6884,7 +6884,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6893,8 +6893,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -6909,8 +6909,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
@@ -6925,8 +6925,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
@@ -6941,8 +6941,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
@@ -6953,7 +6953,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6962,8 +6962,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
         outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
@@ -6974,7 +6974,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -6983,8 +6983,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
@@ -6999,8 +6999,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
@@ -7015,8 +7015,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
@@ -7031,8 +7031,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
@@ -7043,7 +7043,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7052,8 +7052,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7068,8 +7068,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -7084,8 +7084,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -7100,8 +7100,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
@@ -7112,7 +7112,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7121,8 +7121,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7137,8 +7137,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
@@ -7149,7 +7149,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7158,8 +7158,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
         outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7170,7 +7170,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7179,8 +7179,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -7195,8 +7195,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -7211,8 +7211,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
@@ -7227,8 +7227,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
@@ -7243,8 +7243,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
@@ -7259,8 +7259,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
@@ -7275,8 +7275,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -7291,8 +7291,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
@@ -7303,7 +7303,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7312,8 +7312,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
@@ -7328,8 +7328,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
@@ -7344,8 +7344,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7360,8 +7360,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -7376,8 +7376,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
@@ -7388,7 +7388,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7397,8 +7397,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7413,8 +7413,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7424,11 +7424,11 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
-  public get samlOptions(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7437,8 +7437,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -7448,16 +7448,16 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
-  public get idp(): AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
+    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
@@ -7472,8 +7472,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
@@ -7488,8 +7488,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
@@ -7500,7 +7500,7 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -7509,8 +7509,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
@@ -7525,8 +7525,8 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
@@ -7537,31 +7537,31 @@ export class AmazonElasticsearchServiceDeleteElasticsearchDomainResponseElastics
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnection(): AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get sourceDomainInfo(): AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
-  public get destinationDomainInfo(): AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
         outputPath: 'CrossClusterSearchConnection.CrossClusterSearchConnectionId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7571,11 +7571,11 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
-  public get connectionStatus(): AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -7584,8 +7584,8 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7600,8 +7600,8 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7616,8 +7616,8 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7628,7 +7628,7 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -7637,8 +7637,8 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7653,8 +7653,8 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7665,31 +7665,31 @@ export class AmazonElasticsearchServiceDeleteInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnection(): AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection {
-    return new AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection(this, 'OutboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection(this, 'OutboundCrossClusterSearchConnection', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get sourceDomainInfo(): AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
-  public get destinationDomainInfo(): AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
         outputPath: 'CrossClusterSearchConnection.CrossClusterSearchConnectionId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7704,8 +7704,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionAlias'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionAlias'),
         outputPath: 'CrossClusterSearchConnection.ConnectionAlias',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7715,11 +7715,11 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionAlias', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionAlias') as unknown as string;
   }
-  public get connectionStatus(): AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus {
-    return new AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -7728,8 +7728,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7744,8 +7744,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7760,8 +7760,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7772,7 +7772,7 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -7781,8 +7781,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7797,8 +7797,8 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -7809,15 +7809,15 @@ export class AmazonElasticsearchServiceDeleteOutboundCrossClusterSearchConnectio
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDeletePackageResponse extends cdk.Construct {
+export class ESDeletePackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
     super(scope, id);
   }
-  public get packageDetails(): AmazonElasticsearchServiceDeletePackageResponsePackageDetails {
-    return new AmazonElasticsearchServiceDeletePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
+  public get packageDetails(): ESDeletePackageResponsePackageDetails {
+    return new ESDeletePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails extends cdk.Construct {
+export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
     super(scope, id);
   }
@@ -7826,8 +7826,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.PackageID'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.PackageID'),
         outputPath: 'PackageDetails.PackageID',
         parameters: {
           packageId: this.input.packageId,
@@ -7842,8 +7842,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.PackageName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.PackageName'),
         outputPath: 'PackageDetails.PackageName',
         parameters: {
           packageId: this.input.packageId,
@@ -7858,8 +7858,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.PackageType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.PackageType'),
         outputPath: 'PackageDetails.PackageType',
         parameters: {
           packageId: this.input.packageId,
@@ -7874,8 +7874,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.PackageDescription'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.PackageDescription'),
         outputPath: 'PackageDetails.PackageDescription',
         parameters: {
           packageId: this.input.packageId,
@@ -7890,8 +7890,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.PackageStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.PackageStatus'),
         outputPath: 'PackageDetails.PackageStatus',
         parameters: {
           packageId: this.input.packageId,
@@ -7906,8 +7906,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.CreatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.CreatedAt'),
         outputPath: 'PackageDetails.CreatedAt',
         parameters: {
           packageId: this.input.packageId,
@@ -7922,8 +7922,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.LastUpdatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.LastUpdatedAt'),
         outputPath: 'PackageDetails.LastUpdatedAt',
         parameters: {
           packageId: this.input.packageId,
@@ -7938,8 +7938,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.AvailablePackageVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.AvailablePackageVersion'),
         outputPath: 'PackageDetails.AvailablePackageVersion',
         parameters: {
           packageId: this.input.packageId,
@@ -7949,11 +7949,11 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetails exten
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
-  public get errorDetails(): AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorDetails {
-    return new AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
+  public get errorDetails(): ESDeletePackageResponsePackageDetailsErrorDetails {
+    return new ESDeletePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
+export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
     super(scope, id);
   }
@@ -7962,8 +7962,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
@@ -7978,8 +7978,8 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'deletePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
@@ -7990,15 +7990,15 @@ export class AmazonElasticsearchServiceDeletePackageResponsePackageDetailsErrorD
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponse extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
-  public get domainStatus(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8007,8 +8007,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainId'),
         outputPath: 'DomainStatus.DomainId',
         parameters: {
           domainName: this.input.domainName,
@@ -8023,8 +8023,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainName'),
         outputPath: 'DomainStatus.DomainName',
         parameters: {
           domainName: this.input.domainName,
@@ -8039,8 +8039,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ARN'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ARN'),
         outputPath: 'DomainStatus.ARN',
         parameters: {
           domainName: this.input.domainName,
@@ -8055,8 +8055,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.Created'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.Created'),
         outputPath: 'DomainStatus.Created',
         parameters: {
           domainName: this.input.domainName,
@@ -8071,8 +8071,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.Deleted'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.Deleted'),
         outputPath: 'DomainStatus.Deleted',
         parameters: {
           domainName: this.input.domainName,
@@ -8087,8 +8087,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.Endpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.Endpoint'),
         outputPath: 'DomainStatus.Endpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -8103,8 +8103,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.Endpoints'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.Endpoints'),
         outputPath: 'DomainStatus.Endpoints',
         parameters: {
           domainName: this.input.domainName,
@@ -8119,8 +8119,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.Processing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.Processing'),
         outputPath: 'DomainStatus.Processing',
         parameters: {
           domainName: this.input.domainName,
@@ -8135,8 +8135,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.UpgradeProcessing'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.UpgradeProcessing'),
         outputPath: 'DomainStatus.UpgradeProcessing',
         parameters: {
           domainName: this.input.domainName,
@@ -8151,8 +8151,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchVersion'),
         outputPath: 'DomainStatus.ElasticsearchVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -8162,19 +8162,19 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
-  public get elasticsearchClusterConfig(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
-  public get ebsOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AccessPolicies'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AccessPolicies'),
         outputPath: 'DomainStatus.AccessPolicies',
         parameters: {
           domainName: this.input.domainName,
@@ -8184,28 +8184,28 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
-  public get snapshotOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
-  public get vpcOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
-  public get cognitoOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
-  public get encryptionAtRestOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
-  public get nodeToNodeEncryptionOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedOptions'),
         outputPath: 'DomainStatus.AdvancedOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -8220,8 +8220,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.LogPublishingOptions'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.LogPublishingOptions'),
         outputPath: 'DomainStatus.LogPublishingOptions',
         parameters: {
           domainName: this.input.domainName,
@@ -8231,17 +8231,17 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
   }
-  public get serviceSoftwareOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
-  public get domainEndpointOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
-  public get advancedSecurityOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8250,8 +8250,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
@@ -8266,8 +8266,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
@@ -8282,8 +8282,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8298,8 +8298,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8309,16 +8309,16 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
-  public get zoneAwarenessConfig(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
@@ -8333,8 +8333,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
@@ -8349,8 +8349,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8365,8 +8365,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
@@ -8381,8 +8381,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
@@ -8393,7 +8393,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8402,8 +8402,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
         outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
@@ -8414,7 +8414,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8423,8 +8423,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8439,8 +8439,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
@@ -8455,8 +8455,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
@@ -8471,8 +8471,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
         outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
@@ -8483,7 +8483,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8492,8 +8492,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
         outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
@@ -8504,7 +8504,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8513,8 +8513,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
@@ -8529,8 +8529,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
@@ -8545,8 +8545,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
@@ -8561,8 +8561,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
         outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
@@ -8573,7 +8573,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8582,8 +8582,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8598,8 +8598,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -8614,8 +8614,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -8630,8 +8630,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
         outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
@@ -8642,7 +8642,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8651,8 +8651,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8667,8 +8667,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
         outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
@@ -8679,7 +8679,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8688,8 +8688,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
         outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8700,7 +8700,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8709,8 +8709,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -8725,8 +8725,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -8741,8 +8741,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
@@ -8757,8 +8757,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
@@ -8773,8 +8773,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
@@ -8789,8 +8789,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
@@ -8805,8 +8805,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -8821,8 +8821,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
         outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
@@ -8833,7 +8833,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8842,8 +8842,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
@@ -8858,8 +8858,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
@@ -8874,8 +8874,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8890,8 +8890,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -8906,8 +8906,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
         outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
@@ -8918,7 +8918,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8927,8 +8927,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8943,8 +8943,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8954,11 +8954,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
-  public get samlOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -8967,8 +8967,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -8978,16 +8978,16 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
-  public get idp(): AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
+    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
@@ -9002,8 +9002,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
@@ -9018,8 +9018,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
@@ -9030,7 +9030,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -9039,8 +9039,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
@@ -9055,8 +9055,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
         outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
@@ -9067,59 +9067,59 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainResponseElasti
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get domainConfig(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
+  public get domainConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get elasticsearchVersion(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
+  public get elasticsearchVersion(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
   }
-  public get elasticsearchClusterConfig(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
   }
-  public get ebsOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
+  public get ebsOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
   }
-  public get accessPolicies(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
+  public get accessPolicies(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
   }
-  public get snapshotOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
+  public get snapshotOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
   }
-  public get vpcOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
+  public get vpcOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
   }
-  public get cognitoOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
+  public get cognitoOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
   }
-  public get encryptionAtRestOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
   }
-  public get nodeToNodeEncryptionOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
   }
-  public get advancedOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
+  public get advancedOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
   }
-  public get logPublishingOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
+  public get logPublishingOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
   }
-  public get domainEndpointOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
+  public get domainEndpointOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
   }
-  public get advancedSecurityOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9128,8 +9128,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -9139,11 +9139,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options') as unknown as string;
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9152,8 +9152,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9168,8 +9168,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9184,8 +9184,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -9200,8 +9200,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -9216,8 +9216,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -9228,18 +9228,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9248,8 +9248,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType',
         parameters: {
           domainName: this.input.domainName,
@@ -9264,8 +9264,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
@@ -9280,8 +9280,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -9296,8 +9296,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -9307,16 +9307,16 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
-  public get zoneAwarenessConfig(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
@@ -9331,8 +9331,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
@@ -9347,8 +9347,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -9363,8 +9363,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType',
         parameters: {
           domainName: this.input.domainName,
@@ -9379,8 +9379,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount',
         parameters: {
           domainName: this.input.domainName,
@@ -9391,7 +9391,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9400,8 +9400,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
@@ -9412,7 +9412,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9421,8 +9421,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9437,8 +9437,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9453,8 +9453,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -9469,8 +9469,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -9485,8 +9485,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -9497,18 +9497,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9517,8 +9517,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -9533,8 +9533,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType',
         parameters: {
           domainName: this.input.domainName,
@@ -9549,8 +9549,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
@@ -9565,8 +9565,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops',
         parameters: {
           domainName: this.input.domainName,
@@ -9577,7 +9577,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9586,8 +9586,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9602,8 +9602,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9618,8 +9618,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -9634,8 +9634,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -9650,8 +9650,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -9662,7 +9662,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9671,8 +9671,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -9682,11 +9682,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Options') as unknown as string;
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9695,8 +9695,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9711,8 +9711,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9727,8 +9727,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -9743,8 +9743,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -9759,8 +9759,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -9771,18 +9771,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9791,8 +9791,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
@@ -9803,7 +9803,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9812,8 +9812,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9828,8 +9828,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9844,8 +9844,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -9860,8 +9860,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -9876,8 +9876,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -9888,18 +9888,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9908,8 +9908,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId',
         parameters: {
           domainName: this.input.domainName,
@@ -9924,8 +9924,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
@@ -9940,8 +9940,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
@@ -9956,8 +9956,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
@@ -9968,7 +9968,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds') as unknown as string[];
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -9977,8 +9977,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -9993,8 +9993,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10009,8 +10009,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10025,8 +10025,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10041,8 +10041,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10053,18 +10053,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10073,8 +10073,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10089,8 +10089,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -10105,8 +10105,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -10121,8 +10121,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn',
         parameters: {
           domainName: this.input.domainName,
@@ -10133,7 +10133,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10142,8 +10142,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10158,8 +10158,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10174,8 +10174,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10190,8 +10190,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10206,8 +10206,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10218,18 +10218,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10238,8 +10238,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10254,8 +10254,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
@@ -10266,7 +10266,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10275,8 +10275,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10291,8 +10291,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10307,8 +10307,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10323,8 +10323,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10339,8 +10339,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10351,18 +10351,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10371,8 +10371,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10383,7 +10383,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10392,8 +10392,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10408,8 +10408,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10424,8 +10424,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10440,8 +10440,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10456,8 +10456,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10468,7 +10468,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10477,8 +10477,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -10488,11 +10488,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10501,8 +10501,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10517,8 +10517,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10533,8 +10533,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10549,8 +10549,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10565,8 +10565,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10577,7 +10577,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10586,8 +10586,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -10597,11 +10597,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10610,8 +10610,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10626,8 +10626,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10642,8 +10642,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10658,8 +10658,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10674,8 +10674,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10686,18 +10686,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10706,8 +10706,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
@@ -10722,8 +10722,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
@@ -10738,8 +10738,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10754,8 +10754,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -10770,8 +10770,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
@@ -10782,7 +10782,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10791,8 +10791,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10807,8 +10807,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -10823,8 +10823,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -10839,8 +10839,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -10855,8 +10855,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -10867,18 +10867,18 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10887,8 +10887,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10903,8 +10903,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10914,11 +10914,11 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
-  public get samlOptions(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10927,8 +10927,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -10938,16 +10938,16 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
-  public get idp(): AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
+    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
@@ -10962,8 +10962,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
@@ -10978,8 +10978,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
@@ -10990,7 +10990,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -10999,8 +10999,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
@@ -11015,8 +11015,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
@@ -11027,7 +11027,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -11036,8 +11036,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -11052,8 +11052,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -11068,8 +11068,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -11084,8 +11084,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -11100,8 +11100,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -11112,7 +11112,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainConfigResponse
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchDomainsResponse extends cdk.Construct {
+export class ESDescribeElasticsearchDomainsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainsRequest) {
     super(scope, id);
   }
@@ -11121,8 +11121,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainsResponse exte
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchDomains',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchDomains.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomains.'),
         outputPath: '',
         parameters: {
           domainNames: this.input.domainNames,
@@ -11133,7 +11133,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchDomainsResponse exte
     return resource.getResponseField('') as unknown as shapes.ElasticsearchDomainStatus[];
   }
 }
-export class AmazonElasticsearchServiceDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Construct {
+export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest) {
     super(scope, id);
   }
@@ -11142,8 +11142,8 @@ export class AmazonElasticsearchServiceDescribeElasticsearchInstanceTypeLimitsRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeElasticsearchInstanceTypeLimits',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeElasticsearchInstanceTypeLimits.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchInstanceTypeLimits.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11156,7 +11156,7 @@ export class AmazonElasticsearchServiceDescribeElasticsearchInstanceTypeLimitsRe
     return resource.getResponseField('') as unknown as Record<string, shapes.Limits>;
   }
 }
-export class AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
+export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest) {
     super(scope, id);
   }
@@ -11165,8 +11165,8 @@ export class AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnecti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeInboundCrossClusterSearchConnections',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeInboundCrossClusterSearchConnections.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11183,8 +11183,8 @@ export class AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnecti
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeInboundCrossClusterSearchConnections',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeInboundCrossClusterSearchConnections.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11197,7 +11197,7 @@ export class AmazonElasticsearchServiceDescribeInboundCrossClusterSearchConnecti
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
+export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest) {
     super(scope, id);
   }
@@ -11206,8 +11206,8 @@ export class AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnect
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeOutboundCrossClusterSearchConnections',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeOutboundCrossClusterSearchConnections.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11224,8 +11224,8 @@ export class AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnect
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeOutboundCrossClusterSearchConnections',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeOutboundCrossClusterSearchConnections.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11238,7 +11238,7 @@ export class AmazonElasticsearchServiceDescribeOutboundCrossClusterSearchConnect
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribePackagesResponse extends cdk.Construct {
+export class ESDescribePackagesResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribePackagesRequest) {
     super(scope, id);
   }
@@ -11247,8 +11247,8 @@ export class AmazonElasticsearchServiceDescribePackagesResponse extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describePackages',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribePackages.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11265,8 +11265,8 @@ export class AmazonElasticsearchServiceDescribePackagesResponse extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describePackages',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribePackages.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.'),
         outputPath: '',
         parameters: {
           filters: this.input.filters,
@@ -11279,7 +11279,7 @@ export class AmazonElasticsearchServiceDescribePackagesResponse extends cdk.Cons
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOfferingsResponse extends cdk.Construct {
+export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest) {
     super(scope, id);
   }
@@ -11288,8 +11288,8 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOffe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeReservedElasticsearchInstanceOfferings',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeReservedElasticsearchInstanceOfferings.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
@@ -11306,8 +11306,8 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOffe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeReservedElasticsearchInstanceOfferings',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeReservedElasticsearchInstanceOfferings.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
@@ -11320,7 +11320,7 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstanceOffe
     return resource.getResponseField('') as unknown as shapes.ReservedElasticsearchInstanceOffering[];
   }
 }
-export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesResponse extends cdk.Construct {
+export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeReservedElasticsearchInstancesRequest) {
     super(scope, id);
   }
@@ -11329,8 +11329,8 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesRes
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeReservedElasticsearchInstances',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeReservedElasticsearchInstances.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceId: this.input.reservedElasticsearchInstanceId,
@@ -11347,8 +11347,8 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesRes
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'describeReservedElasticsearchInstances',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DescribeReservedElasticsearchInstances.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceId: this.input.reservedElasticsearchInstanceId,
@@ -11361,15 +11361,15 @@ export class AmazonElasticsearchServiceDescribeReservedElasticsearchInstancesRes
     return resource.getResponseField('') as unknown as shapes.ReservedElasticsearchInstance[];
   }
 }
-export class AmazonElasticsearchServiceDissociatePackageResponse extends cdk.Construct {
+export class ESDissociatePackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
     super(scope, id);
   }
-  public get domainPackageDetails(): AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetails {
-    return new AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
+  public get domainPackageDetails(): ESDissociatePackageResponseDomainPackageDetails {
+    return new ESDissociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetails extends cdk.Construct {
+export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
     super(scope, id);
   }
@@ -11378,8 +11378,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.PackageID'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.PackageID'),
         outputPath: 'DomainPackageDetails.PackageID',
         parameters: {
           packageId: this.input.packageId,
@@ -11395,8 +11395,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.PackageName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.PackageName'),
         outputPath: 'DomainPackageDetails.PackageName',
         parameters: {
           packageId: this.input.packageId,
@@ -11412,8 +11412,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.PackageType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.PackageType'),
         outputPath: 'DomainPackageDetails.PackageType',
         parameters: {
           packageId: this.input.packageId,
@@ -11429,8 +11429,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.LastUpdated'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.LastUpdated'),
         outputPath: 'DomainPackageDetails.LastUpdated',
         parameters: {
           packageId: this.input.packageId,
@@ -11446,8 +11446,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.DomainName'),
         outputPath: 'DomainPackageDetails.DomainName',
         parameters: {
           packageId: this.input.packageId,
@@ -11463,8 +11463,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.DomainPackageStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.DomainPackageStatus'),
         outputPath: 'DomainPackageDetails.DomainPackageStatus',
         parameters: {
           packageId: this.input.packageId,
@@ -11480,8 +11480,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.PackageVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.PackageVersion'),
         outputPath: 'DomainPackageDetails.PackageVersion',
         parameters: {
           packageId: this.input.packageId,
@@ -11497,8 +11497,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.ReferencePath'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ReferencePath'),
         outputPath: 'DomainPackageDetails.ReferencePath',
         parameters: {
           packageId: this.input.packageId,
@@ -11509,11 +11509,11 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ReferencePath', props);
     return resource.getResponseField('DomainPackageDetails.ReferencePath') as unknown as string;
   }
-  public get errorDetails(): AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetailsErrorDetails {
-    return new AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
+  public get errorDetails(): ESDissociatePackageResponseDomainPackageDetailsErrorDetails {
+    return new ESDissociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
+export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
     super(scope, id);
   }
@@ -11522,8 +11522,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
         outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
@@ -11539,8 +11539,8 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'dissociatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
         outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
@@ -11552,7 +11552,7 @@ export class AmazonElasticsearchServiceDissociatePackageResponseDomainPackageDet
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceGetCompatibleElasticsearchVersionsResponse extends cdk.Construct {
+export class ESGetCompatibleElasticsearchVersionsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetCompatibleElasticsearchVersionsRequest) {
     super(scope, id);
   }
@@ -11561,8 +11561,8 @@ export class AmazonElasticsearchServiceGetCompatibleElasticsearchVersionsRespons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getCompatibleElasticsearchVersions',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetCompatibleElasticsearchVersions.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetCompatibleElasticsearchVersions.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11573,7 +11573,7 @@ export class AmazonElasticsearchServiceGetCompatibleElasticsearchVersionsRespons
     return resource.getResponseField('') as unknown as shapes.CompatibleVersionsMap[];
   }
 }
-export class AmazonElasticsearchServiceGetPackageVersionHistoryResponse extends cdk.Construct {
+export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetPackageVersionHistoryRequest) {
     super(scope, id);
   }
@@ -11582,8 +11582,8 @@ export class AmazonElasticsearchServiceGetPackageVersionHistoryResponse extends 
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getPackageVersionHistory',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetPackageVersionHistory.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
         outputPath: '',
         parameters: {
           packageId: this.input.packageId,
@@ -11600,8 +11600,8 @@ export class AmazonElasticsearchServiceGetPackageVersionHistoryResponse extends 
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getPackageVersionHistory',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetPackageVersionHistory.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
         outputPath: '',
         parameters: {
           packageId: this.input.packageId,
@@ -11618,8 +11618,8 @@ export class AmazonElasticsearchServiceGetPackageVersionHistoryResponse extends 
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getPackageVersionHistory',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetPackageVersionHistory.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
         outputPath: '',
         parameters: {
           packageId: this.input.packageId,
@@ -11632,7 +11632,7 @@ export class AmazonElasticsearchServiceGetPackageVersionHistoryResponse extends 
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceGetUpgradeHistoryResponse extends cdk.Construct {
+export class ESGetUpgradeHistoryResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetUpgradeHistoryRequest) {
     super(scope, id);
   }
@@ -11641,8 +11641,8 @@ export class AmazonElasticsearchServiceGetUpgradeHistoryResponse extends cdk.Con
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getUpgradeHistory',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetUpgradeHistory.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11659,8 +11659,8 @@ export class AmazonElasticsearchServiceGetUpgradeHistoryResponse extends cdk.Con
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getUpgradeHistory',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetUpgradeHistory.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11673,7 +11673,7 @@ export class AmazonElasticsearchServiceGetUpgradeHistoryResponse extends cdk.Con
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceGetUpgradeStatusResponse extends cdk.Construct {
+export class ESGetUpgradeStatusResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetUpgradeStatusRequest) {
     super(scope, id);
   }
@@ -11682,8 +11682,8 @@ export class AmazonElasticsearchServiceGetUpgradeStatusResponse extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getUpgradeStatus',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetUpgradeStatus.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11698,8 +11698,8 @@ export class AmazonElasticsearchServiceGetUpgradeStatusResponse extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getUpgradeStatus',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetUpgradeStatus.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11714,8 +11714,8 @@ export class AmazonElasticsearchServiceGetUpgradeStatusResponse extends cdk.Cons
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'getUpgradeStatus',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.GetUpgradeStatus.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11726,7 +11726,7 @@ export class AmazonElasticsearchServiceGetUpgradeStatusResponse extends cdk.Cons
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceListDomainNamesResponse extends cdk.Construct {
+export class ESListDomainNamesResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
@@ -11735,8 +11735,8 @@ export class AmazonElasticsearchServiceListDomainNamesResponse extends cdk.Const
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listDomainNames',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListDomainNames.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainNames.'),
         outputPath: '',
       },
     };
@@ -11744,7 +11744,7 @@ export class AmazonElasticsearchServiceListDomainNamesResponse extends cdk.Const
     return resource.getResponseField('') as unknown as shapes.DomainInfo[];
   }
 }
-export class AmazonElasticsearchServiceListDomainsForPackageResponse extends cdk.Construct {
+export class ESListDomainsForPackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListDomainsForPackageRequest) {
     super(scope, id);
   }
@@ -11753,8 +11753,8 @@ export class AmazonElasticsearchServiceListDomainsForPackageResponse extends cdk
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listDomainsForPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListDomainsForPackage.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.'),
         outputPath: '',
         parameters: {
           packageId: this.input.packageId,
@@ -11771,8 +11771,8 @@ export class AmazonElasticsearchServiceListDomainsForPackageResponse extends cdk
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listDomainsForPackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListDomainsForPackage.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.'),
         outputPath: '',
         parameters: {
           packageId: this.input.packageId,
@@ -11785,7 +11785,7 @@ export class AmazonElasticsearchServiceListDomainsForPackageResponse extends cdk
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse extends cdk.Construct {
+export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListElasticsearchInstanceTypesRequest) {
     super(scope, id);
   }
@@ -11794,8 +11794,8 @@ export class AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse ex
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listElasticsearchInstanceTypes',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListElasticsearchInstanceTypes.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.'),
         outputPath: '',
         parameters: {
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -11813,8 +11813,8 @@ export class AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse ex
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listElasticsearchInstanceTypes',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListElasticsearchInstanceTypes.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.'),
         outputPath: '',
         parameters: {
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -11828,7 +11828,7 @@ export class AmazonElasticsearchServiceListElasticsearchInstanceTypesResponse ex
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceListElasticsearchVersionsResponse extends cdk.Construct {
+export class ESListElasticsearchVersionsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListElasticsearchVersionsRequest) {
     super(scope, id);
   }
@@ -11837,8 +11837,8 @@ export class AmazonElasticsearchServiceListElasticsearchVersionsResponse extends
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listElasticsearchVersions',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListElasticsearchVersions.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.'),
         outputPath: '',
         parameters: {
           maxResults: this.input.maxResults,
@@ -11854,8 +11854,8 @@ export class AmazonElasticsearchServiceListElasticsearchVersionsResponse extends
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listElasticsearchVersions',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListElasticsearchVersions.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.'),
         outputPath: '',
         parameters: {
           maxResults: this.input.maxResults,
@@ -11867,7 +11867,7 @@ export class AmazonElasticsearchServiceListElasticsearchVersionsResponse extends
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceListPackagesForDomainResponse extends cdk.Construct {
+export class ESListPackagesForDomainResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListPackagesForDomainRequest) {
     super(scope, id);
   }
@@ -11876,8 +11876,8 @@ export class AmazonElasticsearchServiceListPackagesForDomainResponse extends cdk
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listPackagesForDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListPackagesForDomain.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11894,8 +11894,8 @@ export class AmazonElasticsearchServiceListPackagesForDomainResponse extends cdk
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listPackagesForDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListPackagesForDomain.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -11908,7 +11908,7 @@ export class AmazonElasticsearchServiceListPackagesForDomainResponse extends cdk
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceListTagsResponse extends cdk.Construct {
+export class ESListTagsResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListTagsRequest) {
     super(scope, id);
   }
@@ -11917,8 +11917,8 @@ export class AmazonElasticsearchServiceListTagsResponse extends cdk.Construct {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'listTags',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.ListTags.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListTags.'),
         outputPath: '',
         parameters: {
           arn: this.input.arn,
@@ -11929,7 +11929,7 @@ export class AmazonElasticsearchServiceListTagsResponse extends cdk.Construct {
     return resource.getResponseField('') as unknown as shapes.Tag[];
   }
 }
-export class AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOfferingResponse extends cdk.Construct {
+export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest) {
     super(scope, id);
   }
@@ -11938,8 +11938,8 @@ export class AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOffe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'purchaseReservedElasticsearchInstanceOffering',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.PurchaseReservedElasticsearchInstanceOffering.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
@@ -11956,8 +11956,8 @@ export class AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOffe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'purchaseReservedElasticsearchInstanceOffering',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.PurchaseReservedElasticsearchInstanceOffering.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.'),
         outputPath: '',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
@@ -11970,31 +11970,31 @@ export class AmazonElasticsearchServicePurchaseReservedElasticsearchInstanceOffe
     return resource.getResponseField('') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnection(): AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
-  public get sourceDomainInfo(): AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
-  public get destinationDomainInfo(): AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId'),
         outputPath: 'CrossClusterSearchConnection.CrossClusterSearchConnectionId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12004,11 +12004,11 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
-  public get connectionStatus(): AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -12017,8 +12017,8 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12033,8 +12033,8 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12049,8 +12049,8 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
         outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12061,7 +12061,7 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
@@ -12070,8 +12070,8 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12086,8 +12086,8 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
         outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
@@ -12098,15 +12098,15 @@ export class AmazonElasticsearchServiceRejectInboundCrossClusterSearchConnection
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
+export class ESStartElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
-  public get serviceSoftwareOptions(): AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
-    return new AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
+    return new ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
+export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
@@ -12115,8 +12115,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion'),
         outputPath: 'ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -12131,8 +12131,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion'),
         outputPath: 'ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -12147,8 +12147,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable'),
         outputPath: 'ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
@@ -12163,8 +12163,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable'),
         outputPath: 'ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
@@ -12179,8 +12179,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus'),
         outputPath: 'ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
@@ -12195,8 +12195,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description'),
         outputPath: 'ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
@@ -12211,8 +12211,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate'),
         outputPath: 'ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -12227,8 +12227,8 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'startElasticsearchServiceSoftwareUpdate',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment'),
         outputPath: 'ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
@@ -12239,59 +12239,59 @@ export class AmazonElasticsearchServiceStartElasticsearchServiceSoftwareUpdateRe
     return resource.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponse extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get domainConfig(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
+  public get domainConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get elasticsearchVersion(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
+  public get elasticsearchVersion(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
   }
-  public get elasticsearchClusterConfig(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
   }
-  public get ebsOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
+  public get ebsOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
   }
-  public get accessPolicies(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
+  public get accessPolicies(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
   }
-  public get snapshotOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
+  public get snapshotOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
   }
-  public get vpcOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
+  public get vpcOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
   }
-  public get cognitoOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
+  public get cognitoOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
   }
-  public get encryptionAtRestOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
   }
-  public get nodeToNodeEncryptionOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
   }
-  public get advancedOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
+  public get advancedOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
   }
-  public get logPublishingOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
+  public get logPublishingOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
   }
-  public get domainEndpointOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
+  public get domainEndpointOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
   }
-  public get advancedSecurityOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
+  public get advancedSecurityOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -12300,8 +12300,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -12375,11 +12375,11 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options') as unknown as string;
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -12388,8 +12388,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -12468,8 +12468,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -12548,8 +12548,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -12628,8 +12628,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -12708,8 +12708,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -12784,18 +12784,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -12804,8 +12804,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType',
         parameters: {
           domainName: this.input.domainName,
@@ -12884,8 +12884,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
@@ -12964,8 +12964,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -13044,8 +13044,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -13119,16 +13119,16 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
-  public get zoneAwarenessConfig(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
@@ -13207,8 +13207,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
@@ -13287,8 +13287,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -13367,8 +13367,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType',
         parameters: {
           domainName: this.input.domainName,
@@ -13447,8 +13447,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount',
         parameters: {
           domainName: this.input.domainName,
@@ -13523,7 +13523,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -13532,8 +13532,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
@@ -13608,7 +13608,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -13617,8 +13617,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -13697,8 +13697,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -13777,8 +13777,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -13857,8 +13857,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -13937,8 +13937,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -14013,18 +14013,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -14033,8 +14033,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -14113,8 +14113,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType',
         parameters: {
           domainName: this.input.domainName,
@@ -14193,8 +14193,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
@@ -14273,8 +14273,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops',
         parameters: {
           domainName: this.input.domainName,
@@ -14349,7 +14349,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -14358,8 +14358,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -14438,8 +14438,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -14518,8 +14518,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -14598,8 +14598,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -14678,8 +14678,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -14754,7 +14754,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -14763,8 +14763,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -14838,11 +14838,11 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Options') as unknown as string;
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -14851,8 +14851,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -14931,8 +14931,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -15011,8 +15011,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -15091,8 +15091,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -15171,8 +15171,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -15247,18 +15247,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -15267,8 +15267,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
@@ -15343,7 +15343,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -15352,8 +15352,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -15432,8 +15432,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -15512,8 +15512,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -15592,8 +15592,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -15672,8 +15672,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -15748,18 +15748,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -15768,8 +15768,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId',
         parameters: {
           domainName: this.input.domainName,
@@ -15848,8 +15848,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
@@ -15928,8 +15928,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
@@ -16008,8 +16008,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
@@ -16084,7 +16084,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds') as unknown as string[];
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -16093,8 +16093,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -16173,8 +16173,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -16253,8 +16253,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -16333,8 +16333,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -16413,8 +16413,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -16489,18 +16489,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -16509,8 +16509,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -16589,8 +16589,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -16669,8 +16669,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
@@ -16749,8 +16749,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn',
         parameters: {
           domainName: this.input.domainName,
@@ -16825,7 +16825,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -16834,8 +16834,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -16914,8 +16914,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -16994,8 +16994,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -17074,8 +17074,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -17154,8 +17154,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -17230,18 +17230,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -17250,8 +17250,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -17330,8 +17330,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
@@ -17406,7 +17406,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -17415,8 +17415,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -17495,8 +17495,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -17575,8 +17575,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -17655,8 +17655,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -17735,8 +17735,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -17811,18 +17811,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -17831,8 +17831,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -17907,7 +17907,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -17916,8 +17916,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -17996,8 +17996,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -18076,8 +18076,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -18156,8 +18156,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -18236,8 +18236,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -18312,7 +18312,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -18321,8 +18321,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -18396,11 +18396,11 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -18409,8 +18409,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -18489,8 +18489,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -18569,8 +18569,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -18649,8 +18649,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -18729,8 +18729,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -18805,7 +18805,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -18814,8 +18814,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Options',
         parameters: {
           domainName: this.input.domainName,
@@ -18889,11 +18889,11 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -18902,8 +18902,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -18982,8 +18982,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -19062,8 +19062,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -19142,8 +19142,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -19222,8 +19222,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -19298,18 +19298,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -19318,8 +19318,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
@@ -19398,8 +19398,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
@@ -19478,8 +19478,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -19558,8 +19558,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
@@ -19638,8 +19638,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
@@ -19714,7 +19714,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -19723,8 +19723,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -19803,8 +19803,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -19883,8 +19883,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -19963,8 +19963,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -20043,8 +20043,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -20119,18 +20119,18 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
-  public get status(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -20139,8 +20139,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -20219,8 +20219,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
@@ -20294,11 +20294,11 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
-  public get samlOptions(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -20307,8 +20307,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
@@ -20382,16 +20382,16 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
-  public get idp(): AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
+    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
@@ -20470,8 +20470,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
@@ -20550,8 +20550,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
@@ -20626,7 +20626,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -20635,8 +20635,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
@@ -20715,8 +20715,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
@@ -20791,7 +20791,7 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
@@ -20800,8 +20800,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
@@ -20880,8 +20880,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
@@ -20960,8 +20960,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
@@ -21040,8 +21040,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State',
         parameters: {
           domainName: this.input.domainName,
@@ -21120,8 +21120,8 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
         outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
@@ -21196,15 +21196,15 @@ export class AmazonElasticsearchServiceUpdateElasticsearchDomainConfigResponseEl
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion') as unknown as boolean;
   }
 }
-export class AmazonElasticsearchServiceUpdatePackageResponse extends cdk.Construct {
+export class ESUpdatePackageResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
     super(scope, id);
   }
-  public get packageDetails(): AmazonElasticsearchServiceUpdatePackageResponsePackageDetails {
-    return new AmazonElasticsearchServiceUpdatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
+  public get packageDetails(): ESUpdatePackageResponsePackageDetails {
+    return new ESUpdatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails extends cdk.Construct {
+export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
     super(scope, id);
   }
@@ -21213,8 +21213,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.PackageID'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.PackageID'),
         outputPath: 'PackageDetails.PackageID',
         parameters: {
           packageId: this.input.packageId,
@@ -21235,8 +21235,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.PackageName'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.PackageName'),
         outputPath: 'PackageDetails.PackageName',
         parameters: {
           packageId: this.input.packageId,
@@ -21257,8 +21257,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.PackageType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.PackageType'),
         outputPath: 'PackageDetails.PackageType',
         parameters: {
           packageId: this.input.packageId,
@@ -21279,8 +21279,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.PackageDescription'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.PackageDescription'),
         outputPath: 'PackageDetails.PackageDescription',
         parameters: {
           packageId: this.input.packageId,
@@ -21301,8 +21301,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.PackageStatus'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.PackageStatus'),
         outputPath: 'PackageDetails.PackageStatus',
         parameters: {
           packageId: this.input.packageId,
@@ -21323,8 +21323,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.CreatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.CreatedAt'),
         outputPath: 'PackageDetails.CreatedAt',
         parameters: {
           packageId: this.input.packageId,
@@ -21345,8 +21345,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.LastUpdatedAt'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.LastUpdatedAt'),
         outputPath: 'PackageDetails.LastUpdatedAt',
         parameters: {
           packageId: this.input.packageId,
@@ -21367,8 +21367,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.AvailablePackageVersion'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.AvailablePackageVersion'),
         outputPath: 'PackageDetails.AvailablePackageVersion',
         parameters: {
           packageId: this.input.packageId,
@@ -21384,11 +21384,11 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetails exten
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
-  public get errorDetails(): AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorDetails {
-    return new AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
+  public get errorDetails(): ESUpdatePackageResponsePackageDetailsErrorDetails {
+    return new ESUpdatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
 }
-export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
+export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
     super(scope, id);
   }
@@ -21397,8 +21397,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
@@ -21419,8 +21419,8 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorD
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'updatePackage',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
         outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
@@ -21437,7 +21437,7 @@ export class AmazonElasticsearchServiceUpdatePackageResponsePackageDetailsErrorD
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
-export class AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse extends cdk.Construct {
+export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpgradeElasticsearchDomainRequest) {
     super(scope, id);
   }
@@ -21446,8 +21446,8 @@ export class AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse extend
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpgradeElasticsearchDomain.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -21464,8 +21464,8 @@ export class AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse extend
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpgradeElasticsearchDomain.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,
@@ -21482,8 +21482,8 @@ export class AmazonElasticsearchServiceUpgradeElasticsearchDomainResponse extend
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
-        service: 'AmazonElasticsearchService',
-        physicalResourceId: cr.PhysicalResourceId.of('AmazonElasticsearchService.UpgradeElasticsearchDomain.'),
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
         outputPath: '',
         parameters: {
           domainName: this.input.domainName,

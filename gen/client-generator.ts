@@ -13,9 +13,8 @@ export class ClientGenerator {
 
   private readonly spec: structs.Spec;
   private readonly types: j2j.TypeGenerator;
-  private readonly api: ApiGenerator;
+  public readonly api: ApiGenerator;
   private readonly code: CodeMaker;
-  public readonly service: string;
   public readonly id: string;
   private readonly memo = new Set<string>();
 
@@ -24,13 +23,11 @@ export class ClientGenerator {
     this.spec = JSON.parse(fs.readFileSync(client.apiPath).toString());
     this.code = new CodeMaker({ indentationLevel: 2 });
     logger.setLevel('info');
-    this.service = this.code.toPascalCase(this.spec.metadata.serviceFullName);
     this.id = this.code.toPascalCase(this.spec.metadata.serviceId).toLowerCase();
 
     this.api = new ApiGenerator({
       code: this.code,
-      name: this.service,
-      service: this.service,
+      client: client,
       spec: this.spec,
     });
 
@@ -168,21 +165,23 @@ export class ClientGenerator {
 
   public async gen(root: string) {
 
-    fs.mkdirSync(path.join(root, this.api.service), { recursive: true });
-    fs.writeFileSync(path.join(root, this.api.service, 'shapes.ts'), this.types.render());
+    const service = this.code.toSnakeCase(await this.api.service()).replace(/_/g, '');
 
-    this.code.openFile(path.join(this.api.service, 'api.ts'));
+    fs.mkdirSync(path.join(root, service), { recursive: true });
+    fs.writeFileSync(path.join(root, service, 'shapes.ts'), this.types.render());
+
+    this.code.openFile(path.join(service, 'api.ts'));
     this.code.line("import * as cdk from '@aws-cdk/core';");
     this.code.line("import * as cr from '@aws-cdk/custom-resources';");
     this.code.line("import * as shapes from './shapes';");
     this.code.line();
-    this.api.render();
-    this.code.closeFile(path.join(this.api.service, 'api.ts'));
+    await this.api.render();
+    this.code.closeFile(path.join(service, 'api.ts'));
 
-    this.code.openFile(path.join(this.api.service, 'index.ts'));
+    this.code.openFile(path.join(service, 'index.ts'));
     this.code.line("export * from './api';")
     this.code.line("export * from './shapes';")
-    this.code.closeFile(path.join(this.api.service, 'index.ts'));
+    this.code.closeFile(path.join(service, 'index.ts'));
     await this.code.save(root);
   }
 
