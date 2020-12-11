@@ -26,9 +26,9 @@ export enum ShapeType {
 
 export interface Method {
 
-  readonly input?: string;
+  readonly inputShape?: string;
 
-  readonly output?: string;
+  readonly outputShape?: string;
 
   readonly name: string;
 
@@ -48,7 +48,7 @@ export interface Property {
 
 }
 
-export interface Spec {
+export interface ClientApiSpec {
 
   readonly metadata: any;
 

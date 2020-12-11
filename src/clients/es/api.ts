@@ -15,7 +15,7 @@ export class EsClient extends cdk.Construct {
       onUpdate: {
         action: 'addTags',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AddTags.'),
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AddTags'),
         parameters: {
           arn: input.arn,
           tagList: input.tagList,
@@ -48,7 +48,7 @@ export class EsClient extends cdk.Construct {
       onUpdate: {
         action: 'deleteElasticsearchServiceRole',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchServiceRole.'),
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchServiceRole'),
       },
     };
     new cr.AwsCustomResource(this, 'DeleteElasticsearchServiceRole', props);
@@ -134,7 +134,7 @@ export class EsClient extends cdk.Construct {
       onUpdate: {
         action: 'removeTags',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RemoveTags.'),
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RemoveTags'),
         parameters: {
           arn: input.arn,
           tagKeys: input.tagKeys,
@@ -204,15 +204,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -220,15 +220,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -236,15 +236,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
 }
 export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
@@ -257,15 +257,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -273,15 +273,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'acceptInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
 }
 export class ESAssociatePackageResponse extends cdk.Construct {
@@ -446,16 +446,16 @@ export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends 
       onUpdate: {
         action: 'associatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
-        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorType'),
+        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType', props);
-    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorType', props);
+    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -463,16 +463,16 @@ export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends 
       onUpdate: {
         action: 'associatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
-        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage'),
+        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage', props);
-    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage', props);
+    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
 export class ESCancelElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
@@ -1813,8 +1813,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -1892,8 +1892,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -1901,8 +1901,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -1980,8 +1980,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -1989,8 +1989,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2068,8 +2068,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -2077,8 +2077,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2156,8 +2156,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
   public get zoneAwarenessConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
@@ -2168,8 +2168,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2247,8 +2247,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -2256,8 +2256,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2335,8 +2335,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -2344,8 +2344,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2423,8 +2423,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -2432,8 +2432,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2511,8 +2511,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -2520,8 +2520,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2599,8 +2599,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
@@ -2613,8 +2613,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2692,8 +2692,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
@@ -2706,8 +2706,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled'),
+        outputPath: 'DomainStatus.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2785,8 +2785,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.EBSEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -2794,8 +2794,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeType'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2873,8 +2873,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -2882,8 +2882,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -2961,8 +2961,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeSize') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -2970,8 +2970,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EBSOptions.Iops'),
+        outputPath: 'DomainStatus.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3049,8 +3049,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
@@ -3063,8 +3063,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
-        outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour'),
+        outputPath: 'DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3142,8 +3142,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour', props);
-    return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
+    return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
@@ -3156,8 +3156,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCId'),
+        outputPath: 'DomainStatus.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3235,8 +3235,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.VPCId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -3244,8 +3244,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds'),
+        outputPath: 'DomainStatus.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3323,8 +3323,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SubnetIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -3332,8 +3332,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones'),
+        outputPath: 'DomainStatus.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3411,8 +3411,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.AvailabilityZones') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -3420,8 +3420,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds'),
+        outputPath: 'DomainStatus.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3499,8 +3499,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
@@ -3513,8 +3513,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.Enabled'),
+        outputPath: 'DomainStatus.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3592,8 +3592,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -3601,8 +3601,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3680,8 +3680,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.UserPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -3689,8 +3689,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3768,8 +3768,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -3777,8 +3777,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn'),
+        outputPath: 'DomainStatus.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3856,8 +3856,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
@@ -3870,8 +3870,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -3949,8 +3949,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -3958,8 +3958,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4037,8 +4037,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
@@ -4051,8 +4051,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
-        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled'),
+        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4130,8 +4130,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
@@ -4144,8 +4144,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4223,8 +4223,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -4232,8 +4232,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4311,8 +4311,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -4320,8 +4320,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4399,8 +4399,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -4408,8 +4408,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4487,8 +4487,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -4496,8 +4496,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4575,8 +4575,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -4584,8 +4584,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4663,8 +4663,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -4672,8 +4672,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4751,8 +4751,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -4760,8 +4760,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4839,8 +4839,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
@@ -4853,8 +4853,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -4932,8 +4932,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -4941,8 +4941,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5020,8 +5020,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -5029,8 +5029,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5108,8 +5108,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -5117,8 +5117,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5196,8 +5196,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -5205,8 +5205,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5284,8 +5284,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
@@ -5298,8 +5298,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5377,8 +5377,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -5386,8 +5386,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5465,8 +5465,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
   public get samlOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
@@ -5482,8 +5482,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5561,8 +5561,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
   public get idp(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
@@ -5573,8 +5573,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5652,8 +5652,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -5661,8 +5661,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5740,8 +5740,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -5749,8 +5749,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5828,8 +5828,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
@@ -5842,8 +5842,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -5921,8 +5921,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -5930,8 +5930,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'createElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchVersion: this.input.elasticsearchVersion,
@@ -6009,8 +6009,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
 }
 export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
@@ -6029,8 +6029,8 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.ConnectionAlias'),
+        outputPath: 'ConnectionAlias',
         parameters: {
           sourceDomainInfo: {
             ownerId: this.input.sourceDomainInfo.ownerId,
@@ -6046,8 +6046,8 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.ConnectionAlias', props);
+    return resource.getResponseField('ConnectionAlias') as unknown as string;
   }
   public get connectionStatus(): ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus {
     return new ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
@@ -6058,8 +6058,8 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
       onUpdate: {
         action: 'createOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.CrossClusterSearchConnectionId'),
+        outputPath: 'CrossClusterSearchConnectionId',
         parameters: {
           sourceDomainInfo: {
             ownerId: this.input.sourceDomainInfo.ownerId,
@@ -6075,8 +6075,8 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
+    return resource.getResponseField('CrossClusterSearchConnectionId') as unknown as string;
   }
 }
 export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation extends cdk.Construct {
@@ -6421,8 +6421,8 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'createPackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorType'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorType',
         parameters: {
           packageName: this.input.packageName,
           packageType: this.input.packageType,
@@ -6434,8 +6434,8 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorType', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -6443,8 +6443,8 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'createPackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreatePackage.PackageDetails.ErrorDetails.ErrorMessage'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageName: this.input.packageName,
           packageType: this.input.packageType,
@@ -6456,8 +6456,8 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
 export class ESDeleteElasticsearchDomainResponse extends cdk.Construct {
@@ -6721,15 +6721,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -6737,15 +6737,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -6753,15 +6753,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -6769,15 +6769,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
   public get zoneAwarenessConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
@@ -6788,15 +6788,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -6804,15 +6804,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -6820,15 +6820,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -6836,15 +6836,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -6852,15 +6852,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
@@ -6873,15 +6873,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
@@ -6894,15 +6894,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled'),
+        outputPath: 'DomainStatus.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.EBSEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -6910,15 +6910,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeType'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -6926,15 +6926,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeSize') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -6942,15 +6942,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EBSOptions.Iops'),
+        outputPath: 'DomainStatus.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
@@ -6963,15 +6963,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
-        outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour'),
+        outputPath: 'DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour', props);
-    return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
+    return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
@@ -6984,15 +6984,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCId'),
+        outputPath: 'DomainStatus.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.VPCId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -7000,15 +7000,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds'),
+        outputPath: 'DomainStatus.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SubnetIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -7016,15 +7016,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones'),
+        outputPath: 'DomainStatus.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.AvailabilityZones') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -7032,15 +7032,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds'),
+        outputPath: 'DomainStatus.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
@@ -7053,15 +7053,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.Enabled'),
+        outputPath: 'DomainStatus.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7069,15 +7069,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.UserPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7085,15 +7085,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7101,15 +7101,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn'),
+        outputPath: 'DomainStatus.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
@@ -7122,15 +7122,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7138,15 +7138,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
@@ -7159,15 +7159,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
-        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled'),
+        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
@@ -7180,15 +7180,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7196,15 +7196,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -7212,15 +7212,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -7228,15 +7228,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7244,15 +7244,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7260,15 +7260,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7276,15 +7276,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -7292,15 +7292,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
@@ -7313,15 +7313,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7329,15 +7329,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -7345,15 +7345,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7361,15 +7361,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7377,15 +7377,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
@@ -7398,15 +7398,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -7414,15 +7414,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
   public get samlOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
@@ -7438,15 +7438,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
   public get idp(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
@@ -7457,15 +7457,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7473,15 +7473,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -7489,15 +7489,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
@@ -7510,15 +7510,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7526,15 +7526,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
       onUpdate: {
         action: 'deleteElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
 }
 export class ESDeleteInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
@@ -7585,15 +7585,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7601,15 +7601,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7617,15 +7617,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
 }
 export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
@@ -7638,15 +7638,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7654,15 +7654,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'deleteInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
 }
 export class ESDeleteOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
@@ -7729,15 +7729,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7745,15 +7745,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7761,15 +7761,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
 }
 export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
@@ -7782,15 +7782,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7798,15 +7798,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
       onUpdate: {
         action: 'deleteOutboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
 }
 export class ESDeletePackageResponse extends cdk.Construct {
@@ -7963,15 +7963,15 @@ export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'deletePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorType'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorType', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -7979,15 +7979,15 @@ export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'deletePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeletePackage.PackageDetails.ErrorDetails.ErrorMessage'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainResponse extends cdk.Construct {
@@ -8251,15 +8251,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -8267,15 +8267,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8283,15 +8283,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8299,15 +8299,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
   public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
@@ -8318,15 +8318,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -8334,15 +8334,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8350,15 +8350,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8366,15 +8366,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -8382,15 +8382,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.WarmCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.WarmCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
@@ -8403,15 +8403,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
-        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        outputPath: 'DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
-    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ElasticsearchClusterConfig.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
+    return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
@@ -8424,15 +8424,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.EBSEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled'),
+        outputPath: 'DomainStatus.EBSOptions.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.EBSEnabled', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.EBSEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8440,15 +8440,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeType'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeType', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -8456,15 +8456,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.VolumeSize',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize'),
+        outputPath: 'DomainStatus.EBSOptions.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.VolumeSize', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.VolumeSize') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -8472,15 +8472,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops'),
-        outputPath: 'DomainStatus.EBSOptions.EBSOptions.Iops',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EBSOptions.Iops'),
+        outputPath: 'DomainStatus.EBSOptions.Iops',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSOptions.Iops', props);
-    return resource.getResponseField('DomainStatus.EBSOptions.EBSOptions.Iops') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
+    return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
@@ -8493,15 +8493,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnaps
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour'),
-        outputPath: 'DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour'),
+        outputPath: 'DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour', props);
-    return resource.getResponseField('DomainStatus.SnapshotOptions.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
+    return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
@@ -8514,15 +8514,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.VPCId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCId'),
+        outputPath: 'DomainStatus.VPCOptions.VPCId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.VPCId', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.VPCId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -8530,15 +8530,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SubnetIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds'),
+        outputPath: 'DomainStatus.VPCOptions.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SubnetIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SubnetIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -8546,15 +8546,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.AvailabilityZones',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones'),
+        outputPath: 'DomainStatus.VPCOptions.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.AvailabilityZones', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.AvailabilityZones') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -8562,15 +8562,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds'),
-        outputPath: 'DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds'),
+        outputPath: 'DomainStatus.VPCOptions.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds', props);
-    return resource.getResponseField('DomainStatus.VPCOptions.VPCOptions.SecurityGroupIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
+    return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
@@ -8583,15 +8583,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.Enabled'),
+        outputPath: 'DomainStatus.CognitoOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8599,15 +8599,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.UserPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.UserPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.UserPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8615,15 +8615,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId'),
+        outputPath: 'DomainStatus.CognitoOptions.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.IdentityPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8631,15 +8631,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn'),
-        outputPath: 'DomainStatus.CognitoOptions.CognitoOptions.RoleArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn'),
+        outputPath: 'DomainStatus.CognitoOptions.RoleArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.CognitoOptions.RoleArn', props);
-    return resource.getResponseField('DomainStatus.CognitoOptions.CognitoOptions.RoleArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
+    return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
@@ -8652,15 +8652,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncry
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8668,15 +8668,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncry
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId'),
-        outputPath: 'DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId'),
+        outputPath: 'DomainStatus.EncryptionAtRestOptions.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId', props);
-    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
+    return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
@@ -8689,15 +8689,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeT
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled'),
-        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled'),
+        outputPath: 'DomainStatus.NodeToNodeEncryptionOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
@@ -8710,15 +8710,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.CurrentVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8726,15 +8726,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.NewVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.NewVersion') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8742,15 +8742,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateAvailable',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8758,15 +8758,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Cancellable',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8774,15 +8774,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.UpdateStatus',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8790,15 +8790,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.Description',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.Description') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8806,15 +8806,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8822,15 +8822,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment'),
-        outputPath: 'DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment'),
+        outputPath: 'DomainStatus.ServiceSoftwareOptions.OptionalDeployment',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment', props);
-    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
+    return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
@@ -8843,15 +8843,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8859,15 +8859,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8875,15 +8875,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8891,15 +8891,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpoint') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -8907,15 +8907,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn'),
-        outputPath: 'DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn'),
+        outputPath: 'DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn', props);
-    return resource.getResponseField('DomainStatus.DomainEndpointOptions.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
+    return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
@@ -8928,15 +8928,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -8944,15 +8944,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
   public get samlOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
@@ -8968,15 +8968,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
   public get idp(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
@@ -8987,15 +8987,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SubjectKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9003,15 +9003,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.RolesKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9019,15 +9019,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
@@ -9040,15 +9040,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9056,15 +9056,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
       onUpdate: {
         action: 'describeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
-        outputPath: 'DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId'),
+        outputPath: 'DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId', props);
-    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.AdvancedSecurityOptions.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
+    return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponse extends cdk.Construct {
@@ -9129,15 +9129,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Options',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -9153,15 +9153,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9169,15 +9169,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9185,15 +9185,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9201,15 +9201,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9217,15 +9217,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
@@ -9249,15 +9249,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.InstanceType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceType') as unknown as string;
   }
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9265,15 +9265,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as number;
   }
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9281,15 +9281,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as boolean;
   }
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9297,15 +9297,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
   public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
@@ -9316,15 +9316,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType') as unknown as string;
   }
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9332,15 +9332,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount') as unknown as number;
   }
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9348,15 +9348,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as boolean;
   }
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9364,15 +9364,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmType') as unknown as string;
   }
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9380,15 +9380,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
@@ -9401,15 +9401,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
@@ -9422,15 +9422,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9438,15 +9438,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9454,15 +9454,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9470,15 +9470,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9486,15 +9486,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
@@ -9518,15 +9518,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled'),
+        outputPath: 'DomainConfig.EBSOptions.Options.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as boolean;
   }
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9534,15 +9534,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType'),
+        outputPath: 'DomainConfig.EBSOptions.Options.VolumeType',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeType') as unknown as string;
   }
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9550,15 +9550,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize'),
+        outputPath: 'DomainConfig.EBSOptions.Options.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeSize') as unknown as number;
   }
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9566,15 +9566,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops'),
+        outputPath: 'DomainConfig.EBSOptions.Options.Iops',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.Iops') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
@@ -9587,15 +9587,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.EBSOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9603,15 +9603,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.EBSOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9619,15 +9619,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.EBSOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9635,15 +9635,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State'),
+        outputPath: 'DomainConfig.EBSOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9651,15 +9651,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.EBSOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
@@ -9672,15 +9672,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options'),
+        outputPath: 'DomainConfig.AccessPolicies.Options',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Options') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -9696,15 +9696,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9712,15 +9712,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9728,15 +9728,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9744,15 +9744,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9760,15 +9760,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
@@ -9792,15 +9792,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour'),
+        outputPath: 'DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
@@ -9813,15 +9813,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9829,15 +9829,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -9845,15 +9845,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9861,15 +9861,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -9877,15 +9877,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
@@ -9909,15 +9909,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId'),
+        outputPath: 'DomainConfig.VPCOptions.Options.VPCId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as string;
   }
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -9925,15 +9925,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds'),
+        outputPath: 'DomainConfig.VPCOptions.Options.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as string[];
   }
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -9941,15 +9941,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones'),
+        outputPath: 'DomainConfig.VPCOptions.Options.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.AvailabilityZones') as unknown as string[];
   }
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -9957,15 +9957,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds'),
+        outputPath: 'DomainConfig.VPCOptions.Options.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.SecurityGroupIds') as unknown as string[];
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
@@ -9978,15 +9978,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.VPCOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -9994,15 +9994,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.VPCOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10010,15 +10010,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.VPCOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10026,15 +10026,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State'),
+        outputPath: 'DomainConfig.VPCOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10042,15 +10042,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.VPCOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
@@ -10074,15 +10074,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as boolean;
   }
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10090,15 +10090,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.UserPoolId') as unknown as string;
   }
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10106,15 +10106,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.IdentityPoolId') as unknown as string;
   }
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10122,15 +10122,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.RoleArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.RoleArn') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
@@ -10143,15 +10143,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10159,15 +10159,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10175,15 +10175,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10191,15 +10191,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10207,15 +10207,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
@@ -10239,15 +10239,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as boolean;
   }
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10255,15 +10255,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
@@ -10276,15 +10276,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10292,15 +10292,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10308,15 +10308,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10324,15 +10324,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10340,15 +10340,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
@@ -10372,15 +10372,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
@@ -10393,15 +10393,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10409,15 +10409,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10425,15 +10425,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10441,15 +10441,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10457,15 +10457,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
@@ -10478,15 +10478,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options'),
+        outputPath: 'DomainConfig.AdvancedOptions.Options',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Options') as unknown as Record<string, string>;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -10502,15 +10502,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10518,15 +10518,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10534,15 +10534,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10550,15 +10550,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10566,15 +10566,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
@@ -10587,15 +10587,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Options',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
   }
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -10611,15 +10611,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10627,15 +10627,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10643,15 +10643,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10659,15 +10659,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10675,15 +10675,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
@@ -10707,15 +10707,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as boolean;
   }
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10723,15 +10723,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy') as unknown as string;
   }
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10739,15 +10739,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as boolean;
   }
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10755,15 +10755,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpoint') as unknown as string;
   }
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10771,15 +10771,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
@@ -10792,15 +10792,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10808,15 +10808,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10824,15 +10824,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10840,15 +10840,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10856,15 +10856,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
@@ -10888,15 +10888,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as boolean;
   }
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -10904,15 +10904,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
   public get samlOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
@@ -10928,15 +10928,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
   public get idp(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
@@ -10947,15 +10947,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as string;
   }
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -10963,15 +10963,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as string;
   }
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -10979,15 +10979,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
@@ -11000,15 +11000,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11016,15 +11016,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId') as unknown as string;
   }
 }
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
@@ -11037,15 +11037,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11053,15 +11053,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -11069,15 +11069,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11085,15 +11085,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -11101,15 +11101,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       onUpdate: {
         action: 'describeElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESDescribeElasticsearchDomainsResponse extends cdk.Construct {
@@ -11122,15 +11122,15 @@ export class ESDescribeElasticsearchDomainsResponse extends cdk.Construct {
       onUpdate: {
         action: 'describeElasticsearchDomains',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomains.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchDomains.DomainStatusList'),
+        outputPath: 'DomainStatusList',
         parameters: {
           domainNames: this.input.domainNames,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomains.', props);
-    return resource.getResponseField('') as unknown as shapes.ElasticsearchDomainStatus[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomains.DomainStatusList', props);
+    return resource.getResponseField('DomainStatusList') as unknown as shapes.ElasticsearchDomainStatus[];
   }
 }
 export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Construct {
@@ -11143,8 +11143,8 @@ export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Const
       onUpdate: {
         action: 'describeElasticsearchInstanceTypeLimits',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchInstanceTypeLimits.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeElasticsearchInstanceTypeLimits.LimitsByRole'),
+        outputPath: 'LimitsByRole',
         parameters: {
           domainName: this.input.domainName,
           instanceType: this.input.instanceType,
@@ -11152,8 +11152,8 @@ export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Const
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchInstanceTypeLimits.', props);
-    return resource.getResponseField('') as unknown as Record<string, shapes.Limits>;
+    const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchInstanceTypeLimits.LimitsByRole', props);
+    return resource.getResponseField('LimitsByRole') as unknown as Record<string, shapes.Limits>;
   }
 }
 export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
@@ -11166,8 +11166,8 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
       onUpdate: {
         action: 'describeInboundCrossClusterSearchConnections',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.CrossClusterSearchConnections'),
+        outputPath: 'CrossClusterSearchConnections',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11175,8 +11175,8 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.', props);
-    return resource.getResponseField('') as unknown as shapes.InboundCrossClusterSearchConnection[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.CrossClusterSearchConnections', props);
+    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.InboundCrossClusterSearchConnection[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11184,8 +11184,8 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
       onUpdate: {
         action: 'describeInboundCrossClusterSearchConnections',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeInboundCrossClusterSearchConnections.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11193,8 +11193,8 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
@@ -11207,8 +11207,8 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
       onUpdate: {
         action: 'describeOutboundCrossClusterSearchConnections',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.CrossClusterSearchConnections'),
+        outputPath: 'CrossClusterSearchConnections',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11216,8 +11216,8 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.', props);
-    return resource.getResponseField('') as unknown as shapes.OutboundCrossClusterSearchConnection[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.CrossClusterSearchConnections', props);
+    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.OutboundCrossClusterSearchConnection[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11225,8 +11225,8 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
       onUpdate: {
         action: 'describeOutboundCrossClusterSearchConnections',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeOutboundCrossClusterSearchConnections.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11234,8 +11234,8 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESDescribePackagesResponse extends cdk.Construct {
@@ -11248,8 +11248,8 @@ export class ESDescribePackagesResponse extends cdk.Construct {
       onUpdate: {
         action: 'describePackages',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.PackageDetailsList'),
+        outputPath: 'PackageDetailsList',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11257,8 +11257,8 @@ export class ESDescribePackagesResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribePackages.', props);
-    return resource.getResponseField('') as unknown as shapes.PackageDetails[];
+    const resource = new cr.AwsCustomResource(this, 'DescribePackages.PackageDetailsList', props);
+    return resource.getResponseField('PackageDetailsList') as unknown as shapes.PackageDetails[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11266,8 +11266,8 @@ export class ESDescribePackagesResponse extends cdk.Construct {
       onUpdate: {
         action: 'describePackages',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribePackages.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           filters: this.input.filters,
           maxResults: this.input.maxResults,
@@ -11275,8 +11275,8 @@ export class ESDescribePackagesResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribePackages.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribePackages.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cdk.Construct {
@@ -11289,8 +11289,8 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
       onUpdate: {
         action: 'describeReservedElasticsearchInstanceOfferings',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
           maxResults: this.input.maxResults,
@@ -11298,8 +11298,8 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
   public get reservedElasticsearchInstanceOfferings(): shapes.ReservedElasticsearchInstanceOffering[] {
     const props: cr.AwsCustomResourceProps = {
@@ -11307,8 +11307,8 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
       onUpdate: {
         action: 'describeReservedElasticsearchInstanceOfferings',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstanceOfferings.ReservedElasticsearchInstanceOfferings'),
+        outputPath: 'ReservedElasticsearchInstanceOfferings',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
           maxResults: this.input.maxResults,
@@ -11316,8 +11316,8 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.', props);
-    return resource.getResponseField('') as unknown as shapes.ReservedElasticsearchInstanceOffering[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.ReservedElasticsearchInstanceOfferings', props);
+    return resource.getResponseField('ReservedElasticsearchInstanceOfferings') as unknown as shapes.ReservedElasticsearchInstanceOffering[];
   }
 }
 export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Construct {
@@ -11330,8 +11330,8 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
       onUpdate: {
         action: 'describeReservedElasticsearchInstances',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           reservedElasticsearchInstanceId: this.input.reservedElasticsearchInstanceId,
           maxResults: this.input.maxResults,
@@ -11339,8 +11339,8 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
   public get reservedElasticsearchInstances(): shapes.ReservedElasticsearchInstance[] {
     const props: cr.AwsCustomResourceProps = {
@@ -11348,8 +11348,8 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
       onUpdate: {
         action: 'describeReservedElasticsearchInstances',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DescribeReservedElasticsearchInstances.ReservedElasticsearchInstances'),
+        outputPath: 'ReservedElasticsearchInstances',
         parameters: {
           reservedElasticsearchInstanceId: this.input.reservedElasticsearchInstanceId,
           maxResults: this.input.maxResults,
@@ -11357,8 +11357,8 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.', props);
-    return resource.getResponseField('') as unknown as shapes.ReservedElasticsearchInstance[];
+    const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.ReservedElasticsearchInstances', props);
+    return resource.getResponseField('ReservedElasticsearchInstances') as unknown as shapes.ReservedElasticsearchInstance[];
   }
 }
 export class ESDissociatePackageResponse extends cdk.Construct {
@@ -11523,16 +11523,16 @@ export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends
       onUpdate: {
         action: 'dissociatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
-        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorType'),
+        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType', props);
-    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorType', props);
+    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11540,16 +11540,16 @@ export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends
       onUpdate: {
         action: 'dissociatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
-        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage'),
+        outputPath: 'DomainPackageDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage', props);
-    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage', props);
+    return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
 export class ESGetCompatibleElasticsearchVersionsResponse extends cdk.Construct {
@@ -11562,15 +11562,15 @@ export class ESGetCompatibleElasticsearchVersionsResponse extends cdk.Construct 
       onUpdate: {
         action: 'getCompatibleElasticsearchVersions',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetCompatibleElasticsearchVersions.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetCompatibleElasticsearchVersions.CompatibleElasticsearchVersions'),
+        outputPath: 'CompatibleElasticsearchVersions',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetCompatibleElasticsearchVersions.', props);
-    return resource.getResponseField('') as unknown as shapes.CompatibleVersionsMap[];
+    const resource = new cr.AwsCustomResource(this, 'GetCompatibleElasticsearchVersions.CompatibleElasticsearchVersions', props);
+    return resource.getResponseField('CompatibleElasticsearchVersions') as unknown as shapes.CompatibleVersionsMap[];
   }
 }
 export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
@@ -11583,8 +11583,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
       onUpdate: {
         action: 'getPackageVersionHistory',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.PackageID'),
+        outputPath: 'PackageID',
         parameters: {
           packageId: this.input.packageId,
           maxResults: this.input.maxResults,
@@ -11592,8 +11592,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.PackageID', props);
+    return resource.getResponseField('PackageID') as unknown as string;
   }
   public get packageVersionHistoryList(): shapes.PackageVersionHistory[] {
     const props: cr.AwsCustomResourceProps = {
@@ -11601,8 +11601,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
       onUpdate: {
         action: 'getPackageVersionHistory',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.PackageVersionHistoryList'),
+        outputPath: 'PackageVersionHistoryList',
         parameters: {
           packageId: this.input.packageId,
           maxResults: this.input.maxResults,
@@ -11610,8 +11610,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.', props);
-    return resource.getResponseField('') as unknown as shapes.PackageVersionHistory[];
+    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.PackageVersionHistoryList', props);
+    return resource.getResponseField('PackageVersionHistoryList') as unknown as shapes.PackageVersionHistory[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11619,8 +11619,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
       onUpdate: {
         action: 'getPackageVersionHistory',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetPackageVersionHistory.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           packageId: this.input.packageId,
           maxResults: this.input.maxResults,
@@ -11628,8 +11628,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESGetUpgradeHistoryResponse extends cdk.Construct {
@@ -11642,8 +11642,8 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
       onUpdate: {
         action: 'getUpgradeHistory',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.UpgradeHistories'),
+        outputPath: 'UpgradeHistories',
         parameters: {
           domainName: this.input.domainName,
           maxResults: this.input.maxResults,
@@ -11651,8 +11651,8 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.', props);
-    return resource.getResponseField('') as unknown as shapes.UpgradeHistory[];
+    const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.UpgradeHistories', props);
+    return resource.getResponseField('UpgradeHistories') as unknown as shapes.UpgradeHistory[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11660,8 +11660,8 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
       onUpdate: {
         action: 'getUpgradeHistory',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeHistory.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           domainName: this.input.domainName,
           maxResults: this.input.maxResults,
@@ -11669,8 +11669,8 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESGetUpgradeStatusResponse extends cdk.Construct {
@@ -11683,15 +11683,15 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
       onUpdate: {
         action: 'getUpgradeStatus',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.UpgradeStep'),
+        outputPath: 'UpgradeStep',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.UpgradeStep', props);
+    return resource.getResponseField('UpgradeStep') as unknown as string;
   }
   public get stepStatus(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11699,15 +11699,15 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
       onUpdate: {
         action: 'getUpgradeStatus',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.StepStatus'),
+        outputPath: 'StepStatus',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.StepStatus', props);
+    return resource.getResponseField('StepStatus') as unknown as string;
   }
   public get upgradeName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11715,15 +11715,15 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
       onUpdate: {
         action: 'getUpgradeStatus',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.GetUpgradeStatus.UpgradeName'),
+        outputPath: 'UpgradeName',
         parameters: {
           domainName: this.input.domainName,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.UpgradeName', props);
+    return resource.getResponseField('UpgradeName') as unknown as string;
   }
 }
 export class ESListDomainNamesResponse extends cdk.Construct {
@@ -11736,12 +11736,12 @@ export class ESListDomainNamesResponse extends cdk.Construct {
       onUpdate: {
         action: 'listDomainNames',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainNames.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainNames.DomainNames'),
+        outputPath: 'DomainNames',
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListDomainNames.', props);
-    return resource.getResponseField('') as unknown as shapes.DomainInfo[];
+    const resource = new cr.AwsCustomResource(this, 'ListDomainNames.DomainNames', props);
+    return resource.getResponseField('DomainNames') as unknown as shapes.DomainInfo[];
   }
 }
 export class ESListDomainsForPackageResponse extends cdk.Construct {
@@ -11754,8 +11754,8 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
       onUpdate: {
         action: 'listDomainsForPackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.DomainPackageDetailsList'),
+        outputPath: 'DomainPackageDetailsList',
         parameters: {
           packageId: this.input.packageId,
           maxResults: this.input.maxResults,
@@ -11763,8 +11763,8 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.', props);
-    return resource.getResponseField('') as unknown as shapes.DomainPackageDetails[];
+    const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.DomainPackageDetailsList', props);
+    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.DomainPackageDetails[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11772,8 +11772,8 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
       onUpdate: {
         action: 'listDomainsForPackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListDomainsForPackage.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           packageId: this.input.packageId,
           maxResults: this.input.maxResults,
@@ -11781,8 +11781,8 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
@@ -11795,8 +11795,8 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
       onUpdate: {
         action: 'listElasticsearchInstanceTypes',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.ElasticsearchInstanceTypes'),
+        outputPath: 'ElasticsearchInstanceTypes',
         parameters: {
           elasticsearchVersion: this.input.elasticsearchVersion,
           domainName: this.input.domainName,
@@ -11805,8 +11805,8 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.', props);
-    return resource.getResponseField('') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.ElasticsearchInstanceTypes', props);
+    return resource.getResponseField('ElasticsearchInstanceTypes') as unknown as string[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11814,8 +11814,8 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
       onUpdate: {
         action: 'listElasticsearchInstanceTypes',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchInstanceTypes.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           elasticsearchVersion: this.input.elasticsearchVersion,
           domainName: this.input.domainName,
@@ -11824,8 +11824,8 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESListElasticsearchVersionsResponse extends cdk.Construct {
@@ -11838,16 +11838,16 @@ export class ESListElasticsearchVersionsResponse extends cdk.Construct {
       onUpdate: {
         action: 'listElasticsearchVersions',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.ElasticsearchVersions'),
+        outputPath: 'ElasticsearchVersions',
         parameters: {
           maxResults: this.input.maxResults,
           nextToken: this.input.nextToken,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.', props);
-    return resource.getResponseField('') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.ElasticsearchVersions', props);
+    return resource.getResponseField('ElasticsearchVersions') as unknown as string[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11855,16 +11855,16 @@ export class ESListElasticsearchVersionsResponse extends cdk.Construct {
       onUpdate: {
         action: 'listElasticsearchVersions',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListElasticsearchVersions.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           maxResults: this.input.maxResults,
           nextToken: this.input.nextToken,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESListPackagesForDomainResponse extends cdk.Construct {
@@ -11877,8 +11877,8 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
       onUpdate: {
         action: 'listPackagesForDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.DomainPackageDetailsList'),
+        outputPath: 'DomainPackageDetailsList',
         parameters: {
           domainName: this.input.domainName,
           maxResults: this.input.maxResults,
@@ -11886,8 +11886,8 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.', props);
-    return resource.getResponseField('') as unknown as shapes.DomainPackageDetails[];
+    const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.DomainPackageDetailsList', props);
+    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.DomainPackageDetails[];
   }
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11895,8 +11895,8 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
       onUpdate: {
         action: 'listPackagesForDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListPackagesForDomain.NextToken'),
+        outputPath: 'NextToken',
         parameters: {
           domainName: this.input.domainName,
           maxResults: this.input.maxResults,
@@ -11904,8 +11904,8 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.NextToken', props);
+    return resource.getResponseField('NextToken') as unknown as string;
   }
 }
 export class ESListTagsResponse extends cdk.Construct {
@@ -11918,15 +11918,15 @@ export class ESListTagsResponse extends cdk.Construct {
       onUpdate: {
         action: 'listTags',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.ListTags.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.ListTags.TagList'),
+        outputPath: 'TagList',
         parameters: {
           arn: this.input.arn,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'ListTags.', props);
-    return resource.getResponseField('') as unknown as shapes.Tag[];
+    const resource = new cr.AwsCustomResource(this, 'ListTags.TagList', props);
+    return resource.getResponseField('TagList') as unknown as shapes.Tag[];
   }
 }
 export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk.Construct {
@@ -11939,8 +11939,8 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
       onUpdate: {
         action: 'purchaseReservedElasticsearchInstanceOffering',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.ReservedElasticsearchInstanceId'),
+        outputPath: 'ReservedElasticsearchInstanceId',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
           reservationName: this.input.reservationName,
@@ -11948,8 +11948,8 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.ReservedElasticsearchInstanceId', props);
+    return resource.getResponseField('ReservedElasticsearchInstanceId') as unknown as string;
   }
   public get reservationName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -11957,8 +11957,8 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
       onUpdate: {
         action: 'purchaseReservedElasticsearchInstanceOffering',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.PurchaseReservedElasticsearchInstanceOffering.ReservationName'),
+        outputPath: 'ReservationName',
         parameters: {
           reservedElasticsearchInstanceOfferingId: this.input.reservedElasticsearchInstanceOfferingId,
           reservationName: this.input.reservationName,
@@ -11966,8 +11966,8 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.ReservationName', props);
+    return resource.getResponseField('ReservationName') as unknown as string;
   }
 }
 export class ESRejectInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
@@ -12018,15 +12018,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.OwnerId',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.OwnerId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -12034,15 +12034,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.DomainName',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.DomainName') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -12050,15 +12050,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region'),
-        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.SourceDomainInfo.Region',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region', props);
-    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.SourceDomainInfo.Region') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
 }
 export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
@@ -12071,15 +12071,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.StatusCode',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.StatusCode') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -12087,15 +12087,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
       onUpdate: {
         action: 'rejectInboundCrossClusterSearchConnection',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message'),
-        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message'),
+        outputPath: 'CrossClusterSearchConnection.ConnectionStatus.Message',
         parameters: {
           crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message', props);
-    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.ConnectionStatus.Message') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
+    return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
 }
 export class ESStartElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
@@ -12301,8 +12301,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Options',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12372,8 +12372,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Options') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -12389,8 +12389,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12460,8 +12460,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -12469,8 +12469,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12540,8 +12540,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -12549,8 +12549,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12620,8 +12620,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -12629,8 +12629,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12700,8 +12700,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -12709,8 +12709,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.ElasticsearchVersion.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12780,8 +12780,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchVersion.ElasticsearchVersion.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
@@ -12805,8 +12805,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.InstanceType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12876,8 +12876,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceType') as unknown as string;
   }
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -12885,8 +12885,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -12956,8 +12956,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.InstanceCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as number;
   }
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -12965,8 +12965,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13036,8 +13036,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as boolean;
   }
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -13045,8 +13045,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13116,8 +13116,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
   public get zoneAwarenessConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
@@ -13128,8 +13128,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13199,8 +13199,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType') as unknown as string;
   }
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -13208,8 +13208,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13279,8 +13279,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.DedicatedMasterCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount') as unknown as number;
   }
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -13288,8 +13288,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13359,8 +13359,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as boolean;
   }
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -13368,8 +13368,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13439,8 +13439,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmType') as unknown as string;
   }
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -13448,8 +13448,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.WarmCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13519,8 +13519,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.WarmCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
@@ -13533,8 +13533,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13604,8 +13604,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Options.Options.ZoneAwarenessConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
@@ -13618,8 +13618,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13689,8 +13689,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -13698,8 +13698,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13769,8 +13769,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -13778,8 +13778,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13849,8 +13849,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -13858,8 +13858,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -13929,8 +13929,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -13938,8 +13938,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14009,8 +14009,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.ElasticsearchClusterConfig.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
@@ -14034,8 +14034,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled'),
+        outputPath: 'DomainConfig.EBSOptions.Options.EBSEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14105,8 +14105,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.EBSEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as boolean;
   }
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -14114,8 +14114,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType'),
+        outputPath: 'DomainConfig.EBSOptions.Options.VolumeType',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14185,8 +14185,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeType') as unknown as string;
   }
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -14194,8 +14194,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize'),
+        outputPath: 'DomainConfig.EBSOptions.Options.VolumeSize',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14265,8 +14265,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.VolumeSize') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeSize') as unknown as number;
   }
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -14274,8 +14274,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops'),
+        outputPath: 'DomainConfig.EBSOptions.Options.Iops',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14345,8 +14345,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Options.Options.Iops') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Options.Iops') as unknown as number;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
@@ -14359,8 +14359,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.EBSOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14430,8 +14430,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -14439,8 +14439,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.EBSOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14510,8 +14510,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -14519,8 +14519,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.EBSOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14590,8 +14590,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -14599,8 +14599,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State'),
+        outputPath: 'DomainConfig.EBSOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14670,8 +14670,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -14679,8 +14679,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.EBSOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14750,8 +14750,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.EBSOptions.EBSOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
@@ -14764,8 +14764,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options'),
+        outputPath: 'DomainConfig.AccessPolicies.Options',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14835,8 +14835,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Options', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Options') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -14852,8 +14852,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -14923,8 +14923,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -14932,8 +14932,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15003,8 +15003,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -15012,8 +15012,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15083,8 +15083,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -15092,8 +15092,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15163,8 +15163,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -15172,8 +15172,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AccessPolicies.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15243,8 +15243,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AccessPolicies.AccessPolicies.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
@@ -15268,8 +15268,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour'),
+        outputPath: 'DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15339,8 +15339,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Options.Options.AutomatedSnapshotStartHour') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
@@ -15353,8 +15353,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15424,8 +15424,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -15433,8 +15433,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15504,8 +15504,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -15513,8 +15513,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15584,8 +15584,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -15593,8 +15593,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15664,8 +15664,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -15673,8 +15673,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.SnapshotOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15744,8 +15744,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.SnapshotOptions.SnapshotOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
@@ -15769,8 +15769,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId'),
+        outputPath: 'DomainConfig.VPCOptions.Options.VPCId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15840,8 +15840,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.VPCId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as string;
   }
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -15849,8 +15849,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds'),
+        outputPath: 'DomainConfig.VPCOptions.Options.SubnetIds',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -15920,8 +15920,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SubnetIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as string[];
   }
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -15929,8 +15929,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones'),
+        outputPath: 'DomainConfig.VPCOptions.Options.AvailabilityZones',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16000,8 +16000,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.AvailabilityZones') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.AvailabilityZones') as unknown as string[];
   }
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
@@ -16009,8 +16009,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds'),
+        outputPath: 'DomainConfig.VPCOptions.Options.SecurityGroupIds',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16080,8 +16080,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Options.Options.SecurityGroupIds') as unknown as string[];
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Options.SecurityGroupIds') as unknown as string[];
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
@@ -16094,8 +16094,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.VPCOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16165,8 +16165,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16174,8 +16174,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.VPCOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16245,8 +16245,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -16254,8 +16254,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.VPCOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16325,8 +16325,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16334,8 +16334,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State'),
+        outputPath: 'DomainConfig.VPCOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16405,8 +16405,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -16414,8 +16414,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.VPCOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16485,8 +16485,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.VPCOptions.VPCOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
@@ -16510,8 +16510,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16581,8 +16581,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as boolean;
   }
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16590,8 +16590,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.UserPoolId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16661,8 +16661,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.UserPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.UserPoolId') as unknown as string;
   }
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16670,8 +16670,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.IdentityPoolId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16741,8 +16741,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.IdentityPoolId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.IdentityPoolId') as unknown as string;
   }
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16750,8 +16750,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn'),
+        outputPath: 'DomainConfig.CognitoOptions.Options.RoleArn',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16821,8 +16821,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Options.Options.RoleArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Options.RoleArn') as unknown as string;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
@@ -16835,8 +16835,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16906,8 +16906,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -16915,8 +16915,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -16986,8 +16986,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -16995,8 +16995,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17066,8 +17066,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -17075,8 +17075,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17146,8 +17146,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -17155,8 +17155,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.CognitoOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17226,8 +17226,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.CognitoOptions.CognitoOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
@@ -17251,8 +17251,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17322,8 +17322,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as boolean;
   }
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -17331,8 +17331,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17402,8 +17402,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Options.Options.KmsKeyId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId') as unknown as string;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
@@ -17416,8 +17416,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17487,8 +17487,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -17496,8 +17496,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17567,8 +17567,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -17576,8 +17576,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17647,8 +17647,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -17656,8 +17656,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17727,8 +17727,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -17736,8 +17736,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17807,8 +17807,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.EncryptionAtRestOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
@@ -17832,8 +17832,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17903,8 +17903,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
@@ -17917,8 +17917,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -17988,8 +17988,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -17997,8 +17997,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18068,8 +18068,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -18077,8 +18077,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18148,8 +18148,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -18157,8 +18157,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18228,8 +18228,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -18237,8 +18237,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18308,8 +18308,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.NodeToNodeEncryptionOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
@@ -18322,8 +18322,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options'),
+        outputPath: 'DomainConfig.AdvancedOptions.Options',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18393,8 +18393,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Options', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Options') as unknown as Record<string, string>;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -18410,8 +18410,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18481,8 +18481,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -18490,8 +18490,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18561,8 +18561,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -18570,8 +18570,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18641,8 +18641,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -18650,8 +18650,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18721,8 +18721,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -18730,8 +18730,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AdvancedOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18801,8 +18801,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AdvancedOptions.AdvancedOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
@@ -18815,8 +18815,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Options',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Options',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18886,8 +18886,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Options', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
   }
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
@@ -18903,8 +18903,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -18974,8 +18974,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -18983,8 +18983,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19054,8 +19054,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -19063,8 +19063,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19134,8 +19134,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19143,8 +19143,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19214,8 +19214,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -19223,8 +19223,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.LogPublishingOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19294,8 +19294,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.LogPublishingOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
@@ -19319,8 +19319,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19390,8 +19390,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.EnforceHTTPS') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as boolean;
   }
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19399,8 +19399,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19470,8 +19470,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.TLSSecurityPolicy') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy') as unknown as string;
   }
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -19479,8 +19479,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19550,8 +19550,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as boolean;
   }
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19559,8 +19559,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpoint',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19630,8 +19630,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpoint') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpoint') as unknown as string;
   }
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19639,8 +19639,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19710,8 +19710,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Options.Options.CustomEndpointCertificateArn') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn') as unknown as string;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
@@ -19724,8 +19724,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19795,8 +19795,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19804,8 +19804,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19875,8 +19875,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -19884,8 +19884,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -19955,8 +19955,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -19964,8 +19964,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20035,8 +20035,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -20044,8 +20044,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.DomainEndpointOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20115,8 +20115,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.DomainEndpointOptions.DomainEndpointOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
@@ -20140,8 +20140,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20211,8 +20211,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as boolean;
   }
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -20220,8 +20220,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20291,8 +20291,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.InternalUserDatabaseEnabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
   public get samlOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
@@ -20308,8 +20308,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20379,8 +20379,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Enabled') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
   public get idp(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
@@ -20391,8 +20391,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20462,8 +20462,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SubjectKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as string;
   }
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -20471,8 +20471,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20542,8 +20542,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.RolesKey') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as string;
   }
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -20551,8 +20551,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20622,8 +20622,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
@@ -20636,8 +20636,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20707,8 +20707,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.MetadataContent') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -20716,8 +20716,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20787,8 +20787,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Options.Options.SAMLOptions.SAMLOptions.Idp.Idp.EntityId') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId') as unknown as string;
   }
 }
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
@@ -20801,8 +20801,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.CreationDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20872,8 +20872,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.CreationDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.CreationDate') as unknown as string;
   }
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -20881,8 +20881,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.UpdateDate',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -20952,8 +20952,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateDate') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateDate') as unknown as string;
   }
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
@@ -20961,8 +20961,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -21032,8 +21032,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.UpdateVersion') as unknown as number;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion') as unknown as number;
   }
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -21041,8 +21041,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.State',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -21112,8 +21112,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.State') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.State') as unknown as string;
   }
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -21121,8 +21121,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
       onUpdate: {
         action: 'updateElasticsearchDomainConfig',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion'),
-        outputPath: 'DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion'),
+        outputPath: 'DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion',
         parameters: {
           domainName: this.input.domainName,
           elasticsearchClusterConfig: {
@@ -21192,8 +21192,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion', props);
-    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.AdvancedSecurityOptions.Status.Status.PendingDeletion') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
+    return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as boolean;
   }
 }
 export class ESUpdatePackageResponse extends cdk.Construct {
@@ -21398,8 +21398,8 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'updatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorType',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorType'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorType',
         parameters: {
           packageId: this.input.packageId,
           packageSource: {
@@ -21411,8 +21411,8 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorType', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorType') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorType', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -21420,8 +21420,8 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
       onUpdate: {
         action: 'updatePackage',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage'),
-        outputPath: 'PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpdatePackage.PackageDetails.ErrorDetails.ErrorMessage'),
+        outputPath: 'PackageDetails.ErrorDetails.ErrorMessage',
         parameters: {
           packageId: this.input.packageId,
           packageSource: {
@@ -21433,8 +21433,8 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage', props);
-    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorDetails.ErrorMessage') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
+    return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
 }
 export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
@@ -21447,8 +21447,8 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.DomainName'),
+        outputPath: 'DomainName',
         parameters: {
           domainName: this.input.domainName,
           targetVersion: this.input.targetVersion,
@@ -21456,8 +21456,8 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.DomainName', props);
+    return resource.getResponseField('DomainName') as unknown as string;
   }
   public get targetVersion(): string {
     const props: cr.AwsCustomResourceProps = {
@@ -21465,8 +21465,8 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.TargetVersion'),
+        outputPath: 'TargetVersion',
         parameters: {
           domainName: this.input.domainName,
           targetVersion: this.input.targetVersion,
@@ -21474,8 +21474,8 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.', props);
-    return resource.getResponseField('') as unknown as string;
+    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.TargetVersion', props);
+    return resource.getResponseField('TargetVersion') as unknown as string;
   }
   public get performCheckOnly(): boolean {
     const props: cr.AwsCustomResourceProps = {
@@ -21483,8 +21483,8 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
       onUpdate: {
         action: 'upgradeElasticsearchDomain',
         service: 'ES',
-        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.'),
-        outputPath: '',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.UpgradeElasticsearchDomain.PerformCheckOnly'),
+        outputPath: 'PerformCheckOnly',
         parameters: {
           domainName: this.input.domainName,
           targetVersion: this.input.targetVersion,
@@ -21492,7 +21492,7 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
         },
       },
     };
-    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.', props);
-    return resource.getResponseField('') as unknown as boolean;
+    const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.PerformCheckOnly', props);
+    return resource.getResponseField('PerformCheckOnly') as unknown as boolean;
   }
 }

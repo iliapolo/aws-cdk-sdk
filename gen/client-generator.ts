@@ -1,60 +1,65 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import * as ts from 'typescript-parser';
 import * as sdk from './sdk-repository';
 import * as j2j from 'json2jsii';
 import * as structs from './structs';
 import { ApiGenerator } from './api-generator';
 import { JSONSchema4 } from 'json-schema';
-import logger = require('node-color-log')
 import { CodeMaker } from 'codemaker';
 
+const FILENAME = 'index.ts';
+
+/**
+ * Properties for `ClientGenerator`.
+ */
+export interface ClientGeneratorProps {
+
+  /**
+   * The client to generate.
+   */
+  readonly client: sdk.Client;
+
+  /**
+   * The directory to generate the code to.
+   */
+  readonly outDir: string;
+
+}
+
+/**
+ * Generator for a specific client.
+ */
 export class ClientGenerator {
 
-  private readonly spec: structs.Spec;
-  private readonly types: j2j.TypeGenerator;
-  public readonly api: ApiGenerator;
-  private readonly code: CodeMaker;
-  public readonly id: string;
-  private readonly memo = new Set<string>();
+  private readonly shapes: j2j.TypeGenerator;
+  private readonly api: ApiGenerator;
+  private readonly props: ClientGeneratorProps;
+  private readonly registeredShapes = new Set<string>();
 
-  constructor(client: sdk.Client) {
-    this.types = new j2j.TypeGenerator();
-    this.spec = JSON.parse(fs.readFileSync(client.apiPath).toString());
-    this.code = new CodeMaker({ indentationLevel: 2 });
-    logger.setLevel('info');
-    this.id = this.code.toPascalCase(this.spec.metadata.serviceId).toLowerCase();
+  constructor(props: ClientGeneratorProps) {
+    this.props = props;
+    this.shapes = new j2j.TypeGenerator();
 
-    this.api = new ApiGenerator({
-      code: this.code,
-      client: client,
-      spec: this.spec,
-    });
+    this.api = new ApiGenerator({ client: this.props.client, outDir: this.props.outDir });
 
-    for (const operationName of Object.keys(this.spec.operations)) {
+    for (const operationName of Object.keys(this.props.client.spec.operations)) {
 
-      // logger.debug(`Inspecting operation ${operationName}`);
-
-      const operation = this.spec.operations[operationName];
-
-      // logger.debug(`Registering operation ${operationName}`);
+      const operation = this.props.client.spec.operations[operationName];
 
       if (operation.input) {
-        // logger.info(`Registering input shapes for ${operationName}`);
         this.registerShape(operation.input.shape);
-        this.types.emitType(j2j.TypeGenerator.normalizeTypeName(operation.input.shape));
+        this.shapes.emitType(j2j.TypeGenerator.normalizeTypeName(operation.input.shape));
       }
 
       if (operation.output) {
-        // logger.info(`Registering output shapes for ${operationName}`);
         this.registerShape(operation.output.shape);
-        this.types.emitType(j2j.TypeGenerator.normalizeTypeName(operation.output.shape));
+        this.shapes.emitType(j2j.TypeGenerator.normalizeTypeName(operation.output.shape));
       }
 
       this.api.addMethod({
         name: operationName,
-        input: operation.input?.shape,
-        output: operation.output?.shape,
+        inputShape: operation.input?.shape,
+        outputShape: operation.output?.shape,
         outputPath: [],
       })
 
@@ -64,15 +69,11 @@ export class ClientGenerator {
 
   private registerShape(name: string) {
 
-    if (this.memo.has(name)) {
+    if (this.registeredShapes.has(name)) {
       return;
     }
 
-    this.memo.add(name);
-
-    logger.debug(`Registering shape ${name}`);
-
-    const shape = this.spec.shapes[name];
+    const shape = this.props.client.spec.shapes[name];
     const normalized = j2j.TypeGenerator.normalizeTypeName(name);
 
     switch (shape.type) {
@@ -84,7 +85,7 @@ export class ClientGenerator {
 
         this.registerShape(shape.member.shape);
 
-        this.types.addDefinition(normalized, {
+        this.shapes.addDefinition(normalized, {
           type: 'array',
           items: {
             $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(shape.member.shape)}`,
@@ -109,16 +110,16 @@ export class ClientGenerator {
           this.registerShape(entry[1].shape);
         }
 
-        this.types.addDefinition(normalized, {
+        this.shapes.addDefinition(normalized, {
           type: 'object',
           // description: shape.documentation,
           properties,
-          required: shape.required?.map(r => this.code.toCamelCase(r)),
+          required: shape.required?.map(r => new CodeMaker().toCamelCase(r)),
         });
 
         break;
       case structs.ShapeType.BLOB:
-        this.types.addDefinition(normalized, {
+        this.shapes.addDefinition(normalized, {
           type: 'object',
         })
         break;
@@ -135,7 +136,7 @@ export class ClientGenerator {
         this.registerShape(shape.key.shape);
         this.registerShape(shape.value.shape);
 
-        this.types.addDefinition(normalized, {
+        this.shapes.addDefinition(normalized, {
           type: 'object',
           additionalProperties: {
             $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(shape.value.shape)}`,
@@ -144,16 +145,16 @@ export class ClientGenerator {
         break;
       case structs.ShapeType.BOOLEAN:
       case structs.ShapeType.STRING:
-        this.types.addDefinition(normalized, { type: shape.type });
+        this.shapes.addDefinition(normalized, { type: shape.type });
         break;
       case structs.ShapeType.INTEGER:
       case structs.ShapeType.DOUBLE:
       case structs.ShapeType.FLOAT:
       case structs.ShapeType.LONG:
-        this.types.addDefinition(normalized, { type: 'number' });
+        this.shapes.addDefinition(normalized, { type: 'number' });
         break;
       case structs.ShapeType.TIMESTAMP:
-        this.types.addDefinition(normalized, {
+        this.shapes.addDefinition(normalized, {
           type: 'string',
         })
         break;
@@ -161,28 +162,27 @@ export class ClientGenerator {
         throw new Error(`Unexpected shape type '${shape.type}' for shape ${name}`);
     }
 
+    this.registeredShapes.add(name);
+
   }
 
-  public async gen(root: string) {
+  public async gen() {
 
-    const service = this.code.toSnakeCase(await this.api.service()).replace(/_/g, '');
+    // generate shapes
+    fs.mkdirSync(this.props.outDir, { recursive: true });
+    fs.writeFileSync(path.join(this.props.outDir, 'shapes.ts'), this.shapes.render());
 
-    fs.mkdirSync(path.join(root, service), { recursive: true });
-    fs.writeFileSync(path.join(root, service, 'shapes.ts'), this.types.render());
-
-    this.code.openFile(path.join(service, 'api.ts'));
-    this.code.line("import * as cdk from '@aws-cdk/core';");
-    this.code.line("import * as cr from '@aws-cdk/custom-resources';");
-    this.code.line("import * as shapes from './shapes';");
-    this.code.line();
+    // generate api
     await this.api.render();
-    this.code.closeFile(path.join(service, 'api.ts'));
 
-    this.code.openFile(path.join(service, 'index.ts'));
-    this.code.line("export * from './api';")
-    this.code.line("export * from './shapes';")
-    this.code.closeFile(path.join(service, 'index.ts'));
-    await this.code.save(root);
+    // generate index
+    const index = new CodeMaker({ indentationLevel: 2 });
+    index.openFile(FILENAME);
+    index.line("export * from './api';")
+    index.line("export * from './shapes';")
+    index.closeFile(FILENAME);
+    await index.save(this.props.outDir);
+
   }
 
 }

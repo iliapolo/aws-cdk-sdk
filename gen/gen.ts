@@ -2,51 +2,46 @@ import * as gen from './client-generator';
 import * as sdk from './sdk-repository';
 import * as fs from 'fs';
 import * as maker from 'codemaker';
-import logger = require('node-color-log')
 import * as path from 'path';
 
-const INCLUDE = ['es.d.ts'];
+const INCLUDE = ['ES'];
 // const EXCLUDE = ['kendra.d.ts'];
 
 async function main(repoPath: string) {
 
-  logger.setLevel('debug');
-
   const repo = new sdk.SdkRepository(repoPath);
   const src = path.join(__dirname, '..', 'src');
-  const clients = path.join(src, 'clients');
+  const clientsDirectory = path.join(src, 'clients');
 
-  const codemaker = new maker.CodeMaker();
-  codemaker.openFile('index.ts');
+  const index = new maker.CodeMaker();
+  index.openFile('index.ts');
 
-  deleteFolderRecursive(clients);
+  deleteFolderRecursive(clientsDirectory);
 
-  for (const client of repo.clients) {
+  for (const client of await repo.createClients()) {
 
-    if (!INCLUDE.includes(path.basename(client.dtsPath))) {
+    if (!INCLUDE.includes(path.basename(client.className))) {
       continue;
     }
 
-    // if (EXCLUDE.includes(path.basename(client.dtsPath))) {
+    // if (EXCLUDE.includes(path.basename(client.className))) {
     //   continue;
     // }
 
-    const generator = new gen.ClientGenerator(client);
+    const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
+    const clientDir = path.join(clientsDirectory, clientBaseDir);
+    const generator = new gen.ClientGenerator({ client: client, outDir: clientDir });
 
-    logger.info(`Generating client for ${path.basename(client.apiPath)}`);
+    console.log(`Generating client for ${path.basename(client.className)}`);
 
-    try {
-      const service = codemaker.toSnakeCase(await generator.api.service()).replace(/_/g, '');
-      await generator.gen(clients);
-      codemaker.line(`export * from './clients/${service}';`)
-    } catch (e) {
-      logger.color('red').error(`Failed generating client for ${client.apiPath}: ${e}`);
-      console.error(e);
-    }
+    await generator.gen();
+    index.line(`export * from './clients/${clientBaseDir}';`)
+
   }
 
-  codemaker.closeFile('index.ts');
-  await codemaker.save(src);
+  index.closeFile('index.ts');
+
+  await index.save(src);
 
 }
 
@@ -63,4 +58,5 @@ function deleteFolderRecursive(dir: string) {
     fs.rmdirSync(dir);
   }
 };
+
 main(process.argv[2])

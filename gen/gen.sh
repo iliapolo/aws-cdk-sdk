@@ -32,4 +32,5 @@ NODE_OPTIONS=--max_old_space_size=4096 ${rootdir}/node_modules/.bin/ts-node ${ro
 #   ${rootdir}/node_modules/.bin/typescript-json-schema shapes.ts "*" > schema.json
 #   popd
 # done
+
 popd
