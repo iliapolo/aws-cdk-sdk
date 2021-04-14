@@ -1671,9 +1671,9 @@ co@^4.6.0:
   integrity sha1-bqa989hTrlTMuOR7+gvz+QMfsYQ=
 
 codemaker@^1.15.0, codemaker@^1.27.1:
-  version "1.27.1"
-  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.27.1.tgz#80ee71860870e604bc837e27a2deb8ce49bf4dae"
-  integrity sha512-0Ypru4bovWAqZY+giAMIFQh1aJlTJLU7rbNPzkAW7U9mPoja2IE4KLWNlSEYvP7hpamY51Nrz/VfcazsB6a/rg==
+  version "1.28.0"
+  resolved "https://registry.yarnpkg.com/codemaker/-/codemaker-1.28.0.tgz#21237f9240ab05ecca6c65da48141b8b752539b8"
+  integrity sha512-TlpvV3q/68cZk7aljYW6b/5EvyB4uw523xJISTATrCrQu/UTA79/mxpA2ug8uhPcJoGYcfWXH4BHVVLNIuEtrg==
   dependencies:
     camelcase "^6.2.0"
     decamelize "^5.0.0"
