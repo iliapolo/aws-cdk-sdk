@@ -1,5 +1,6 @@
 import * as elastic from '@aws-cdk/aws-elasticsearch';
 import * as cdk from '@aws-cdk/core';
+import * as sdk from 'aws-sdk';
 import * as AWS from '../src';
 
 test('hello', () => {

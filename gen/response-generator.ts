@@ -1,7 +1,7 @@
 import { CodeMaker } from 'codemaker';
 import * as structs from './structs';
 import * as sdk from './sdk-repository';
-import { AwsCustomResourceGenerator } from './aws-custom-resource-generator';
+import { AwsCustomResourceGenerator } from './custom-resource-generator';
 
 export interface ResponseGeneratorProps {
 
@@ -60,11 +60,13 @@ export class ResponseGenerator {
     this.props.code.openBlock(`export class ${this.props.className} extends cdk.Construct`);
 
     const resourcesArg = this.acceptsResources ? ', private readonly resources: string[]': '';
-    const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly input: shapes.${this.props.code.toPascalCase(this.props.inputShape)}`: '';
+    const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly input: shapes.${this.props.code.toPascalCase(`${this.props.client.className}${this.props.inputShape}`)}`: '';
 
+    this.props.code.line();
     this.props.code.openBlock(`constructor(scope: cdk.Construct, id: string${resourcesArg}${inputArg})`);
     this.props.code.line('super(scope, id);')
     this.props.code.closeBlock();
+    this.props.code.line();
 
     const responseGenerators: ResponseGenerator[] = [];
     const responses = new Map<string, ResponseGenerator>();
@@ -107,9 +109,11 @@ export class ResponseGenerator {
         this.props.code.line(`return new ${responseName}(this, '${property.output}'${resourcesIn}${inputIn});`);
       }
       this.props.code.closeBlock();
+      this.props.code.line();
     }
 
     this.props.code.closeBlock();
+    this.props.code.line();
 
     for (const responseGenerator of responseGenerators) {
       responseGenerator.render();
@@ -168,7 +172,7 @@ export class ResponseGenerator {
       case structs.ShapeType.STRING:
         return 'string';
       case structs.ShapeType.STRUCTURE:
-        return `shapes.${this.props.code.toPascalCase(sdkType)}`;
+        return `shapes.${this.props.code.toPascalCase(`${this.props.client.className}${sdkType}`)}`;
       case structs.ShapeType.TIMESTAMP:
         return 'string';
       case structs.ShapeType.LIST:

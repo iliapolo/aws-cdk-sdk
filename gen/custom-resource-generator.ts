@@ -154,7 +154,7 @@ export class AwsCustomResourceGenerator {
       case structs.ShapeType.STRING:
         return 'string';
       case structs.ShapeType.STRUCTURE:
-        return `shapes.${this.props.code.toPascalCase(sdkType)}`;
+        return `shapes.${this.props.code.toPascalCase(`${this.props.client.className}${sdkType}`)}`;
       case structs.ShapeType.TIMESTAMP:
         return 'string';
       case structs.ShapeType.LIST:

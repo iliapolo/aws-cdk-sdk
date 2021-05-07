@@ -5,7 +5,7 @@ import * as maker from 'codemaker';
 import * as path from 'path';
 
 const INCLUDE = ['ES'];
-// const EXCLUDE = ['kendra.d.ts'];
+// const EXCLUDE = ['Kendra', 'Pinpoint'];
 
 async function main(repoPath: string) {
 

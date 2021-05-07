@@ -3,13 +3,16 @@ import * as cr from '@aws-cdk/custom-resources';
 import * as shapes from './shapes';
 
 export class EsClient extends cdk.Construct {
+
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public acceptInboundCrossClusterSearchConnection(input: shapes.AcceptInboundCrossClusterSearchConnectionRequest): ESAcceptInboundCrossClusterSearchConnectionResponse {
+
+  public acceptInboundCrossClusterSearchConnection(input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest): ESAcceptInboundCrossClusterSearchConnectionResponse {
     return new ESAcceptInboundCrossClusterSearchConnectionResponse(this, 'AcceptInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public addTags(input: shapes.AddTagsRequest): void {
+
+  public addTags(input: shapes.EsAddTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -24,24 +27,31 @@ export class EsClient extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'AddTags', props);
   }
-  public associatePackage(input: shapes.AssociatePackageRequest): ESAssociatePackageResponse {
+
+  public associatePackage(input: shapes.EsAssociatePackageRequest): ESAssociatePackageResponse {
     return new ESAssociatePackageResponse(this, 'AssociatePackageResponse', this.resources, input);
   }
-  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest): ESCancelElasticsearchServiceSoftwareUpdateResponse {
+
+  public cancelElasticsearchServiceSoftwareUpdate(input: shapes.EsCancelElasticsearchServiceSoftwareUpdateRequest): ESCancelElasticsearchServiceSoftwareUpdateResponse {
     return new ESCancelElasticsearchServiceSoftwareUpdateResponse(this, 'CancelElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
   }
-  public createElasticsearchDomain(input: shapes.CreateElasticsearchDomainRequest): ESCreateElasticsearchDomainResponse {
+
+  public createElasticsearchDomain(input: shapes.EsCreateElasticsearchDomainRequest): ESCreateElasticsearchDomainResponse {
     return new ESCreateElasticsearchDomainResponse(this, 'CreateElasticsearchDomainResponse', this.resources, input);
   }
-  public createOutboundCrossClusterSearchConnection(input: shapes.CreateOutboundCrossClusterSearchConnectionRequest): ESCreateOutboundCrossClusterSearchConnectionResponse {
+
+  public createOutboundCrossClusterSearchConnection(input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest): ESCreateOutboundCrossClusterSearchConnectionResponse {
     return new ESCreateOutboundCrossClusterSearchConnectionResponse(this, 'CreateOutboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public createPackage(input: shapes.CreatePackageRequest): ESCreatePackageResponse {
+
+  public createPackage(input: shapes.EsCreatePackageRequest): ESCreatePackageResponse {
     return new ESCreatePackageResponse(this, 'CreatePackageResponse', this.resources, input);
   }
-  public deleteElasticsearchDomain(input: shapes.DeleteElasticsearchDomainRequest): ESDeleteElasticsearchDomainResponse {
+
+  public deleteElasticsearchDomain(input: shapes.EsDeleteElasticsearchDomainRequest): ESDeleteElasticsearchDomainResponse {
     return new ESDeleteElasticsearchDomainResponse(this, 'DeleteElasticsearchDomainResponse', this.resources, input);
   }
+
   public deleteElasticsearchServiceRole(): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -53,82 +63,108 @@ export class EsClient extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'DeleteElasticsearchServiceRole', props);
   }
-  public deleteInboundCrossClusterSearchConnection(input: shapes.DeleteInboundCrossClusterSearchConnectionRequest): ESDeleteInboundCrossClusterSearchConnectionResponse {
+
+  public deleteInboundCrossClusterSearchConnection(input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest): ESDeleteInboundCrossClusterSearchConnectionResponse {
     return new ESDeleteInboundCrossClusterSearchConnectionResponse(this, 'DeleteInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public deleteOutboundCrossClusterSearchConnection(input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest): ESDeleteOutboundCrossClusterSearchConnectionResponse {
+
+  public deleteOutboundCrossClusterSearchConnection(input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest): ESDeleteOutboundCrossClusterSearchConnectionResponse {
     return new ESDeleteOutboundCrossClusterSearchConnectionResponse(this, 'DeleteOutboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public deletePackage(input: shapes.DeletePackageRequest): ESDeletePackageResponse {
+
+  public deletePackage(input: shapes.EsDeletePackageRequest): ESDeletePackageResponse {
     return new ESDeletePackageResponse(this, 'DeletePackageResponse', this.resources, input);
   }
-  public describeElasticsearchDomain(input: shapes.DescribeElasticsearchDomainRequest): ESDescribeElasticsearchDomainResponse {
+
+  public describeElasticsearchDomain(input: shapes.EsDescribeElasticsearchDomainRequest): ESDescribeElasticsearchDomainResponse {
     return new ESDescribeElasticsearchDomainResponse(this, 'DescribeElasticsearchDomainResponse', this.resources, input);
   }
-  public describeElasticsearchDomainConfig(input: shapes.DescribeElasticsearchDomainConfigRequest): ESDescribeElasticsearchDomainConfigResponse {
+
+  public describeElasticsearchDomainConfig(input: shapes.EsDescribeElasticsearchDomainConfigRequest): ESDescribeElasticsearchDomainConfigResponse {
     return new ESDescribeElasticsearchDomainConfigResponse(this, 'DescribeElasticsearchDomainConfigResponse', this.resources, input);
   }
-  public describeElasticsearchDomains(input: shapes.DescribeElasticsearchDomainsRequest): ESDescribeElasticsearchDomainsResponse {
+
+  public describeElasticsearchDomains(input: shapes.EsDescribeElasticsearchDomainsRequest): ESDescribeElasticsearchDomainsResponse {
     return new ESDescribeElasticsearchDomainsResponse(this, 'DescribeElasticsearchDomainsResponse', this.resources, input);
   }
-  public describeElasticsearchInstanceTypeLimits(input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest): ESDescribeElasticsearchInstanceTypeLimitsResponse {
+
+  public describeElasticsearchInstanceTypeLimits(input: shapes.EsDescribeElasticsearchInstanceTypeLimitsRequest): ESDescribeElasticsearchInstanceTypeLimitsResponse {
     return new ESDescribeElasticsearchInstanceTypeLimitsResponse(this, 'DescribeElasticsearchInstanceTypeLimitsResponse', this.resources, input);
   }
-  public describeInboundCrossClusterSearchConnections(input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest): ESDescribeInboundCrossClusterSearchConnectionsResponse {
+
+  public describeInboundCrossClusterSearchConnections(input: shapes.EsDescribeInboundCrossClusterSearchConnectionsRequest): ESDescribeInboundCrossClusterSearchConnectionsResponse {
     return new ESDescribeInboundCrossClusterSearchConnectionsResponse(this, 'DescribeInboundCrossClusterSearchConnectionsResponse', this.resources, input);
   }
-  public describeOutboundCrossClusterSearchConnections(input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest): ESDescribeOutboundCrossClusterSearchConnectionsResponse {
+
+  public describeOutboundCrossClusterSearchConnections(input: shapes.EsDescribeOutboundCrossClusterSearchConnectionsRequest): ESDescribeOutboundCrossClusterSearchConnectionsResponse {
     return new ESDescribeOutboundCrossClusterSearchConnectionsResponse(this, 'DescribeOutboundCrossClusterSearchConnectionsResponse', this.resources, input);
   }
-  public describePackages(input: shapes.DescribePackagesRequest): ESDescribePackagesResponse {
+
+  public describePackages(input: shapes.EsDescribePackagesRequest): ESDescribePackagesResponse {
     return new ESDescribePackagesResponse(this, 'DescribePackagesResponse', this.resources, input);
   }
-  public describeReservedElasticsearchInstanceOfferings(input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest): ESDescribeReservedElasticsearchInstanceOfferingsResponse {
+
+  public describeReservedElasticsearchInstanceOfferings(input: shapes.EsDescribeReservedElasticsearchInstanceOfferingsRequest): ESDescribeReservedElasticsearchInstanceOfferingsResponse {
     return new ESDescribeReservedElasticsearchInstanceOfferingsResponse(this, 'DescribeReservedElasticsearchInstanceOfferingsResponse', this.resources, input);
   }
-  public describeReservedElasticsearchInstances(input: shapes.DescribeReservedElasticsearchInstancesRequest): ESDescribeReservedElasticsearchInstancesResponse {
+
+  public describeReservedElasticsearchInstances(input: shapes.EsDescribeReservedElasticsearchInstancesRequest): ESDescribeReservedElasticsearchInstancesResponse {
     return new ESDescribeReservedElasticsearchInstancesResponse(this, 'DescribeReservedElasticsearchInstancesResponse', this.resources, input);
   }
-  public dissociatePackage(input: shapes.DissociatePackageRequest): ESDissociatePackageResponse {
+
+  public dissociatePackage(input: shapes.EsDissociatePackageRequest): ESDissociatePackageResponse {
     return new ESDissociatePackageResponse(this, 'DissociatePackageResponse', this.resources, input);
   }
-  public fetchCompatibleElasticsearchVersions(input: shapes.GetCompatibleElasticsearchVersionsRequest): ESGetCompatibleElasticsearchVersionsResponse {
+
+  public fetchCompatibleElasticsearchVersions(input: shapes.EsGetCompatibleElasticsearchVersionsRequest): ESGetCompatibleElasticsearchVersionsResponse {
     return new ESGetCompatibleElasticsearchVersionsResponse(this, 'GetCompatibleElasticsearchVersionsResponse', this.resources, input);
   }
-  public fetchPackageVersionHistory(input: shapes.GetPackageVersionHistoryRequest): ESGetPackageVersionHistoryResponse {
+
+  public fetchPackageVersionHistory(input: shapes.EsGetPackageVersionHistoryRequest): ESGetPackageVersionHistoryResponse {
     return new ESGetPackageVersionHistoryResponse(this, 'GetPackageVersionHistoryResponse', this.resources, input);
   }
-  public fetchUpgradeHistory(input: shapes.GetUpgradeHistoryRequest): ESGetUpgradeHistoryResponse {
+
+  public fetchUpgradeHistory(input: shapes.EsGetUpgradeHistoryRequest): ESGetUpgradeHistoryResponse {
     return new ESGetUpgradeHistoryResponse(this, 'GetUpgradeHistoryResponse', this.resources, input);
   }
-  public fetchUpgradeStatus(input: shapes.GetUpgradeStatusRequest): ESGetUpgradeStatusResponse {
+
+  public fetchUpgradeStatus(input: shapes.EsGetUpgradeStatusRequest): ESGetUpgradeStatusResponse {
     return new ESGetUpgradeStatusResponse(this, 'GetUpgradeStatusResponse', this.resources, input);
   }
+
   public listDomainNames(): ESListDomainNamesResponse {
     return new ESListDomainNamesResponse(this, 'ListDomainNamesResponse', this.resources);
   }
-  public listDomainsForPackage(input: shapes.ListDomainsForPackageRequest): ESListDomainsForPackageResponse {
+
+  public listDomainsForPackage(input: shapes.EsListDomainsForPackageRequest): ESListDomainsForPackageResponse {
     return new ESListDomainsForPackageResponse(this, 'ListDomainsForPackageResponse', this.resources, input);
   }
-  public listElasticsearchInstanceTypes(input: shapes.ListElasticsearchInstanceTypesRequest): ESListElasticsearchInstanceTypesResponse {
+
+  public listElasticsearchInstanceTypes(input: shapes.EsListElasticsearchInstanceTypesRequest): ESListElasticsearchInstanceTypesResponse {
     return new ESListElasticsearchInstanceTypesResponse(this, 'ListElasticsearchInstanceTypesResponse', this.resources, input);
   }
-  public listElasticsearchVersions(input: shapes.ListElasticsearchVersionsRequest): ESListElasticsearchVersionsResponse {
+
+  public listElasticsearchVersions(input: shapes.EsListElasticsearchVersionsRequest): ESListElasticsearchVersionsResponse {
     return new ESListElasticsearchVersionsResponse(this, 'ListElasticsearchVersionsResponse', this.resources, input);
   }
-  public listPackagesForDomain(input: shapes.ListPackagesForDomainRequest): ESListPackagesForDomainResponse {
+
+  public listPackagesForDomain(input: shapes.EsListPackagesForDomainRequest): ESListPackagesForDomainResponse {
     return new ESListPackagesForDomainResponse(this, 'ListPackagesForDomainResponse', this.resources, input);
   }
-  public listTags(input: shapes.ListTagsRequest): ESListTagsResponse {
+
+  public listTags(input: shapes.EsListTagsRequest): ESListTagsResponse {
     return new ESListTagsResponse(this, 'ListTagsResponse', this.resources, input);
   }
-  public purchaseReservedElasticsearchInstanceOffering(input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest): ESPurchaseReservedElasticsearchInstanceOfferingResponse {
+
+  public purchaseReservedElasticsearchInstanceOffering(input: shapes.EsPurchaseReservedElasticsearchInstanceOfferingRequest): ESPurchaseReservedElasticsearchInstanceOfferingResponse {
     return new ESPurchaseReservedElasticsearchInstanceOfferingResponse(this, 'PurchaseReservedElasticsearchInstanceOfferingResponse', this.resources, input);
   }
-  public rejectInboundCrossClusterSearchConnection(input: shapes.RejectInboundCrossClusterSearchConnectionRequest): ESRejectInboundCrossClusterSearchConnectionResponse {
+
+  public rejectInboundCrossClusterSearchConnection(input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest): ESRejectInboundCrossClusterSearchConnectionResponse {
     return new ESRejectInboundCrossClusterSearchConnectionResponse(this, 'RejectInboundCrossClusterSearchConnectionResponse', this.resources, input);
   }
-  public removeTags(input: shapes.RemoveTagsRequest): void {
+
+  public removeTags(input: shapes.EsRemoveTagsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -143,37 +179,51 @@ export class EsClient extends cdk.Construct {
     };
     new cr.AwsCustomResource(this, 'RemoveTags', props);
   }
-  public startElasticsearchServiceSoftwareUpdate(input: shapes.StartElasticsearchServiceSoftwareUpdateRequest): ESStartElasticsearchServiceSoftwareUpdateResponse {
+
+  public startElasticsearchServiceSoftwareUpdate(input: shapes.EsStartElasticsearchServiceSoftwareUpdateRequest): ESStartElasticsearchServiceSoftwareUpdateResponse {
     return new ESStartElasticsearchServiceSoftwareUpdateResponse(this, 'StartElasticsearchServiceSoftwareUpdateResponse', this.resources, input);
   }
-  public updateElasticsearchDomainConfig(input: shapes.UpdateElasticsearchDomainConfigRequest): ESUpdateElasticsearchDomainConfigResponse {
+
+  public updateElasticsearchDomainConfig(input: shapes.EsUpdateElasticsearchDomainConfigRequest): ESUpdateElasticsearchDomainConfigResponse {
     return new ESUpdateElasticsearchDomainConfigResponse(this, 'UpdateElasticsearchDomainConfigResponse', this.resources, input);
   }
-  public updatePackage(input: shapes.UpdatePackageRequest): ESUpdatePackageResponse {
+
+  public updatePackage(input: shapes.EsUpdatePackageRequest): ESUpdatePackageResponse {
     return new ESUpdatePackageResponse(this, 'UpdatePackageResponse', this.resources, input);
   }
-  public upgradeElasticsearchDomain(input: shapes.UpgradeElasticsearchDomainRequest): ESUpgradeElasticsearchDomainResponse {
+
+  public upgradeElasticsearchDomain(input: shapes.EsUpgradeElasticsearchDomainRequest): ESUpgradeElasticsearchDomainResponse {
     return new ESUpgradeElasticsearchDomainResponse(this, 'UpgradeElasticsearchDomainResponse', this.resources, input);
   }
+
 }
+
 export class ESAcceptInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get crossClusterSearchConnection(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
     return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
+
 }
+
 export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get sourceDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get destinationDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -190,14 +240,19 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
+
   public get connectionStatus(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
     return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get ownerId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -214,6 +269,7 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -230,6 +286,7 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
+
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -246,11 +303,15 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
+
 }
+
 export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AcceptInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get statusCode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -267,6 +328,7 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
+
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -283,19 +345,27 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
+
 }
+
 export class ESAssociatePackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAssociatePackageRequest) {
     super(scope, id);
   }
+
   public get domainPackageDetails(): ESAssociatePackageResponseDomainPackageDetails {
     return new ESAssociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
   }
+
 }
+
 export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAssociatePackageRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -313,6 +383,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.PackageID', props);
     return resource.getResponseField('DomainPackageDetails.PackageID') as unknown as string;
   }
+
   public get packageName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -330,6 +401,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.PackageName', props);
     return resource.getResponseField('DomainPackageDetails.PackageName') as unknown as string;
   }
+
   public get packageType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -347,6 +419,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.PackageType', props);
     return resource.getResponseField('DomainPackageDetails.PackageType') as unknown as string;
   }
+
   public get lastUpdated(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -364,6 +437,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.LastUpdated', props);
     return resource.getResponseField('DomainPackageDetails.LastUpdated') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -381,6 +455,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.DomainName', props);
     return resource.getResponseField('DomainPackageDetails.DomainName') as unknown as string;
   }
+
   public get domainPackageStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -398,6 +473,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.DomainPackageStatus', props);
     return resource.getResponseField('DomainPackageDetails.DomainPackageStatus') as unknown as string;
   }
+
   public get packageVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -415,6 +491,7 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.PackageVersion', props);
     return resource.getResponseField('DomainPackageDetails.PackageVersion') as unknown as string;
   }
+
   public get referencePath(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -432,14 +509,19 @@ export class ESAssociatePackageResponseDomainPackageDetails extends cdk.Construc
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ReferencePath', props);
     return resource.getResponseField('DomainPackageDetails.ReferencePath') as unknown as string;
   }
+
   public get errorDetails(): ESAssociatePackageResponseDomainPackageDetailsErrorDetails {
     return new ESAssociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
+
 }
+
 export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.AssociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAssociatePackageRequest) {
     super(scope, id);
   }
+
   public get errorType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -457,6 +539,7 @@ export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends 
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorType', props);
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
+
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -474,19 +557,27 @@ export class ESAssociatePackageResponseDomainPackageDetailsErrorDetails extends 
     const resource = new cr.AwsCustomResource(this, 'AssociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage', props);
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
+
 }
+
 export class ESCancelElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCancelElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
+
   public get serviceSoftwareOptions(): ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
     return new ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
+
 }
+
 export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CancelElasticsearchServiceSoftwareUpdateRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCancelElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
+
   public get currentVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -503,6 +594,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion', props);
     return resource.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
+
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -519,6 +611,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion', props);
     return resource.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
+
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -535,6 +628,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable', props);
     return resource.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
+
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -551,6 +645,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable', props);
     return resource.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
+
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -567,6 +662,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus', props);
     return resource.getResponseField('ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -583,6 +679,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description', props);
     return resource.getResponseField('ServiceSoftwareOptions.Description') as unknown as string;
   }
+
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -599,6 +696,7 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate', props);
     return resource.getResponseField('ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
+
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -615,19 +713,27 @@ export class ESCancelElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOp
     const resource = new cr.AwsCustomResource(this, 'CancelElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment', props);
     return resource.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainStatus(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatus {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -716,6 +822,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainId', props);
     return resource.getResponseField('DomainStatus.DomainId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -804,6 +911,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainName', props);
     return resource.getResponseField('DomainStatus.DomainName') as unknown as string;
   }
+
   public get arn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -892,6 +1000,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ARN', props);
     return resource.getResponseField('DomainStatus.ARN') as unknown as string;
   }
+
   public get created(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -980,6 +1089,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.Created', props);
     return resource.getResponseField('DomainStatus.Created') as unknown as boolean;
   }
+
   public get deleted(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1068,6 +1178,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.Deleted', props);
     return resource.getResponseField('DomainStatus.Deleted') as unknown as boolean;
   }
+
   public get endpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1156,6 +1267,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.Endpoint', props);
     return resource.getResponseField('DomainStatus.Endpoint') as unknown as string;
   }
+
   public get endpoints(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1244,6 +1356,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.Endpoints', props);
     return resource.getResponseField('DomainStatus.Endpoints') as unknown as Record<string, string>;
   }
+
   public get processing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1332,6 +1445,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.Processing', props);
     return resource.getResponseField('DomainStatus.Processing') as unknown as boolean;
   }
+
   public get upgradeProcessing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1420,6 +1534,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
     return resource.getResponseField('DomainStatus.UpgradeProcessing') as unknown as boolean;
   }
+
   public get elasticsearchVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1508,12 +1623,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
+
   public get elasticsearchClusterConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
+
   public get ebsOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
+
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1602,21 +1720,27 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
+
   public get snapshotOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
+
   public get vpcOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
+
   public get cognitoOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
+
   public get encryptionAtRestOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
+
   public get nodeToNodeEncryptionOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
+
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1705,7 +1829,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedOptions', props);
     return resource.getResponseField('DomainStatus.AdvancedOptions') as unknown as Record<string, string>;
   }
-  public get logPublishingOptions(): Record<string, shapes.LogPublishingOption> {
+
+  public get logPublishingOptions(): Record<string, shapes.EsLogPublishingOption> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -1791,22 +1916,29 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
       },
     };
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
-    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
+    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
+
   public get serviceSoftwareOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
+
   public get domainEndpointOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
+
   public get advancedSecurityOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get instanceType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1895,6 +2027,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
+
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -1983,6 +2116,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
+
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2071,6 +2205,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2159,9 +2294,11 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
+
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2250,6 +2387,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
+
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2338,6 +2476,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
+
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2426,6 +2565,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
+
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2514,6 +2654,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
+
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2602,11 +2743,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get availabilityZoneCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2695,11 +2840,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get ebsEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2788,6 +2937,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
     return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
+
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2876,6 +3026,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
+
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -2964,6 +3115,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
+
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3052,11 +3204,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
     return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get automatedSnapshotStartHour(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3145,11 +3301,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
     return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get vpcId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3238,6 +3398,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
     return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
+
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3326,6 +3487,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
+
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3414,6 +3576,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
     return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
+
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3502,11 +3665,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3595,6 +3762,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
+
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3683,6 +3851,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
+
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3771,6 +3940,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3859,11 +4029,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -3952,6 +4126,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
+
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4040,11 +4215,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4133,11 +4312,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get currentVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4226,6 +4409,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
+
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4314,6 +4498,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
+
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4402,6 +4587,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
+
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4490,6 +4676,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
+
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4578,6 +4765,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4666,6 +4854,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
+
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4754,6 +4943,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
+
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4842,11 +5032,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enforceHttps(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -4935,6 +5129,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
+
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5023,6 +5218,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
+
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5111,6 +5307,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
+
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5199,6 +5396,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
+
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5287,11 +5485,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5380,6 +5582,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
+
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5468,14 +5671,19 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
+
   public get samlOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5564,9 +5772,11 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
+
   public get idp(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
+
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5655,6 +5865,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
+
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5743,6 +5954,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
+
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5831,11 +6043,15 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
+
 }
+
 export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get metadataContent(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -5924,6 +6140,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
+
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6012,17 +6229,23 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'CreateElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
+
 }
+
 export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get sourceDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
     return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get destinationDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
     return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get connectionAlias(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6049,9 +6272,11 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.ConnectionAlias', props);
     return resource.getResponseField('ConnectionAlias') as unknown as string;
   }
+
   public get connectionStatus(): ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus {
     return new ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
+
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6078,11 +6303,15 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnectionId') as unknown as string;
   }
+
 }
+
 export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get ownerId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6109,6 +6338,7 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformati
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
     return resource.getResponseField('SourceDomainInfo.OwnerId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6135,6 +6365,7 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformati
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
     return resource.getResponseField('SourceDomainInfo.DomainName') as unknown as string;
   }
+
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6161,11 +6392,15 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformati
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.SourceDomainInfo.Region', props);
     return resource.getResponseField('SourceDomainInfo.Region') as unknown as string;
   }
+
 }
+
 export class ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreateOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get statusCode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6192,6 +6427,7 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
     return resource.getResponseField('ConnectionStatus.StatusCode') as unknown as string;
   }
+
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6218,19 +6454,27 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.ConnectionStatus.Message', props);
     return resource.getResponseField('ConnectionStatus.Message') as unknown as string;
   }
+
 }
+
 export class ESCreatePackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreatePackageRequest) {
     super(scope, id);
   }
+
   public get packageDetails(): ESCreatePackageResponsePackageDetails {
     return new ESCreatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
+
 }
+
 export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreatePackageRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6253,6 +6497,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.PackageID', props);
     return resource.getResponseField('PackageDetails.PackageID') as unknown as string;
   }
+
   public get packageName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6275,6 +6520,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.PackageName', props);
     return resource.getResponseField('PackageDetails.PackageName') as unknown as string;
   }
+
   public get packageType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6297,6 +6543,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.PackageType', props);
     return resource.getResponseField('PackageDetails.PackageType') as unknown as string;
   }
+
   public get packageDescription(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6319,6 +6566,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.PackageDescription', props);
     return resource.getResponseField('PackageDetails.PackageDescription') as unknown as string;
   }
+
   public get packageStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6341,6 +6589,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.PackageStatus', props);
     return resource.getResponseField('PackageDetails.PackageStatus') as unknown as string;
   }
+
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6363,6 +6612,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.CreatedAt', props);
     return resource.getResponseField('PackageDetails.CreatedAt') as unknown as string;
   }
+
   public get lastUpdatedAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6385,6 +6635,7 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.LastUpdatedAt', props);
     return resource.getResponseField('PackageDetails.LastUpdatedAt') as unknown as string;
   }
+
   public get availablePackageVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6407,14 +6658,19 @@ export class ESCreatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
+
   public get errorDetails(): ESCreatePackageResponsePackageDetailsErrorDetails {
     return new ESCreatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
+
 }
+
 export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.CreatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreatePackageRequest) {
     super(scope, id);
   }
+
   public get errorType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6437,6 +6693,7 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorType', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
+
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6459,19 +6716,27 @@ export class ESCreatePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'CreatePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainStatus(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6488,6 +6753,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainId', props);
     return resource.getResponseField('DomainStatus.DomainId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6504,6 +6770,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainName', props);
     return resource.getResponseField('DomainStatus.DomainName') as unknown as string;
   }
+
   public get arn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6520,6 +6787,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ARN', props);
     return resource.getResponseField('DomainStatus.ARN') as unknown as string;
   }
+
   public get created(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6536,6 +6804,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.Created', props);
     return resource.getResponseField('DomainStatus.Created') as unknown as boolean;
   }
+
   public get deleted(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6552,6 +6821,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.Deleted', props);
     return resource.getResponseField('DomainStatus.Deleted') as unknown as boolean;
   }
+
   public get endpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6568,6 +6838,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.Endpoint', props);
     return resource.getResponseField('DomainStatus.Endpoint') as unknown as string;
   }
+
   public get endpoints(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6584,6 +6855,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.Endpoints', props);
     return resource.getResponseField('DomainStatus.Endpoints') as unknown as Record<string, string>;
   }
+
   public get processing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6600,6 +6872,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.Processing', props);
     return resource.getResponseField('DomainStatus.Processing') as unknown as boolean;
   }
+
   public get upgradeProcessing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6616,6 +6889,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
     return resource.getResponseField('DomainStatus.UpgradeProcessing') as unknown as boolean;
   }
+
   public get elasticsearchVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6632,12 +6906,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
+
   public get elasticsearchClusterConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
+
   public get ebsOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
+
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6654,21 +6931,27 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
+
   public get snapshotOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
+
   public get vpcOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
+
   public get cognitoOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
+
   public get encryptionAtRestOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
+
   public get nodeToNodeEncryptionOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
+
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6685,7 +6968,8 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedOptions', props);
     return resource.getResponseField('DomainStatus.AdvancedOptions') as unknown as Record<string, string>;
   }
-  public get logPublishingOptions(): Record<string, shapes.LogPublishingOption> {
+
+  public get logPublishingOptions(): Record<string, shapes.EsLogPublishingOption> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -6699,22 +6983,29 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
-    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
+    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
+
   public get serviceSoftwareOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
+
   public get domainEndpointOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
+
   public get advancedSecurityOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get instanceType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6731,6 +7022,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
+
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6747,6 +7039,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
+
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6763,6 +7056,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6779,9 +7073,11 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
+
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6798,6 +7094,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
+
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6814,6 +7111,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
+
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6830,6 +7128,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
+
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6846,6 +7145,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
+
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6862,11 +7162,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get availabilityZoneCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6883,11 +7187,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get ebsEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6904,6 +7212,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
     return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
+
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6920,6 +7229,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
+
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6936,6 +7246,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
+
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6952,11 +7263,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
     return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get automatedSnapshotStartHour(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6973,11 +7288,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
     return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get vpcId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -6994,6 +7313,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
     return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
+
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7010,6 +7330,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
+
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7026,6 +7347,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
     return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
+
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7042,11 +7364,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7063,6 +7389,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
+
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7079,6 +7406,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
+
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7095,6 +7423,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7111,11 +7440,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7132,6 +7465,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
+
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7148,11 +7482,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7169,11 +7507,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get currentVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7190,6 +7532,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
+
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7206,6 +7549,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
+
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7222,6 +7566,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
+
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7238,6 +7583,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
+
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7254,6 +7600,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7270,6 +7617,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
+
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7286,6 +7634,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
+
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7302,11 +7651,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enforceHttps(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7323,6 +7676,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
+
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7339,6 +7693,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
+
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7355,6 +7710,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
+
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7371,6 +7727,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
+
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7387,11 +7744,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7408,6 +7769,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
+
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7424,14 +7786,19 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
+
   public get samlOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7448,9 +7815,11 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
+
   public get idp(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
+
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7467,6 +7836,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
+
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7483,6 +7853,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
+
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7499,11 +7870,15 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
+
 }
+
 export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get metadataContent(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7520,6 +7895,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
+
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7536,25 +7912,35 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     const resource = new cr.AwsCustomResource(this, 'DeleteElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
+
 }
+
 export class ESDeleteInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get crossClusterSearchConnection(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
     return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get sourceDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get destinationDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7571,14 +7957,19 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
+
   public get connectionStatus(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
     return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get ownerId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7595,6 +7986,7 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7611,6 +8003,7 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
+
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7627,11 +8020,15 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
+
 }
+
 export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get statusCode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7648,6 +8045,7 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
+
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7664,25 +8062,35 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
+
 }
+
 export class ESDeleteOutboundCrossClusterSearchConnectionResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get crossClusterSearchConnection(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection {
     return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection(this, 'OutboundCrossClusterSearchConnection', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get sourceDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
     return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get destinationDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
     return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7699,6 +8107,7 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
+
   public get connectionAlias(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7715,14 +8124,19 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionAlias', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionAlias') as unknown as string;
   }
+
   public get connectionStatus(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus {
     return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get ownerId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7739,6 +8153,7 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7755,6 +8170,7 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
+
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7771,11 +8187,15 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
+
 }
+
 export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeleteOutboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get statusCode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7792,6 +8212,7 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
+
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7808,19 +8229,27 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
+
 }
+
 export class ESDeletePackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeletePackageRequest) {
     super(scope, id);
   }
+
   public get packageDetails(): ESDeletePackageResponsePackageDetails {
     return new ESDeletePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
+
 }
+
 export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeletePackageRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7837,6 +8266,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.PackageID', props);
     return resource.getResponseField('PackageDetails.PackageID') as unknown as string;
   }
+
   public get packageName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7853,6 +8283,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.PackageName', props);
     return resource.getResponseField('PackageDetails.PackageName') as unknown as string;
   }
+
   public get packageType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7869,6 +8300,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.PackageType', props);
     return resource.getResponseField('PackageDetails.PackageType') as unknown as string;
   }
+
   public get packageDescription(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7885,6 +8317,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.PackageDescription', props);
     return resource.getResponseField('PackageDetails.PackageDescription') as unknown as string;
   }
+
   public get packageStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7901,6 +8334,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.PackageStatus', props);
     return resource.getResponseField('PackageDetails.PackageStatus') as unknown as string;
   }
+
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7917,6 +8351,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.CreatedAt', props);
     return resource.getResponseField('PackageDetails.CreatedAt') as unknown as string;
   }
+
   public get lastUpdatedAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7933,6 +8368,7 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.LastUpdatedAt', props);
     return resource.getResponseField('PackageDetails.LastUpdatedAt') as unknown as string;
   }
+
   public get availablePackageVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7949,14 +8385,19 @@ export class ESDeletePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
+
   public get errorDetails(): ESDeletePackageResponsePackageDetailsErrorDetails {
     return new ESDeletePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
+
 }
+
 export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DeletePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeletePackageRequest) {
     super(scope, id);
   }
+
   public get errorType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7973,6 +8414,7 @@ export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorType', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
+
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -7989,19 +8431,27 @@ export class ESDeletePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'DeletePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainStatus(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8018,6 +8468,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainId', props);
     return resource.getResponseField('DomainStatus.DomainId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8034,6 +8485,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainName', props);
     return resource.getResponseField('DomainStatus.DomainName') as unknown as string;
   }
+
   public get arn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8050,6 +8502,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ARN', props);
     return resource.getResponseField('DomainStatus.ARN') as unknown as string;
   }
+
   public get created(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8066,6 +8519,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.Created', props);
     return resource.getResponseField('DomainStatus.Created') as unknown as boolean;
   }
+
   public get deleted(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8082,6 +8536,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.Deleted', props);
     return resource.getResponseField('DomainStatus.Deleted') as unknown as boolean;
   }
+
   public get endpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8098,6 +8553,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.Endpoint', props);
     return resource.getResponseField('DomainStatus.Endpoint') as unknown as string;
   }
+
   public get endpoints(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8114,6 +8570,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.Endpoints', props);
     return resource.getResponseField('DomainStatus.Endpoints') as unknown as Record<string, string>;
   }
+
   public get processing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8130,6 +8587,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.Processing', props);
     return resource.getResponseField('DomainStatus.Processing') as unknown as boolean;
   }
+
   public get upgradeProcessing(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8146,6 +8604,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.UpgradeProcessing', props);
     return resource.getResponseField('DomainStatus.UpgradeProcessing') as unknown as boolean;
   }
+
   public get elasticsearchVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8162,12 +8621,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchVersion', props);
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
+
   public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
+
   public get ebsOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
+
   public get accessPolicies(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8184,21 +8646,27 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AccessPolicies', props);
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
+
   public get snapshotOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
+
   public get vpcOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
+
   public get cognitoOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
+
   public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
+
   public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
+
   public get advancedOptions(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8215,7 +8683,8 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedOptions', props);
     return resource.getResponseField('DomainStatus.AdvancedOptions') as unknown as Record<string, string>;
   }
-  public get logPublishingOptions(): Record<string, shapes.LogPublishingOption> {
+
+  public get logPublishingOptions(): Record<string, shapes.EsLogPublishingOption> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -8229,22 +8698,29 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.LogPublishingOptions', props);
-    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.LogPublishingOption>;
+    return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
+
   public get serviceSoftwareOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
+
   public get domainEndpointOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
+
   public get advancedSecurityOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get instanceType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8261,6 +8737,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceType') as unknown as string;
   }
+
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8277,6 +8754,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.InstanceCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.InstanceCount') as unknown as number;
   }
+
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8293,6 +8771,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8309,9 +8788,11 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
+
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8328,6 +8809,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterType') as unknown as string;
   }
+
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8344,6 +8826,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.DedicatedMasterCount') as unknown as number;
   }
+
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8360,6 +8843,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmEnabled', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmEnabled') as unknown as boolean;
   }
+
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8376,6 +8860,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmType', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmType') as unknown as string;
   }
+
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8392,11 +8877,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.WarmCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.WarmCount') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get availabilityZoneCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8413,11 +8902,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get ebsEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8434,6 +8927,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.EBSEnabled', props);
     return resource.getResponseField('DomainStatus.EBSOptions.EBSEnabled') as unknown as boolean;
   }
+
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8450,6 +8944,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeType', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeType') as unknown as string;
   }
+
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8466,6 +8961,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.VolumeSize', props);
     return resource.getResponseField('DomainStatus.EBSOptions.VolumeSize') as unknown as number;
   }
+
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8482,11 +8978,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EBSOptions.Iops', props);
     return resource.getResponseField('DomainStatus.EBSOptions.Iops') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get automatedSnapshotStartHour(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8503,11 +9003,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnaps
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour', props);
     return resource.getResponseField('DomainStatus.SnapshotOptions.AutomatedSnapshotStartHour') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get vpcId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8524,6 +9028,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.VPCId', props);
     return resource.getResponseField('DomainStatus.VPCOptions.VPCId') as unknown as string;
   }
+
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8540,6 +9045,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.SubnetIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SubnetIds') as unknown as string[];
   }
+
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8556,6 +9062,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.AvailabilityZones', props);
     return resource.getResponseField('DomainStatus.VPCOptions.AvailabilityZones') as unknown as string[];
   }
+
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8572,11 +9079,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.VPCOptions.SecurityGroupIds', props);
     return resource.getResponseField('DomainStatus.VPCOptions.SecurityGroupIds') as unknown as string[];
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8593,6 +9104,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.Enabled') as unknown as boolean;
   }
+
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8609,6 +9121,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.UserPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.UserPoolId') as unknown as string;
   }
+
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8625,6 +9138,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.IdentityPoolId', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.IdentityPoolId') as unknown as string;
   }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8641,11 +9155,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.CognitoOptions.RoleArn', props);
     return resource.getResponseField('DomainStatus.CognitoOptions.RoleArn') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8662,6 +9180,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncry
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.Enabled') as unknown as boolean;
   }
+
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8678,11 +9197,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncry
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.EncryptionAtRestOptions.KmsKeyId', props);
     return resource.getResponseField('DomainStatus.EncryptionAtRestOptions.KmsKeyId') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8699,11 +9222,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeT
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.NodeToNodeEncryptionOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.NodeToNodeEncryptionOptions.Enabled') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get currentVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8720,6 +9247,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.CurrentVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
+
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8736,6 +9264,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.NewVersion', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
+
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8752,6 +9281,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateAvailable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
+
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8768,6 +9298,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Cancellable', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
+
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8784,6 +9315,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.UpdateStatus', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8800,6 +9332,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.Description', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.Description') as unknown as string;
   }
+
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8816,6 +9349,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
+
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8832,11 +9366,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.ServiceSoftwareOptions.OptionalDeployment', props);
     return resource.getResponseField('DomainStatus.ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enforceHttps(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8853,6 +9391,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.EnforceHTTPS', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.EnforceHTTPS') as unknown as boolean;
   }
+
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8869,6 +9408,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.TLSSecurityPolicy', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.TLSSecurityPolicy') as unknown as string;
   }
+
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8885,6 +9425,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointEnabled', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointEnabled') as unknown as boolean;
   }
+
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8901,6 +9442,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpoint', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpoint') as unknown as string;
   }
+
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8917,11 +9459,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn', props);
     return resource.getResponseField('DomainStatus.DomainEndpointOptions.CustomEndpointCertificateArn') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8938,6 +9484,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.Enabled') as unknown as boolean;
   }
+
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8954,14 +9501,19 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
+
   public get samlOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8978,9 +9530,11 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
+
   public get idp(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
+
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -8997,6 +9551,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SubjectKey') as unknown as string;
   }
+
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9013,6 +9568,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.RolesKey') as unknown as string;
   }
+
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9029,11 +9585,15 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get metadataContent(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9050,6 +9610,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
+
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9066,63 +9627,87 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomain.DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Idp.EntityId') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get domainConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get elasticsearchVersion(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
   }
+
   public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
   }
+
   public get ebsOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
   }
+
   public get accessPolicies(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
   }
+
   public get snapshotOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
   }
+
   public get vpcOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
   }
+
   public get cognitoOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
   }
+
   public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
   }
+
   public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
   }
+
   public get advancedOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
   }
+
   public get logPublishingOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
   }
+
   public get domainEndpointOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
   }
+
   public get advancedSecurityOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9139,14 +9724,19 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9163,6 +9753,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9179,6 +9770,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9195,6 +9787,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9211,6 +9804,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9227,22 +9821,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get instanceType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9259,6 +9862,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceType') as unknown as string;
   }
+
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9275,6 +9879,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as number;
   }
+
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9291,6 +9896,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9307,9 +9913,11 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
+
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9326,6 +9934,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType') as unknown as string;
   }
+
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9342,6 +9951,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount') as unknown as number;
   }
+
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9358,6 +9968,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as boolean;
   }
+
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9374,6 +9985,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmType') as unknown as string;
   }
+
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9390,11 +10002,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get availabilityZoneCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9411,11 +10027,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9432,6 +10052,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9448,6 +10069,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9464,6 +10086,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9480,6 +10103,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9496,22 +10120,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get ebsEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9528,6 +10161,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as boolean;
   }
+
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9544,6 +10178,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeType') as unknown as string;
   }
+
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9560,6 +10195,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeSize') as unknown as number;
   }
+
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9576,11 +10212,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.Iops') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9597,6 +10237,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9613,6 +10254,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9629,6 +10271,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9645,6 +10288,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9661,11 +10305,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9682,14 +10330,19 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9706,6 +10359,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9722,6 +10376,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9738,6 +10393,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9754,6 +10410,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9770,22 +10427,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get automatedSnapshotStartHour(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9802,11 +10468,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9823,6 +10493,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9839,6 +10510,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9855,6 +10527,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9871,6 +10544,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9887,22 +10561,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get vpcId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9919,6 +10602,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as string;
   }
+
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9935,6 +10619,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as string[];
   }
+
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9951,6 +10636,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.AvailabilityZones') as unknown as string[];
   }
+
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9967,11 +10653,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.SecurityGroupIds') as unknown as string[];
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -9988,6 +10678,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10004,6 +10695,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10020,6 +10712,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10036,6 +10729,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10052,22 +10746,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10084,6 +10787,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10100,6 +10804,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.UserPoolId') as unknown as string;
   }
+
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10116,6 +10821,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.IdentityPoolId') as unknown as string;
   }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10132,11 +10838,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.RoleArn') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10153,6 +10863,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10169,6 +10880,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10185,6 +10897,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10201,6 +10914,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10217,22 +10931,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10249,6 +10972,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10265,11 +10989,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10286,6 +11014,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10302,6 +11031,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10318,6 +11048,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10334,6 +11065,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10350,22 +11082,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10382,11 +11123,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10403,6 +11148,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10419,6 +11165,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10435,6 +11182,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10451,6 +11199,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10467,11 +11216,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10488,14 +11241,19 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10512,6 +11270,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10528,6 +11287,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10544,6 +11304,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10560,6 +11321,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10576,12 +11338,16 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): Record<string, shapes.LogPublishingOption> {
+
+  public get options(): Record<string, shapes.EsLogPublishingOption> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -10595,16 +11361,21 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10621,6 +11392,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10637,6 +11409,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10653,6 +11426,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10669,6 +11443,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10685,22 +11460,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enforceHttps(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10717,6 +11501,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as boolean;
   }
+
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10733,6 +11518,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy') as unknown as string;
   }
+
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10749,6 +11535,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as boolean;
   }
+
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10765,6 +11552,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpoint') as unknown as string;
   }
+
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10781,11 +11569,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10802,6 +11594,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10818,6 +11611,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10834,6 +11628,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10850,6 +11645,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10866,22 +11662,31 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
+
   public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10898,6 +11703,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10914,14 +11720,19 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
+
   public get samlOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10938,9 +11749,11 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
+
   public get idp(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
+
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10957,6 +11770,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as string;
   }
+
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10973,6 +11787,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as string;
   }
+
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -10989,11 +11804,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get metadataContent(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11010,6 +11829,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
+
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11026,11 +11846,15 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId') as unknown as string;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11047,6 +11871,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11063,6 +11888,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11079,6 +11905,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11095,6 +11922,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11111,12 +11939,16 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESDescribeElasticsearchDomainsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchDomainsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainsRequest) {
     super(scope, id);
   }
-  public get domainStatusList(): shapes.ElasticsearchDomainStatus[] {
+
+  public get domainStatusList(): shapes.EsElasticsearchDomainStatus[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11130,14 +11962,18 @@ export class ESDescribeElasticsearchDomainsResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchDomains.DomainStatusList', props);
-    return resource.getResponseField('DomainStatusList') as unknown as shapes.ElasticsearchDomainStatus[];
+    return resource.getResponseField('DomainStatusList') as unknown as shapes.EsElasticsearchDomainStatus[];
   }
+
 }
+
 export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeElasticsearchInstanceTypeLimitsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchInstanceTypeLimitsRequest) {
     super(scope, id);
   }
-  public get limitsByRole(): Record<string, shapes.Limits> {
+
+  public get limitsByRole(): Record<string, shapes.EsLimits> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11153,14 +11989,18 @@ export class ESDescribeElasticsearchInstanceTypeLimitsResponse extends cdk.Const
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeElasticsearchInstanceTypeLimits.LimitsByRole', props);
-    return resource.getResponseField('LimitsByRole') as unknown as Record<string, shapes.Limits>;
+    return resource.getResponseField('LimitsByRole') as unknown as Record<string, shapes.EsLimits>;
   }
+
 }
+
 export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeInboundCrossClusterSearchConnectionsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeInboundCrossClusterSearchConnectionsRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnections(): shapes.InboundCrossClusterSearchConnection[] {
+
+  public get crossClusterSearchConnections(): shapes.EsInboundCrossClusterSearchConnection[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11176,8 +12016,9 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.CrossClusterSearchConnections', props);
-    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.InboundCrossClusterSearchConnection[];
+    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.EsInboundCrossClusterSearchConnection[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11196,12 +12037,16 @@ export class ESDescribeInboundCrossClusterSearchConnectionsResponse extends cdk.
     const resource = new cr.AwsCustomResource(this, 'DescribeInboundCrossClusterSearchConnections.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeOutboundCrossClusterSearchConnectionsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeOutboundCrossClusterSearchConnectionsRequest) {
     super(scope, id);
   }
-  public get crossClusterSearchConnections(): shapes.OutboundCrossClusterSearchConnection[] {
+
+  public get crossClusterSearchConnections(): shapes.EsOutboundCrossClusterSearchConnection[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11217,8 +12062,9 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.CrossClusterSearchConnections', props);
-    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.OutboundCrossClusterSearchConnection[];
+    return resource.getResponseField('CrossClusterSearchConnections') as unknown as shapes.EsOutboundCrossClusterSearchConnection[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11237,12 +12083,16 @@ export class ESDescribeOutboundCrossClusterSearchConnectionsResponse extends cdk
     const resource = new cr.AwsCustomResource(this, 'DescribeOutboundCrossClusterSearchConnections.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESDescribePackagesResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribePackagesRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribePackagesRequest) {
     super(scope, id);
   }
-  public get packageDetailsList(): shapes.PackageDetails[] {
+
+  public get packageDetailsList(): shapes.EsPackageDetails[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11258,8 +12108,9 @@ export class ESDescribePackagesResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribePackages.PackageDetailsList', props);
-    return resource.getResponseField('PackageDetailsList') as unknown as shapes.PackageDetails[];
+    return resource.getResponseField('PackageDetailsList') as unknown as shapes.EsPackageDetails[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11278,11 +12129,15 @@ export class ESDescribePackagesResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'DescribePackages.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeReservedElasticsearchInstanceOfferingsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeReservedElasticsearchInstanceOfferingsRequest) {
     super(scope, id);
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11301,7 +12156,8 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
     const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
-  public get reservedElasticsearchInstanceOfferings(): shapes.ReservedElasticsearchInstanceOffering[] {
+
+  public get reservedElasticsearchInstanceOfferings(): shapes.EsReservedElasticsearchInstanceOffering[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11317,13 +12173,17 @@ export class ESDescribeReservedElasticsearchInstanceOfferingsResponse extends cd
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstanceOfferings.ReservedElasticsearchInstanceOfferings', props);
-    return resource.getResponseField('ReservedElasticsearchInstanceOfferings') as unknown as shapes.ReservedElasticsearchInstanceOffering[];
+    return resource.getResponseField('ReservedElasticsearchInstanceOfferings') as unknown as shapes.EsReservedElasticsearchInstanceOffering[];
   }
+
 }
+
 export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DescribeReservedElasticsearchInstancesRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeReservedElasticsearchInstancesRequest) {
     super(scope, id);
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11342,7 +12202,8 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
     const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
-  public get reservedElasticsearchInstances(): shapes.ReservedElasticsearchInstance[] {
+
+  public get reservedElasticsearchInstances(): shapes.EsReservedElasticsearchInstance[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11358,21 +12219,29 @@ export class ESDescribeReservedElasticsearchInstancesResponse extends cdk.Constr
       },
     };
     const resource = new cr.AwsCustomResource(this, 'DescribeReservedElasticsearchInstances.ReservedElasticsearchInstances', props);
-    return resource.getResponseField('ReservedElasticsearchInstances') as unknown as shapes.ReservedElasticsearchInstance[];
+    return resource.getResponseField('ReservedElasticsearchInstances') as unknown as shapes.EsReservedElasticsearchInstance[];
   }
+
 }
+
 export class ESDissociatePackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDissociatePackageRequest) {
     super(scope, id);
   }
+
   public get domainPackageDetails(): ESDissociatePackageResponseDomainPackageDetails {
     return new ESDissociatePackageResponseDomainPackageDetails(this, 'DomainPackageDetails', this.resources, this.input);
   }
+
 }
+
 export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDissociatePackageRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11390,6 +12259,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.PackageID', props);
     return resource.getResponseField('DomainPackageDetails.PackageID') as unknown as string;
   }
+
   public get packageName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11407,6 +12277,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.PackageName', props);
     return resource.getResponseField('DomainPackageDetails.PackageName') as unknown as string;
   }
+
   public get packageType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11424,6 +12295,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.PackageType', props);
     return resource.getResponseField('DomainPackageDetails.PackageType') as unknown as string;
   }
+
   public get lastUpdated(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11441,6 +12313,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.LastUpdated', props);
     return resource.getResponseField('DomainPackageDetails.LastUpdated') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11458,6 +12331,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.DomainName', props);
     return resource.getResponseField('DomainPackageDetails.DomainName') as unknown as string;
   }
+
   public get domainPackageStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11475,6 +12349,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.DomainPackageStatus', props);
     return resource.getResponseField('DomainPackageDetails.DomainPackageStatus') as unknown as string;
   }
+
   public get packageVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11492,6 +12367,7 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.PackageVersion', props);
     return resource.getResponseField('DomainPackageDetails.PackageVersion') as unknown as string;
   }
+
   public get referencePath(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11509,14 +12385,19 @@ export class ESDissociatePackageResponseDomainPackageDetails extends cdk.Constru
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ReferencePath', props);
     return resource.getResponseField('DomainPackageDetails.ReferencePath') as unknown as string;
   }
+
   public get errorDetails(): ESDissociatePackageResponseDomainPackageDetailsErrorDetails {
     return new ESDissociatePackageResponseDomainPackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
+
 }
+
 export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.DissociatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDissociatePackageRequest) {
     super(scope, id);
   }
+
   public get errorType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11534,6 +12415,7 @@ export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorType', props);
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
+
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11551,12 +12433,16 @@ export class ESDissociatePackageResponseDomainPackageDetailsErrorDetails extends
     const resource = new cr.AwsCustomResource(this, 'DissociatePackage.DomainPackageDetails.ErrorDetails.ErrorMessage', props);
     return resource.getResponseField('DomainPackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
+
 }
+
 export class ESGetCompatibleElasticsearchVersionsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetCompatibleElasticsearchVersionsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsGetCompatibleElasticsearchVersionsRequest) {
     super(scope, id);
   }
-  public get compatibleElasticsearchVersions(): shapes.CompatibleVersionsMap[] {
+
+  public get compatibleElasticsearchVersions(): shapes.EsCompatibleVersionsMap[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11570,13 +12456,17 @@ export class ESGetCompatibleElasticsearchVersionsResponse extends cdk.Construct 
       },
     };
     const resource = new cr.AwsCustomResource(this, 'GetCompatibleElasticsearchVersions.CompatibleElasticsearchVersions', props);
-    return resource.getResponseField('CompatibleElasticsearchVersions') as unknown as shapes.CompatibleVersionsMap[];
+    return resource.getResponseField('CompatibleElasticsearchVersions') as unknown as shapes.EsCompatibleVersionsMap[];
   }
+
 }
+
 export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetPackageVersionHistoryRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsGetPackageVersionHistoryRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11595,7 +12485,8 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.PackageID', props);
     return resource.getResponseField('PackageID') as unknown as string;
   }
-  public get packageVersionHistoryList(): shapes.PackageVersionHistory[] {
+
+  public get packageVersionHistoryList(): shapes.EsPackageVersionHistory[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11611,8 +12502,9 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.PackageVersionHistoryList', props);
-    return resource.getResponseField('PackageVersionHistoryList') as unknown as shapes.PackageVersionHistory[];
+    return resource.getResponseField('PackageVersionHistoryList') as unknown as shapes.EsPackageVersionHistory[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11631,12 +12523,16 @@ export class ESGetPackageVersionHistoryResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetPackageVersionHistory.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESGetUpgradeHistoryResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetUpgradeHistoryRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsGetUpgradeHistoryRequest) {
     super(scope, id);
   }
-  public get upgradeHistories(): shapes.UpgradeHistory[] {
+
+  public get upgradeHistories(): shapes.EsUpgradeHistory[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11652,8 +12548,9 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.UpgradeHistories', props);
-    return resource.getResponseField('UpgradeHistories') as unknown as shapes.UpgradeHistory[];
+    return resource.getResponseField('UpgradeHistories') as unknown as shapes.EsUpgradeHistory[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11672,11 +12569,15 @@ export class ESGetUpgradeHistoryResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetUpgradeHistory.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESGetUpgradeStatusResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.GetUpgradeStatusRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsGetUpgradeStatusRequest) {
     super(scope, id);
   }
+
   public get upgradeStep(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11693,6 +12594,7 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.UpgradeStep', props);
     return resource.getResponseField('UpgradeStep') as unknown as string;
   }
+
   public get stepStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11709,6 +12611,7 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.StepStatus', props);
     return resource.getResponseField('StepStatus') as unknown as string;
   }
+
   public get upgradeName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11725,12 +12628,16 @@ export class ESGetUpgradeStatusResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'GetUpgradeStatus.UpgradeName', props);
     return resource.getResponseField('UpgradeName') as unknown as string;
   }
+
 }
+
 export class ESListDomainNamesResponse extends cdk.Construct {
+
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[]) {
     super(scope, id);
   }
-  public get domainNames(): shapes.DomainInfo[] {
+
+  public get domainNames(): shapes.EsDomainInfo[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11741,14 +12648,18 @@ export class ESListDomainNamesResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'ListDomainNames.DomainNames', props);
-    return resource.getResponseField('DomainNames') as unknown as shapes.DomainInfo[];
+    return resource.getResponseField('DomainNames') as unknown as shapes.EsDomainInfo[];
   }
+
 }
+
 export class ESListDomainsForPackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListDomainsForPackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsListDomainsForPackageRequest) {
     super(scope, id);
   }
-  public get domainPackageDetailsList(): shapes.DomainPackageDetails[] {
+
+  public get domainPackageDetailsList(): shapes.EsDomainPackageDetails[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11764,8 +12675,9 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.DomainPackageDetailsList', props);
-    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.DomainPackageDetails[];
+    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.EsDomainPackageDetails[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11784,11 +12696,15 @@ export class ESListDomainsForPackageResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListDomainsForPackage.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListElasticsearchInstanceTypesRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsListElasticsearchInstanceTypesRequest) {
     super(scope, id);
   }
+
   public get elasticsearchInstanceTypes(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11808,6 +12724,7 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.ElasticsearchInstanceTypes', props);
     return resource.getResponseField('ElasticsearchInstanceTypes') as unknown as string[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11827,11 +12744,15 @@ export class ESListElasticsearchInstanceTypesResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListElasticsearchInstanceTypes.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESListElasticsearchVersionsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListElasticsearchVersionsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsListElasticsearchVersionsRequest) {
     super(scope, id);
   }
+
   public get elasticsearchVersions(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11849,6 +12770,7 @@ export class ESListElasticsearchVersionsResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.ElasticsearchVersions', props);
     return resource.getResponseField('ElasticsearchVersions') as unknown as string[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11866,12 +12788,16 @@ export class ESListElasticsearchVersionsResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListElasticsearchVersions.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESListPackagesForDomainResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListPackagesForDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsListPackagesForDomainRequest) {
     super(scope, id);
   }
-  public get domainPackageDetailsList(): shapes.DomainPackageDetails[] {
+
+  public get domainPackageDetailsList(): shapes.EsDomainPackageDetails[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11887,8 +12813,9 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.DomainPackageDetailsList', props);
-    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.DomainPackageDetails[];
+    return resource.getResponseField('DomainPackageDetailsList') as unknown as shapes.EsDomainPackageDetails[];
   }
+
   public get nextToken(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11907,12 +12834,16 @@ export class ESListPackagesForDomainResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'ListPackagesForDomain.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
   }
+
 }
+
 export class ESListTagsResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.ListTagsRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsListTagsRequest) {
     super(scope, id);
   }
-  public get tagList(): shapes.Tag[] {
+
+  public get tagList(): shapes.EsTag[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -11926,13 +12857,17 @@ export class ESListTagsResponse extends cdk.Construct {
       },
     };
     const resource = new cr.AwsCustomResource(this, 'ListTags.TagList', props);
-    return resource.getResponseField('TagList') as unknown as shapes.Tag[];
+    return resource.getResponseField('TagList') as unknown as shapes.EsTag[];
   }
+
 }
+
 export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.PurchaseReservedElasticsearchInstanceOfferingRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsPurchaseReservedElasticsearchInstanceOfferingRequest) {
     super(scope, id);
   }
+
   public get reservedElasticsearchInstanceId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11951,6 +12886,7 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
     const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.ReservedElasticsearchInstanceId', props);
     return resource.getResponseField('ReservedElasticsearchInstanceId') as unknown as string;
   }
+
   public get reservationName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -11969,25 +12905,35 @@ export class ESPurchaseReservedElasticsearchInstanceOfferingResponse extends cdk
     const resource = new cr.AwsCustomResource(this, 'PurchaseReservedElasticsearchInstanceOffering.ReservationName', props);
     return resource.getResponseField('ReservationName') as unknown as string;
   }
+
 }
+
 export class ESRejectInboundCrossClusterSearchConnectionResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get crossClusterSearchConnection(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
     return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
   }
+
 }
+
 export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get sourceDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get destinationDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
     return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
   }
+
   public get crossClusterSearchConnectionId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12004,14 +12950,19 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.CrossClusterSearchConnectionId', props);
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
+
   public get connectionStatus(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
     return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get ownerId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12028,6 +12979,7 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.OwnerId', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.OwnerId') as unknown as string;
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12044,6 +12996,7 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.DomainName', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.DomainName') as unknown as string;
   }
+
   public get region(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12060,11 +13013,15 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.SourceDomainInfo.Region', props);
     return resource.getResponseField('CrossClusterSearchConnection.SourceDomainInfo.Region') as unknown as string;
   }
+
 }
+
 export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.RejectInboundCrossClusterSearchConnectionRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
+
   public get statusCode(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12081,6 +13038,7 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.StatusCode', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.StatusCode') as unknown as string;
   }
+
   public get message(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12097,19 +13055,27 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.ConnectionStatus.Message', props);
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionStatus.Message') as unknown as string;
   }
+
 }
+
 export class ESStartElasticsearchServiceSoftwareUpdateResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsStartElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
+
   public get serviceSoftwareOptions(): ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions {
     return new ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
+
 }
+
 export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.StartElasticsearchServiceSoftwareUpdateRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsStartElasticsearchServiceSoftwareUpdateRequest) {
     super(scope, id);
   }
+
   public get currentVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12126,6 +13092,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.CurrentVersion', props);
     return resource.getResponseField('ServiceSoftwareOptions.CurrentVersion') as unknown as string;
   }
+
   public get newVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12142,6 +13109,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.NewVersion', props);
     return resource.getResponseField('ServiceSoftwareOptions.NewVersion') as unknown as string;
   }
+
   public get updateAvailable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12158,6 +13126,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateAvailable', props);
     return resource.getResponseField('ServiceSoftwareOptions.UpdateAvailable') as unknown as boolean;
   }
+
   public get cancellable(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12174,6 +13143,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Cancellable', props);
     return resource.getResponseField('ServiceSoftwareOptions.Cancellable') as unknown as boolean;
   }
+
   public get updateStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12190,6 +13160,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.UpdateStatus', props);
     return resource.getResponseField('ServiceSoftwareOptions.UpdateStatus') as unknown as string;
   }
+
   public get description(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12206,6 +13177,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.Description', props);
     return resource.getResponseField('ServiceSoftwareOptions.Description') as unknown as string;
   }
+
   public get automatedUpdateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12222,6 +13194,7 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.AutomatedUpdateDate', props);
     return resource.getResponseField('ServiceSoftwareOptions.AutomatedUpdateDate') as unknown as string;
   }
+
   public get optionalDeployment(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12238,63 +13211,87 @@ export class ESStartElasticsearchServiceSoftwareUpdateResponseServiceSoftwareOpt
     const resource = new cr.AwsCustomResource(this, 'StartElasticsearchServiceSoftwareUpdate.ServiceSoftwareOptions.OptionalDeployment', props);
     return resource.getResponseField('ServiceSoftwareOptions.OptionalDeployment') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get domainConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get elasticsearchVersion(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
   }
+
   public get elasticsearchClusterConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
   }
+
   public get ebsOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
   }
+
   public get accessPolicies(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
   }
+
   public get snapshotOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
   }
+
   public get vpcOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
   }
+
   public get cognitoOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
   }
+
   public get encryptionAtRestOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
   }
+
   public get nodeToNodeEncryptionOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
   }
+
   public get advancedOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
   }
+
   public get logPublishingOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
   }
+
   public get domainEndpointOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
   }
+
   public get advancedSecurityOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12375,14 +13372,19 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Options', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12463,6 +13465,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12543,6 +13546,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12623,6 +13627,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12703,6 +13708,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.State', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12783,22 +13789,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchVersion.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get instanceType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12879,6 +13894,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceType') as unknown as string;
   }
+
   public get instanceCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -12959,6 +13975,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.InstanceCount') as unknown as number;
   }
+
   public get dedicatedMasterEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13039,6 +14056,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13119,9 +14137,11 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
+
   public get zoneAwarenessConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
+
   public get dedicatedMasterType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13202,6 +14222,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterType') as unknown as string;
   }
+
   public get dedicatedMasterCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13282,6 +14303,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.DedicatedMasterCount') as unknown as number;
   }
+
   public get warmEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13362,6 +14384,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmEnabled') as unknown as boolean;
   }
+
   public get warmType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13442,6 +14465,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmType', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmType') as unknown as string;
   }
+
   public get warmCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13522,11 +14546,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.WarmCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.WarmCount') as unknown as number;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get availabilityZoneCount(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13607,11 +14635,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessConfig.AvailabilityZoneCount') as unknown as number;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13692,6 +14724,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13772,6 +14805,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13852,6 +14886,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -13932,6 +14967,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.State', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14012,22 +15048,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get ebsEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14108,6 +15153,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.EBSEnabled', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.EBSEnabled') as unknown as boolean;
   }
+
   public get volumeType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14188,6 +15234,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeType', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeType') as unknown as string;
   }
+
   public get volumeSize(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14268,6 +15315,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.VolumeSize', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.VolumeSize') as unknown as number;
   }
+
   public get iops(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14348,11 +15396,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Options.Iops', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Options.Iops') as unknown as number;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14433,6 +15485,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14513,6 +15566,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14593,6 +15647,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14673,6 +15728,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14753,11 +15809,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EBSOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.EBSOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14838,14 +15898,19 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Options', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -14926,6 +15991,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15006,6 +16072,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15086,6 +16153,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15166,6 +16234,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.State', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15246,22 +16315,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AccessPolicies.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AccessPolicies.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get automatedSnapshotStartHour(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15342,11 +16420,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Options.AutomatedSnapshotStartHour') as unknown as number;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15427,6 +16509,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15507,6 +16590,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15587,6 +16671,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15667,6 +16752,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15747,22 +16833,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.SnapshotOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.SnapshotOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get vpcId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15843,6 +16938,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.VPCId', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.VPCId') as unknown as string;
   }
+
   public get subnetIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -15923,6 +17019,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SubnetIds', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.SubnetIds') as unknown as string[];
   }
+
   public get availabilityZones(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16003,6 +17100,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.AvailabilityZones', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.AvailabilityZones') as unknown as string[];
   }
+
   public get securityGroupIds(): string[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16083,11 +17181,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Options.SecurityGroupIds', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Options.SecurityGroupIds') as unknown as string[];
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16168,6 +17270,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16248,6 +17351,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16328,6 +17432,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16408,6 +17513,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16488,22 +17594,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.VPCOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.VPCOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16584,6 +17699,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get userPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16664,6 +17780,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.UserPoolId', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.UserPoolId') as unknown as string;
   }
+
   public get identityPoolId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16744,6 +17861,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.IdentityPoolId', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.IdentityPoolId') as unknown as string;
   }
+
   public get roleArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16824,11 +17942,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Options.RoleArn', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Options.RoleArn') as unknown as string;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16909,6 +18031,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -16989,6 +18112,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17069,6 +18193,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17149,6 +18274,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17229,22 +18355,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.CognitoOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.CognitoOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17325,6 +18460,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get kmsKeyId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17405,11 +18541,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Options.KmsKeyId') as unknown as string;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17490,6 +18630,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17570,6 +18711,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17650,6 +18792,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17730,6 +18873,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17810,22 +18954,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.EncryptionAtRestOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17906,11 +19059,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Options.Enabled') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -17991,6 +19148,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18071,6 +19229,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18151,6 +19310,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18231,6 +19391,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18311,11 +19472,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.NodeToNodeEncryptionOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): Record<string, string> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18396,14 +19561,19 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Options', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18484,6 +19654,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18564,6 +19735,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18644,6 +19816,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18724,6 +19897,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18804,12 +19978,16 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AdvancedOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
-  public get options(): Record<string, shapes.LogPublishingOption> {
+
+  public get options(): Record<string, shapes.EsLogPublishingOption> {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
       onUpdate: {
@@ -18887,16 +20065,21 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
       },
     };
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Options', props);
-    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.LogPublishingOption>;
+    return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -18977,6 +20160,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19057,6 +20241,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19137,6 +20322,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19217,6 +20403,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19297,22 +20484,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.LogPublishingOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enforceHttps(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19393,6 +20589,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.EnforceHTTPS') as unknown as boolean;
   }
+
   public get tlsSecurityPolicy(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19473,6 +20670,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.TLSSecurityPolicy') as unknown as string;
   }
+
   public get customEndpointEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19553,6 +20751,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointEnabled') as unknown as boolean;
   }
+
   public get customEndpoint(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19633,6 +20832,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpoint', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpoint') as unknown as string;
   }
+
   public get customEndpointCertificateArn(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19713,11 +20913,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Options.CustomEndpointCertificateArn') as unknown as string;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19798,6 +21002,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19878,6 +21083,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -19958,6 +21164,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20038,6 +21245,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20118,22 +21326,31 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.DomainEndpointOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.DomainEndpointOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
+
   public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20214,6 +21431,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.Enabled') as unknown as boolean;
   }
+
   public get internalUserDatabaseEnabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20294,14 +21512,19 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
+
   public get samlOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get enabled(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20382,9 +21605,11 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
+
   public get idp(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
     return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
   }
+
   public get subjectKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20465,6 +21690,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SubjectKey') as unknown as string;
   }
+
   public get rolesKey(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20545,6 +21771,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.RolesKey') as unknown as string;
   }
+
   public get sessionTimeoutMinutes(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20625,11 +21852,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.SessionTimeoutMinutes') as unknown as number;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get metadataContent(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20710,6 +21941,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.MetadataContent') as unknown as string;
   }
+
   public get entityId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20790,11 +22022,15 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Idp.EntityId') as unknown as string;
   }
+
 }
+
 export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdateElasticsearchDomainConfigRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
+
   public get creationDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20875,6 +22111,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.CreationDate', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.CreationDate') as unknown as string;
   }
+
   public get updateDate(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -20955,6 +22192,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateDate', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateDate') as unknown as string;
   }
+
   public get updateVersion(): number {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21035,6 +22273,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.UpdateVersion') as unknown as number;
   }
+
   public get state(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21115,6 +22354,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.State', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.State') as unknown as string;
   }
+
   public get pendingDeletion(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21195,19 +22435,27 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     const resource = new cr.AwsCustomResource(this, 'UpdateElasticsearchDomainConfig.DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion', props);
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Status.PendingDeletion') as unknown as boolean;
   }
+
 }
+
 export class ESUpdatePackageResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdatePackageRequest) {
     super(scope, id);
   }
+
   public get packageDetails(): ESUpdatePackageResponsePackageDetails {
     return new ESUpdatePackageResponsePackageDetails(this, 'PackageDetails', this.resources, this.input);
   }
+
 }
+
 export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdatePackageRequest) {
     super(scope, id);
   }
+
   public get packageId(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21230,6 +22478,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.PackageID', props);
     return resource.getResponseField('PackageDetails.PackageID') as unknown as string;
   }
+
   public get packageName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21252,6 +22501,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.PackageName', props);
     return resource.getResponseField('PackageDetails.PackageName') as unknown as string;
   }
+
   public get packageType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21274,6 +22524,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.PackageType', props);
     return resource.getResponseField('PackageDetails.PackageType') as unknown as string;
   }
+
   public get packageDescription(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21296,6 +22547,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.PackageDescription', props);
     return resource.getResponseField('PackageDetails.PackageDescription') as unknown as string;
   }
+
   public get packageStatus(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21318,6 +22570,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.PackageStatus', props);
     return resource.getResponseField('PackageDetails.PackageStatus') as unknown as string;
   }
+
   public get createdAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21340,6 +22593,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.CreatedAt', props);
     return resource.getResponseField('PackageDetails.CreatedAt') as unknown as string;
   }
+
   public get lastUpdatedAt(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21362,6 +22616,7 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.LastUpdatedAt', props);
     return resource.getResponseField('PackageDetails.LastUpdatedAt') as unknown as string;
   }
+
   public get availablePackageVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21384,14 +22639,19 @@ export class ESUpdatePackageResponsePackageDetails extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.AvailablePackageVersion', props);
     return resource.getResponseField('PackageDetails.AvailablePackageVersion') as unknown as string;
   }
+
   public get errorDetails(): ESUpdatePackageResponsePackageDetailsErrorDetails {
     return new ESUpdatePackageResponsePackageDetailsErrorDetails(this, 'ErrorDetails', this.resources, this.input);
   }
+
 }
+
 export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpdatePackageRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdatePackageRequest) {
     super(scope, id);
   }
+
   public get errorType(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21414,6 +22674,7 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorType', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorType') as unknown as string;
   }
+
   public get errorMessage(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21436,11 +22697,15 @@ export class ESUpdatePackageResponsePackageDetailsErrorDetails extends cdk.Const
     const resource = new cr.AwsCustomResource(this, 'UpdatePackage.PackageDetails.ErrorDetails.ErrorMessage', props);
     return resource.getResponseField('PackageDetails.ErrorDetails.ErrorMessage') as unknown as string;
   }
+
 }
+
 export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.UpgradeElasticsearchDomainRequest) {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpgradeElasticsearchDomainRequest) {
     super(scope, id);
   }
+
   public get domainName(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21459,6 +22724,7 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.DomainName', props);
     return resource.getResponseField('DomainName') as unknown as string;
   }
+
   public get targetVersion(): string {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21477,6 +22743,7 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.TargetVersion', props);
     return resource.getResponseField('TargetVersion') as unknown as string;
   }
+
   public get performCheckOnly(): boolean {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
@@ -21495,4 +22762,6 @@ export class ESUpgradeElasticsearchDomainResponse extends cdk.Construct {
     const resource = new cr.AwsCustomResource(this, 'UpgradeElasticsearchDomain.PerformCheckOnly', props);
     return resource.getResponseField('PerformCheckOnly') as unknown as boolean;
   }
+
 }
+

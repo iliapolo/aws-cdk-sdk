@@ -1,2726 +1,2726 @@
 /**
- * @schema AcceptInboundCrossClusterSearchConnectionRequest
+ * @schema EsAcceptInboundCrossClusterSearchConnectionRequest
  */
-export interface AcceptInboundCrossClusterSearchConnectionRequest {
+export interface EsAcceptInboundCrossClusterSearchConnectionRequest {
   /**
-   * @schema AcceptInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
+   * @schema EsAcceptInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId: string;
 
 }
 
 /**
- * @schema AcceptInboundCrossClusterSearchConnectionResponse
+ * @schema EsAcceptInboundCrossClusterSearchConnectionResponse
  */
-export interface AcceptInboundCrossClusterSearchConnectionResponse {
+export interface EsAcceptInboundCrossClusterSearchConnectionResponse {
   /**
-   * @schema AcceptInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
+   * @schema EsAcceptInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
    */
-  readonly crossClusterSearchConnection?: InboundCrossClusterSearchConnection;
+  readonly crossClusterSearchConnection?: EsInboundCrossClusterSearchConnection;
 
 }
 
 /**
- * @schema AddTagsRequest
+ * @schema EsAddTagsRequest
  */
-export interface AddTagsRequest {
+export interface EsAddTagsRequest {
   /**
-   * @schema AddTagsRequest#ARN
+   * @schema EsAddTagsRequest#ARN
    */
   readonly arn: string;
 
   /**
-   * @schema AddTagsRequest#TagList
+   * @schema EsAddTagsRequest#TagList
    */
-  readonly tagList: Tag[];
+  readonly tagList: EsTag[];
 
 }
 
 /**
- * @schema AssociatePackageRequest
+ * @schema EsAssociatePackageRequest
  */
-export interface AssociatePackageRequest {
+export interface EsAssociatePackageRequest {
   /**
-   * @schema AssociatePackageRequest#PackageID
+   * @schema EsAssociatePackageRequest#PackageID
    */
   readonly packageId: string;
 
   /**
-   * @schema AssociatePackageRequest#DomainName
+   * @schema EsAssociatePackageRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema AssociatePackageResponse
+ * @schema EsAssociatePackageResponse
  */
-export interface AssociatePackageResponse {
+export interface EsAssociatePackageResponse {
   /**
-   * @schema AssociatePackageResponse#DomainPackageDetails
+   * @schema EsAssociatePackageResponse#DomainPackageDetails
    */
-  readonly domainPackageDetails?: DomainPackageDetails;
+  readonly domainPackageDetails?: EsDomainPackageDetails;
 
 }
 
 /**
- * @schema CancelElasticsearchServiceSoftwareUpdateRequest
+ * @schema EsCancelElasticsearchServiceSoftwareUpdateRequest
  */
-export interface CancelElasticsearchServiceSoftwareUpdateRequest {
+export interface EsCancelElasticsearchServiceSoftwareUpdateRequest {
   /**
-   * @schema CancelElasticsearchServiceSoftwareUpdateRequest#DomainName
+   * @schema EsCancelElasticsearchServiceSoftwareUpdateRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema CancelElasticsearchServiceSoftwareUpdateResponse
+ * @schema EsCancelElasticsearchServiceSoftwareUpdateResponse
  */
-export interface CancelElasticsearchServiceSoftwareUpdateResponse {
+export interface EsCancelElasticsearchServiceSoftwareUpdateResponse {
   /**
-   * @schema CancelElasticsearchServiceSoftwareUpdateResponse#ServiceSoftwareOptions
+   * @schema EsCancelElasticsearchServiceSoftwareUpdateResponse#ServiceSoftwareOptions
    */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
+  readonly serviceSoftwareOptions?: EsServiceSoftwareOptions;
 
 }
 
 /**
- * @schema CreateElasticsearchDomainRequest
+ * @schema EsCreateElasticsearchDomainRequest
  */
-export interface CreateElasticsearchDomainRequest {
+export interface EsCreateElasticsearchDomainRequest {
   /**
-   * @schema CreateElasticsearchDomainRequest#DomainName
+   * @schema EsCreateElasticsearchDomainRequest#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#ElasticsearchVersion
+   * @schema EsCreateElasticsearchDomainRequest#ElasticsearchVersion
    */
   readonly elasticsearchVersion?: string;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#ElasticsearchClusterConfig
+   * @schema EsCreateElasticsearchDomainRequest#ElasticsearchClusterConfig
    */
-  readonly elasticsearchClusterConfig?: ElasticsearchClusterConfig;
+  readonly elasticsearchClusterConfig?: EsElasticsearchClusterConfig;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#EBSOptions
+   * @schema EsCreateElasticsearchDomainRequest#EBSOptions
    */
-  readonly ebsOptions?: EbsOptions;
+  readonly ebsOptions?: EsebsOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#AccessPolicies
+   * @schema EsCreateElasticsearchDomainRequest#AccessPolicies
    */
   readonly accessPolicies?: string;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#SnapshotOptions
+   * @schema EsCreateElasticsearchDomainRequest#SnapshotOptions
    */
-  readonly snapshotOptions?: SnapshotOptions;
+  readonly snapshotOptions?: EsSnapshotOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#VPCOptions
+   * @schema EsCreateElasticsearchDomainRequest#VPCOptions
    */
-  readonly vpcOptions?: VpcOptions;
+  readonly vpcOptions?: EsvpcOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#CognitoOptions
+   * @schema EsCreateElasticsearchDomainRequest#CognitoOptions
    */
-  readonly cognitoOptions?: CognitoOptions;
+  readonly cognitoOptions?: EsCognitoOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#EncryptionAtRestOptions
+   * @schema EsCreateElasticsearchDomainRequest#EncryptionAtRestOptions
    */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptions;
+  readonly encryptionAtRestOptions?: EsEncryptionAtRestOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#NodeToNodeEncryptionOptions
+   * @schema EsCreateElasticsearchDomainRequest#NodeToNodeEncryptionOptions
    */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+  readonly nodeToNodeEncryptionOptions?: EsNodeToNodeEncryptionOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#AdvancedOptions
+   * @schema EsCreateElasticsearchDomainRequest#AdvancedOptions
    */
   readonly advancedOptions?: { [key: string]: string };
 
   /**
-   * @schema CreateElasticsearchDomainRequest#LogPublishingOptions
+   * @schema EsCreateElasticsearchDomainRequest#LogPublishingOptions
    */
-  readonly logPublishingOptions?: { [key: string]: LogPublishingOption };
+  readonly logPublishingOptions?: { [key: string]: EsLogPublishingOption };
 
   /**
-   * @schema CreateElasticsearchDomainRequest#DomainEndpointOptions
+   * @schema EsCreateElasticsearchDomainRequest#DomainEndpointOptions
    */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
+  readonly domainEndpointOptions?: EsDomainEndpointOptions;
 
   /**
-   * @schema CreateElasticsearchDomainRequest#AdvancedSecurityOptions
+   * @schema EsCreateElasticsearchDomainRequest#AdvancedSecurityOptions
    */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptionsInput;
+  readonly advancedSecurityOptions?: EsAdvancedSecurityOptionsInput;
 
 }
 
 /**
- * @schema CreateElasticsearchDomainResponse
+ * @schema EsCreateElasticsearchDomainResponse
  */
-export interface CreateElasticsearchDomainResponse {
+export interface EsCreateElasticsearchDomainResponse {
   /**
-   * @schema CreateElasticsearchDomainResponse#DomainStatus
+   * @schema EsCreateElasticsearchDomainResponse#DomainStatus
    */
-  readonly domainStatus?: ElasticsearchDomainStatus;
+  readonly domainStatus?: EsElasticsearchDomainStatus;
 
 }
 
 /**
- * @schema CreateOutboundCrossClusterSearchConnectionRequest
+ * @schema EsCreateOutboundCrossClusterSearchConnectionRequest
  */
-export interface CreateOutboundCrossClusterSearchConnectionRequest {
+export interface EsCreateOutboundCrossClusterSearchConnectionRequest {
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionRequest#SourceDomainInfo
+   * @schema EsCreateOutboundCrossClusterSearchConnectionRequest#SourceDomainInfo
    */
-  readonly sourceDomainInfo: DomainInformation;
+  readonly sourceDomainInfo: EsDomainInformation;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionRequest#DestinationDomainInfo
+   * @schema EsCreateOutboundCrossClusterSearchConnectionRequest#DestinationDomainInfo
    */
-  readonly destinationDomainInfo: DomainInformation;
+  readonly destinationDomainInfo: EsDomainInformation;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionRequest#ConnectionAlias
+   * @schema EsCreateOutboundCrossClusterSearchConnectionRequest#ConnectionAlias
    */
   readonly connectionAlias: string;
 
 }
 
 /**
- * @schema CreateOutboundCrossClusterSearchConnectionResponse
+ * @schema EsCreateOutboundCrossClusterSearchConnectionResponse
  */
-export interface CreateOutboundCrossClusterSearchConnectionResponse {
+export interface EsCreateOutboundCrossClusterSearchConnectionResponse {
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionResponse#SourceDomainInfo
+   * @schema EsCreateOutboundCrossClusterSearchConnectionResponse#SourceDomainInfo
    */
-  readonly sourceDomainInfo?: DomainInformation;
+  readonly sourceDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionResponse#DestinationDomainInfo
+   * @schema EsCreateOutboundCrossClusterSearchConnectionResponse#DestinationDomainInfo
    */
-  readonly destinationDomainInfo?: DomainInformation;
+  readonly destinationDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionResponse#ConnectionAlias
+   * @schema EsCreateOutboundCrossClusterSearchConnectionResponse#ConnectionAlias
    */
   readonly connectionAlias?: string;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionResponse#ConnectionStatus
+   * @schema EsCreateOutboundCrossClusterSearchConnectionResponse#ConnectionStatus
    */
-  readonly connectionStatus?: OutboundCrossClusterSearchConnectionStatus;
+  readonly connectionStatus?: EsOutboundCrossClusterSearchConnectionStatus;
 
   /**
-   * @schema CreateOutboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnectionId
+   * @schema EsCreateOutboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId?: string;
 
 }
 
 /**
- * @schema CreatePackageRequest
+ * @schema EsCreatePackageRequest
  */
-export interface CreatePackageRequest {
+export interface EsCreatePackageRequest {
   /**
-   * @schema CreatePackageRequest#PackageName
+   * @schema EsCreatePackageRequest#PackageName
    */
   readonly packageName: string;
 
   /**
-   * @schema CreatePackageRequest#PackageType
+   * @schema EsCreatePackageRequest#PackageType
    */
   readonly packageType: string;
 
   /**
-   * @schema CreatePackageRequest#PackageDescription
+   * @schema EsCreatePackageRequest#PackageDescription
    */
   readonly packageDescription?: string;
 
   /**
-   * @schema CreatePackageRequest#PackageSource
+   * @schema EsCreatePackageRequest#PackageSource
    */
-  readonly packageSource: PackageSource;
+  readonly packageSource: EsPackageSource;
 
 }
 
 /**
- * @schema CreatePackageResponse
+ * @schema EsCreatePackageResponse
  */
-export interface CreatePackageResponse {
+export interface EsCreatePackageResponse {
   /**
-   * @schema CreatePackageResponse#PackageDetails
+   * @schema EsCreatePackageResponse#PackageDetails
    */
-  readonly packageDetails?: PackageDetails;
+  readonly packageDetails?: EsPackageDetails;
 
 }
 
 /**
- * @schema DeleteElasticsearchDomainRequest
+ * @schema EsDeleteElasticsearchDomainRequest
  */
-export interface DeleteElasticsearchDomainRequest {
+export interface EsDeleteElasticsearchDomainRequest {
   /**
-   * @schema DeleteElasticsearchDomainRequest#DomainName
+   * @schema EsDeleteElasticsearchDomainRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema DeleteElasticsearchDomainResponse
+ * @schema EsDeleteElasticsearchDomainResponse
  */
-export interface DeleteElasticsearchDomainResponse {
+export interface EsDeleteElasticsearchDomainResponse {
   /**
-   * @schema DeleteElasticsearchDomainResponse#DomainStatus
+   * @schema EsDeleteElasticsearchDomainResponse#DomainStatus
    */
-  readonly domainStatus?: ElasticsearchDomainStatus;
+  readonly domainStatus?: EsElasticsearchDomainStatus;
 
 }
 
 /**
- * @schema DeleteInboundCrossClusterSearchConnectionRequest
+ * @schema EsDeleteInboundCrossClusterSearchConnectionRequest
  */
-export interface DeleteInboundCrossClusterSearchConnectionRequest {
+export interface EsDeleteInboundCrossClusterSearchConnectionRequest {
   /**
-   * @schema DeleteInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
-   */
-  readonly crossClusterSearchConnectionId: string;
-
-}
-
-/**
- * @schema DeleteInboundCrossClusterSearchConnectionResponse
- */
-export interface DeleteInboundCrossClusterSearchConnectionResponse {
-  /**
-   * @schema DeleteInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
-   */
-  readonly crossClusterSearchConnection?: InboundCrossClusterSearchConnection;
-
-}
-
-/**
- * @schema DeleteOutboundCrossClusterSearchConnectionRequest
- */
-export interface DeleteOutboundCrossClusterSearchConnectionRequest {
-  /**
-   * @schema DeleteOutboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
+   * @schema EsDeleteInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId: string;
 
 }
 
 /**
- * @schema DeleteOutboundCrossClusterSearchConnectionResponse
+ * @schema EsDeleteInboundCrossClusterSearchConnectionResponse
  */
-export interface DeleteOutboundCrossClusterSearchConnectionResponse {
+export interface EsDeleteInboundCrossClusterSearchConnectionResponse {
   /**
-   * @schema DeleteOutboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
+   * @schema EsDeleteInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
    */
-  readonly crossClusterSearchConnection?: OutboundCrossClusterSearchConnection;
+  readonly crossClusterSearchConnection?: EsInboundCrossClusterSearchConnection;
 
 }
 
 /**
- * @schema DeletePackageRequest
+ * @schema EsDeleteOutboundCrossClusterSearchConnectionRequest
  */
-export interface DeletePackageRequest {
+export interface EsDeleteOutboundCrossClusterSearchConnectionRequest {
   /**
-   * @schema DeletePackageRequest#PackageID
+   * @schema EsDeleteOutboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
+   */
+  readonly crossClusterSearchConnectionId: string;
+
+}
+
+/**
+ * @schema EsDeleteOutboundCrossClusterSearchConnectionResponse
+ */
+export interface EsDeleteOutboundCrossClusterSearchConnectionResponse {
+  /**
+   * @schema EsDeleteOutboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
+   */
+  readonly crossClusterSearchConnection?: EsOutboundCrossClusterSearchConnection;
+
+}
+
+/**
+ * @schema EsDeletePackageRequest
+ */
+export interface EsDeletePackageRequest {
+  /**
+   * @schema EsDeletePackageRequest#PackageID
    */
   readonly packageId: string;
 
 }
 
 /**
- * @schema DeletePackageResponse
+ * @schema EsDeletePackageResponse
  */
-export interface DeletePackageResponse {
+export interface EsDeletePackageResponse {
   /**
-   * @schema DeletePackageResponse#PackageDetails
+   * @schema EsDeletePackageResponse#PackageDetails
    */
-  readonly packageDetails?: PackageDetails;
+  readonly packageDetails?: EsPackageDetails;
 
 }
 
 /**
- * @schema DescribeElasticsearchDomainRequest
+ * @schema EsDescribeElasticsearchDomainRequest
  */
-export interface DescribeElasticsearchDomainRequest {
+export interface EsDescribeElasticsearchDomainRequest {
   /**
-   * @schema DescribeElasticsearchDomainRequest#DomainName
-   */
-  readonly domainName: string;
-
-}
-
-/**
- * @schema DescribeElasticsearchDomainResponse
- */
-export interface DescribeElasticsearchDomainResponse {
-  /**
-   * @schema DescribeElasticsearchDomainResponse#DomainStatus
-   */
-  readonly domainStatus: ElasticsearchDomainStatus;
-
-}
-
-/**
- * @schema DescribeElasticsearchDomainConfigRequest
- */
-export interface DescribeElasticsearchDomainConfigRequest {
-  /**
-   * @schema DescribeElasticsearchDomainConfigRequest#DomainName
+   * @schema EsDescribeElasticsearchDomainRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema DescribeElasticsearchDomainConfigResponse
+ * @schema EsDescribeElasticsearchDomainResponse
  */
-export interface DescribeElasticsearchDomainConfigResponse {
+export interface EsDescribeElasticsearchDomainResponse {
   /**
-   * @schema DescribeElasticsearchDomainConfigResponse#DomainConfig
+   * @schema EsDescribeElasticsearchDomainResponse#DomainStatus
    */
-  readonly domainConfig: ElasticsearchDomainConfig;
+  readonly domainStatus: EsElasticsearchDomainStatus;
 
 }
 
 /**
- * @schema DescribeElasticsearchDomainsRequest
+ * @schema EsDescribeElasticsearchDomainConfigRequest
  */
-export interface DescribeElasticsearchDomainsRequest {
+export interface EsDescribeElasticsearchDomainConfigRequest {
   /**
-   * @schema DescribeElasticsearchDomainsRequest#DomainNames
+   * @schema EsDescribeElasticsearchDomainConfigRequest#DomainName
+   */
+  readonly domainName: string;
+
+}
+
+/**
+ * @schema EsDescribeElasticsearchDomainConfigResponse
+ */
+export interface EsDescribeElasticsearchDomainConfigResponse {
+  /**
+   * @schema EsDescribeElasticsearchDomainConfigResponse#DomainConfig
+   */
+  readonly domainConfig: EsElasticsearchDomainConfig;
+
+}
+
+/**
+ * @schema EsDescribeElasticsearchDomainsRequest
+ */
+export interface EsDescribeElasticsearchDomainsRequest {
+  /**
+   * @schema EsDescribeElasticsearchDomainsRequest#DomainNames
    */
   readonly domainNames: string[];
 
 }
 
 /**
- * @schema DescribeElasticsearchDomainsResponse
+ * @schema EsDescribeElasticsearchDomainsResponse
  */
-export interface DescribeElasticsearchDomainsResponse {
+export interface EsDescribeElasticsearchDomainsResponse {
   /**
-   * @schema DescribeElasticsearchDomainsResponse#DomainStatusList
+   * @schema EsDescribeElasticsearchDomainsResponse#DomainStatusList
    */
-  readonly domainStatusList: ElasticsearchDomainStatus[];
+  readonly domainStatusList: EsElasticsearchDomainStatus[];
 
 }
 
 /**
- * @schema DescribeElasticsearchInstanceTypeLimitsRequest
+ * @schema EsDescribeElasticsearchInstanceTypeLimitsRequest
  */
-export interface DescribeElasticsearchInstanceTypeLimitsRequest {
+export interface EsDescribeElasticsearchInstanceTypeLimitsRequest {
   /**
-   * @schema DescribeElasticsearchInstanceTypeLimitsRequest#DomainName
+   * @schema EsDescribeElasticsearchInstanceTypeLimitsRequest#DomainName
    */
   readonly domainName?: string;
 
   /**
-   * @schema DescribeElasticsearchInstanceTypeLimitsRequest#InstanceType
+   * @schema EsDescribeElasticsearchInstanceTypeLimitsRequest#InstanceType
    */
   readonly instanceType: string;
 
   /**
-   * @schema DescribeElasticsearchInstanceTypeLimitsRequest#ElasticsearchVersion
+   * @schema EsDescribeElasticsearchInstanceTypeLimitsRequest#ElasticsearchVersion
    */
   readonly elasticsearchVersion: string;
 
 }
 
 /**
- * @schema DescribeElasticsearchInstanceTypeLimitsResponse
+ * @schema EsDescribeElasticsearchInstanceTypeLimitsResponse
  */
-export interface DescribeElasticsearchInstanceTypeLimitsResponse {
+export interface EsDescribeElasticsearchInstanceTypeLimitsResponse {
   /**
-   * @schema DescribeElasticsearchInstanceTypeLimitsResponse#LimitsByRole
+   * @schema EsDescribeElasticsearchInstanceTypeLimitsResponse#LimitsByRole
    */
-  readonly limitsByRole?: { [key: string]: Limits };
+  readonly limitsByRole?: { [key: string]: EsLimits };
 
 }
 
 /**
- * @schema DescribeInboundCrossClusterSearchConnectionsRequest
+ * @schema EsDescribeInboundCrossClusterSearchConnectionsRequest
  */
-export interface DescribeInboundCrossClusterSearchConnectionsRequest {
+export interface EsDescribeInboundCrossClusterSearchConnectionsRequest {
   /**
-   * @schema DescribeInboundCrossClusterSearchConnectionsRequest#Filters
+   * @schema EsDescribeInboundCrossClusterSearchConnectionsRequest#Filters
    */
-  readonly filters?: Filter[];
+  readonly filters?: EsFilter[];
 
   /**
-   * @schema DescribeInboundCrossClusterSearchConnectionsRequest#MaxResults
+   * @schema EsDescribeInboundCrossClusterSearchConnectionsRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema DescribeInboundCrossClusterSearchConnectionsRequest#NextToken
+   * @schema EsDescribeInboundCrossClusterSearchConnectionsRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeInboundCrossClusterSearchConnectionsResponse
+ * @schema EsDescribeInboundCrossClusterSearchConnectionsResponse
  */
-export interface DescribeInboundCrossClusterSearchConnectionsResponse {
+export interface EsDescribeInboundCrossClusterSearchConnectionsResponse {
   /**
-   * @schema DescribeInboundCrossClusterSearchConnectionsResponse#CrossClusterSearchConnections
+   * @schema EsDescribeInboundCrossClusterSearchConnectionsResponse#CrossClusterSearchConnections
    */
-  readonly crossClusterSearchConnections?: InboundCrossClusterSearchConnection[];
+  readonly crossClusterSearchConnections?: EsInboundCrossClusterSearchConnection[];
 
   /**
-   * @schema DescribeInboundCrossClusterSearchConnectionsResponse#NextToken
+   * @schema EsDescribeInboundCrossClusterSearchConnectionsResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeOutboundCrossClusterSearchConnectionsRequest
+ * @schema EsDescribeOutboundCrossClusterSearchConnectionsRequest
  */
-export interface DescribeOutboundCrossClusterSearchConnectionsRequest {
+export interface EsDescribeOutboundCrossClusterSearchConnectionsRequest {
   /**
-   * @schema DescribeOutboundCrossClusterSearchConnectionsRequest#Filters
+   * @schema EsDescribeOutboundCrossClusterSearchConnectionsRequest#Filters
    */
-  readonly filters?: Filter[];
+  readonly filters?: EsFilter[];
 
   /**
-   * @schema DescribeOutboundCrossClusterSearchConnectionsRequest#MaxResults
+   * @schema EsDescribeOutboundCrossClusterSearchConnectionsRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema DescribeOutboundCrossClusterSearchConnectionsRequest#NextToken
+   * @schema EsDescribeOutboundCrossClusterSearchConnectionsRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeOutboundCrossClusterSearchConnectionsResponse
+ * @schema EsDescribeOutboundCrossClusterSearchConnectionsResponse
  */
-export interface DescribeOutboundCrossClusterSearchConnectionsResponse {
+export interface EsDescribeOutboundCrossClusterSearchConnectionsResponse {
   /**
-   * @schema DescribeOutboundCrossClusterSearchConnectionsResponse#CrossClusterSearchConnections
+   * @schema EsDescribeOutboundCrossClusterSearchConnectionsResponse#CrossClusterSearchConnections
    */
-  readonly crossClusterSearchConnections?: OutboundCrossClusterSearchConnection[];
+  readonly crossClusterSearchConnections?: EsOutboundCrossClusterSearchConnection[];
 
   /**
-   * @schema DescribeOutboundCrossClusterSearchConnectionsResponse#NextToken
+   * @schema EsDescribeOutboundCrossClusterSearchConnectionsResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribePackagesRequest
+ * @schema EsDescribePackagesRequest
  */
-export interface DescribePackagesRequest {
+export interface EsDescribePackagesRequest {
   /**
-   * @schema DescribePackagesRequest#Filters
+   * @schema EsDescribePackagesRequest#Filters
    */
-  readonly filters?: DescribePackagesFilter[];
+  readonly filters?: EsDescribePackagesFilter[];
 
   /**
-   * @schema DescribePackagesRequest#MaxResults
+   * @schema EsDescribePackagesRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema DescribePackagesRequest#NextToken
+   * @schema EsDescribePackagesRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribePackagesResponse
+ * @schema EsDescribePackagesResponse
  */
-export interface DescribePackagesResponse {
+export interface EsDescribePackagesResponse {
   /**
-   * @schema DescribePackagesResponse#PackageDetailsList
+   * @schema EsDescribePackagesResponse#PackageDetailsList
    */
-  readonly packageDetailsList?: PackageDetails[];
+  readonly packageDetailsList?: EsPackageDetails[];
 
   /**
-   * @schema DescribePackagesResponse#NextToken
+   * @schema EsDescribePackagesResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeReservedElasticsearchInstanceOfferingsRequest
+ * @schema EsDescribeReservedElasticsearchInstanceOfferingsRequest
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsRequest {
+export interface EsDescribeReservedElasticsearchInstanceOfferingsRequest {
   /**
-   * @schema DescribeReservedElasticsearchInstanceOfferingsRequest#ReservedElasticsearchInstanceOfferingId
+   * @schema EsDescribeReservedElasticsearchInstanceOfferingsRequest#ReservedElasticsearchInstanceOfferingId
    */
   readonly reservedElasticsearchInstanceOfferingId?: string;
 
   /**
-   * @schema DescribeReservedElasticsearchInstanceOfferingsRequest#MaxResults
+   * @schema EsDescribeReservedElasticsearchInstanceOfferingsRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema DescribeReservedElasticsearchInstanceOfferingsRequest#NextToken
+   * @schema EsDescribeReservedElasticsearchInstanceOfferingsRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeReservedElasticsearchInstanceOfferingsResponse
+ * @schema EsDescribeReservedElasticsearchInstanceOfferingsResponse
  */
-export interface DescribeReservedElasticsearchInstanceOfferingsResponse {
+export interface EsDescribeReservedElasticsearchInstanceOfferingsResponse {
   /**
-   * @schema DescribeReservedElasticsearchInstanceOfferingsResponse#NextToken
+   * @schema EsDescribeReservedElasticsearchInstanceOfferingsResponse#NextToken
    */
   readonly nextToken?: string;
 
   /**
-   * @schema DescribeReservedElasticsearchInstanceOfferingsResponse#ReservedElasticsearchInstanceOfferings
+   * @schema EsDescribeReservedElasticsearchInstanceOfferingsResponse#ReservedElasticsearchInstanceOfferings
    */
-  readonly reservedElasticsearchInstanceOfferings?: ReservedElasticsearchInstanceOffering[];
+  readonly reservedElasticsearchInstanceOfferings?: EsReservedElasticsearchInstanceOffering[];
 
 }
 
 /**
- * @schema DescribeReservedElasticsearchInstancesRequest
+ * @schema EsDescribeReservedElasticsearchInstancesRequest
  */
-export interface DescribeReservedElasticsearchInstancesRequest {
+export interface EsDescribeReservedElasticsearchInstancesRequest {
   /**
-   * @schema DescribeReservedElasticsearchInstancesRequest#ReservedElasticsearchInstanceId
+   * @schema EsDescribeReservedElasticsearchInstancesRequest#ReservedElasticsearchInstanceId
    */
   readonly reservedElasticsearchInstanceId?: string;
 
   /**
-   * @schema DescribeReservedElasticsearchInstancesRequest#MaxResults
+   * @schema EsDescribeReservedElasticsearchInstancesRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema DescribeReservedElasticsearchInstancesRequest#NextToken
+   * @schema EsDescribeReservedElasticsearchInstancesRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema DescribeReservedElasticsearchInstancesResponse
+ * @schema EsDescribeReservedElasticsearchInstancesResponse
  */
-export interface DescribeReservedElasticsearchInstancesResponse {
+export interface EsDescribeReservedElasticsearchInstancesResponse {
   /**
-   * @schema DescribeReservedElasticsearchInstancesResponse#NextToken
+   * @schema EsDescribeReservedElasticsearchInstancesResponse#NextToken
    */
   readonly nextToken?: string;
 
   /**
-   * @schema DescribeReservedElasticsearchInstancesResponse#ReservedElasticsearchInstances
+   * @schema EsDescribeReservedElasticsearchInstancesResponse#ReservedElasticsearchInstances
    */
-  readonly reservedElasticsearchInstances?: ReservedElasticsearchInstance[];
+  readonly reservedElasticsearchInstances?: EsReservedElasticsearchInstance[];
 
 }
 
 /**
- * @schema DissociatePackageRequest
+ * @schema EsDissociatePackageRequest
  */
-export interface DissociatePackageRequest {
+export interface EsDissociatePackageRequest {
   /**
-   * @schema DissociatePackageRequest#PackageID
+   * @schema EsDissociatePackageRequest#PackageID
    */
   readonly packageId: string;
 
   /**
-   * @schema DissociatePackageRequest#DomainName
+   * @schema EsDissociatePackageRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema DissociatePackageResponse
+ * @schema EsDissociatePackageResponse
  */
-export interface DissociatePackageResponse {
+export interface EsDissociatePackageResponse {
   /**
-   * @schema DissociatePackageResponse#DomainPackageDetails
+   * @schema EsDissociatePackageResponse#DomainPackageDetails
    */
-  readonly domainPackageDetails?: DomainPackageDetails;
+  readonly domainPackageDetails?: EsDomainPackageDetails;
 
 }
 
 /**
- * @schema GetCompatibleElasticsearchVersionsRequest
+ * @schema EsGetCompatibleElasticsearchVersionsRequest
  */
-export interface GetCompatibleElasticsearchVersionsRequest {
+export interface EsGetCompatibleElasticsearchVersionsRequest {
   /**
-   * @schema GetCompatibleElasticsearchVersionsRequest#DomainName
+   * @schema EsGetCompatibleElasticsearchVersionsRequest#DomainName
    */
   readonly domainName?: string;
 
 }
 
 /**
- * @schema GetCompatibleElasticsearchVersionsResponse
+ * @schema EsGetCompatibleElasticsearchVersionsResponse
  */
-export interface GetCompatibleElasticsearchVersionsResponse {
+export interface EsGetCompatibleElasticsearchVersionsResponse {
   /**
-   * @schema GetCompatibleElasticsearchVersionsResponse#CompatibleElasticsearchVersions
+   * @schema EsGetCompatibleElasticsearchVersionsResponse#CompatibleElasticsearchVersions
    */
-  readonly compatibleElasticsearchVersions?: CompatibleVersionsMap[];
+  readonly compatibleElasticsearchVersions?: EsCompatibleVersionsMap[];
 
 }
 
 /**
- * @schema GetPackageVersionHistoryRequest
+ * @schema EsGetPackageVersionHistoryRequest
  */
-export interface GetPackageVersionHistoryRequest {
+export interface EsGetPackageVersionHistoryRequest {
   /**
-   * @schema GetPackageVersionHistoryRequest#PackageID
+   * @schema EsGetPackageVersionHistoryRequest#PackageID
    */
   readonly packageId: string;
 
   /**
-   * @schema GetPackageVersionHistoryRequest#MaxResults
+   * @schema EsGetPackageVersionHistoryRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema GetPackageVersionHistoryRequest#NextToken
+   * @schema EsGetPackageVersionHistoryRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema GetPackageVersionHistoryResponse
+ * @schema EsGetPackageVersionHistoryResponse
  */
-export interface GetPackageVersionHistoryResponse {
+export interface EsGetPackageVersionHistoryResponse {
   /**
-   * @schema GetPackageVersionHistoryResponse#PackageID
+   * @schema EsGetPackageVersionHistoryResponse#PackageID
    */
   readonly packageId?: string;
 
   /**
-   * @schema GetPackageVersionHistoryResponse#PackageVersionHistoryList
+   * @schema EsGetPackageVersionHistoryResponse#PackageVersionHistoryList
    */
-  readonly packageVersionHistoryList?: PackageVersionHistory[];
+  readonly packageVersionHistoryList?: EsPackageVersionHistory[];
 
   /**
-   * @schema GetPackageVersionHistoryResponse#NextToken
+   * @schema EsGetPackageVersionHistoryResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema GetUpgradeHistoryRequest
+ * @schema EsGetUpgradeHistoryRequest
  */
-export interface GetUpgradeHistoryRequest {
+export interface EsGetUpgradeHistoryRequest {
   /**
-   * @schema GetUpgradeHistoryRequest#DomainName
+   * @schema EsGetUpgradeHistoryRequest#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema GetUpgradeHistoryRequest#MaxResults
+   * @schema EsGetUpgradeHistoryRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema GetUpgradeHistoryRequest#NextToken
+   * @schema EsGetUpgradeHistoryRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema GetUpgradeHistoryResponse
+ * @schema EsGetUpgradeHistoryResponse
  */
-export interface GetUpgradeHistoryResponse {
+export interface EsGetUpgradeHistoryResponse {
   /**
-   * @schema GetUpgradeHistoryResponse#UpgradeHistories
+   * @schema EsGetUpgradeHistoryResponse#UpgradeHistories
    */
-  readonly upgradeHistories?: UpgradeHistory[];
+  readonly upgradeHistories?: EsUpgradeHistory[];
 
   /**
-   * @schema GetUpgradeHistoryResponse#NextToken
+   * @schema EsGetUpgradeHistoryResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema GetUpgradeStatusRequest
+ * @schema EsGetUpgradeStatusRequest
  */
-export interface GetUpgradeStatusRequest {
+export interface EsGetUpgradeStatusRequest {
   /**
-   * @schema GetUpgradeStatusRequest#DomainName
+   * @schema EsGetUpgradeStatusRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema GetUpgradeStatusResponse
+ * @schema EsGetUpgradeStatusResponse
  */
-export interface GetUpgradeStatusResponse {
+export interface EsGetUpgradeStatusResponse {
   /**
-   * @schema GetUpgradeStatusResponse#UpgradeStep
+   * @schema EsGetUpgradeStatusResponse#UpgradeStep
    */
   readonly upgradeStep?: string;
 
   /**
-   * @schema GetUpgradeStatusResponse#StepStatus
+   * @schema EsGetUpgradeStatusResponse#StepStatus
    */
   readonly stepStatus?: string;
 
   /**
-   * @schema GetUpgradeStatusResponse#UpgradeName
+   * @schema EsGetUpgradeStatusResponse#UpgradeName
    */
   readonly upgradeName?: string;
 
 }
 
 /**
- * @schema ListDomainNamesResponse
+ * @schema EsListDomainNamesResponse
  */
-export interface ListDomainNamesResponse {
+export interface EsListDomainNamesResponse {
   /**
-   * @schema ListDomainNamesResponse#DomainNames
+   * @schema EsListDomainNamesResponse#DomainNames
    */
-  readonly domainNames?: DomainInfo[];
+  readonly domainNames?: EsDomainInfo[];
 
 }
 
 /**
- * @schema ListDomainsForPackageRequest
+ * @schema EsListDomainsForPackageRequest
  */
-export interface ListDomainsForPackageRequest {
+export interface EsListDomainsForPackageRequest {
   /**
-   * @schema ListDomainsForPackageRequest#PackageID
+   * @schema EsListDomainsForPackageRequest#PackageID
    */
   readonly packageId: string;
 
   /**
-   * @schema ListDomainsForPackageRequest#MaxResults
+   * @schema EsListDomainsForPackageRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema ListDomainsForPackageRequest#NextToken
+   * @schema EsListDomainsForPackageRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListDomainsForPackageResponse
+ * @schema EsListDomainsForPackageResponse
  */
-export interface ListDomainsForPackageResponse {
+export interface EsListDomainsForPackageResponse {
   /**
-   * @schema ListDomainsForPackageResponse#DomainPackageDetailsList
+   * @schema EsListDomainsForPackageResponse#DomainPackageDetailsList
    */
-  readonly domainPackageDetailsList?: DomainPackageDetails[];
+  readonly domainPackageDetailsList?: EsDomainPackageDetails[];
 
   /**
-   * @schema ListDomainsForPackageResponse#NextToken
+   * @schema EsListDomainsForPackageResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListElasticsearchInstanceTypesRequest
+ * @schema EsListElasticsearchInstanceTypesRequest
  */
-export interface ListElasticsearchInstanceTypesRequest {
+export interface EsListElasticsearchInstanceTypesRequest {
   /**
-   * @schema ListElasticsearchInstanceTypesRequest#ElasticsearchVersion
+   * @schema EsListElasticsearchInstanceTypesRequest#ElasticsearchVersion
    */
   readonly elasticsearchVersion: string;
 
   /**
-   * @schema ListElasticsearchInstanceTypesRequest#DomainName
+   * @schema EsListElasticsearchInstanceTypesRequest#DomainName
    */
   readonly domainName?: string;
 
   /**
-   * @schema ListElasticsearchInstanceTypesRequest#MaxResults
+   * @schema EsListElasticsearchInstanceTypesRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema ListElasticsearchInstanceTypesRequest#NextToken
+   * @schema EsListElasticsearchInstanceTypesRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListElasticsearchInstanceTypesResponse
+ * @schema EsListElasticsearchInstanceTypesResponse
  */
-export interface ListElasticsearchInstanceTypesResponse {
+export interface EsListElasticsearchInstanceTypesResponse {
   /**
-   * @schema ListElasticsearchInstanceTypesResponse#ElasticsearchInstanceTypes
+   * @schema EsListElasticsearchInstanceTypesResponse#ElasticsearchInstanceTypes
    */
   readonly elasticsearchInstanceTypes?: string[];
 
   /**
-   * @schema ListElasticsearchInstanceTypesResponse#NextToken
+   * @schema EsListElasticsearchInstanceTypesResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListElasticsearchVersionsRequest
+ * @schema EsListElasticsearchVersionsRequest
  */
-export interface ListElasticsearchVersionsRequest {
+export interface EsListElasticsearchVersionsRequest {
   /**
-   * @schema ListElasticsearchVersionsRequest#MaxResults
+   * @schema EsListElasticsearchVersionsRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema ListElasticsearchVersionsRequest#NextToken
+   * @schema EsListElasticsearchVersionsRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListElasticsearchVersionsResponse
+ * @schema EsListElasticsearchVersionsResponse
  */
-export interface ListElasticsearchVersionsResponse {
+export interface EsListElasticsearchVersionsResponse {
   /**
-   * @schema ListElasticsearchVersionsResponse#ElasticsearchVersions
+   * @schema EsListElasticsearchVersionsResponse#ElasticsearchVersions
    */
   readonly elasticsearchVersions?: string[];
 
   /**
-   * @schema ListElasticsearchVersionsResponse#NextToken
+   * @schema EsListElasticsearchVersionsResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListPackagesForDomainRequest
+ * @schema EsListPackagesForDomainRequest
  */
-export interface ListPackagesForDomainRequest {
+export interface EsListPackagesForDomainRequest {
   /**
-   * @schema ListPackagesForDomainRequest#DomainName
+   * @schema EsListPackagesForDomainRequest#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema ListPackagesForDomainRequest#MaxResults
+   * @schema EsListPackagesForDomainRequest#MaxResults
    */
   readonly maxResults?: number;
 
   /**
-   * @schema ListPackagesForDomainRequest#NextToken
+   * @schema EsListPackagesForDomainRequest#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListPackagesForDomainResponse
+ * @schema EsListPackagesForDomainResponse
  */
-export interface ListPackagesForDomainResponse {
+export interface EsListPackagesForDomainResponse {
   /**
-   * @schema ListPackagesForDomainResponse#DomainPackageDetailsList
+   * @schema EsListPackagesForDomainResponse#DomainPackageDetailsList
    */
-  readonly domainPackageDetailsList?: DomainPackageDetails[];
+  readonly domainPackageDetailsList?: EsDomainPackageDetails[];
 
   /**
-   * @schema ListPackagesForDomainResponse#NextToken
+   * @schema EsListPackagesForDomainResponse#NextToken
    */
   readonly nextToken?: string;
 
 }
 
 /**
- * @schema ListTagsRequest
+ * @schema EsListTagsRequest
  */
-export interface ListTagsRequest {
+export interface EsListTagsRequest {
   /**
-   * @schema ListTagsRequest#ARN
+   * @schema EsListTagsRequest#ARN
    */
   readonly arn: string;
 
 }
 
 /**
- * @schema ListTagsResponse
+ * @schema EsListTagsResponse
  */
-export interface ListTagsResponse {
+export interface EsListTagsResponse {
   /**
-   * @schema ListTagsResponse#TagList
+   * @schema EsListTagsResponse#TagList
    */
-  readonly tagList?: Tag[];
+  readonly tagList?: EsTag[];
 
 }
 
 /**
- * @schema PurchaseReservedElasticsearchInstanceOfferingRequest
+ * @schema EsPurchaseReservedElasticsearchInstanceOfferingRequest
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingRequest {
+export interface EsPurchaseReservedElasticsearchInstanceOfferingRequest {
   /**
-   * @schema PurchaseReservedElasticsearchInstanceOfferingRequest#ReservedElasticsearchInstanceOfferingId
+   * @schema EsPurchaseReservedElasticsearchInstanceOfferingRequest#ReservedElasticsearchInstanceOfferingId
    */
   readonly reservedElasticsearchInstanceOfferingId: string;
 
   /**
-   * @schema PurchaseReservedElasticsearchInstanceOfferingRequest#ReservationName
+   * @schema EsPurchaseReservedElasticsearchInstanceOfferingRequest#ReservationName
    */
   readonly reservationName: string;
 
   /**
-   * @schema PurchaseReservedElasticsearchInstanceOfferingRequest#InstanceCount
+   * @schema EsPurchaseReservedElasticsearchInstanceOfferingRequest#InstanceCount
    */
   readonly instanceCount?: number;
 
 }
 
 /**
- * @schema PurchaseReservedElasticsearchInstanceOfferingResponse
+ * @schema EsPurchaseReservedElasticsearchInstanceOfferingResponse
  */
-export interface PurchaseReservedElasticsearchInstanceOfferingResponse {
+export interface EsPurchaseReservedElasticsearchInstanceOfferingResponse {
   /**
-   * @schema PurchaseReservedElasticsearchInstanceOfferingResponse#ReservedElasticsearchInstanceId
+   * @schema EsPurchaseReservedElasticsearchInstanceOfferingResponse#ReservedElasticsearchInstanceId
    */
   readonly reservedElasticsearchInstanceId?: string;
 
   /**
-   * @schema PurchaseReservedElasticsearchInstanceOfferingResponse#ReservationName
+   * @schema EsPurchaseReservedElasticsearchInstanceOfferingResponse#ReservationName
    */
   readonly reservationName?: string;
 
 }
 
 /**
- * @schema RejectInboundCrossClusterSearchConnectionRequest
+ * @schema EsRejectInboundCrossClusterSearchConnectionRequest
  */
-export interface RejectInboundCrossClusterSearchConnectionRequest {
+export interface EsRejectInboundCrossClusterSearchConnectionRequest {
   /**
-   * @schema RejectInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
+   * @schema EsRejectInboundCrossClusterSearchConnectionRequest#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId: string;
 
 }
 
 /**
- * @schema RejectInboundCrossClusterSearchConnectionResponse
+ * @schema EsRejectInboundCrossClusterSearchConnectionResponse
  */
-export interface RejectInboundCrossClusterSearchConnectionResponse {
+export interface EsRejectInboundCrossClusterSearchConnectionResponse {
   /**
-   * @schema RejectInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
+   * @schema EsRejectInboundCrossClusterSearchConnectionResponse#CrossClusterSearchConnection
    */
-  readonly crossClusterSearchConnection?: InboundCrossClusterSearchConnection;
+  readonly crossClusterSearchConnection?: EsInboundCrossClusterSearchConnection;
 
 }
 
 /**
- * @schema RemoveTagsRequest
+ * @schema EsRemoveTagsRequest
  */
-export interface RemoveTagsRequest {
+export interface EsRemoveTagsRequest {
   /**
-   * @schema RemoveTagsRequest#ARN
+   * @schema EsRemoveTagsRequest#ARN
    */
   readonly arn: string;
 
   /**
-   * @schema RemoveTagsRequest#TagKeys
+   * @schema EsRemoveTagsRequest#TagKeys
    */
   readonly tagKeys: string[];
 
 }
 
 /**
- * @schema StartElasticsearchServiceSoftwareUpdateRequest
+ * @schema EsStartElasticsearchServiceSoftwareUpdateRequest
  */
-export interface StartElasticsearchServiceSoftwareUpdateRequest {
+export interface EsStartElasticsearchServiceSoftwareUpdateRequest {
   /**
-   * @schema StartElasticsearchServiceSoftwareUpdateRequest#DomainName
+   * @schema EsStartElasticsearchServiceSoftwareUpdateRequest#DomainName
    */
   readonly domainName: string;
 
 }
 
 /**
- * @schema StartElasticsearchServiceSoftwareUpdateResponse
+ * @schema EsStartElasticsearchServiceSoftwareUpdateResponse
  */
-export interface StartElasticsearchServiceSoftwareUpdateResponse {
+export interface EsStartElasticsearchServiceSoftwareUpdateResponse {
   /**
-   * @schema StartElasticsearchServiceSoftwareUpdateResponse#ServiceSoftwareOptions
+   * @schema EsStartElasticsearchServiceSoftwareUpdateResponse#ServiceSoftwareOptions
    */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
+  readonly serviceSoftwareOptions?: EsServiceSoftwareOptions;
 
 }
 
 /**
- * @schema UpdateElasticsearchDomainConfigRequest
+ * @schema EsUpdateElasticsearchDomainConfigRequest
  */
-export interface UpdateElasticsearchDomainConfigRequest {
+export interface EsUpdateElasticsearchDomainConfigRequest {
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#DomainName
+   * @schema EsUpdateElasticsearchDomainConfigRequest#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#ElasticsearchClusterConfig
+   * @schema EsUpdateElasticsearchDomainConfigRequest#ElasticsearchClusterConfig
    */
-  readonly elasticsearchClusterConfig?: ElasticsearchClusterConfig;
+  readonly elasticsearchClusterConfig?: EsElasticsearchClusterConfig;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#EBSOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#EBSOptions
    */
-  readonly ebsOptions?: EbsOptions;
+  readonly ebsOptions?: EsebsOptions;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#SnapshotOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#SnapshotOptions
    */
-  readonly snapshotOptions?: SnapshotOptions;
+  readonly snapshotOptions?: EsSnapshotOptions;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#VPCOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#VPCOptions
    */
-  readonly vpcOptions?: VpcOptions;
+  readonly vpcOptions?: EsvpcOptions;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#CognitoOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#CognitoOptions
    */
-  readonly cognitoOptions?: CognitoOptions;
+  readonly cognitoOptions?: EsCognitoOptions;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#AdvancedOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#AdvancedOptions
    */
   readonly advancedOptions?: { [key: string]: string };
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#AccessPolicies
+   * @schema EsUpdateElasticsearchDomainConfigRequest#AccessPolicies
    */
   readonly accessPolicies?: string;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#LogPublishingOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#LogPublishingOptions
    */
-  readonly logPublishingOptions?: { [key: string]: LogPublishingOption };
+  readonly logPublishingOptions?: { [key: string]: EsLogPublishingOption };
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#DomainEndpointOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#DomainEndpointOptions
    */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
+  readonly domainEndpointOptions?: EsDomainEndpointOptions;
 
   /**
-   * @schema UpdateElasticsearchDomainConfigRequest#AdvancedSecurityOptions
+   * @schema EsUpdateElasticsearchDomainConfigRequest#AdvancedSecurityOptions
    */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptionsInput;
+  readonly advancedSecurityOptions?: EsAdvancedSecurityOptionsInput;
 
 }
 
 /**
- * @schema UpdateElasticsearchDomainConfigResponse
+ * @schema EsUpdateElasticsearchDomainConfigResponse
  */
-export interface UpdateElasticsearchDomainConfigResponse {
+export interface EsUpdateElasticsearchDomainConfigResponse {
   /**
-   * @schema UpdateElasticsearchDomainConfigResponse#DomainConfig
+   * @schema EsUpdateElasticsearchDomainConfigResponse#DomainConfig
    */
-  readonly domainConfig: ElasticsearchDomainConfig;
+  readonly domainConfig: EsElasticsearchDomainConfig;
 
 }
 
 /**
- * @schema UpdatePackageRequest
+ * @schema EsUpdatePackageRequest
  */
-export interface UpdatePackageRequest {
+export interface EsUpdatePackageRequest {
   /**
-   * @schema UpdatePackageRequest#PackageID
+   * @schema EsUpdatePackageRequest#PackageID
    */
   readonly packageId: string;
 
   /**
-   * @schema UpdatePackageRequest#PackageSource
+   * @schema EsUpdatePackageRequest#PackageSource
    */
-  readonly packageSource: PackageSource;
+  readonly packageSource: EsPackageSource;
 
   /**
-   * @schema UpdatePackageRequest#PackageDescription
+   * @schema EsUpdatePackageRequest#PackageDescription
    */
   readonly packageDescription?: string;
 
   /**
-   * @schema UpdatePackageRequest#CommitMessage
+   * @schema EsUpdatePackageRequest#CommitMessage
    */
   readonly commitMessage?: string;
 
 }
 
 /**
- * @schema UpdatePackageResponse
+ * @schema EsUpdatePackageResponse
  */
-export interface UpdatePackageResponse {
+export interface EsUpdatePackageResponse {
   /**
-   * @schema UpdatePackageResponse#PackageDetails
+   * @schema EsUpdatePackageResponse#PackageDetails
    */
-  readonly packageDetails?: PackageDetails;
+  readonly packageDetails?: EsPackageDetails;
 
 }
 
 /**
- * @schema UpgradeElasticsearchDomainRequest
+ * @schema EsUpgradeElasticsearchDomainRequest
  */
-export interface UpgradeElasticsearchDomainRequest {
+export interface EsUpgradeElasticsearchDomainRequest {
   /**
-   * @schema UpgradeElasticsearchDomainRequest#DomainName
+   * @schema EsUpgradeElasticsearchDomainRequest#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema UpgradeElasticsearchDomainRequest#TargetVersion
+   * @schema EsUpgradeElasticsearchDomainRequest#TargetVersion
    */
   readonly targetVersion: string;
 
   /**
-   * @schema UpgradeElasticsearchDomainRequest#PerformCheckOnly
+   * @schema EsUpgradeElasticsearchDomainRequest#PerformCheckOnly
    */
   readonly performCheckOnly?: boolean;
 
 }
 
 /**
- * @schema UpgradeElasticsearchDomainResponse
+ * @schema EsUpgradeElasticsearchDomainResponse
  */
-export interface UpgradeElasticsearchDomainResponse {
+export interface EsUpgradeElasticsearchDomainResponse {
   /**
-   * @schema UpgradeElasticsearchDomainResponse#DomainName
+   * @schema EsUpgradeElasticsearchDomainResponse#DomainName
    */
   readonly domainName?: string;
 
   /**
-   * @schema UpgradeElasticsearchDomainResponse#TargetVersion
+   * @schema EsUpgradeElasticsearchDomainResponse#TargetVersion
    */
   readonly targetVersion?: string;
 
   /**
-   * @schema UpgradeElasticsearchDomainResponse#PerformCheckOnly
+   * @schema EsUpgradeElasticsearchDomainResponse#PerformCheckOnly
    */
   readonly performCheckOnly?: boolean;
 
 }
 
 /**
- * @schema InboundCrossClusterSearchConnection
+ * @schema EsInboundCrossClusterSearchConnection
  */
-export interface InboundCrossClusterSearchConnection {
+export interface EsInboundCrossClusterSearchConnection {
   /**
-   * @schema InboundCrossClusterSearchConnection#SourceDomainInfo
+   * @schema EsInboundCrossClusterSearchConnection#SourceDomainInfo
    */
-  readonly sourceDomainInfo?: DomainInformation;
+  readonly sourceDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema InboundCrossClusterSearchConnection#DestinationDomainInfo
+   * @schema EsInboundCrossClusterSearchConnection#DestinationDomainInfo
    */
-  readonly destinationDomainInfo?: DomainInformation;
+  readonly destinationDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema InboundCrossClusterSearchConnection#CrossClusterSearchConnectionId
+   * @schema EsInboundCrossClusterSearchConnection#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId?: string;
 
   /**
-   * @schema InboundCrossClusterSearchConnection#ConnectionStatus
+   * @schema EsInboundCrossClusterSearchConnection#ConnectionStatus
    */
-  readonly connectionStatus?: InboundCrossClusterSearchConnectionStatus;
+  readonly connectionStatus?: EsInboundCrossClusterSearchConnectionStatus;
 
 }
 
 /**
- * @schema Tag
+ * @schema EsTag
  */
-export interface Tag {
+export interface EsTag {
   /**
-   * @schema Tag#Key
+   * @schema EsTag#Key
    */
   readonly key: string;
 
   /**
-   * @schema Tag#Value
+   * @schema EsTag#Value
    */
   readonly value: string;
 
 }
 
 /**
- * @schema DomainPackageDetails
+ * @schema EsDomainPackageDetails
  */
-export interface DomainPackageDetails {
+export interface EsDomainPackageDetails {
   /**
-   * @schema DomainPackageDetails#PackageID
+   * @schema EsDomainPackageDetails#PackageID
    */
   readonly packageId?: string;
 
   /**
-   * @schema DomainPackageDetails#PackageName
+   * @schema EsDomainPackageDetails#PackageName
    */
   readonly packageName?: string;
 
   /**
-   * @schema DomainPackageDetails#PackageType
+   * @schema EsDomainPackageDetails#PackageType
    */
   readonly packageType?: string;
 
   /**
-   * @schema DomainPackageDetails#LastUpdated
+   * @schema EsDomainPackageDetails#LastUpdated
    */
   readonly lastUpdated?: string;
 
   /**
-   * @schema DomainPackageDetails#DomainName
+   * @schema EsDomainPackageDetails#DomainName
    */
   readonly domainName?: string;
 
   /**
-   * @schema DomainPackageDetails#DomainPackageStatus
+   * @schema EsDomainPackageDetails#DomainPackageStatus
    */
   readonly domainPackageStatus?: string;
 
   /**
-   * @schema DomainPackageDetails#PackageVersion
+   * @schema EsDomainPackageDetails#PackageVersion
    */
   readonly packageVersion?: string;
 
   /**
-   * @schema DomainPackageDetails#ReferencePath
+   * @schema EsDomainPackageDetails#ReferencePath
    */
   readonly referencePath?: string;
 
   /**
-   * @schema DomainPackageDetails#ErrorDetails
+   * @schema EsDomainPackageDetails#ErrorDetails
    */
-  readonly errorDetails?: ErrorDetails;
+  readonly errorDetails?: EsErrorDetails;
 
 }
 
 /**
- * @schema ServiceSoftwareOptions
+ * @schema EsServiceSoftwareOptions
  */
-export interface ServiceSoftwareOptions {
+export interface EsServiceSoftwareOptions {
   /**
-   * @schema ServiceSoftwareOptions#CurrentVersion
+   * @schema EsServiceSoftwareOptions#CurrentVersion
    */
   readonly currentVersion?: string;
 
   /**
-   * @schema ServiceSoftwareOptions#NewVersion
+   * @schema EsServiceSoftwareOptions#NewVersion
    */
   readonly newVersion?: string;
 
   /**
-   * @schema ServiceSoftwareOptions#UpdateAvailable
+   * @schema EsServiceSoftwareOptions#UpdateAvailable
    */
   readonly updateAvailable?: boolean;
 
   /**
-   * @schema ServiceSoftwareOptions#Cancellable
+   * @schema EsServiceSoftwareOptions#Cancellable
    */
   readonly cancellable?: boolean;
 
   /**
-   * @schema ServiceSoftwareOptions#UpdateStatus
+   * @schema EsServiceSoftwareOptions#UpdateStatus
    */
   readonly updateStatus?: string;
 
   /**
-   * @schema ServiceSoftwareOptions#Description
+   * @schema EsServiceSoftwareOptions#Description
    */
   readonly description?: string;
 
   /**
-   * @schema ServiceSoftwareOptions#AutomatedUpdateDate
+   * @schema EsServiceSoftwareOptions#AutomatedUpdateDate
    */
   readonly automatedUpdateDate?: string;
 
   /**
-   * @schema ServiceSoftwareOptions#OptionalDeployment
+   * @schema EsServiceSoftwareOptions#OptionalDeployment
    */
   readonly optionalDeployment?: boolean;
 
 }
 
 /**
- * @schema ElasticsearchClusterConfig
+ * @schema EsElasticsearchClusterConfig
  */
-export interface ElasticsearchClusterConfig {
+export interface EsElasticsearchClusterConfig {
   /**
-   * @schema ElasticsearchClusterConfig#InstanceType
+   * @schema EsElasticsearchClusterConfig#InstanceType
    */
   readonly instanceType?: string;
 
   /**
-   * @schema ElasticsearchClusterConfig#InstanceCount
+   * @schema EsElasticsearchClusterConfig#InstanceCount
    */
   readonly instanceCount?: number;
 
   /**
-   * @schema ElasticsearchClusterConfig#DedicatedMasterEnabled
+   * @schema EsElasticsearchClusterConfig#DedicatedMasterEnabled
    */
   readonly dedicatedMasterEnabled?: boolean;
 
   /**
-   * @schema ElasticsearchClusterConfig#ZoneAwarenessEnabled
+   * @schema EsElasticsearchClusterConfig#ZoneAwarenessEnabled
    */
   readonly zoneAwarenessEnabled?: boolean;
 
   /**
-   * @schema ElasticsearchClusterConfig#ZoneAwarenessConfig
+   * @schema EsElasticsearchClusterConfig#ZoneAwarenessConfig
    */
-  readonly zoneAwarenessConfig?: ZoneAwarenessConfig;
+  readonly zoneAwarenessConfig?: EsZoneAwarenessConfig;
 
   /**
-   * @schema ElasticsearchClusterConfig#DedicatedMasterType
+   * @schema EsElasticsearchClusterConfig#DedicatedMasterType
    */
   readonly dedicatedMasterType?: string;
 
   /**
-   * @schema ElasticsearchClusterConfig#DedicatedMasterCount
+   * @schema EsElasticsearchClusterConfig#DedicatedMasterCount
    */
   readonly dedicatedMasterCount?: number;
 
   /**
-   * @schema ElasticsearchClusterConfig#WarmEnabled
+   * @schema EsElasticsearchClusterConfig#WarmEnabled
    */
   readonly warmEnabled?: boolean;
 
   /**
-   * @schema ElasticsearchClusterConfig#WarmType
+   * @schema EsElasticsearchClusterConfig#WarmType
    */
   readonly warmType?: string;
 
   /**
-   * @schema ElasticsearchClusterConfig#WarmCount
+   * @schema EsElasticsearchClusterConfig#WarmCount
    */
   readonly warmCount?: number;
 
 }
 
 /**
- * @schema EbsOptions
+ * @schema EsebsOptions
  */
-export interface EbsOptions {
+export interface EsebsOptions {
   /**
-   * @schema EbsOptions#EBSEnabled
+   * @schema EsebsOptions#EBSEnabled
    */
   readonly ebsEnabled?: boolean;
 
   /**
-   * @schema EbsOptions#VolumeType
+   * @schema EsebsOptions#VolumeType
    */
   readonly volumeType?: string;
 
   /**
-   * @schema EbsOptions#VolumeSize
+   * @schema EsebsOptions#VolumeSize
    */
   readonly volumeSize?: number;
 
   /**
-   * @schema EbsOptions#Iops
+   * @schema EsebsOptions#Iops
    */
   readonly iops?: number;
 
 }
 
 /**
- * @schema SnapshotOptions
+ * @schema EsSnapshotOptions
  */
-export interface SnapshotOptions {
+export interface EsSnapshotOptions {
   /**
-   * @schema SnapshotOptions#AutomatedSnapshotStartHour
+   * @schema EsSnapshotOptions#AutomatedSnapshotStartHour
    */
   readonly automatedSnapshotStartHour?: number;
 
 }
 
 /**
- * @schema VpcOptions
+ * @schema EsvpcOptions
  */
-export interface VpcOptions {
+export interface EsvpcOptions {
   /**
-   * @schema VpcOptions#SubnetIds
+   * @schema EsvpcOptions#SubnetIds
    */
   readonly subnetIds?: string[];
 
   /**
-   * @schema VpcOptions#SecurityGroupIds
+   * @schema EsvpcOptions#SecurityGroupIds
    */
   readonly securityGroupIds?: string[];
 
 }
 
 /**
- * @schema CognitoOptions
+ * @schema EsCognitoOptions
  */
-export interface CognitoOptions {
+export interface EsCognitoOptions {
   /**
-   * @schema CognitoOptions#Enabled
+   * @schema EsCognitoOptions#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema CognitoOptions#UserPoolId
+   * @schema EsCognitoOptions#UserPoolId
    */
   readonly userPoolId?: string;
 
   /**
-   * @schema CognitoOptions#IdentityPoolId
+   * @schema EsCognitoOptions#IdentityPoolId
    */
   readonly identityPoolId?: string;
 
   /**
-   * @schema CognitoOptions#RoleArn
+   * @schema EsCognitoOptions#RoleArn
    */
   readonly roleArn?: string;
 
 }
 
 /**
- * @schema EncryptionAtRestOptions
+ * @schema EsEncryptionAtRestOptions
  */
-export interface EncryptionAtRestOptions {
+export interface EsEncryptionAtRestOptions {
   /**
-   * @schema EncryptionAtRestOptions#Enabled
+   * @schema EsEncryptionAtRestOptions#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema EncryptionAtRestOptions#KmsKeyId
+   * @schema EsEncryptionAtRestOptions#KmsKeyId
    */
   readonly kmsKeyId?: string;
 
 }
 
 /**
- * @schema NodeToNodeEncryptionOptions
+ * @schema EsNodeToNodeEncryptionOptions
  */
-export interface NodeToNodeEncryptionOptions {
+export interface EsNodeToNodeEncryptionOptions {
   /**
-   * @schema NodeToNodeEncryptionOptions#Enabled
+   * @schema EsNodeToNodeEncryptionOptions#Enabled
    */
   readonly enabled?: boolean;
 
 }
 
 /**
- * @schema LogPublishingOption
+ * @schema EsLogPublishingOption
  */
-export interface LogPublishingOption {
+export interface EsLogPublishingOption {
   /**
-   * @schema LogPublishingOption#CloudWatchLogsLogGroupArn
+   * @schema EsLogPublishingOption#CloudWatchLogsLogGroupArn
    */
   readonly cloudWatchLogsLogGroupArn?: string;
 
   /**
-   * @schema LogPublishingOption#Enabled
+   * @schema EsLogPublishingOption#Enabled
    */
   readonly enabled?: boolean;
 
 }
 
 /**
- * @schema DomainEndpointOptions
+ * @schema EsDomainEndpointOptions
  */
-export interface DomainEndpointOptions {
+export interface EsDomainEndpointOptions {
   /**
-   * @schema DomainEndpointOptions#EnforceHTTPS
+   * @schema EsDomainEndpointOptions#EnforceHTTPS
    */
   readonly enforceHttps?: boolean;
 
   /**
-   * @schema DomainEndpointOptions#TLSSecurityPolicy
+   * @schema EsDomainEndpointOptions#TLSSecurityPolicy
    */
   readonly tlsSecurityPolicy?: string;
 
   /**
-   * @schema DomainEndpointOptions#CustomEndpointEnabled
+   * @schema EsDomainEndpointOptions#CustomEndpointEnabled
    */
   readonly customEndpointEnabled?: boolean;
 
   /**
-   * @schema DomainEndpointOptions#CustomEndpoint
+   * @schema EsDomainEndpointOptions#CustomEndpoint
    */
   readonly customEndpoint?: string;
 
   /**
-   * @schema DomainEndpointOptions#CustomEndpointCertificateArn
+   * @schema EsDomainEndpointOptions#CustomEndpointCertificateArn
    */
   readonly customEndpointCertificateArn?: string;
 
 }
 
 /**
- * @schema AdvancedSecurityOptionsInput
+ * @schema EsAdvancedSecurityOptionsInput
  */
-export interface AdvancedSecurityOptionsInput {
+export interface EsAdvancedSecurityOptionsInput {
   /**
-   * @schema AdvancedSecurityOptionsInput#Enabled
+   * @schema EsAdvancedSecurityOptionsInput#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema AdvancedSecurityOptionsInput#InternalUserDatabaseEnabled
+   * @schema EsAdvancedSecurityOptionsInput#InternalUserDatabaseEnabled
    */
   readonly internalUserDatabaseEnabled?: boolean;
 
   /**
-   * @schema AdvancedSecurityOptionsInput#MasterUserOptions
+   * @schema EsAdvancedSecurityOptionsInput#MasterUserOptions
    */
-  readonly masterUserOptions?: MasterUserOptions;
+  readonly masterUserOptions?: EsMasterUserOptions;
 
   /**
-   * @schema AdvancedSecurityOptionsInput#SAMLOptions
+   * @schema EsAdvancedSecurityOptionsInput#SAMLOptions
    */
-  readonly samlOptions?: SamlOptionsInput;
+  readonly samlOptions?: EssamlOptionsInput;
 
 }
 
 /**
- * @schema ElasticsearchDomainStatus
+ * @schema EsElasticsearchDomainStatus
  */
-export interface ElasticsearchDomainStatus {
+export interface EsElasticsearchDomainStatus {
   /**
-   * @schema ElasticsearchDomainStatus#DomainId
+   * @schema EsElasticsearchDomainStatus#DomainId
    */
   readonly domainId: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#DomainName
+   * @schema EsElasticsearchDomainStatus#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#ARN
+   * @schema EsElasticsearchDomainStatus#ARN
    */
   readonly arn: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#Created
+   * @schema EsElasticsearchDomainStatus#Created
    */
   readonly created?: boolean;
 
   /**
-   * @schema ElasticsearchDomainStatus#Deleted
+   * @schema EsElasticsearchDomainStatus#Deleted
    */
   readonly deleted?: boolean;
 
   /**
-   * @schema ElasticsearchDomainStatus#Endpoint
+   * @schema EsElasticsearchDomainStatus#Endpoint
    */
   readonly endpoint?: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#Endpoints
+   * @schema EsElasticsearchDomainStatus#Endpoints
    */
   readonly endpoints?: { [key: string]: string };
 
   /**
-   * @schema ElasticsearchDomainStatus#Processing
+   * @schema EsElasticsearchDomainStatus#Processing
    */
   readonly processing?: boolean;
 
   /**
-   * @schema ElasticsearchDomainStatus#UpgradeProcessing
+   * @schema EsElasticsearchDomainStatus#UpgradeProcessing
    */
   readonly upgradeProcessing?: boolean;
 
   /**
-   * @schema ElasticsearchDomainStatus#ElasticsearchVersion
+   * @schema EsElasticsearchDomainStatus#ElasticsearchVersion
    */
   readonly elasticsearchVersion?: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#ElasticsearchClusterConfig
+   * @schema EsElasticsearchDomainStatus#ElasticsearchClusterConfig
    */
-  readonly elasticsearchClusterConfig: ElasticsearchClusterConfig;
+  readonly elasticsearchClusterConfig: EsElasticsearchClusterConfig;
 
   /**
-   * @schema ElasticsearchDomainStatus#EBSOptions
+   * @schema EsElasticsearchDomainStatus#EBSOptions
    */
-  readonly ebsOptions?: EbsOptions;
+  readonly ebsOptions?: EsebsOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#AccessPolicies
+   * @schema EsElasticsearchDomainStatus#AccessPolicies
    */
   readonly accessPolicies?: string;
 
   /**
-   * @schema ElasticsearchDomainStatus#SnapshotOptions
+   * @schema EsElasticsearchDomainStatus#SnapshotOptions
    */
-  readonly snapshotOptions?: SnapshotOptions;
+  readonly snapshotOptions?: EsSnapshotOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#VPCOptions
+   * @schema EsElasticsearchDomainStatus#VPCOptions
    */
-  readonly vpcOptions?: VpcDerivedInfo;
+  readonly vpcOptions?: EsvpcDerivedInfo;
 
   /**
-   * @schema ElasticsearchDomainStatus#CognitoOptions
+   * @schema EsElasticsearchDomainStatus#CognitoOptions
    */
-  readonly cognitoOptions?: CognitoOptions;
+  readonly cognitoOptions?: EsCognitoOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#EncryptionAtRestOptions
+   * @schema EsElasticsearchDomainStatus#EncryptionAtRestOptions
    */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptions;
+  readonly encryptionAtRestOptions?: EsEncryptionAtRestOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#NodeToNodeEncryptionOptions
+   * @schema EsElasticsearchDomainStatus#NodeToNodeEncryptionOptions
    */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptions;
+  readonly nodeToNodeEncryptionOptions?: EsNodeToNodeEncryptionOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#AdvancedOptions
+   * @schema EsElasticsearchDomainStatus#AdvancedOptions
    */
   readonly advancedOptions?: { [key: string]: string };
 
   /**
-   * @schema ElasticsearchDomainStatus#LogPublishingOptions
+   * @schema EsElasticsearchDomainStatus#LogPublishingOptions
    */
-  readonly logPublishingOptions?: { [key: string]: LogPublishingOption };
+  readonly logPublishingOptions?: { [key: string]: EsLogPublishingOption };
 
   /**
-   * @schema ElasticsearchDomainStatus#ServiceSoftwareOptions
+   * @schema EsElasticsearchDomainStatus#ServiceSoftwareOptions
    */
-  readonly serviceSoftwareOptions?: ServiceSoftwareOptions;
+  readonly serviceSoftwareOptions?: EsServiceSoftwareOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#DomainEndpointOptions
+   * @schema EsElasticsearchDomainStatus#DomainEndpointOptions
    */
-  readonly domainEndpointOptions?: DomainEndpointOptions;
+  readonly domainEndpointOptions?: EsDomainEndpointOptions;
 
   /**
-   * @schema ElasticsearchDomainStatus#AdvancedSecurityOptions
+   * @schema EsElasticsearchDomainStatus#AdvancedSecurityOptions
    */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptions;
+  readonly advancedSecurityOptions?: EsAdvancedSecurityOptions;
 
 }
 
 /**
- * @schema DomainInformation
+ * @schema EsDomainInformation
  */
-export interface DomainInformation {
+export interface EsDomainInformation {
   /**
-   * @schema DomainInformation#OwnerId
+   * @schema EsDomainInformation#OwnerId
    */
   readonly ownerId?: string;
 
   /**
-   * @schema DomainInformation#DomainName
+   * @schema EsDomainInformation#DomainName
    */
   readonly domainName: string;
 
   /**
-   * @schema DomainInformation#Region
+   * @schema EsDomainInformation#Region
    */
   readonly region?: string;
 
 }
 
 /**
- * @schema OutboundCrossClusterSearchConnectionStatus
+ * @schema EsOutboundCrossClusterSearchConnectionStatus
  */
-export interface OutboundCrossClusterSearchConnectionStatus {
+export interface EsOutboundCrossClusterSearchConnectionStatus {
   /**
-   * @schema OutboundCrossClusterSearchConnectionStatus#StatusCode
+   * @schema EsOutboundCrossClusterSearchConnectionStatus#StatusCode
    */
   readonly statusCode?: string;
 
   /**
-   * @schema OutboundCrossClusterSearchConnectionStatus#Message
+   * @schema EsOutboundCrossClusterSearchConnectionStatus#Message
    */
   readonly message?: string;
 
 }
 
 /**
- * @schema PackageSource
+ * @schema EsPackageSource
  */
-export interface PackageSource {
+export interface EsPackageSource {
   /**
-   * @schema PackageSource#S3BucketName
+   * @schema EsPackageSource#S3BucketName
    */
   readonly s3BucketName?: string;
 
   /**
-   * @schema PackageSource#S3Key
+   * @schema EsPackageSource#S3Key
    */
   readonly s3Key?: string;
 
 }
 
 /**
- * @schema PackageDetails
+ * @schema EsPackageDetails
  */
-export interface PackageDetails {
+export interface EsPackageDetails {
   /**
-   * @schema PackageDetails#PackageID
+   * @schema EsPackageDetails#PackageID
    */
   readonly packageId?: string;
 
   /**
-   * @schema PackageDetails#PackageName
+   * @schema EsPackageDetails#PackageName
    */
   readonly packageName?: string;
 
   /**
-   * @schema PackageDetails#PackageType
+   * @schema EsPackageDetails#PackageType
    */
   readonly packageType?: string;
 
   /**
-   * @schema PackageDetails#PackageDescription
+   * @schema EsPackageDetails#PackageDescription
    */
   readonly packageDescription?: string;
 
   /**
-   * @schema PackageDetails#PackageStatus
+   * @schema EsPackageDetails#PackageStatus
    */
   readonly packageStatus?: string;
 
   /**
-   * @schema PackageDetails#CreatedAt
+   * @schema EsPackageDetails#CreatedAt
    */
   readonly createdAt?: string;
 
   /**
-   * @schema PackageDetails#LastUpdatedAt
+   * @schema EsPackageDetails#LastUpdatedAt
    */
   readonly lastUpdatedAt?: string;
 
   /**
-   * @schema PackageDetails#AvailablePackageVersion
+   * @schema EsPackageDetails#AvailablePackageVersion
    */
   readonly availablePackageVersion?: string;
 
   /**
-   * @schema PackageDetails#ErrorDetails
+   * @schema EsPackageDetails#ErrorDetails
    */
-  readonly errorDetails?: ErrorDetails;
+  readonly errorDetails?: EsErrorDetails;
 
 }
 
 /**
- * @schema OutboundCrossClusterSearchConnection
+ * @schema EsOutboundCrossClusterSearchConnection
  */
-export interface OutboundCrossClusterSearchConnection {
+export interface EsOutboundCrossClusterSearchConnection {
   /**
-   * @schema OutboundCrossClusterSearchConnection#SourceDomainInfo
+   * @schema EsOutboundCrossClusterSearchConnection#SourceDomainInfo
    */
-  readonly sourceDomainInfo?: DomainInformation;
+  readonly sourceDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema OutboundCrossClusterSearchConnection#DestinationDomainInfo
+   * @schema EsOutboundCrossClusterSearchConnection#DestinationDomainInfo
    */
-  readonly destinationDomainInfo?: DomainInformation;
+  readonly destinationDomainInfo?: EsDomainInformation;
 
   /**
-   * @schema OutboundCrossClusterSearchConnection#CrossClusterSearchConnectionId
+   * @schema EsOutboundCrossClusterSearchConnection#CrossClusterSearchConnectionId
    */
   readonly crossClusterSearchConnectionId?: string;
 
   /**
-   * @schema OutboundCrossClusterSearchConnection#ConnectionAlias
+   * @schema EsOutboundCrossClusterSearchConnection#ConnectionAlias
    */
   readonly connectionAlias?: string;
 
   /**
-   * @schema OutboundCrossClusterSearchConnection#ConnectionStatus
+   * @schema EsOutboundCrossClusterSearchConnection#ConnectionStatus
    */
-  readonly connectionStatus?: OutboundCrossClusterSearchConnectionStatus;
+  readonly connectionStatus?: EsOutboundCrossClusterSearchConnectionStatus;
 
 }
 
 /**
- * @schema ElasticsearchDomainConfig
+ * @schema EsElasticsearchDomainConfig
  */
-export interface ElasticsearchDomainConfig {
+export interface EsElasticsearchDomainConfig {
   /**
-   * @schema ElasticsearchDomainConfig#ElasticsearchVersion
+   * @schema EsElasticsearchDomainConfig#ElasticsearchVersion
    */
-  readonly elasticsearchVersion?: ElasticsearchVersionStatus;
+  readonly elasticsearchVersion?: EsElasticsearchVersionStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#ElasticsearchClusterConfig
+   * @schema EsElasticsearchDomainConfig#ElasticsearchClusterConfig
    */
-  readonly elasticsearchClusterConfig?: ElasticsearchClusterConfigStatus;
+  readonly elasticsearchClusterConfig?: EsElasticsearchClusterConfigStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#EBSOptions
+   * @schema EsElasticsearchDomainConfig#EBSOptions
    */
-  readonly ebsOptions?: EbsOptionsStatus;
+  readonly ebsOptions?: EsebsOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#AccessPolicies
+   * @schema EsElasticsearchDomainConfig#AccessPolicies
    */
-  readonly accessPolicies?: AccessPoliciesStatus;
+  readonly accessPolicies?: EsAccessPoliciesStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#SnapshotOptions
+   * @schema EsElasticsearchDomainConfig#SnapshotOptions
    */
-  readonly snapshotOptions?: SnapshotOptionsStatus;
+  readonly snapshotOptions?: EsSnapshotOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#VPCOptions
+   * @schema EsElasticsearchDomainConfig#VPCOptions
    */
-  readonly vpcOptions?: VpcDerivedInfoStatus;
+  readonly vpcOptions?: EsvpcDerivedInfoStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#CognitoOptions
+   * @schema EsElasticsearchDomainConfig#CognitoOptions
    */
-  readonly cognitoOptions?: CognitoOptionsStatus;
+  readonly cognitoOptions?: EsCognitoOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#EncryptionAtRestOptions
+   * @schema EsElasticsearchDomainConfig#EncryptionAtRestOptions
    */
-  readonly encryptionAtRestOptions?: EncryptionAtRestOptionsStatus;
+  readonly encryptionAtRestOptions?: EsEncryptionAtRestOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#NodeToNodeEncryptionOptions
+   * @schema EsElasticsearchDomainConfig#NodeToNodeEncryptionOptions
    */
-  readonly nodeToNodeEncryptionOptions?: NodeToNodeEncryptionOptionsStatus;
+  readonly nodeToNodeEncryptionOptions?: EsNodeToNodeEncryptionOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#AdvancedOptions
+   * @schema EsElasticsearchDomainConfig#AdvancedOptions
    */
-  readonly advancedOptions?: AdvancedOptionsStatus;
+  readonly advancedOptions?: EsAdvancedOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#LogPublishingOptions
+   * @schema EsElasticsearchDomainConfig#LogPublishingOptions
    */
-  readonly logPublishingOptions?: LogPublishingOptionsStatus;
+  readonly logPublishingOptions?: EsLogPublishingOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#DomainEndpointOptions
+   * @schema EsElasticsearchDomainConfig#DomainEndpointOptions
    */
-  readonly domainEndpointOptions?: DomainEndpointOptionsStatus;
+  readonly domainEndpointOptions?: EsDomainEndpointOptionsStatus;
 
   /**
-   * @schema ElasticsearchDomainConfig#AdvancedSecurityOptions
+   * @schema EsElasticsearchDomainConfig#AdvancedSecurityOptions
    */
-  readonly advancedSecurityOptions?: AdvancedSecurityOptionsStatus;
+  readonly advancedSecurityOptions?: EsAdvancedSecurityOptionsStatus;
 
 }
 
 /**
- * @schema Limits
+ * @schema EsLimits
  */
-export interface Limits {
+export interface EsLimits {
   /**
-   * @schema Limits#StorageTypes
+   * @schema EsLimits#StorageTypes
    */
-  readonly storageTypes?: StorageType[];
+  readonly storageTypes?: EsStorageType[];
 
   /**
-   * @schema Limits#InstanceLimits
+   * @schema EsLimits#InstanceLimits
    */
-  readonly instanceLimits?: InstanceLimits;
+  readonly instanceLimits?: EsInstanceLimits;
 
   /**
-   * @schema Limits#AdditionalLimits
+   * @schema EsLimits#AdditionalLimits
    */
-  readonly additionalLimits?: AdditionalLimit[];
+  readonly additionalLimits?: EsAdditionalLimit[];
 
 }
 
 /**
- * @schema Filter
+ * @schema EsFilter
  */
-export interface Filter {
+export interface EsFilter {
   /**
-   * @schema Filter#Name
+   * @schema EsFilter#Name
    */
   readonly name?: string;
 
   /**
-   * @schema Filter#Values
+   * @schema EsFilter#Values
    */
   readonly values?: string[];
 
 }
 
 /**
- * @schema DescribePackagesFilter
+ * @schema EsDescribePackagesFilter
  */
-export interface DescribePackagesFilter {
+export interface EsDescribePackagesFilter {
   /**
-   * @schema DescribePackagesFilter#Name
+   * @schema EsDescribePackagesFilter#Name
    */
   readonly name?: string;
 
   /**
-   * @schema DescribePackagesFilter#Value
+   * @schema EsDescribePackagesFilter#Value
    */
   readonly value?: string[];
 
 }
 
 /**
- * @schema ReservedElasticsearchInstanceOffering
+ * @schema EsReservedElasticsearchInstanceOffering
  */
-export interface ReservedElasticsearchInstanceOffering {
+export interface EsReservedElasticsearchInstanceOffering {
   /**
-   * @schema ReservedElasticsearchInstanceOffering#ReservedElasticsearchInstanceOfferingId
+   * @schema EsReservedElasticsearchInstanceOffering#ReservedElasticsearchInstanceOfferingId
    */
   readonly reservedElasticsearchInstanceOfferingId?: string;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#ElasticsearchInstanceType
+   * @schema EsReservedElasticsearchInstanceOffering#ElasticsearchInstanceType
    */
   readonly elasticsearchInstanceType?: string;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#Duration
+   * @schema EsReservedElasticsearchInstanceOffering#Duration
    */
   readonly duration?: number;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#FixedPrice
+   * @schema EsReservedElasticsearchInstanceOffering#FixedPrice
    */
   readonly fixedPrice?: number;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#UsagePrice
+   * @schema EsReservedElasticsearchInstanceOffering#UsagePrice
    */
   readonly usagePrice?: number;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#CurrencyCode
+   * @schema EsReservedElasticsearchInstanceOffering#CurrencyCode
    */
   readonly currencyCode?: string;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#PaymentOption
+   * @schema EsReservedElasticsearchInstanceOffering#PaymentOption
    */
   readonly paymentOption?: string;
 
   /**
-   * @schema ReservedElasticsearchInstanceOffering#RecurringCharges
+   * @schema EsReservedElasticsearchInstanceOffering#RecurringCharges
    */
-  readonly recurringCharges?: RecurringCharge[];
+  readonly recurringCharges?: EsRecurringCharge[];
 
 }
 
 /**
- * @schema ReservedElasticsearchInstance
+ * @schema EsReservedElasticsearchInstance
  */
-export interface ReservedElasticsearchInstance {
+export interface EsReservedElasticsearchInstance {
   /**
-   * @schema ReservedElasticsearchInstance#ReservationName
+   * @schema EsReservedElasticsearchInstance#ReservationName
    */
   readonly reservationName?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#ReservedElasticsearchInstanceId
+   * @schema EsReservedElasticsearchInstance#ReservedElasticsearchInstanceId
    */
   readonly reservedElasticsearchInstanceId?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#ReservedElasticsearchInstanceOfferingId
+   * @schema EsReservedElasticsearchInstance#ReservedElasticsearchInstanceOfferingId
    */
   readonly reservedElasticsearchInstanceOfferingId?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#ElasticsearchInstanceType
+   * @schema EsReservedElasticsearchInstance#ElasticsearchInstanceType
    */
   readonly elasticsearchInstanceType?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#StartTime
+   * @schema EsReservedElasticsearchInstance#StartTime
    */
   readonly startTime?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#Duration
+   * @schema EsReservedElasticsearchInstance#Duration
    */
   readonly duration?: number;
 
   /**
-   * @schema ReservedElasticsearchInstance#FixedPrice
+   * @schema EsReservedElasticsearchInstance#FixedPrice
    */
   readonly fixedPrice?: number;
 
   /**
-   * @schema ReservedElasticsearchInstance#UsagePrice
+   * @schema EsReservedElasticsearchInstance#UsagePrice
    */
   readonly usagePrice?: number;
 
   /**
-   * @schema ReservedElasticsearchInstance#CurrencyCode
+   * @schema EsReservedElasticsearchInstance#CurrencyCode
    */
   readonly currencyCode?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#ElasticsearchInstanceCount
+   * @schema EsReservedElasticsearchInstance#ElasticsearchInstanceCount
    */
   readonly elasticsearchInstanceCount?: number;
 
   /**
-   * @schema ReservedElasticsearchInstance#State
+   * @schema EsReservedElasticsearchInstance#State
    */
   readonly state?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#PaymentOption
+   * @schema EsReservedElasticsearchInstance#PaymentOption
    */
   readonly paymentOption?: string;
 
   /**
-   * @schema ReservedElasticsearchInstance#RecurringCharges
+   * @schema EsReservedElasticsearchInstance#RecurringCharges
    */
-  readonly recurringCharges?: RecurringCharge[];
+  readonly recurringCharges?: EsRecurringCharge[];
 
 }
 
 /**
- * @schema CompatibleVersionsMap
+ * @schema EsCompatibleVersionsMap
  */
-export interface CompatibleVersionsMap {
+export interface EsCompatibleVersionsMap {
   /**
-   * @schema CompatibleVersionsMap#SourceVersion
+   * @schema EsCompatibleVersionsMap#SourceVersion
    */
   readonly sourceVersion?: string;
 
   /**
-   * @schema CompatibleVersionsMap#TargetVersions
+   * @schema EsCompatibleVersionsMap#TargetVersions
    */
   readonly targetVersions?: string[];
 
 }
 
 /**
- * @schema PackageVersionHistory
+ * @schema EsPackageVersionHistory
  */
-export interface PackageVersionHistory {
+export interface EsPackageVersionHistory {
   /**
-   * @schema PackageVersionHistory#PackageVersion
+   * @schema EsPackageVersionHistory#PackageVersion
    */
   readonly packageVersion?: string;
 
   /**
-   * @schema PackageVersionHistory#CommitMessage
+   * @schema EsPackageVersionHistory#CommitMessage
    */
   readonly commitMessage?: string;
 
   /**
-   * @schema PackageVersionHistory#CreatedAt
+   * @schema EsPackageVersionHistory#CreatedAt
    */
   readonly createdAt?: string;
 
 }
 
 /**
- * @schema UpgradeHistory
+ * @schema EsUpgradeHistory
  */
-export interface UpgradeHistory {
+export interface EsUpgradeHistory {
   /**
-   * @schema UpgradeHistory#UpgradeName
+   * @schema EsUpgradeHistory#UpgradeName
    */
   readonly upgradeName?: string;
 
   /**
-   * @schema UpgradeHistory#StartTimestamp
+   * @schema EsUpgradeHistory#StartTimestamp
    */
   readonly startTimestamp?: string;
 
   /**
-   * @schema UpgradeHistory#UpgradeStatus
+   * @schema EsUpgradeHistory#UpgradeStatus
    */
   readonly upgradeStatus?: string;
 
   /**
-   * @schema UpgradeHistory#StepsList
+   * @schema EsUpgradeHistory#StepsList
    */
-  readonly stepsList?: UpgradeStepItem[];
+  readonly stepsList?: EsUpgradeStepItem[];
 
 }
 
 /**
- * @schema DomainInfo
+ * @schema EsDomainInfo
  */
-export interface DomainInfo {
+export interface EsDomainInfo {
   /**
-   * @schema DomainInfo#DomainName
+   * @schema EsDomainInfo#DomainName
    */
   readonly domainName?: string;
 
 }
 
 /**
- * @schema InboundCrossClusterSearchConnectionStatus
+ * @schema EsInboundCrossClusterSearchConnectionStatus
  */
-export interface InboundCrossClusterSearchConnectionStatus {
+export interface EsInboundCrossClusterSearchConnectionStatus {
   /**
-   * @schema InboundCrossClusterSearchConnectionStatus#StatusCode
+   * @schema EsInboundCrossClusterSearchConnectionStatus#StatusCode
    */
   readonly statusCode?: string;
 
   /**
-   * @schema InboundCrossClusterSearchConnectionStatus#Message
+   * @schema EsInboundCrossClusterSearchConnectionStatus#Message
    */
   readonly message?: string;
 
 }
 
 /**
- * @schema ErrorDetails
+ * @schema EsErrorDetails
  */
-export interface ErrorDetails {
+export interface EsErrorDetails {
   /**
-   * @schema ErrorDetails#ErrorType
+   * @schema EsErrorDetails#ErrorType
    */
   readonly errorType?: string;
 
   /**
-   * @schema ErrorDetails#ErrorMessage
+   * @schema EsErrorDetails#ErrorMessage
    */
   readonly errorMessage?: string;
 
 }
 
 /**
- * @schema ZoneAwarenessConfig
+ * @schema EsZoneAwarenessConfig
  */
-export interface ZoneAwarenessConfig {
+export interface EsZoneAwarenessConfig {
   /**
-   * @schema ZoneAwarenessConfig#AvailabilityZoneCount
+   * @schema EsZoneAwarenessConfig#AvailabilityZoneCount
    */
   readonly availabilityZoneCount?: number;
 
 }
 
 /**
- * @schema MasterUserOptions
+ * @schema EsMasterUserOptions
  */
-export interface MasterUserOptions {
+export interface EsMasterUserOptions {
   /**
-   * @schema MasterUserOptions#MasterUserARN
+   * @schema EsMasterUserOptions#MasterUserARN
    */
   readonly masterUserArn?: string;
 
   /**
-   * @schema MasterUserOptions#MasterUserName
+   * @schema EsMasterUserOptions#MasterUserName
    */
   readonly masterUserName?: string;
 
   /**
-   * @schema MasterUserOptions#MasterUserPassword
+   * @schema EsMasterUserOptions#MasterUserPassword
    */
   readonly masterUserPassword?: string;
 
 }
 
 /**
- * @schema SamlOptionsInput
+ * @schema EssamlOptionsInput
  */
-export interface SamlOptionsInput {
+export interface EssamlOptionsInput {
   /**
-   * @schema SamlOptionsInput#Enabled
+   * @schema EssamlOptionsInput#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema SamlOptionsInput#Idp
+   * @schema EssamlOptionsInput#Idp
    */
-  readonly idp?: SamlIdp;
+  readonly idp?: EssamlIdp;
 
   /**
-   * @schema SamlOptionsInput#MasterUserName
+   * @schema EssamlOptionsInput#MasterUserName
    */
   readonly masterUserName?: string;
 
   /**
-   * @schema SamlOptionsInput#MasterBackendRole
+   * @schema EssamlOptionsInput#MasterBackendRole
    */
   readonly masterBackendRole?: string;
 
   /**
-   * @schema SamlOptionsInput#SubjectKey
+   * @schema EssamlOptionsInput#SubjectKey
    */
   readonly subjectKey?: string;
 
   /**
-   * @schema SamlOptionsInput#RolesKey
+   * @schema EssamlOptionsInput#RolesKey
    */
   readonly rolesKey?: string;
 
   /**
-   * @schema SamlOptionsInput#SessionTimeoutMinutes
+   * @schema EssamlOptionsInput#SessionTimeoutMinutes
    */
   readonly sessionTimeoutMinutes?: number;
 
 }
 
 /**
- * @schema VpcDerivedInfo
+ * @schema EsvpcDerivedInfo
  */
-export interface VpcDerivedInfo {
+export interface EsvpcDerivedInfo {
   /**
-   * @schema VpcDerivedInfo#VPCId
+   * @schema EsvpcDerivedInfo#VPCId
    */
   readonly vpcId?: string;
 
   /**
-   * @schema VpcDerivedInfo#SubnetIds
+   * @schema EsvpcDerivedInfo#SubnetIds
    */
   readonly subnetIds?: string[];
 
   /**
-   * @schema VpcDerivedInfo#AvailabilityZones
+   * @schema EsvpcDerivedInfo#AvailabilityZones
    */
   readonly availabilityZones?: string[];
 
   /**
-   * @schema VpcDerivedInfo#SecurityGroupIds
+   * @schema EsvpcDerivedInfo#SecurityGroupIds
    */
   readonly securityGroupIds?: string[];
 
 }
 
 /**
- * @schema AdvancedSecurityOptions
+ * @schema EsAdvancedSecurityOptions
  */
-export interface AdvancedSecurityOptions {
+export interface EsAdvancedSecurityOptions {
   /**
-   * @schema AdvancedSecurityOptions#Enabled
+   * @schema EsAdvancedSecurityOptions#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema AdvancedSecurityOptions#InternalUserDatabaseEnabled
+   * @schema EsAdvancedSecurityOptions#InternalUserDatabaseEnabled
    */
   readonly internalUserDatabaseEnabled?: boolean;
 
   /**
-   * @schema AdvancedSecurityOptions#SAMLOptions
+   * @schema EsAdvancedSecurityOptions#SAMLOptions
    */
-  readonly samlOptions?: SamlOptionsOutput;
+  readonly samlOptions?: EssamlOptionsOutput;
 
 }
 
 /**
- * @schema ElasticsearchVersionStatus
+ * @schema EsElasticsearchVersionStatus
  */
-export interface ElasticsearchVersionStatus {
+export interface EsElasticsearchVersionStatus {
   /**
-   * @schema ElasticsearchVersionStatus#Options
+   * @schema EsElasticsearchVersionStatus#Options
    */
   readonly options: string;
 
   /**
-   * @schema ElasticsearchVersionStatus#Status
+   * @schema EsElasticsearchVersionStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema ElasticsearchClusterConfigStatus
+ * @schema EsElasticsearchClusterConfigStatus
  */
-export interface ElasticsearchClusterConfigStatus {
+export interface EsElasticsearchClusterConfigStatus {
   /**
-   * @schema ElasticsearchClusterConfigStatus#Options
+   * @schema EsElasticsearchClusterConfigStatus#Options
    */
-  readonly options: ElasticsearchClusterConfig;
+  readonly options: EsElasticsearchClusterConfig;
 
   /**
-   * @schema ElasticsearchClusterConfigStatus#Status
+   * @schema EsElasticsearchClusterConfigStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema EbsOptionsStatus
+ * @schema EsebsOptionsStatus
  */
-export interface EbsOptionsStatus {
+export interface EsebsOptionsStatus {
   /**
-   * @schema EbsOptionsStatus#Options
+   * @schema EsebsOptionsStatus#Options
    */
-  readonly options: EbsOptions;
+  readonly options: EsebsOptions;
 
   /**
-   * @schema EbsOptionsStatus#Status
+   * @schema EsebsOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema AccessPoliciesStatus
+ * @schema EsAccessPoliciesStatus
  */
-export interface AccessPoliciesStatus {
+export interface EsAccessPoliciesStatus {
   /**
-   * @schema AccessPoliciesStatus#Options
+   * @schema EsAccessPoliciesStatus#Options
    */
   readonly options: string;
 
   /**
-   * @schema AccessPoliciesStatus#Status
+   * @schema EsAccessPoliciesStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema SnapshotOptionsStatus
+ * @schema EsSnapshotOptionsStatus
  */
-export interface SnapshotOptionsStatus {
+export interface EsSnapshotOptionsStatus {
   /**
-   * @schema SnapshotOptionsStatus#Options
+   * @schema EsSnapshotOptionsStatus#Options
    */
-  readonly options: SnapshotOptions;
+  readonly options: EsSnapshotOptions;
 
   /**
-   * @schema SnapshotOptionsStatus#Status
+   * @schema EsSnapshotOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema VpcDerivedInfoStatus
+ * @schema EsvpcDerivedInfoStatus
  */
-export interface VpcDerivedInfoStatus {
+export interface EsvpcDerivedInfoStatus {
   /**
-   * @schema VpcDerivedInfoStatus#Options
+   * @schema EsvpcDerivedInfoStatus#Options
    */
-  readonly options: VpcDerivedInfo;
+  readonly options: EsvpcDerivedInfo;
 
   /**
-   * @schema VpcDerivedInfoStatus#Status
+   * @schema EsvpcDerivedInfoStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema CognitoOptionsStatus
+ * @schema EsCognitoOptionsStatus
  */
-export interface CognitoOptionsStatus {
+export interface EsCognitoOptionsStatus {
   /**
-   * @schema CognitoOptionsStatus#Options
+   * @schema EsCognitoOptionsStatus#Options
    */
-  readonly options: CognitoOptions;
+  readonly options: EsCognitoOptions;
 
   /**
-   * @schema CognitoOptionsStatus#Status
+   * @schema EsCognitoOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema EncryptionAtRestOptionsStatus
+ * @schema EsEncryptionAtRestOptionsStatus
  */
-export interface EncryptionAtRestOptionsStatus {
+export interface EsEncryptionAtRestOptionsStatus {
   /**
-   * @schema EncryptionAtRestOptionsStatus#Options
+   * @schema EsEncryptionAtRestOptionsStatus#Options
    */
-  readonly options: EncryptionAtRestOptions;
+  readonly options: EsEncryptionAtRestOptions;
 
   /**
-   * @schema EncryptionAtRestOptionsStatus#Status
+   * @schema EsEncryptionAtRestOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema NodeToNodeEncryptionOptionsStatus
+ * @schema EsNodeToNodeEncryptionOptionsStatus
  */
-export interface NodeToNodeEncryptionOptionsStatus {
+export interface EsNodeToNodeEncryptionOptionsStatus {
   /**
-   * @schema NodeToNodeEncryptionOptionsStatus#Options
+   * @schema EsNodeToNodeEncryptionOptionsStatus#Options
    */
-  readonly options: NodeToNodeEncryptionOptions;
+  readonly options: EsNodeToNodeEncryptionOptions;
 
   /**
-   * @schema NodeToNodeEncryptionOptionsStatus#Status
+   * @schema EsNodeToNodeEncryptionOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema AdvancedOptionsStatus
+ * @schema EsAdvancedOptionsStatus
  */
-export interface AdvancedOptionsStatus {
+export interface EsAdvancedOptionsStatus {
   /**
-   * @schema AdvancedOptionsStatus#Options
+   * @schema EsAdvancedOptionsStatus#Options
    */
   readonly options: { [key: string]: string };
 
   /**
-   * @schema AdvancedOptionsStatus#Status
+   * @schema EsAdvancedOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema LogPublishingOptionsStatus
+ * @schema EsLogPublishingOptionsStatus
  */
-export interface LogPublishingOptionsStatus {
+export interface EsLogPublishingOptionsStatus {
   /**
-   * @schema LogPublishingOptionsStatus#Options
+   * @schema EsLogPublishingOptionsStatus#Options
    */
-  readonly options?: { [key: string]: LogPublishingOption };
+  readonly options?: { [key: string]: EsLogPublishingOption };
 
   /**
-   * @schema LogPublishingOptionsStatus#Status
+   * @schema EsLogPublishingOptionsStatus#Status
    */
-  readonly status?: OptionStatus;
+  readonly status?: EsOptionStatus;
 
 }
 
 /**
- * @schema DomainEndpointOptionsStatus
+ * @schema EsDomainEndpointOptionsStatus
  */
-export interface DomainEndpointOptionsStatus {
+export interface EsDomainEndpointOptionsStatus {
   /**
-   * @schema DomainEndpointOptionsStatus#Options
+   * @schema EsDomainEndpointOptionsStatus#Options
    */
-  readonly options: DomainEndpointOptions;
+  readonly options: EsDomainEndpointOptions;
 
   /**
-   * @schema DomainEndpointOptionsStatus#Status
+   * @schema EsDomainEndpointOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema AdvancedSecurityOptionsStatus
+ * @schema EsAdvancedSecurityOptionsStatus
  */
-export interface AdvancedSecurityOptionsStatus {
+export interface EsAdvancedSecurityOptionsStatus {
   /**
-   * @schema AdvancedSecurityOptionsStatus#Options
+   * @schema EsAdvancedSecurityOptionsStatus#Options
    */
-  readonly options: AdvancedSecurityOptions;
+  readonly options: EsAdvancedSecurityOptions;
 
   /**
-   * @schema AdvancedSecurityOptionsStatus#Status
+   * @schema EsAdvancedSecurityOptionsStatus#Status
    */
-  readonly status: OptionStatus;
+  readonly status: EsOptionStatus;
 
 }
 
 /**
- * @schema StorageType
+ * @schema EsStorageType
  */
-export interface StorageType {
+export interface EsStorageType {
   /**
-   * @schema StorageType#StorageTypeName
+   * @schema EsStorageType#StorageTypeName
    */
   readonly storageTypeName?: string;
 
   /**
-   * @schema StorageType#StorageSubTypeName
+   * @schema EsStorageType#StorageSubTypeName
    */
   readonly storageSubTypeName?: string;
 
   /**
-   * @schema StorageType#StorageTypeLimits
+   * @schema EsStorageType#StorageTypeLimits
    */
-  readonly storageTypeLimits?: StorageTypeLimit[];
+  readonly storageTypeLimits?: EsStorageTypeLimit[];
 
 }
 
 /**
- * @schema InstanceLimits
+ * @schema EsInstanceLimits
  */
-export interface InstanceLimits {
+export interface EsInstanceLimits {
   /**
-   * @schema InstanceLimits#InstanceCountLimits
+   * @schema EsInstanceLimits#InstanceCountLimits
    */
-  readonly instanceCountLimits?: InstanceCountLimits;
+  readonly instanceCountLimits?: EsInstanceCountLimits;
 
 }
 
 /**
- * @schema AdditionalLimit
+ * @schema EsAdditionalLimit
  */
-export interface AdditionalLimit {
+export interface EsAdditionalLimit {
   /**
-   * @schema AdditionalLimit#LimitName
+   * @schema EsAdditionalLimit#LimitName
    */
   readonly limitName?: string;
 
   /**
-   * @schema AdditionalLimit#LimitValues
+   * @schema EsAdditionalLimit#LimitValues
    */
   readonly limitValues?: string[];
 
 }
 
 /**
- * @schema RecurringCharge
+ * @schema EsRecurringCharge
  */
-export interface RecurringCharge {
+export interface EsRecurringCharge {
   /**
-   * @schema RecurringCharge#RecurringChargeAmount
+   * @schema EsRecurringCharge#RecurringChargeAmount
    */
   readonly recurringChargeAmount?: number;
 
   /**
-   * @schema RecurringCharge#RecurringChargeFrequency
+   * @schema EsRecurringCharge#RecurringChargeFrequency
    */
   readonly recurringChargeFrequency?: string;
 
 }
 
 /**
- * @schema UpgradeStepItem
+ * @schema EsUpgradeStepItem
  */
-export interface UpgradeStepItem {
+export interface EsUpgradeStepItem {
   /**
-   * @schema UpgradeStepItem#UpgradeStep
+   * @schema EsUpgradeStepItem#UpgradeStep
    */
   readonly upgradeStep?: string;
 
   /**
-   * @schema UpgradeStepItem#UpgradeStepStatus
+   * @schema EsUpgradeStepItem#UpgradeStepStatus
    */
   readonly upgradeStepStatus?: string;
 
   /**
-   * @schema UpgradeStepItem#Issues
+   * @schema EsUpgradeStepItem#Issues
    */
   readonly issues?: string[];
 
   /**
-   * @schema UpgradeStepItem#ProgressPercent
+   * @schema EsUpgradeStepItem#ProgressPercent
    */
   readonly progressPercent?: number;
 
 }
 
 /**
- * @schema SamlIdp
+ * @schema EssamlIdp
  */
-export interface SamlIdp {
+export interface EssamlIdp {
   /**
-   * @schema SamlIdp#MetadataContent
+   * @schema EssamlIdp#MetadataContent
    */
   readonly metadataContent: string;
 
   /**
-   * @schema SamlIdp#EntityId
+   * @schema EssamlIdp#EntityId
    */
   readonly entityId: string;
 
 }
 
 /**
- * @schema SamlOptionsOutput
+ * @schema EssamlOptionsOutput
  */
-export interface SamlOptionsOutput {
+export interface EssamlOptionsOutput {
   /**
-   * @schema SamlOptionsOutput#Enabled
+   * @schema EssamlOptionsOutput#Enabled
    */
   readonly enabled?: boolean;
 
   /**
-   * @schema SamlOptionsOutput#Idp
+   * @schema EssamlOptionsOutput#Idp
    */
-  readonly idp?: SamlIdp;
+  readonly idp?: EssamlIdp;
 
   /**
-   * @schema SamlOptionsOutput#SubjectKey
+   * @schema EssamlOptionsOutput#SubjectKey
    */
   readonly subjectKey?: string;
 
   /**
-   * @schema SamlOptionsOutput#RolesKey
+   * @schema EssamlOptionsOutput#RolesKey
    */
   readonly rolesKey?: string;
 
   /**
-   * @schema SamlOptionsOutput#SessionTimeoutMinutes
+   * @schema EssamlOptionsOutput#SessionTimeoutMinutes
    */
   readonly sessionTimeoutMinutes?: number;
 
 }
 
 /**
- * @schema OptionStatus
+ * @schema EsOptionStatus
  */
-export interface OptionStatus {
+export interface EsOptionStatus {
   /**
-   * @schema OptionStatus#CreationDate
+   * @schema EsOptionStatus#CreationDate
    */
   readonly creationDate: string;
 
   /**
-   * @schema OptionStatus#UpdateDate
+   * @schema EsOptionStatus#UpdateDate
    */
   readonly updateDate: string;
 
   /**
-   * @schema OptionStatus#UpdateVersion
+   * @schema EsOptionStatus#UpdateVersion
    */
   readonly updateVersion?: number;
 
   /**
-   * @schema OptionStatus#State
+   * @schema EsOptionStatus#State
    */
   readonly state: string;
 
   /**
-   * @schema OptionStatus#PendingDeletion
+   * @schema EsOptionStatus#PendingDeletion
    */
   readonly pendingDeletion?: boolean;
 
 }
 
 /**
- * @schema StorageTypeLimit
+ * @schema EsStorageTypeLimit
  */
-export interface StorageTypeLimit {
+export interface EsStorageTypeLimit {
   /**
-   * @schema StorageTypeLimit#LimitName
+   * @schema EsStorageTypeLimit#LimitName
    */
   readonly limitName?: string;
 
   /**
-   * @schema StorageTypeLimit#LimitValues
+   * @schema EsStorageTypeLimit#LimitValues
    */
   readonly limitValues?: string[];
 
 }
 
 /**
- * @schema InstanceCountLimits
+ * @schema EsInstanceCountLimits
  */
-export interface InstanceCountLimits {
+export interface EsInstanceCountLimits {
   /**
-   * @schema InstanceCountLimits#MinimumInstanceCount
+   * @schema EsInstanceCountLimits#MinimumInstanceCount
    */
   readonly minimumInstanceCount?: number;
 
   /**
-   * @schema InstanceCountLimits#MaximumInstanceCount
+   * @schema EsInstanceCountLimits#MaximumInstanceCount
    */
   readonly maximumInstanceCount?: number;
 

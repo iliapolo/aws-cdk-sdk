@@ -18,6 +18,7 @@ const project = new JsiiProject({
   devDeps: [
     '@aws-cdk/aws-elasticsearch',
     '@aws-cdk/assert',
+    "aws-sdk@2.799.0",
     'codemaker',
     'json-schema',
     'json2jsii',

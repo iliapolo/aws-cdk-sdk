@@ -38,6 +38,7 @@
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
+    "aws-sdk": "2.799.0",
     "codemaker": "^1.15.0",
     "constructs": "0.0.0",
     "eslint": "^7.14.0",
