@@ -45,6 +45,7 @@ export class ClientGenerator {
       client: this._props.client,
       outDir: this._props.outDir,
       fileName: API_FILENAME,
+      shapesFileName: SHAPES_FILENAME,
     });
 
     this.index = new IndexGenerator({

@@ -72,7 +72,7 @@ export class ResponseGenerator {
     const responses = new Map<string, ResponseGenerator>();
 
     for (const property of this.properties) {
-      const responseName = `${this.props.className}${property.output}`;
+      const responseName = `${this.props.className}${this.props.code.toPascalCase(property.name)}`;
       this.props.code.openBlock(`public get ${this.props.code.toCamelCase(property.name)}(): ${this.isPrimitive(property.output) ?  this.getTsType(property.output) : responseName}`);
 
       if (this.isPrimitive(property.output)) {
@@ -106,7 +106,7 @@ export class ResponseGenerator {
         }
         const resourcesIn = responseGenerator.acceptsResources ? ', this.resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? ', this.input' : '';
-        this.props.code.line(`return new ${responseName}(this, '${property.output}'${resourcesIn}${inputIn});`);
+        this.props.code.line(`return new ${responseName}(this, '${this.props.code.toPascalCase(property.name)}'${resourcesIn}${inputIn});`);
       }
       this.props.code.closeBlock();
       this.props.code.line();

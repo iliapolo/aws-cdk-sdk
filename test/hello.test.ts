@@ -23,4 +23,6 @@ test('hello', () => {
 
   app.synth();
 
+  new sdk.ES().acceptInboundCrossClusterSearchConnection().promise()
+
 });

@@ -204,24 +204,24 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponse extends cdk.Con
     super(scope, id);
   }
 
-  public get crossClusterSearchConnection(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection(this, 'CrossClusterSearchConnection', this.resources, this.input);
   }
 
 }
 
-export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
 
-  public get sourceDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo(this, 'SourceDomainInfo', this.resources, this.input);
   }
 
-  public get destinationDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo(this, 'DestinationDomainInfo', this.resources, this.input);
   }
 
   public get crossClusterSearchConnectionId(): string {
@@ -241,13 +241,13 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
 
-  public get connectionStatus(): ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus {
+    return new ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus(this, 'ConnectionStatus', this.resources, this.input);
   }
 
 }
 
-export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -306,7 +306,66 @@ export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClus
 
 }
 
-export class ESAcceptInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo extends cdk.Construct {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
+    super(scope, id);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'acceptInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.OwnerId',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.OwnerId') as unknown as string;
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'acceptInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.DomainName',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.DomainName') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'acceptInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.Region',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'AcceptInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.Region') as unknown as string;
+  }
+
+}
+
+export class ESAcceptInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsAcceptInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -722,13 +781,13 @@ export class ESCreateElasticsearchDomainResponse extends cdk.Construct {
     super(scope, id);
   }
 
-  public get domainStatus(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESCreateElasticsearchDomainResponseDomainStatus {
+    return new ESCreateElasticsearchDomainResponseDomainStatus(this, 'DomainStatus', this.resources, this.input);
   }
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -1624,12 +1683,12 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
 
-  public get elasticsearchClusterConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig {
+    return new ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
 
-  public get ebsOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESCreateElasticsearchDomainResponseDomainStatusEbsOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusEbsOptions(this, 'EbsOptions', this.resources, this.input);
   }
 
   public get accessPolicies(): string {
@@ -1721,24 +1780,24 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
 
-  public get snapshotOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESCreateElasticsearchDomainResponseDomainStatusSnapshotOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
 
-  public get vpcOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESCreateElasticsearchDomainResponseDomainStatusVpcOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusVpcOptions(this, 'VpcOptions', this.resources, this.input);
   }
 
-  public get cognitoOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESCreateElasticsearchDomainResponseDomainStatusCognitoOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
 
-  public get encryptionAtRestOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESCreateElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
 
-  public get nodeToNodeEncryptionOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESCreateElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
 
   public get advancedOptions(): Record<string, string> {
@@ -1919,21 +1978,21 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
 
-  public get serviceSoftwareOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESCreateElasticsearchDomainResponseDomainStatusServiceSoftwareOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
 
-  public get domainEndpointOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESCreateElasticsearchDomainResponseDomainStatusDomainEndpointOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
 
-  public get advancedSecurityOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -2295,8 +2354,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
 
-  public get zoneAwarenessConfig(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
 
   public get dedicatedMasterType(): string {
@@ -2746,7 +2805,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -2843,7 +2902,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusElastic
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusEbsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -3207,7 +3266,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusSnapshotOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -3304,7 +3363,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusVpcOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -3668,7 +3727,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusCognitoOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -4032,7 +4091,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusCognito
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -4218,7 +4277,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -4315,7 +4374,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusServiceSoftwareOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -5035,7 +5094,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusService
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusDomainEndpointOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -5488,7 +5547,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusDomainE
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -5672,13 +5731,13 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
 
-  public get samlOptions(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions {
+    return new ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions(this, 'SamlOptions', this.resources, this.input);
   }
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -5773,8 +5832,8 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
 
-  public get idp(): ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp {
+    return new ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp(this, 'Idp', this.resources, this.input);
   }
 
   public get subjectKey(): string {
@@ -6046,7 +6105,7 @@ export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvance
 
 }
 
-export class ESCreateElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESCreateElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateElasticsearchDomainRequest) {
     super(scope, id);
@@ -6238,12 +6297,12 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
     super(scope, id);
   }
 
-  public get sourceDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
-    return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseSourceDomainInfo {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseSourceDomainInfo(this, 'SourceDomainInfo', this.resources, this.input);
   }
 
-  public get destinationDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation {
-    return new ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESCreateOutboundCrossClusterSearchConnectionResponseDestinationDomainInfo {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseDestinationDomainInfo(this, 'DestinationDomainInfo', this.resources, this.input);
   }
 
   public get connectionAlias(): string {
@@ -6273,8 +6332,8 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
     return resource.getResponseField('ConnectionAlias') as unknown as string;
   }
 
-  public get connectionStatus(): ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus {
-    return new ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESCreateOutboundCrossClusterSearchConnectionResponseConnectionStatus {
+    return new ESCreateOutboundCrossClusterSearchConnectionResponseConnectionStatus(this, 'ConnectionStatus', this.resources, this.input);
   }
 
   public get crossClusterSearchConnectionId(): string {
@@ -6306,7 +6365,7 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponse extends cdk.Co
 
 }
 
-export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformation extends cdk.Construct {
+export class ESCreateOutboundCrossClusterSearchConnectionResponseSourceDomainInfo extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -6395,7 +6454,96 @@ export class ESCreateOutboundCrossClusterSearchConnectionResponseDomainInformati
 
 }
 
-export class ESCreateOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESCreateOutboundCrossClusterSearchConnectionResponseDestinationDomainInfo extends cdk.Construct {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
+    super(scope, id);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'createOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.OwnerId'),
+        outputPath: 'DestinationDomainInfo.OwnerId',
+        parameters: {
+          sourceDomainInfo: {
+            ownerId: this.input.sourceDomainInfo.ownerId,
+            domainName: this.input.sourceDomainInfo.domainName,
+            region: this.input.sourceDomainInfo.region,
+          },
+          destinationDomainInfo: {
+            ownerId: this.input.destinationDomainInfo.ownerId,
+            domainName: this.input.destinationDomainInfo.domainName,
+            region: this.input.destinationDomainInfo.region,
+          },
+          connectionAlias: this.input.connectionAlias,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.OwnerId', props);
+    return resource.getResponseField('DestinationDomainInfo.OwnerId') as unknown as string;
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'createOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.DomainName'),
+        outputPath: 'DestinationDomainInfo.DomainName',
+        parameters: {
+          sourceDomainInfo: {
+            ownerId: this.input.sourceDomainInfo.ownerId,
+            domainName: this.input.sourceDomainInfo.domainName,
+            region: this.input.sourceDomainInfo.region,
+          },
+          destinationDomainInfo: {
+            ownerId: this.input.destinationDomainInfo.ownerId,
+            domainName: this.input.destinationDomainInfo.domainName,
+            region: this.input.destinationDomainInfo.region,
+          },
+          connectionAlias: this.input.connectionAlias,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.DomainName', props);
+    return resource.getResponseField('DestinationDomainInfo.DomainName') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'createOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.Region'),
+        outputPath: 'DestinationDomainInfo.Region',
+        parameters: {
+          sourceDomainInfo: {
+            ownerId: this.input.sourceDomainInfo.ownerId,
+            domainName: this.input.sourceDomainInfo.domainName,
+            region: this.input.sourceDomainInfo.region,
+          },
+          destinationDomainInfo: {
+            ownerId: this.input.destinationDomainInfo.ownerId,
+            domainName: this.input.destinationDomainInfo.domainName,
+            region: this.input.destinationDomainInfo.region,
+          },
+          connectionAlias: this.input.connectionAlias,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'CreateOutboundCrossClusterSearchConnection.DestinationDomainInfo.Region', props);
+    return resource.getResponseField('DestinationDomainInfo.Region') as unknown as string;
+  }
+
+}
+
+export class ESCreateOutboundCrossClusterSearchConnectionResponseConnectionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsCreateOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -6725,13 +6873,13 @@ export class ESDeleteElasticsearchDomainResponse extends cdk.Construct {
     super(scope, id);
   }
 
-  public get domainStatus(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESDeleteElasticsearchDomainResponseDomainStatus {
+    return new ESDeleteElasticsearchDomainResponseDomainStatus(this, 'DomainStatus', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -6907,12 +7055,12 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
 
-  public get elasticsearchClusterConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
 
-  public get ebsOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESDeleteElasticsearchDomainResponseDomainStatusEbsOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusEbsOptions(this, 'EbsOptions', this.resources, this.input);
   }
 
   public get accessPolicies(): string {
@@ -6932,24 +7080,24 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
 
-  public get snapshotOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESDeleteElasticsearchDomainResponseDomainStatusSnapshotOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
 
-  public get vpcOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESDeleteElasticsearchDomainResponseDomainStatusVpcOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusVpcOptions(this, 'VpcOptions', this.resources, this.input);
   }
 
-  public get cognitoOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESDeleteElasticsearchDomainResponseDomainStatusCognitoOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
 
-  public get encryptionAtRestOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDeleteElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
 
-  public get nodeToNodeEncryptionOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDeleteElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
 
   public get advancedOptions(): Record<string, string> {
@@ -6986,21 +7134,21 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatus extend
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
 
-  public get serviceSoftwareOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESDeleteElasticsearchDomainResponseDomainStatusServiceSoftwareOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
 
-  public get domainEndpointOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESDeleteElasticsearchDomainResponseDomainStatusDomainEndpointOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
 
-  public get advancedSecurityOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7074,8 +7222,8 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
 
-  public get zoneAwarenessConfig(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
 
   public get dedicatedMasterType(): string {
@@ -7165,7 +7313,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7190,7 +7338,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusElastic
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusEbsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7266,7 +7414,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEBSOpti
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusSnapshotOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7291,7 +7439,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusSnapsho
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusVpcOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7367,7 +7515,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusVPCDeri
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusCognitoOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7443,7 +7591,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusCognito
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7485,7 +7633,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusEncrypt
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7510,7 +7658,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusNodeToN
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusServiceSoftwareOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7654,7 +7802,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusService
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusDomainEndpointOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7747,7 +7895,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusDomainE
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7787,13 +7935,13 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
 
-  public get samlOptions(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions(this, 'SamlOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7816,8 +7964,8 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
 
-  public get idp(): ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp {
+    return new ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp(this, 'Idp', this.resources, this.input);
   }
 
   public get subjectKey(): string {
@@ -7873,7 +8021,7 @@ export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvance
 
 }
 
-export class ESDeleteElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDeleteElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteElasticsearchDomainRequest) {
     super(scope, id);
@@ -7921,24 +8069,24 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponse extends cdk.Con
     super(scope, id);
   }
 
-  public get crossClusterSearchConnection(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection(this, 'CrossClusterSearchConnection', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
 
-  public get sourceDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo(this, 'SourceDomainInfo', this.resources, this.input);
   }
 
-  public get destinationDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo(this, 'DestinationDomainInfo', this.resources, this.input);
   }
 
   public get crossClusterSearchConnectionId(): string {
@@ -7958,13 +8106,13 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
 
-  public get connectionStatus(): ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus {
+    return new ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus(this, 'ConnectionStatus', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -8023,7 +8171,66 @@ export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClus
 
 }
 
-export class ESDeleteInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo extends cdk.Construct {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
+    super(scope, id);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.OwnerId',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.OwnerId') as unknown as string;
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.DomainName',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.DomainName') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.Region',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.Region') as unknown as string;
+  }
+
+}
+
+export class ESDeleteInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -8071,24 +8278,24 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponse extends cdk.Co
     super(scope, id);
   }
 
-  public get crossClusterSearchConnection(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection {
-    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection(this, 'OutboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection(this, 'CrossClusterSearchConnection', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
 
-  public get sourceDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
-    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo(this, 'SourceDomainInfo', this.resources, this.input);
   }
 
-  public get destinationDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation {
-    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo(this, 'DestinationDomainInfo', this.resources, this.input);
   }
 
   public get crossClusterSearchConnectionId(): string {
@@ -8125,13 +8332,13 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
     return resource.getResponseField('CrossClusterSearchConnection.ConnectionAlias') as unknown as string;
   }
 
-  public get connectionStatus(): ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus {
-    return new ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus(this, 'OutboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus {
+    return new ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus(this, 'ConnectionStatus', this.resources, this.input);
   }
 
 }
 
-export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -8190,7 +8397,66 @@ export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossCl
 
 }
 
-export class ESDeleteOutboundCrossClusterSearchConnectionResponseOutboundCrossClusterSearchConnectionOutboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo extends cdk.Construct {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
+    super(scope, id);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.OwnerId',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.OwnerId') as unknown as string;
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.DomainName',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.DomainName') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'deleteOutboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.Region',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'DeleteOutboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.Region') as unknown as string;
+  }
+
+}
+
+export class ESDeleteOutboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDeleteOutboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -8440,13 +8706,13 @@ export class ESDescribeElasticsearchDomainResponse extends cdk.Construct {
     super(scope, id);
   }
 
-  public get domainStatus(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus(this, 'ElasticsearchDomainStatus', this.resources, this.input);
+  public get domainStatus(): ESDescribeElasticsearchDomainResponseDomainStatus {
+    return new ESDescribeElasticsearchDomainResponseDomainStatus(this, 'DomainStatus', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -8622,12 +8888,12 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     return resource.getResponseField('DomainStatus.ElasticsearchVersion') as unknown as string;
   }
 
-  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
 
-  public get ebsOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get ebsOptions(): ESDescribeElasticsearchDomainResponseDomainStatusEbsOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusEbsOptions(this, 'EbsOptions', this.resources, this.input);
   }
 
   public get accessPolicies(): string {
@@ -8647,24 +8913,24 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     return resource.getResponseField('DomainStatus.AccessPolicies') as unknown as string;
   }
 
-  public get snapshotOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get snapshotOptions(): ESDescribeElasticsearchDomainResponseDomainStatusSnapshotOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
 
-  public get vpcOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get vpcOptions(): ESDescribeElasticsearchDomainResponseDomainStatusVpcOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusVpcOptions(this, 'VpcOptions', this.resources, this.input);
   }
 
-  public get cognitoOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get cognitoOptions(): ESDescribeElasticsearchDomainResponseDomainStatusCognitoOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
 
-  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
 
-  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
 
   public get advancedOptions(): Record<string, string> {
@@ -8701,21 +8967,21 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatus exte
     return resource.getResponseField('DomainStatus.LogPublishingOptions') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
 
-  public get serviceSoftwareOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
+  public get serviceSoftwareOptions(): ESDescribeElasticsearchDomainResponseDomainStatusServiceSoftwareOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusServiceSoftwareOptions(this, 'ServiceSoftwareOptions', this.resources, this.input);
   }
 
-  public get domainEndpointOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get domainEndpointOptions(): ESDescribeElasticsearchDomainResponseDomainStatusDomainEndpointOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
 
-  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -8789,8 +9055,8 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
     return resource.getResponseField('DomainStatus.ElasticsearchClusterConfig.ZoneAwarenessEnabled') as unknown as boolean;
   }
 
-  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
 
   public get dedicatedMasterType(): string {
@@ -8880,7 +9146,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -8905,7 +9171,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusElast
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusEbsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -8981,7 +9247,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEBSOp
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnapshotOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusSnapshotOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9006,7 +9272,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusSnaps
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusVpcOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9082,7 +9348,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusVPCDe
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCognitoOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusCognitoOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9158,7 +9424,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusCogni
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusEncryptionAtRestOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9200,7 +9466,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusEncry
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusNodeToNodeEncryptionOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9225,7 +9491,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusNodeT
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServiceSoftwareOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusServiceSoftwareOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9369,7 +9635,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusServi
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusDomainEndpointOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9462,7 +9728,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusDomai
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9502,13 +9768,13 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.InternalUserDatabaseEnabled') as unknown as boolean;
   }
 
-  public get samlOptions(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions(this, 'SamlOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9531,8 +9797,8 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
     return resource.getResponseField('DomainStatus.AdvancedSecurityOptions.SAMLOptions.Enabled') as unknown as boolean;
   }
 
-  public get idp(): ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp {
+    return new ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp(this, 'Idp', this.resources, this.input);
   }
 
   public get subjectKey(): string {
@@ -9588,7 +9854,7 @@ export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvan
 
 }
 
-export class ESDescribeElasticsearchDomainResponseElasticsearchDomainStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDescribeElasticsearchDomainResponseDomainStatusAdvancedSecurityOptionsSamlOptionsIdp extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainRequest) {
     super(scope, id);
@@ -9636,73 +9902,73 @@ export class ESDescribeElasticsearchDomainConfigResponse extends cdk.Construct {
     super(scope, id);
   }
 
-  public get domainConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
+  public get domainConfig(): ESDescribeElasticsearchDomainConfigResponseDomainConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfig(this, 'DomainConfig', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get elasticsearchVersion(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
+  public get elasticsearchVersion(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion(this, 'ElasticsearchVersion', this.resources, this.input);
   }
 
-  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
 
-  public get ebsOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
+  public get ebsOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptions(this, 'EbsOptions', this.resources, this.input);
   }
 
-  public get accessPolicies(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
+  public get accessPolicies(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPolicies {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPolicies(this, 'AccessPolicies', this.resources, this.input);
   }
 
-  public get snapshotOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
+  public get snapshotOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
 
-  public get vpcOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
+  public get vpcOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptions(this, 'VpcOptions', this.resources, this.input);
   }
 
-  public get cognitoOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
+  public get cognitoOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
 
-  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
 
-  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
 
-  public get advancedOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
+  public get advancedOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptions(this, 'AdvancedOptions', this.resources, this.input);
   }
 
-  public get logPublishingOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
+  public get logPublishingOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions(this, 'LogPublishingOptions', this.resources, this.input);
   }
 
-  public get domainEndpointOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
+  public get domainEndpointOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
 
-  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
+  public get advancedSecurityOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -9725,13 +9991,13 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -9824,23 +10090,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -9914,8 +10180,8 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
 
-  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
 
   public get dedicatedMasterType(): string {
@@ -10005,7 +10271,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10030,7 +10296,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10123,23 +10389,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10215,7 +10481,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10308,7 +10574,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPolicies extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10331,13 +10597,13 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10430,23 +10696,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10471,7 +10737,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10564,23 +10830,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10656,7 +10922,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10749,23 +11015,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10841,7 +11107,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10934,23 +11200,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -10992,7 +11258,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11085,23 +11351,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11126,7 +11392,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11219,7 +11485,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11242,13 +11508,13 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11341,7 +11607,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11364,13 +11630,13 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11463,23 +11729,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11572,7 +11838,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11665,23 +11931,23 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get options(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11721,13 +11987,13 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
 
-  public get samlOptions(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions(this, 'SamlOptions', this.resources, this.input);
   }
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11750,8 +12016,8 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
 
-  public get idp(): ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp {
+    return new ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp(this, 'Idp', this.resources, this.input);
   }
 
   public get subjectKey(): string {
@@ -11807,7 +12073,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -11849,7 +12115,7 @@ export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfi
 
 }
 
-export class ESDescribeElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
+export class ESDescribeElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsDescribeElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -12914,24 +13180,24 @@ export class ESRejectInboundCrossClusterSearchConnectionResponse extends cdk.Con
     super(scope, id);
   }
 
-  public get crossClusterSearchConnection(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection {
-    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection(this, 'InboundCrossClusterSearchConnection', this.resources, this.input);
+  public get crossClusterSearchConnection(): ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection(this, 'CrossClusterSearchConnection', this.resources, this.input);
   }
 
 }
 
-export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnection extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnection extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
   }
 
-  public get sourceDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get sourceDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo(this, 'SourceDomainInfo', this.resources, this.input);
   }
 
-  public get destinationDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation {
-    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation(this, 'DomainInformation', this.resources, this.input);
+  public get destinationDomainInfo(): ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo(this, 'DestinationDomainInfo', this.resources, this.input);
   }
 
   public get crossClusterSearchConnectionId(): string {
@@ -12951,13 +13217,13 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
     return resource.getResponseField('CrossClusterSearchConnection.CrossClusterSearchConnectionId') as unknown as string;
   }
 
-  public get connectionStatus(): ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus {
-    return new ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus(this, 'InboundCrossClusterSearchConnectionStatus', this.resources, this.input);
+  public get connectionStatus(): ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus {
+    return new ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus(this, 'ConnectionStatus', this.resources, this.input);
   }
 
 }
 
-export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionDomainInformation extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionSourceDomainInfo extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -13016,7 +13282,66 @@ export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClus
 
 }
 
-export class ESRejectInboundCrossClusterSearchConnectionResponseInboundCrossClusterSearchConnectionInboundCrossClusterSearchConnectionStatus extends cdk.Construct {
+export class ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionDestinationDomainInfo extends cdk.Construct {
+
+  constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
+    super(scope, id);
+  }
+
+  public get ownerId(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'rejectInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.OwnerId',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.OwnerId', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.OwnerId') as unknown as string;
+  }
+
+  public get domainName(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'rejectInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.DomainName',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.DomainName', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.DomainName') as unknown as string;
+  }
+
+  public get region(): string {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),
+      onUpdate: {
+        action: 'rejectInboundCrossClusterSearchConnection',
+        service: 'ES',
+        physicalResourceId: cr.PhysicalResourceId.of('ES.RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region'),
+        outputPath: 'CrossClusterSearchConnection.DestinationDomainInfo.Region',
+        parameters: {
+          crossClusterSearchConnectionId: this.input.crossClusterSearchConnectionId,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this, 'RejectInboundCrossClusterSearchConnection.CrossClusterSearchConnection.DestinationDomainInfo.Region', props);
+    return resource.getResponseField('CrossClusterSearchConnection.DestinationDomainInfo.Region') as unknown as string;
+  }
+
+}
+
+export class ESRejectInboundCrossClusterSearchConnectionResponseCrossClusterSearchConnectionConnectionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsRejectInboundCrossClusterSearchConnectionRequest) {
     super(scope, id);
@@ -13220,73 +13545,73 @@ export class ESUpdateElasticsearchDomainConfigResponse extends cdk.Construct {
     super(scope, id);
   }
 
-  public get domainConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig(this, 'ElasticsearchDomainConfig', this.resources, this.input);
+  public get domainConfig(): ESUpdateElasticsearchDomainConfigResponseDomainConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfig(this, 'DomainConfig', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get elasticsearchVersion(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus(this, 'ElasticsearchVersionStatus', this.resources, this.input);
+  public get elasticsearchVersion(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion(this, 'ElasticsearchVersion', this.resources, this.input);
   }
 
-  public get elasticsearchClusterConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus(this, 'ElasticsearchClusterConfigStatus', this.resources, this.input);
+  public get elasticsearchClusterConfig(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
   }
 
-  public get ebsOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus(this, 'EBSOptionsStatus', this.resources, this.input);
+  public get ebsOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptions(this, 'EbsOptions', this.resources, this.input);
   }
 
-  public get accessPolicies(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus(this, 'AccessPoliciesStatus', this.resources, this.input);
+  public get accessPolicies(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPolicies {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPolicies(this, 'AccessPolicies', this.resources, this.input);
   }
 
-  public get snapshotOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus(this, 'SnapshotOptionsStatus', this.resources, this.input);
+  public get snapshotOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
   }
 
-  public get vpcOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus(this, 'VPCDerivedInfoStatus', this.resources, this.input);
+  public get vpcOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptions(this, 'VpcOptions', this.resources, this.input);
   }
 
-  public get cognitoOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus(this, 'CognitoOptionsStatus', this.resources, this.input);
+  public get cognitoOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
   }
 
-  public get encryptionAtRestOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus(this, 'EncryptionAtRestOptionsStatus', this.resources, this.input);
+  public get encryptionAtRestOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
   }
 
-  public get nodeToNodeEncryptionOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'NodeToNodeEncryptionOptionsStatus', this.resources, this.input);
+  public get nodeToNodeEncryptionOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
   }
 
-  public get advancedOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus(this, 'AdvancedOptionsStatus', this.resources, this.input);
+  public get advancedOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptions(this, 'AdvancedOptions', this.resources, this.input);
   }
 
-  public get logPublishingOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus(this, 'LogPublishingOptionsStatus', this.resources, this.input);
+  public get logPublishingOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions(this, 'LogPublishingOptions', this.resources, this.input);
   }
 
-  public get domainEndpointOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus(this, 'DomainEndpointOptionsStatus', this.resources, this.input);
+  public get domainEndpointOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
   }
 
-  public get advancedSecurityOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus(this, 'AdvancedSecurityOptionsStatus', this.resources, this.input);
+  public get advancedSecurityOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersion extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -13373,13 +13698,13 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     return resource.getResponseField('DomainConfig.ElasticsearchVersion.Options') as unknown as string;
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchVersionStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchVersionStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -13792,23 +14117,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig(this, 'ElasticsearchClusterConfig', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -14138,8 +14463,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
     return resource.getResponseField('DomainConfig.ElasticsearchClusterConfig.Options.ZoneAwarenessEnabled') as unknown as boolean;
   }
 
-  public get zoneAwarenessConfig(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
+  public get zoneAwarenessConfig(): ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig(this, 'ZoneAwarenessConfig', this.resources, this.input);
   }
 
   public get dedicatedMasterType(): string {
@@ -14549,7 +14874,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusElasticsearchClusterConfigZoneAwarenessConfig extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigOptionsZoneAwarenessConfig extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -14638,7 +14963,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigElasticsearchClusterConfigStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigElasticsearchClusterConfigStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -15051,23 +15376,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions(this, 'EBSOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusEBSOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -15399,7 +15724,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEBSOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEbsOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -15812,7 +16137,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPolicies extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -15899,13 +16224,13 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     return resource.getResponseField('DomainConfig.AccessPolicies.Options') as unknown as string;
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAccessPoliciesStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAccessPoliciesStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -16318,23 +16643,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions(this, 'SnapshotOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusSnapshotOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -16423,7 +16748,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigSnapshotOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigSnapshotOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -16836,23 +17161,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigS
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo(this, 'VPCDerivedInfo', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusVPCDerivedInfo extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -17184,7 +17509,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigVPCDerivedInfoStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigVpcOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -17597,23 +17922,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigV
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions(this, 'CognitoOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusCognitoOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -17945,7 +18270,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigCognitoOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigCognitoOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -18358,23 +18683,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigC
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions(this, 'EncryptionAtRestOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusEncryptionAtRestOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -18544,7 +18869,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigEncryptionAtRestOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigEncryptionAtRestOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -18957,23 +19282,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigE
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions(this, 'NodeToNodeEncryptionOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusNodeToNodeEncryptionOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -19062,7 +19387,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigNodeToNodeEncryptionOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigNodeToNodeEncryptionOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -19475,7 +19800,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigN
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -19562,13 +19887,13 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     return resource.getResponseField('DomainConfig.AdvancedOptions.Options') as unknown as Record<string, string>;
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -19981,7 +20306,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -20068,13 +20393,13 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
     return resource.getResponseField('DomainConfig.LogPublishingOptions.Options') as unknown as Record<string, shapes.EsLogPublishingOption>;
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigLogPublishingOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigLogPublishingOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -20487,23 +20812,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigL
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions(this, 'DomainEndpointOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusDomainEndpointOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -20916,7 +21241,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigDomainEndpointOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigDomainEndpointOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -21329,23 +21654,23 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigD
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
   }
 
-  public get options(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions(this, 'AdvancedSecurityOptions', this.resources, this.input);
+  public get options(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions(this, 'Options', this.resources, this.input);
   }
 
-  public get status(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus(this, 'OptionStatus', this.resources, this.input);
+  public get status(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus(this, 'Status', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptions extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -21513,13 +21838,13 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.InternalUserDatabaseEnabled') as unknown as boolean;
   }
 
-  public get samlOptions(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput(this, 'SAMLOptionsOutput', this.resources, this.input);
+  public get samlOptions(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions(this, 'SamlOptions', this.resources, this.input);
   }
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutput extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptions extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -21606,8 +21931,8 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
     return resource.getResponseField('DomainConfig.AdvancedSecurityOptions.Options.SAMLOptions.Enabled') as unknown as boolean;
   }
 
-  public get idp(): ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp {
-    return new ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp(this, 'SAMLIdp', this.resources, this.input);
+  public get idp(): ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp {
+    return new ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp(this, 'Idp', this.resources, this.input);
   }
 
   public get subjectKey(): string {
@@ -21855,7 +22180,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusAdvancedSecurityOptionsSAMLOptionsOutputSAMLIdp extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsOptionsSamlOptionsIdp extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);
@@ -22025,7 +22350,7 @@ export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigA
 
 }
 
-export class ESUpdateElasticsearchDomainConfigResponseElasticsearchDomainConfigAdvancedSecurityOptionsStatusOptionStatus extends cdk.Construct {
+export class ESUpdateElasticsearchDomainConfigResponseDomainConfigAdvancedSecurityOptionsStatus extends cdk.Construct {
 
   constructor(scope: cdk.Construct, id: string, private readonly resources: string[], private readonly input: shapes.EsUpdateElasticsearchDomainConfigRequest) {
     super(scope, id);

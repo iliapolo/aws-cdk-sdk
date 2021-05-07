@@ -26,7 +26,8 @@ const project = new JsiiProject({
     'node-color-log',
     'typescript-json-schema',
     'ts-node',
-  ]
+  ],
+  stability: 'experimental'
 });
 
 project.addScript('gen', './gen/gen.sh');
