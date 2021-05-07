@@ -4165,9 +4165,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.122:
-  version "0.1.222"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.222.tgz#d6a82588ae3aa3e02fd1d32c3a555751964a9c9a"
-  integrity sha512-OiEfKqs1/FGOqQE/qrj1t3zcC2Wy2qmBAsk/cProAPNYui+YsTmk1O8+NDklrUGrvxwy/it3THlXsX09AjcPHQ==
+  version "0.1.229"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.229.tgz#344ea823bfd62f575049d93582546b39137c4937"
+  integrity sha512-X0KvGQIuWVCaYRhz/brGDsfHMFXOclGIq/SGliWIsnc9NbjAZZApD0y3K98i8KeOkpytEy9K+IR8eYgeDlaspQ==
   dependencies:
     camelcase "^6.2.0"
     json-schema "^0.2.5"
