@@ -878,7 +878,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsii/spec@^1.15.0", "@jsii/spec@^1.16.0", "@jsii/spec@^1.29.0":
+"@jsii/spec@^1.16.0", "@jsii/spec@^1.29.0":
   version "1.29.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.29.0.tgz#2378bbacd94e0159c6344c1556af0129e4d3e2f4"
   integrity sha512-Y0ouCaYVPy7KjQ8di6Hu4xizKYp4klqqDf08BaEgqd38TzqBuO0abgcd9OJFUQyoDnCCWTdGBfqTo2xfvW9Pbw==
@@ -4130,9 +4130,9 @@ jsii-reflect@^1.16.0, jsii-reflect@^1.29.0:
     yargs "^16.2.0"
 
 jsii-release@^0.2.3:
-  version "0.2.34"
-  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.2.34.tgz#1b7c2275c834825cde8b65320349670e2fe1d1c0"
-  integrity sha512-W1h0UbfKcbhnWj0k6z+v2DcyNGE+s7eHt/3wvlPKTIfdkZcdHdQ+84bMxpLw38p6R33dSoqr9U+PQV9cJ+Onaw==
+  version "0.2.36"
+  resolved "https://registry.yarnpkg.com/jsii-release/-/jsii-release-0.2.36.tgz#7f9b9189db69e93cffa16928ff1f6c52608a027a"
+  integrity sha512-tHDI6pbFIkI7MipRKIB3v1NvQthaSs5UGtD1B84jj+c3DpzD5UUWLig+WK0JFUUrVFtIj8xQ92aNsJZqAvU2Nw==
   dependencies:
     "@types/fs-extra" "^8.0.0"
     fs-extra "^8.0.0"
@@ -6380,7 +6380,7 @@ typescript-parser@^2.6.1:
     tslib "^1.9.3"
     typescript "^3.0.3"
 
-typescript@^3.0.3, typescript@^3.9.5, typescript@~3.9.7, typescript@~3.9.9:
+typescript@^3.0.3, typescript@^3.9.5, typescript@~3.9.9:
   version "3.9.9"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
   integrity sha512-kdMjTiekY+z/ubJCATUPlRDl39vXYiMV9iyeMuEuXZh2we6zz80uovNN2WlAxmmdE/Z/YQe+EbOEXB5RHEED3w==
@@ -6744,7 +6744,7 @@ yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-yargs@^16.0.0, yargs@^16.0.3, yargs@^16.1.1, yargs@^16.2.0:
+yargs@^16.0.0, yargs@^16.0.3, yargs@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-16.2.0.tgz#1c82bf0f6b6a66eafce7ef30e376f49a12477f66"
   integrity sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==
