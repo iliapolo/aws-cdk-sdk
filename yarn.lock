@@ -4301,6 +4301,11 @@ json-schema@^0.2.5:
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.5.tgz#97997f50972dd0500214e208c407efa4b5d7063b"
   integrity sha512-gWJOWYFrhQ8j7pVm0EM8Slr+EPVq1Phf6lvzvD/WCeqkrx/f2xBI0xOsRRS9xCn3I4vKtP519dvs3TP09r24wQ==
 
+json-schema@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.3.0.tgz#90a9c5054bd065422c00241851ce8d59475b701b"
+  integrity sha512-TYfxx36xfl52Rf1LU9HyWSLGPdYLL+SQ8/E/0yVyKG8wCCDaSrhPap0vEdlsZWRaS6tnKKLPGiEJGiREVC8kxQ==
+
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
@@ -4319,12 +4324,12 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.122:
-  version "0.1.233"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.233.tgz#3adc59c57a70ee71c45e5c334e2d29bd3bb20cad"
-  integrity sha512-nWyY9cpcTkR9UA0e64t+MW2eGUoZPNxWoYRJ7YiU1o2akzweCvpF9RljqmlMjcRM8AQAQVjt0vxvVuYE5V4mvA==
+  version "0.1.235"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.235.tgz#8c8d03fa844a0d563d3db8b30cbbfbaf1662beb2"
+  integrity sha512-WZA2mWafOz5NxGCzdQDU5Fegkl7SuKrXBRfAvavaNkQoGxed3g6VDQDfYAlaQ11m07EWpH4psdkNMaorpIiszQ==
   dependencies:
     camelcase "^6.2.0"
-    json-schema "^0.2.5"
+    json-schema "^0.3.0"
     snake-case "^3.0.4"
 
 json5@2.x, json5@^2.1.2:
