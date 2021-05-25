@@ -4836,9 +4836,9 @@ no-case@^3.0.4:
     tslib "^2.0.3"
 
 node-color-log@^5.2.0:
-  version "5.2.0"
-  resolved "https://registry.yarnpkg.com/node-color-log/-/node-color-log-5.2.0.tgz#fb5cc17a485d08ed590ae8a01265e0d13035c8ae"
-  integrity sha512-hQ6TG6WQJVAheRTeIUUxcxVFCv+guVcK+eNAla/4+lLr0u5axBXrSaUAnRwWoBQBswLtwlYYYgDX9J6ieyvl1w==
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/node-color-log/-/node-color-log-5.3.0.tgz#8cc3317c992d72ae74622d5f4abc9433da183a69"
+  integrity sha512-vNSNtaP+Ekj5CGI4MTTDl9rsKrR7qFnI03qXEh3QUee7/9Aep7k7JgDZKn+4eUJ1SqzqGorpD91ZEt8mUry1jg==
 
 node-int64@^0.4.0:
   version "0.4.0"
