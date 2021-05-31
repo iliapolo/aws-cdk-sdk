@@ -879,7 +879,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsii/spec@^1.16.0", "@jsii/spec@^1.29.0", "@jsii/spec@^1.30.0":
+"@jsii/spec@^1.16.0", "@jsii/spec@^1.30.0":
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.30.0.tgz#e5b2381b2be0b9c0839190f9f45d0a038654c73d"
   integrity sha512-oXIwvZyHHc/TrwA/3pzQ3gkqBe916EWBvaexNI3rnKZujlHZT4vVVHMCjQ/kUJhcR0GEaahvwlNhiPTu6roC2g==
@@ -4215,7 +4215,7 @@ jsii-pacmak@^1.15.0:
     xmlbuilder "^15.1.1"
     yargs "^16.2.0"
 
-jsii-reflect@^1.16.0, jsii-reflect@^1.29.0, jsii-reflect@^1.30.0:
+jsii-reflect@^1.16.0, jsii-reflect@^1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/jsii-reflect/-/jsii-reflect-1.30.0.tgz#b079d448ed35c9d9dfea8798a8ef39487ed0c86c"
   integrity sha512-t/1Zr1gGqQSYt94Lfq860VLnCr8y8MLvlLorWYqmBeWKCaSPhtYSC1blGhZhDrAW+CBXiT0Oy64j4Q++AntRmw==
@@ -4318,9 +4318,9 @@ json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json2jsii@^0.1.122:
-  version "0.1.235"
-  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.235.tgz#8c8d03fa844a0d563d3db8b30cbbfbaf1662beb2"
-  integrity sha512-WZA2mWafOz5NxGCzdQDU5Fegkl7SuKrXBRfAvavaNkQoGxed3g6VDQDfYAlaQ11m07EWpH4psdkNMaorpIiszQ==
+  version "0.1.236"
+  resolved "https://registry.yarnpkg.com/json2jsii/-/json2jsii-0.1.236.tgz#57649662e18faca52224194beee499788aae6b6f"
+  integrity sha512-f2UN6Fum7vNQmeonz3HvP7GJxlathMSFYNzYCHdLjFKDpX3KDD9+xi7Qrk0JOMqrGMG6Ev1ye4rXlnUBlWKLvA==
   dependencies:
     camelcase "^6.2.0"
     json-schema "^0.3.0"
