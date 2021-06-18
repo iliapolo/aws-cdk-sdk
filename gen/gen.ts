@@ -4,8 +4,8 @@ import * as fs from 'fs';
 import * as maker from 'codemaker';
 import * as path from 'path';
 
-const INCLUDE = ['ES'];
-// const EXCLUDE = ['Kendra', 'Pinpoint'];
+// const INCLUDE = ['Lambda'];
+const EXCLUDE = ['Kendra', 'Pinpoint'];
 
 async function main(repoPath: string) {
 
@@ -20,13 +20,13 @@ async function main(repoPath: string) {
 
   for (const client of await repo.createClients()) {
 
-    if (!INCLUDE.includes(path.basename(client.className))) {
-      continue;
-    }
-
-    // if (EXCLUDE.includes(path.basename(client.className))) {
+    // if (!INCLUDE.includes(path.basename(client.className))) {
     //   continue;
     // }
+
+    if (EXCLUDE.includes(path.basename(client.className))) {
+      continue;
+    }
 
     const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
     const clientDir = path.join(clientsDirectory, clientBaseDir);

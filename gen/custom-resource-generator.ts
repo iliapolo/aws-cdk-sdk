@@ -36,7 +36,7 @@ export class AwsCustomResourceGenerator {
     const physicalResourceId = [this.props.client.className, this.props.action, ...this.props.outputPath].join('.');
 
     this.props.code.openBlock('const props: cr.AwsCustomResourceProps =');
-    this.props.code.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.resources }),');
+    this.props.code.line('policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),');
     this.props.code.openBlock('onUpdate:');
     this.props.code.line(`action: '${this.props.code.toCamelCase(this.props.action)}',`);
     this.props.code.line(`service: '${this.props.client.className}',`);
@@ -95,7 +95,10 @@ export class AwsCustomResourceGenerator {
       const reqiured = shape.required?.includes(memberName);
 
       const camelCasedMemberName = this.props.code.toCamelCase(memberName);
-      const newInputPath = [...inputPath, reqiured ? camelCasedMemberName : `${camelCasedMemberName}?`];
+      const firstChar = `${memberName.charAt(0)}`;
+
+      const memberNameForInput = firstChar.toUpperCase() === firstChar ? camelCasedMemberName : memberName;
+      const newInputPath = [...inputPath, reqiured ? memberNameForInput : `${memberNameForInput}?`];
       let parameterPath = newInputPath.join('.');
 
       if (parameterPath.endsWith('?')) {
@@ -103,9 +106,9 @@ export class AwsCustomResourceGenerator {
       }
 
       if (this.isPrimitive(member.shape)) {
-        this.props.code.line(`${camelCasedMemberName}: ${this.props.useThisInput ? 'this.' : ''}input.${parameterPath},`);
+        this.props.code.line(`${memberName}: ${this.props.useThisInput ? 'this.' : ''}input.${parameterPath},`);
       } else {
-        this.props.code.openBlock(`${camelCasedMemberName}:`);
+        this.props.code.openBlock(`${memberName}:`);
         this.renderParameters(member.shape, newInputPath);
         this.props.code.closeBlock();
       }

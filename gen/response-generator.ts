@@ -2,6 +2,7 @@ import { CodeMaker } from 'codemaker';
 import * as structs from './structs';
 import * as sdk from './sdk-repository';
 import { AwsCustomResourceGenerator } from './custom-resource-generator';
+import { responses } from './api-generator';
 
 export interface ResponseGeneratorProps {
 
@@ -52,14 +53,9 @@ export class ResponseGenerator {
 
   public async render() {
 
-    const parts = this.props.code.toSnakeCase(this.props.className).split('_');
-    if (this.isPrimitive(parts[parts.length - 1])) {
-      return;
-    }
-
     this.props.code.openBlock(`export class ${this.props.className} extends cdk.Construct`);
 
-    const resourcesArg = this.acceptsResources ? ', private readonly resources: string[]': '';
+    const resourcesArg = this.acceptsResources ? ', private readonly __resources: string[]': '';
     const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly input: shapes.${this.props.code.toPascalCase(`${this.props.client.className}${this.props.inputShape}`)}`: '';
 
     this.props.code.line();
@@ -69,7 +65,6 @@ export class ResponseGenerator {
     this.props.code.line();
 
     const responseGenerators: ResponseGenerator[] = [];
-    const responses = new Map<string, ResponseGenerator>();
 
     for (const property of this.properties) {
       const responseName = `${this.props.className}${this.props.code.toPascalCase(property.name)}`;
@@ -101,10 +96,11 @@ export class ResponseGenerator {
             inputShape: this.props.inputShape,
             outputPath: property.outputPath,
           });
+          console.log(`Will render response: ${responseName}`)
           responseGenerators.push(responseGenerator);
           responses.set(responseName, responseGenerator);
         }
-        const resourcesIn = responseGenerator.acceptsResources ? ', this.resources' : '';
+        const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? ', this.input' : '';
         this.props.code.line(`return new ${responseName}(this, '${this.props.code.toPascalCase(property.name)}'${resourcesIn}${inputIn});`);
       }
@@ -148,6 +144,7 @@ export class ResponseGenerator {
       structs.ShapeType.STRING.toString(),
       structs.ShapeType.LIST.toString(),
       structs.ShapeType.MAP.toString(),
+      structs.ShapeType.BLOB.toString(),
     ].includes(type);
 
     return result;

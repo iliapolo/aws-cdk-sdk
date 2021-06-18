@@ -23,6 +23,12 @@ test('hello', () => {
 
   app.synth();
 
-  new sdk.ES().acceptInboundCrossClusterSearchConnection().promise()
+  // new sdk.ES().describeElasticsearchDomain({
+
+  // })
+
+  // new sdk.Amplify().createDomainAssociation({
+
+  // })
 
 });

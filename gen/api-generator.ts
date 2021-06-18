@@ -6,6 +6,8 @@ import { ResponseGenerator } from './response-generator';
 import { AwsCustomResourceGenerator } from './custom-resource-generator';
 import { CodeMaker } from 'codemaker';
 
+export const responses = new Map<string, ResponseGenerator>();
+
 /**
  * Properties for `ApiGenerator`.
  */
@@ -48,16 +50,13 @@ export class ApiGenerator {
     this.code = new CodeMaker({ indentationLevel: 2 });
 
     for (const operationName of Object.keys(this._props.client.spec.operations)) {
-
       const operation = this._props.client.spec.operations[operationName];
-
       this.methods.push({
         name: operationName,
         inputShape: operation.input?.shape,
         outputShape: operation.output?.shape,
         outputPath: [],
       })
-
     }
 
   }
@@ -79,7 +78,7 @@ export class ApiGenerator {
     this.code.openBlock(`export class ${this.code.toPascalCase(this._props.client.className)}Client extends cdk.Construct`);
 
     this.code.line()
-    this.code.openBlock('constructor(scope: cdk.Construct, id: string, private readonly resources: string[])');
+    this.code.openBlock('constructor(scope: cdk.Construct, id: string, private readonly __resources: string[])');
     this.code.line('super(scope, id);')
     this.code.closeBlock();
     this.code.line()
@@ -88,11 +87,11 @@ export class ApiGenerator {
 
     for (const method of this.methods) {
 
-      // we prefix with the client class to make it unique across the entire package.
-      const responseClassName = `${this._props.client.className}${method.outputShape}`;
-
       // replace `Get` since JSII assumes its a getter and thus can have no inputs.
       const methodName = method.name.startsWith('Get') ? method.name.replace('Get', 'Fetch') : method.name;
+
+      // we prefix with the client class to make it unique across the entire package.
+      const responseClassName = `${this._props.client.className}${this.code.toPascalCase(methodName)}`;
 
       // some shapes are empty interfaces, in which we case ignore it since it would trigger 'unused' errors.
       const hasInput = method.inputShape && !this.isEmptyShape(method.inputShape);
@@ -106,21 +105,25 @@ export class ApiGenerator {
       if (hasOutput) {
 
         // the method returns a shape, we need to generate a response.
-        const responseGenerator = new ResponseGenerator({
-          code: this.code,
-          client: this._props.client,
-          className: responseClassName,
-          action: method.name,
-          outputShape: method.outputShape,
-          inputShape: method.inputShape,
-          outputPath: [],
-        });
+        let responseGenerator = responses.get(responseClassName);
+        if (!responseGenerator) {
+          responseGenerator = new ResponseGenerator({
+            code: this.code,
+            client: this._props.client,
+            className: responseClassName,
+            action: method.name,
+            outputShape: method.outputShape,
+            inputShape: method.inputShape,
+            outputPath: [],
+          });
+          responseGenerators.push(responseGenerator);
+          responses.set(responseClassName, responseGenerator);
+        }
 
-        const resourcesIn = responseGenerator.acceptsResources ? ', this.resources' : '';
+        const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(method.inputShape) ? ', input' : '';
 
-        this.code.line(`return new ${responseClassName}(this, '${method.outputShape}'${resourcesIn}${inputIn});`)
-        responseGenerators.push(responseGenerator);
+        this.code.line(`return new ${responseClassName}(this, '${this.code.toPascalCase(methodName)}'${resourcesIn}${inputIn});`)
       } else {
 
         // the method doesn't return anything, generate the custom resource.
