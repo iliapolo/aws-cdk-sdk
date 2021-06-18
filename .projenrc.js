@@ -1,15 +1,11 @@
 const { JsiiProject } = require('projen');
 
 const project = new JsiiProject({
-  dependabot: true,
+  defaultReleaseBranch: 'main',
+  release: false,
   authorName: 'Eli Polonsky',
   repository: 'https://github.com/iliapolo/aws-cdk-sdk',
-  name: "aws-cdk-sdk",
-  deps: [
-    '@aws-cdk/core',
-    '@aws-cdk/custom-resources',
-    'constructs',
-  ],
+  name: 'aws-cdk-sdk',
   peerDeps: [
     '@aws-cdk/core',
     '@aws-cdk/custom-resources',
@@ -18,7 +14,7 @@ const project = new JsiiProject({
   devDeps: [
     '@aws-cdk/aws-elasticsearch',
     '@aws-cdk/assert',
-    "aws-sdk@2.799.0",
+    'aws-sdk',
     'codemaker',
     'json-schema',
     'json2jsii',
@@ -27,12 +23,13 @@ const project = new JsiiProject({
     'typescript-json-schema',
     'ts-node',
   ],
-  stability: 'experimental'
+  stability: 'experimental',
 });
 
-project.gitignore.exclude(`gen/.sdks`)
-project.addScript('gen', './node_modules/.bin/ts-node --skip-project gen/gen.ts');
+const gen = project.tasks.addTask('gen');
+gen.exec('./node_modules/.bin/ts-node --skip-project gen/gen.ts');
+project.gitignore.exclude('gen/.sdks');
 
-project.eslint.addIgnorePattern('gen/**')
-project.eslint.addRules({'max-len': ['error', { code: 2000 }]});
+project.eslint.addIgnorePattern('gen/**');
+project.eslint.addRules({ 'max-len': ['error', { code: 2000 }] });
 project.synth();
