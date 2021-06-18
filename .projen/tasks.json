@@ -216,9 +216,12 @@
     },
     "gen": {
       "name": "gen",
+      "env": {
+        "NODE_OPTIONS": "--max_old_space_size=4096"
+      },
       "steps": [
         {
-          "exec": "./node_modules/.bin/ts-node --skip-project gen/gen.ts"
+          "exec": "ts-node --skip-project gen/gen.ts"
         }
       ]
     }

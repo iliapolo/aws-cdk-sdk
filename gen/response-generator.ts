@@ -1,8 +1,8 @@
 import { CodeMaker } from 'codemaker';
-import * as structs from './structs';
-import * as sdk from './sdk-repository';
-import { AwsCustomResourceGenerator } from './custom-resource-generator';
 import { responses } from './api-generator';
+import { AwsCustomResourceGenerator } from './custom-resource-generator';
+import * as sdk from './sdk-repository';
+import * as structs from './structs';
 
 export interface ResponseGeneratorProps {
 
@@ -29,7 +29,7 @@ export class ResponseGenerator {
   private readonly properties: structs.Property[] = [];
   private readonly props: ResponseGeneratorProps;
 
-   constructor(props: ResponseGeneratorProps) {
+  constructor(props: ResponseGeneratorProps) {
     this.props = props;
 
     const shape = this.props.client.spec.shapes[props.outputShape];
@@ -44,7 +44,7 @@ export class ResponseGenerator {
         output: shape.members[member].shape,
         outputPath: [...this.props.outputPath, member],
         action: props.action,
-      })
+      });
     }
 
     this.acceptsResources = this.properties.length > 0;
@@ -56,11 +56,11 @@ export class ResponseGenerator {
     this.props.code.openBlock(`export class ${this.props.className} extends cdk.Construct`);
 
     const resourcesArg = this.acceptsResources ? ', private readonly __resources: string[]': '';
-    const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly input: shapes.${this.props.code.toPascalCase(`${this.props.client.className}${this.props.inputShape}`)}`: '';
+    const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly __input: shapes.${this.props.code.toPascalCase(`${this.props.client.className}${this.props.inputShape}`)}`: '';
 
     this.props.code.line();
     this.props.code.openBlock(`constructor(scope: cdk.Construct, id: string${resourcesArg}${inputArg})`);
-    this.props.code.line('super(scope, id);')
+    this.props.code.line('super(scope, id);');
     this.props.code.closeBlock();
     this.props.code.line();
 
@@ -68,7 +68,7 @@ export class ResponseGenerator {
 
     for (const property of this.properties) {
       const responseName = `${this.props.className}${this.props.code.toPascalCase(property.name)}`;
-      this.props.code.openBlock(`public get ${this.props.code.toCamelCase(property.name)}(): ${this.isPrimitive(property.output) ?  this.getTsType(property.output) : responseName}`);
+      this.props.code.openBlock(`public get ${this.props.code.toCamelCase(property.name)}(): ${this.isPrimitive(property.output) ? this.getTsType(property.output) : responseName}`);
 
       if (this.isPrimitive(property.output)) {
 
@@ -100,7 +100,7 @@ export class ResponseGenerator {
           responses.set(responseName, responseGenerator);
         }
         const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
-        const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? ', this.input' : '';
+        const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? ', this.__input' : '';
         this.props.code.line(`return new ${responseName}(this, '${this.props.code.toPascalCase(property.name)}'${resourcesIn}${inputIn});`);
       }
       this.props.code.closeBlock();
@@ -131,6 +131,10 @@ export class ResponseGenerator {
 
     const s = this.props.client.spec.shapes[shape];
 
+    if (s && s.type === structs.ShapeType.STRUCTURE.toString() && Object.keys(s.members).length === 0) {
+      return true;
+    }
+
     const type = s ? s.type : shape;
 
     const result = [
@@ -153,6 +157,10 @@ export class ResponseGenerator {
 
     const s = this.props.client.spec.shapes[sdkType];
 
+    if (s && s.type === structs.ShapeType.STRUCTURE.toString() && Object.keys(s.members).length === 0) {
+      return 'any';
+    }
+
     const type = s ? s.type : sdkType;
 
     switch (type) {
@@ -174,7 +182,7 @@ export class ResponseGenerator {
       case structs.ShapeType.LIST:
         return `${this.getTsType(s.member.shape)}[]`;
       case structs.ShapeType.MAP:
-        return `Record<string, ${this.getTsType(s.value.shape)}>`
+        return `Record<string, ${this.getTsType(s.value.shape)}>`;
       default:
         throw new Error(`Unexpected sdk type ${s.type}`);
     }

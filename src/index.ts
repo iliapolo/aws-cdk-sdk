@@ -1,1 +1,2 @@
-export * from './clients/lambda';
+export * from './clients/rekognition';
+export * from './clients/wafv2';

@@ -1,26 +1,28 @@
-import * as gen from './client-generator';
 import * as child from 'child_process';
-import * as sdk from './sdk-repository';
 import * as fs from 'fs';
-import * as maker from 'codemaker';
 import * as path from 'path';
+import * as maker from 'codemaker';
+import * as gen from './client-generator';
+import * as sdk from './sdk-repository';
 
-const INCLUDE = ['Lambda'];
+const INCLUDE = ['Rekognition', 'WAFV2'];
 // const EXCLUDE = ['Kendra', 'Pinpoint'];
-
-const SDK_VERSION = process.env.SDK_VERSION ?? '2.799.0'
 
 async function generate() {
 
-  const sdks = path.join(`${__dirname}/.sdks`);
+  const sdkPackage = path.join(path.dirname(path.dirname(require.resolve('aws-sdk'))), 'package.json');
+  const sdkVersion = require(sdkPackage).version;
+
+  console.log(`Generating clients for SDK: ${sdkVersion}`)
+  const sdks = path.join(`${__dirname}/../.sdk`);
   fs.mkdirSync(sdks, { recursive: true });
 
-  const repoPath = path.join(`${sdks}/aws-sdk-js-${SDK_VERSION}`);
+  const repoPath = path.join(`${sdks}/aws-sdk-js-${sdkVersion}`);
 
   if (!fs.existsSync(repoPath)) {
-    const out = path.join(sdks, `aws-sdk-js-${SDK_VERSION}.zip`);
-    child.execSync(`curl -o ${out} --silent -L https://github.com/aws/aws-sdk-js/archive/v${SDK_VERSION}.zip`);
-    child.execSync(`cd ${sdks} && unzip ${out}`)
+    const out = path.join(sdks, `aws-sdk-js-${sdkVersion}.zip`);
+    child.execSync(`curl -o ${out} --silent -L https://github.com/aws/aws-sdk-js/archive/v${sdkVersion}.zip`);
+    child.execSync(`cd ${sdks} && unzip ${out}`);
   }
 
   const repo = new sdk.SdkRepository(repoPath);
@@ -49,7 +51,9 @@ async function generate() {
     console.log(`Generating client for ${path.basename(client.className)}`);
 
     await generator.gen();
-    index.line(`export * from './clients/${clientBaseDir}';`)
+    index.line(`export * from './clients/${clientBaseDir}';`);
+
+    // child.execSync(`cd ${clientDir} && ${__dirname}/../node_modules/.bin/typescript-json-schema shapes.ts "*" > schema.json`);
 
   }
 
@@ -73,4 +77,4 @@ function deleteFolderRecursive(dir: string) {
   }
 };
 
-generate()
+generate();

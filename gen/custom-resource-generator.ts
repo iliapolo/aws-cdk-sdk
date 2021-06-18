@@ -1,6 +1,6 @@
 import { CodeMaker } from 'codemaker';
-import * as structs from './structs';
 import * as sdk from './sdk-repository';
+import * as structs from './structs';
 
 export interface AwsCustomResourceGeneratorProps {
 
@@ -106,7 +106,7 @@ export class AwsCustomResourceGenerator {
       }
 
       if (this.isPrimitive(member.shape)) {
-        this.props.code.line(`${memberName}: ${this.props.useThisInput ? 'this.' : ''}input.${parameterPath},`);
+        this.props.code.line(`${memberName}: ${this.props.useThisInput ? 'this.__' : ''}input.${parameterPath},`);
       } else {
         this.props.code.openBlock(`${memberName}:`);
         this.renderParameters(member.shape, newInputPath);
@@ -142,6 +142,10 @@ export class AwsCustomResourceGenerator {
 
     const s = this.props.client.spec.shapes[sdkType];
 
+    if (s && s.type === structs.ShapeType.STRUCTURE.toString() && Object.keys(s.members).length === 0) {
+      return 'any';
+    }
+
     const type = s ? s.type : sdkType;
 
     switch (type) {
@@ -163,7 +167,7 @@ export class AwsCustomResourceGenerator {
       case structs.ShapeType.LIST:
         return `${this.getTsType(s.member.shape)}[]`;
       case structs.ShapeType.MAP:
-        return `Record<string, ${this.getTsType(s.value.shape)}>`
+        return `Record<string, ${this.getTsType(s.value.shape)}>`;
       default:
         throw new Error(`Unexpected sdk type ${s.type}`);
     }

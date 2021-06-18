@@ -1,10 +1,10 @@
 
-import * as structs from './structs';
-import * as sdk from './sdk-repository';
 import * as path from 'path';
-import { ResponseGenerator } from './response-generator';
-import { AwsCustomResourceGenerator } from './custom-resource-generator';
 import { CodeMaker } from 'codemaker';
+import { AwsCustomResourceGenerator } from './custom-resource-generator';
+import { ResponseGenerator } from './response-generator';
+import * as sdk from './sdk-repository';
+import * as structs from './structs';
 
 export const responses = new Map<string, ResponseGenerator>();
 
@@ -56,7 +56,7 @@ export class ApiGenerator {
         inputShape: operation.input?.shape,
         outputShape: operation.output?.shape,
         outputPath: [],
-      })
+      });
     }
 
   }
@@ -77,11 +77,11 @@ export class ApiGenerator {
     // we suffix it with 'Client' to make it more discoverable among all other exports of this package.
     this.code.openBlock(`export class ${this.code.toPascalCase(this._props.client.className)}Client extends cdk.Construct`);
 
-    this.code.line()
+    this.code.line();
     this.code.openBlock('constructor(scope: cdk.Construct, id: string, private readonly __resources: string[])');
-    this.code.line('super(scope, id);')
+    this.code.line('super(scope, id);');
     this.code.closeBlock();
-    this.code.line()
+    this.code.line();
 
     const responseGenerators: ResponseGenerator[] = [];
 
@@ -123,7 +123,7 @@ export class ApiGenerator {
         const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(method.inputShape) ? ', input' : '';
 
-        this.code.line(`return new ${responseClassName}(this, '${this.code.toPascalCase(methodName)}'${resourcesIn}${inputIn});`)
+        this.code.line(`return new ${responseClassName}(this, '${this.code.toPascalCase(methodName)}'${resourcesIn}${inputIn});`);
       } else {
 
         // the method doesn't return anything, generate the custom resource.
@@ -135,13 +135,13 @@ export class ApiGenerator {
           output: method.outputShape,
           outputPath: [],
           useThisInput: false,
-        })
+        });
 
         customResourceGenerator.render();
       }
 
       this.code.closeBlock();
-      this.code.line()
+      this.code.line();
     }
 
     this.code.closeBlock();
