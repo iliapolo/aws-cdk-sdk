@@ -30,7 +30,8 @@ const project = new JsiiProject({
   stability: 'experimental'
 });
 
-project.addScript('gen', './gen/gen.sh');
+project.gitignore.exclude(`gen/.sdks`)
+project.addScript('gen', './node_modules/.bin/ts-node --skip-project gen/gen.ts');
 
 project.eslint.addIgnorePattern('gen/**')
 project.eslint.addRules({'max-len': ['error', { code: 2000 }]});

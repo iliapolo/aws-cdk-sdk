@@ -1,13 +1,27 @@
 import * as gen from './client-generator';
+import * as child from 'child_process';
 import * as sdk from './sdk-repository';
 import * as fs from 'fs';
 import * as maker from 'codemaker';
 import * as path from 'path';
 
-// const INCLUDE = ['Lambda'];
-const EXCLUDE = ['Kendra', 'Pinpoint'];
+const INCLUDE = ['Lambda'];
+// const EXCLUDE = ['Kendra', 'Pinpoint'];
 
-async function main(repoPath: string) {
+const SDK_VERSION = process.env.SDK_VERSION ?? '2.799.0'
+
+async function generate() {
+
+  const sdks = path.join(`${__dirname}/.sdks`);
+  fs.mkdirSync(sdks, { recursive: true });
+
+  const repoPath = path.join(`${sdks}/aws-sdk-js-${SDK_VERSION}`);
+
+  if (!fs.existsSync(repoPath)) {
+    const out = path.join(sdks, `aws-sdk-js-${SDK_VERSION}.zip`);
+    child.execSync(`curl -o ${out} --silent -L https://github.com/aws/aws-sdk-js/archive/v${SDK_VERSION}.zip`);
+    child.execSync(`cd ${sdks} && unzip ${out}`)
+  }
 
   const repo = new sdk.SdkRepository(repoPath);
   const src = path.join(__dirname, '..', 'src');
@@ -20,13 +34,13 @@ async function main(repoPath: string) {
 
   for (const client of await repo.createClients()) {
 
-    // if (!INCLUDE.includes(path.basename(client.className))) {
-    //   continue;
-    // }
-
-    if (EXCLUDE.includes(path.basename(client.className))) {
+    if (!INCLUDE.includes(path.basename(client.className))) {
       continue;
     }
+
+    // if (EXCLUDE.includes(path.basename(client.className))) {
+    //   continue;
+    // }
 
     const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
     const clientDir = path.join(clientsDirectory, clientBaseDir);
@@ -59,4 +73,4 @@ function deleteFolderRecursive(dir: string) {
   }
 };
 
-main(process.argv[2])
+generate()

@@ -96,7 +96,6 @@ export class ResponseGenerator {
             inputShape: this.props.inputShape,
             outputPath: property.outputPath,
           });
-          console.log(`Will render response: ${responseName}`)
           responseGenerators.push(responseGenerator);
           responses.set(responseName, responseGenerator);
         }

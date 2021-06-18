@@ -23,7 +23,7 @@
     "eslint": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test",
     "compat": "npx jsii-diff npm:$(node -p \"require('./package.json').name\") -k --ignore-file .compatignore || (echo \"\nUNEXPECTED BREAKING CHANGES: add keys such as 'removed:constructs.Node.of' to .compatignore to skip.\n\" && exit 1)",
     "docgen": "jsii-docgen",
-    "gen": "./gen/gen.sh"
+    "gen": "./node_modules/.bin/ts-node --skip-project gen/gen.ts"
   },
   "author": {
     "name": "Eli Polonsky",
@@ -180,7 +180,7 @@
     }
   },
   "types": "lib/index.d.ts",
-  "stability": "stable",
+  "stability": "experimental",
   "jsii": {
     "outdir": "dist",
     "targets": {},
