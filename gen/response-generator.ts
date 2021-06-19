@@ -53,14 +53,13 @@ export class ResponseGenerator {
 
   public async render() {
 
-    this.props.code.openBlock(`export class ${this.props.className} extends cdk.Construct`);
+    this.props.code.openBlock(`export class ${this.props.className}`);
 
     const resourcesArg = this.acceptsResources ? ', private readonly __resources: string[]': '';
     const inputArg = this.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? `, private readonly __input: shapes.${this.props.code.toPascalCase(`${this.props.client.className}${this.props.inputShape}`)}`: '';
 
     this.props.code.line();
-    this.props.code.openBlock(`constructor(scope: cdk.Construct, id: string${resourcesArg}${inputArg})`);
-    this.props.code.line('super(scope, id);');
+    this.props.code.openBlock(`constructor(private readonly __scope: cdk.Construct${resourcesArg}${inputArg})`);
     this.props.code.closeBlock();
     this.props.code.line();
 
@@ -101,7 +100,7 @@ export class ResponseGenerator {
         }
         const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(this.props.inputShape) ? ', this.__input' : '';
-        this.props.code.line(`return new ${responseName}(this, '${this.props.code.toPascalCase(property.name)}'${resourcesIn}${inputIn});`);
+        this.props.code.line(`return new ${responseName}(this.__scope${resourcesIn}${inputIn});`);
       }
       this.props.code.closeBlock();
       this.props.code.line();

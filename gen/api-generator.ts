@@ -91,7 +91,7 @@ export class ApiGenerator {
       const methodName = method.name.startsWith('Get') ? method.name.replace('Get', 'Fetch') : method.name;
 
       // we prefix with the client class to make it unique across the entire package.
-      const responseClassName = `${this._props.client.className}${this.code.toPascalCase(methodName)}`;
+      const responseClassName = `${this._props.client.className}Responses${this.code.toPascalCase(methodName)}`;
 
       // some shapes are empty interfaces, in which we case ignore it since it would trigger 'unused' errors.
       const hasInput = method.inputShape && !this.isEmptyShape(method.inputShape);
@@ -123,7 +123,7 @@ export class ApiGenerator {
         const resourcesIn = responseGenerator.acceptsResources ? ', this.__resources' : '';
         const inputIn = responseGenerator.acceptsInput && !this.isEmptyShape(method.inputShape) ? ', input' : '';
 
-        this.code.line(`return new ${responseClassName}(this, '${this.code.toPascalCase(methodName)}'${resourcesIn}${inputIn});`);
+        this.code.line(`return new ${responseClassName}(this${resourcesIn}${inputIn});`);
       } else {
 
         // the method doesn't return anything, generate the custom resource.

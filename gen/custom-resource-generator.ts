@@ -70,11 +70,13 @@ export class AwsCustomResourceGenerator {
     this.props.code.closeBlockFormatter = semiColonFormatter;
     this.props.code.closeBlock();
 
+    const scope = this.props.useThisInput ? 'this.__scope' : 'this';
+
     if (this.props.outputPath.length > 0) {
-      this.props.code.line(`const resource = new cr.AwsCustomResource(this, '${this.props.action}.${outputPath}', props);`);
+      this.props.code.line(`const resource = new cr.AwsCustomResource(${scope}, '${this.props.action}.${outputPath}', props);`);
       this.props.code.line(`return resource.getResponseField('${outputPath}') as unknown as ${this.getTsType(this.props.output)};`);
     } else {
-      this.props.code.line(`new cr.AwsCustomResource(this, '${this.props.action}', props);`);
+      this.props.code.line(`new cr.AwsCustomResource(${scope}, '${this.props.action}', props);`);
     }
 
     this.props.code.closeBlockFormatter = originalBlockFormatter;

@@ -5,7 +5,15 @@ import * as maker from 'codemaker';
 import * as gen from './client-generator';
 import * as sdk from './sdk-repository';
 
-const INCLUDE = ['Rekognition', 'WAFV2'];
+const INCLUDE = [
+  'GuardDuty',
+  'ManagedBlockchain',
+  'GameLift',
+  'FSx',
+  'CodeBuild',
+  'CloudTrail',
+  'CloudSearchDomain'
+];
 // const EXCLUDE = ['Kendra', 'Pinpoint'];
 
 async function generate() {
