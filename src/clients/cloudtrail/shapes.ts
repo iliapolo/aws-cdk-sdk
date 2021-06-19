@@ -1105,9 +1105,9 @@ export interface CloudTrailAdvancedFieldSelector {
   readonly field: string;
 
   /**
-   * @schema CloudTrailAdvancedFieldSelector#Equals
+   * @schema CloudTrailAdvancedFieldSelector#Equals2
    */
-  readonly equals?: string[];
+  readonly equals2?: string[];
 
   /**
    * @schema CloudTrailAdvancedFieldSelector#StartsWith

@@ -125,7 +125,19 @@ export class ShapesGenerator {
     }
     const properties: Record<string, JSONSchema4> = {};
     for (const entry of Object.entries(shape.members ?? {})) {
-      properties[entry[0]] = {
+
+      let name = entry[0];
+      if (['Build', 'build'].includes(name)) {
+        name = 'Build2'
+      }
+      if (['Equals', 'equals'].includes(name)) {
+        name = 'Equals2'
+      }
+      if (name.startsWith('Get')) {
+        name = name.replace('Get', 'Fetch');
+      }
+
+      properties[name] = {
         $ref: `#/definitions/${j2j.TypeGenerator.normalizeTypeName(`${this._props.client.className}${entry[1].shape}`)}`,
         // description: entry[1].documentation,
       };

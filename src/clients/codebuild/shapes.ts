@@ -1204,9 +1204,9 @@ export interface CodeBuildRetryBuildInput {
  */
 export interface CodeBuildRetryBuildOutput {
   /**
-   * @schema CodeBuildRetryBuildOutput#build
+   * @schema CodeBuildRetryBuildOutput#Build2
    */
-  readonly build?: CodeBuildBuild;
+  readonly build2?: CodeBuildBuild;
 
 }
 
@@ -1408,9 +1408,9 @@ export interface CodeBuildStartBuildInput {
  */
 export interface CodeBuildStartBuildOutput {
   /**
-   * @schema CodeBuildStartBuildOutput#build
+   * @schema CodeBuildStartBuildOutput#Build2
    */
-  readonly build?: CodeBuildBuild;
+  readonly build2?: CodeBuildBuild;
 
 }
 
@@ -1597,9 +1597,9 @@ export interface CodeBuildStopBuildInput {
  */
 export interface CodeBuildStopBuildOutput {
   /**
-   * @schema CodeBuildStopBuildOutput#build
+   * @schema CodeBuildStopBuildOutput#Build2
    */
-  readonly build?: CodeBuildBuild;
+  readonly build2?: CodeBuildBuild;
 
 }
 

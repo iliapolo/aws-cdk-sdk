@@ -88,7 +88,8 @@ export class ApiGenerator {
     for (const method of this.methods) {
 
       // replace `Get` since JSII assumes its a getter and thus can have no inputs.
-      const methodName = method.name.startsWith('Get') ? method.name.replace('Get', 'Fetch') : method.name;
+      let methodName = method.name.startsWith('Get') ? method.name.replace('Get', 'Fetch') : method.name;
+      methodName = method.name.startsWith('Set') ? method.name.replace('Set', 'Put') : methodName;
 
       // we prefix with the client class to make it unique across the entire package.
       const responseClassName = `${this._props.client.className}Responses${this.code.toPascalCase(methodName)}`;

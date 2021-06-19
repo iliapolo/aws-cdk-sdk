@@ -2334,9 +2334,9 @@ export interface GuardDutyCondition {
   readonly lte?: number;
 
   /**
-   * @schema GuardDutyCondition#Equals
+   * @schema GuardDutyCondition#Equals2
    */
-  readonly equals?: string[];
+  readonly equals2?: string[];
 
   /**
    * @schema GuardDutyCondition#NotEquals

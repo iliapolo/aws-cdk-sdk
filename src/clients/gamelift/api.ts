@@ -1057,8 +1057,8 @@ export class GameLiftResponsesCreateBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftCreateBuildInput) {
   }
 
-  public get build(): GameLiftResponsesCreateBuildBuild {
-    return new GameLiftResponsesCreateBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): GameLiftResponsesCreateBuildBuild2 {
+    return new GameLiftResponsesCreateBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
   public get uploadCredentials(): GameLiftResponsesCreateBuildUploadCredentials {
@@ -1071,7 +1071,7 @@ export class GameLiftResponsesCreateBuild {
 
 }
 
-export class GameLiftResponsesCreateBuildBuild {
+export class GameLiftResponsesCreateBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftCreateBuildInput) {
   }
@@ -5358,13 +5358,13 @@ export class GameLiftResponsesDescribeBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeBuildInput) {
   }
 
-  public get build(): GameLiftResponsesDescribeBuildBuild {
-    return new GameLiftResponsesDescribeBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): GameLiftResponsesDescribeBuildBuild2 {
+    return new GameLiftResponsesDescribeBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class GameLiftResponsesDescribeBuildBuild {
+export class GameLiftResponsesDescribeBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftDescribeBuildInput) {
   }
@@ -10387,13 +10387,13 @@ export class GameLiftResponsesUpdateBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftUpdateBuildInput) {
   }
 
-  public get build(): GameLiftResponsesUpdateBuildBuild {
-    return new GameLiftResponsesUpdateBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): GameLiftResponsesUpdateBuildBuild2 {
+    return new GameLiftResponsesUpdateBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class GameLiftResponsesUpdateBuildBuild {
+export class GameLiftResponsesUpdateBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GameLiftUpdateBuildInput) {
   }

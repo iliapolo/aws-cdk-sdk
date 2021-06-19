@@ -9544,13 +9544,13 @@ export class CodeBuildResponsesRetryBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
 
-  public get build(): CodeBuildResponsesRetryBuildBuild {
-    return new CodeBuildResponsesRetryBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): CodeBuildResponsesRetryBuildBuild2 {
+    return new CodeBuildResponsesRetryBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesRetryBuildBuild {
+export class CodeBuildResponsesRetryBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -9753,8 +9753,8 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.phases') as unknown as shapes.CodeBuildBuildPhase[];
   }
 
-  public get source(): CodeBuildResponsesRetryBuildBuildSource {
-    return new CodeBuildResponsesRetryBuildBuildSource(this.__scope, this.__resources, this.__input);
+  public get source(): CodeBuildResponsesRetryBuildBuild2Source {
+    return new CodeBuildResponsesRetryBuildBuild2Source(this.__scope, this.__resources, this.__input);
   }
 
   public get secondarySources(): shapes.CodeBuildProjectSource[] {
@@ -9793,8 +9793,8 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.secondarySourceVersions') as unknown as shapes.CodeBuildProjectSourceVersion[];
   }
 
-  public get artifacts(): CodeBuildResponsesRetryBuildBuildArtifacts {
-    return new CodeBuildResponsesRetryBuildBuildArtifacts(this.__scope, this.__resources, this.__input);
+  public get artifacts(): CodeBuildResponsesRetryBuildBuild2Artifacts {
+    return new CodeBuildResponsesRetryBuildBuild2Artifacts(this.__scope, this.__resources, this.__input);
   }
 
   public get secondaryArtifacts(): shapes.CodeBuildBuildArtifacts[] {
@@ -9815,12 +9815,12 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.secondaryArtifacts') as unknown as shapes.CodeBuildBuildArtifacts[];
   }
 
-  public get cache(): CodeBuildResponsesRetryBuildBuildCache {
-    return new CodeBuildResponsesRetryBuildBuildCache(this.__scope, this.__resources, this.__input);
+  public get cache(): CodeBuildResponsesRetryBuildBuild2Cache {
+    return new CodeBuildResponsesRetryBuildBuild2Cache(this.__scope, this.__resources, this.__input);
   }
 
-  public get environment(): CodeBuildResponsesRetryBuildBuildEnvironment {
-    return new CodeBuildResponsesRetryBuildBuildEnvironment(this.__scope, this.__resources, this.__input);
+  public get environment(): CodeBuildResponsesRetryBuildBuild2Environment {
+    return new CodeBuildResponsesRetryBuildBuild2Environment(this.__scope, this.__resources, this.__input);
   }
 
   public get serviceRole(): string {
@@ -9841,8 +9841,8 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.serviceRole') as unknown as string;
   }
 
-  public get logs(): CodeBuildResponsesRetryBuildBuildLogs {
-    return new CodeBuildResponsesRetryBuildBuildLogs(this.__scope, this.__resources, this.__input);
+  public get logs(): CodeBuildResponsesRetryBuildBuild2Logs {
+    return new CodeBuildResponsesRetryBuildBuild2Logs(this.__scope, this.__resources, this.__input);
   }
 
   public get timeoutInMinutes(): number {
@@ -9917,12 +9917,12 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.initiator') as unknown as string;
   }
 
-  public get vpcConfig(): CodeBuildResponsesRetryBuildBuildVpcConfig {
-    return new CodeBuildResponsesRetryBuildBuildVpcConfig(this.__scope, this.__resources, this.__input);
+  public get vpcConfig(): CodeBuildResponsesRetryBuildBuild2VpcConfig {
+    return new CodeBuildResponsesRetryBuildBuild2VpcConfig(this.__scope, this.__resources, this.__input);
   }
 
-  public get networkInterface(): CodeBuildResponsesRetryBuildBuildNetworkInterface {
-    return new CodeBuildResponsesRetryBuildBuildNetworkInterface(this.__scope, this.__resources, this.__input);
+  public get networkInterface(): CodeBuildResponsesRetryBuildBuild2NetworkInterface {
+    return new CodeBuildResponsesRetryBuildBuild2NetworkInterface(this.__scope, this.__resources, this.__input);
   }
 
   public get encryptionKey(): string {
@@ -9997,8 +9997,8 @@ export class CodeBuildResponsesRetryBuildBuild {
     return resource.getResponseField('build.fileSystemLocations') as unknown as shapes.CodeBuildProjectFileSystemLocation[];
   }
 
-  public get debugSession(): CodeBuildResponsesRetryBuildBuildDebugSession {
-    return new CodeBuildResponsesRetryBuildBuildDebugSession(this.__scope, this.__resources, this.__input);
+  public get debugSession(): CodeBuildResponsesRetryBuildBuild2DebugSession {
+    return new CodeBuildResponsesRetryBuildBuild2DebugSession(this.__scope, this.__resources, this.__input);
   }
 
   public get buildBatchArn(): string {
@@ -10021,7 +10021,7 @@ export class CodeBuildResponsesRetryBuildBuild {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildSource {
+export class CodeBuildResponsesRetryBuildBuild2Source {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10080,8 +10080,8 @@ export class CodeBuildResponsesRetryBuildBuildSource {
     return resource.getResponseField('build.source.gitCloneDepth') as unknown as number;
   }
 
-  public get gitSubmodulesConfig(): CodeBuildResponsesRetryBuildBuildSourceGitSubmodulesConfig {
-    return new CodeBuildResponsesRetryBuildBuildSourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
+  public get gitSubmodulesConfig(): CodeBuildResponsesRetryBuildBuild2SourceGitSubmodulesConfig {
+    return new CodeBuildResponsesRetryBuildBuild2SourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get buildspec(): string {
@@ -10102,8 +10102,8 @@ export class CodeBuildResponsesRetryBuildBuildSource {
     return resource.getResponseField('build.source.buildspec') as unknown as string;
   }
 
-  public get auth(): CodeBuildResponsesRetryBuildBuildSourceAuth {
-    return new CodeBuildResponsesRetryBuildBuildSourceAuth(this.__scope, this.__resources, this.__input);
+  public get auth(): CodeBuildResponsesRetryBuildBuild2SourceAuth {
+    return new CodeBuildResponsesRetryBuildBuild2SourceAuth(this.__scope, this.__resources, this.__input);
   }
 
   public get reportBuildStatus(): boolean {
@@ -10124,8 +10124,8 @@ export class CodeBuildResponsesRetryBuildBuildSource {
     return resource.getResponseField('build.source.reportBuildStatus') as unknown as boolean;
   }
 
-  public get buildStatusConfig(): CodeBuildResponsesRetryBuildBuildSourceBuildStatusConfig {
-    return new CodeBuildResponsesRetryBuildBuildSourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
+  public get buildStatusConfig(): CodeBuildResponsesRetryBuildBuild2SourceBuildStatusConfig {
+    return new CodeBuildResponsesRetryBuildBuild2SourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get insecureSsl(): boolean {
@@ -10166,7 +10166,7 @@ export class CodeBuildResponsesRetryBuildBuildSource {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildSourceGitSubmodulesConfig {
+export class CodeBuildResponsesRetryBuildBuild2SourceGitSubmodulesConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10191,7 +10191,7 @@ export class CodeBuildResponsesRetryBuildBuildSourceGitSubmodulesConfig {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildSourceAuth {
+export class CodeBuildResponsesRetryBuildBuild2SourceAuth {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10234,7 +10234,7 @@ export class CodeBuildResponsesRetryBuildBuildSourceAuth {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildSourceBuildStatusConfig {
+export class CodeBuildResponsesRetryBuildBuild2SourceBuildStatusConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10277,7 +10277,7 @@ export class CodeBuildResponsesRetryBuildBuildSourceBuildStatusConfig {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildArtifacts {
+export class CodeBuildResponsesRetryBuildBuild2Artifacts {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10392,7 +10392,7 @@ export class CodeBuildResponsesRetryBuildBuildArtifacts {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildCache {
+export class CodeBuildResponsesRetryBuildBuild2Cache {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10453,7 +10453,7 @@ export class CodeBuildResponsesRetryBuildBuildCache {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildEnvironment {
+export class CodeBuildResponsesRetryBuildBuild2Environment {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10566,8 +10566,8 @@ export class CodeBuildResponsesRetryBuildBuildEnvironment {
     return resource.getResponseField('build.environment.certificate') as unknown as string;
   }
 
-  public get registryCredential(): CodeBuildResponsesRetryBuildBuildEnvironmentRegistryCredential {
-    return new CodeBuildResponsesRetryBuildBuildEnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
+  public get registryCredential(): CodeBuildResponsesRetryBuildBuild2EnvironmentRegistryCredential {
+    return new CodeBuildResponsesRetryBuildBuild2EnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
   }
 
   public get imagePullCredentialsType(): string {
@@ -10590,7 +10590,7 @@ export class CodeBuildResponsesRetryBuildBuildEnvironment {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildEnvironmentRegistryCredential {
+export class CodeBuildResponsesRetryBuildBuild2EnvironmentRegistryCredential {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10633,7 +10633,7 @@ export class CodeBuildResponsesRetryBuildBuildEnvironmentRegistryCredential {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildLogs {
+export class CodeBuildResponsesRetryBuildBuild2Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10746,17 +10746,17 @@ export class CodeBuildResponsesRetryBuildBuildLogs {
     return resource.getResponseField('build.logs.s3LogsArn') as unknown as string;
   }
 
-  public get cloudWatchLogs(): CodeBuildResponsesRetryBuildBuildLogsCloudWatchLogs {
-    return new CodeBuildResponsesRetryBuildBuildLogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
+  public get cloudWatchLogs(): CodeBuildResponsesRetryBuildBuild2LogsCloudWatchLogs {
+    return new CodeBuildResponsesRetryBuildBuild2LogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
   }
 
-  public get s3Logs(): CodeBuildResponsesRetryBuildBuildLogsS3Logs {
-    return new CodeBuildResponsesRetryBuildBuildLogsS3Logs(this.__scope, this.__resources, this.__input);
+  public get s3Logs(): CodeBuildResponsesRetryBuildBuild2LogsS3Logs {
+    return new CodeBuildResponsesRetryBuildBuild2LogsS3Logs(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildLogsCloudWatchLogs {
+export class CodeBuildResponsesRetryBuildBuild2LogsCloudWatchLogs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10817,7 +10817,7 @@ export class CodeBuildResponsesRetryBuildBuildLogsCloudWatchLogs {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildLogsS3Logs {
+export class CodeBuildResponsesRetryBuildBuild2LogsS3Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10878,7 +10878,7 @@ export class CodeBuildResponsesRetryBuildBuildLogsS3Logs {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildVpcConfig {
+export class CodeBuildResponsesRetryBuildBuild2VpcConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10939,7 +10939,7 @@ export class CodeBuildResponsesRetryBuildBuildVpcConfig {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildNetworkInterface {
+export class CodeBuildResponsesRetryBuildBuild2NetworkInterface {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -10982,7 +10982,7 @@ export class CodeBuildResponsesRetryBuildBuildNetworkInterface {
 
 }
 
-export class CodeBuildResponsesRetryBuildBuildDebugSession {
+export class CodeBuildResponsesRetryBuildBuild2DebugSession {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildRetryBuildInput) {
   }
@@ -12456,13 +12456,13 @@ export class CodeBuildResponsesStartBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
 
-  public get build(): CodeBuildResponsesStartBuildBuild {
-    return new CodeBuildResponsesStartBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): CodeBuildResponsesStartBuildBuild2 {
+    return new CodeBuildResponsesStartBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesStartBuildBuild {
+export class CodeBuildResponsesStartBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -13380,8 +13380,8 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.phases') as unknown as shapes.CodeBuildBuildPhase[];
   }
 
-  public get source(): CodeBuildResponsesStartBuildBuildSource {
-    return new CodeBuildResponsesStartBuildBuildSource(this.__scope, this.__resources, this.__input);
+  public get source(): CodeBuildResponsesStartBuildBuild2Source {
+    return new CodeBuildResponsesStartBuildBuild2Source(this.__scope, this.__resources, this.__input);
   }
 
   public get secondarySources(): shapes.CodeBuildProjectSource[] {
@@ -13550,8 +13550,8 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.secondarySourceVersions') as unknown as shapes.CodeBuildProjectSourceVersion[];
   }
 
-  public get artifacts(): CodeBuildResponsesStartBuildBuildArtifacts {
-    return new CodeBuildResponsesStartBuildBuildArtifacts(this.__scope, this.__resources, this.__input);
+  public get artifacts(): CodeBuildResponsesStartBuildBuild2Artifacts {
+    return new CodeBuildResponsesStartBuildBuild2Artifacts(this.__scope, this.__resources, this.__input);
   }
 
   public get secondaryArtifacts(): shapes.CodeBuildBuildArtifacts[] {
@@ -13637,12 +13637,12 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.secondaryArtifacts') as unknown as shapes.CodeBuildBuildArtifacts[];
   }
 
-  public get cache(): CodeBuildResponsesStartBuildBuildCache {
-    return new CodeBuildResponsesStartBuildBuildCache(this.__scope, this.__resources, this.__input);
+  public get cache(): CodeBuildResponsesStartBuildBuild2Cache {
+    return new CodeBuildResponsesStartBuildBuild2Cache(this.__scope, this.__resources, this.__input);
   }
 
-  public get environment(): CodeBuildResponsesStartBuildBuildEnvironment {
-    return new CodeBuildResponsesStartBuildBuildEnvironment(this.__scope, this.__resources, this.__input);
+  public get environment(): CodeBuildResponsesStartBuildBuild2Environment {
+    return new CodeBuildResponsesStartBuildBuild2Environment(this.__scope, this.__resources, this.__input);
   }
 
   public get serviceRole(): string {
@@ -13728,8 +13728,8 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.serviceRole') as unknown as string;
   }
 
-  public get logs(): CodeBuildResponsesStartBuildBuildLogs {
-    return new CodeBuildResponsesStartBuildBuildLogs(this.__scope, this.__resources, this.__input);
+  public get logs(): CodeBuildResponsesStartBuildBuild2Logs {
+    return new CodeBuildResponsesStartBuildBuild2Logs(this.__scope, this.__resources, this.__input);
   }
 
   public get timeoutInMinutes(): number {
@@ -14064,12 +14064,12 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.initiator') as unknown as string;
   }
 
-  public get vpcConfig(): CodeBuildResponsesStartBuildBuildVpcConfig {
-    return new CodeBuildResponsesStartBuildBuildVpcConfig(this.__scope, this.__resources, this.__input);
+  public get vpcConfig(): CodeBuildResponsesStartBuildBuild2VpcConfig {
+    return new CodeBuildResponsesStartBuildBuild2VpcConfig(this.__scope, this.__resources, this.__input);
   }
 
-  public get networkInterface(): CodeBuildResponsesStartBuildBuildNetworkInterface {
-    return new CodeBuildResponsesStartBuildBuildNetworkInterface(this.__scope, this.__resources, this.__input);
+  public get networkInterface(): CodeBuildResponsesStartBuildBuild2NetworkInterface {
+    return new CodeBuildResponsesStartBuildBuild2NetworkInterface(this.__scope, this.__resources, this.__input);
   }
 
   public get encryptionKey(): string {
@@ -14404,8 +14404,8 @@ export class CodeBuildResponsesStartBuildBuild {
     return resource.getResponseField('build.fileSystemLocations') as unknown as shapes.CodeBuildProjectFileSystemLocation[];
   }
 
-  public get debugSession(): CodeBuildResponsesStartBuildBuildDebugSession {
-    return new CodeBuildResponsesStartBuildBuildDebugSession(this.__scope, this.__resources, this.__input);
+  public get debugSession(): CodeBuildResponsesStartBuildBuild2DebugSession {
+    return new CodeBuildResponsesStartBuildBuild2DebugSession(this.__scope, this.__resources, this.__input);
   }
 
   public get buildBatchArn(): string {
@@ -14493,7 +14493,7 @@ export class CodeBuildResponsesStartBuildBuild {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildSource {
+export class CodeBuildResponsesStartBuildBuild2Source {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -14747,8 +14747,8 @@ export class CodeBuildResponsesStartBuildBuildSource {
     return resource.getResponseField('build.source.gitCloneDepth') as unknown as number;
   }
 
-  public get gitSubmodulesConfig(): CodeBuildResponsesStartBuildBuildSourceGitSubmodulesConfig {
-    return new CodeBuildResponsesStartBuildBuildSourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
+  public get gitSubmodulesConfig(): CodeBuildResponsesStartBuildBuild2SourceGitSubmodulesConfig {
+    return new CodeBuildResponsesStartBuildBuild2SourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get buildspec(): string {
@@ -14834,8 +14834,8 @@ export class CodeBuildResponsesStartBuildBuildSource {
     return resource.getResponseField('build.source.buildspec') as unknown as string;
   }
 
-  public get auth(): CodeBuildResponsesStartBuildBuildSourceAuth {
-    return new CodeBuildResponsesStartBuildBuildSourceAuth(this.__scope, this.__resources, this.__input);
+  public get auth(): CodeBuildResponsesStartBuildBuild2SourceAuth {
+    return new CodeBuildResponsesStartBuildBuild2SourceAuth(this.__scope, this.__resources, this.__input);
   }
 
   public get reportBuildStatus(): boolean {
@@ -14921,8 +14921,8 @@ export class CodeBuildResponsesStartBuildBuildSource {
     return resource.getResponseField('build.source.reportBuildStatus') as unknown as boolean;
   }
 
-  public get buildStatusConfig(): CodeBuildResponsesStartBuildBuildSourceBuildStatusConfig {
-    return new CodeBuildResponsesStartBuildBuildSourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
+  public get buildStatusConfig(): CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
+    return new CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get insecureSsl(): boolean {
@@ -15093,7 +15093,7 @@ export class CodeBuildResponsesStartBuildBuildSource {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildSourceGitSubmodulesConfig {
+export class CodeBuildResponsesStartBuildBuild2SourceGitSubmodulesConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -15183,7 +15183,7 @@ export class CodeBuildResponsesStartBuildBuildSourceGitSubmodulesConfig {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildSourceAuth {
+export class CodeBuildResponsesStartBuildBuild2SourceAuth {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -15356,7 +15356,7 @@ export class CodeBuildResponsesStartBuildBuildSourceAuth {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildSourceBuildStatusConfig {
+export class CodeBuildResponsesStartBuildBuild2SourceBuildStatusConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -15529,7 +15529,7 @@ export class CodeBuildResponsesStartBuildBuildSourceBuildStatusConfig {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildArtifacts {
+export class CodeBuildResponsesStartBuildBuild2Artifacts {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -16034,7 +16034,7 @@ export class CodeBuildResponsesStartBuildBuildArtifacts {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildCache {
+export class CodeBuildResponsesStartBuildBuild2Cache {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -16290,7 +16290,7 @@ export class CodeBuildResponsesStartBuildBuildCache {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildEnvironment {
+export class CodeBuildResponsesStartBuildBuild2Environment {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -16793,8 +16793,8 @@ export class CodeBuildResponsesStartBuildBuildEnvironment {
     return resource.getResponseField('build.environment.certificate') as unknown as string;
   }
 
-  public get registryCredential(): CodeBuildResponsesStartBuildBuildEnvironmentRegistryCredential {
-    return new CodeBuildResponsesStartBuildBuildEnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
+  public get registryCredential(): CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
+    return new CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
   }
 
   public get imagePullCredentialsType(): string {
@@ -16882,7 +16882,7 @@ export class CodeBuildResponsesStartBuildBuildEnvironment {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildEnvironmentRegistryCredential {
+export class CodeBuildResponsesStartBuildBuild2EnvironmentRegistryCredential {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -17055,7 +17055,7 @@ export class CodeBuildResponsesStartBuildBuildEnvironmentRegistryCredential {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildLogs {
+export class CodeBuildResponsesStartBuildBuild2Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -17558,17 +17558,17 @@ export class CodeBuildResponsesStartBuildBuildLogs {
     return resource.getResponseField('build.logs.s3LogsArn') as unknown as string;
   }
 
-  public get cloudWatchLogs(): CodeBuildResponsesStartBuildBuildLogsCloudWatchLogs {
-    return new CodeBuildResponsesStartBuildBuildLogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
+  public get cloudWatchLogs(): CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
+    return new CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
   }
 
-  public get s3Logs(): CodeBuildResponsesStartBuildBuildLogsS3Logs {
-    return new CodeBuildResponsesStartBuildBuildLogsS3Logs(this.__scope, this.__resources, this.__input);
+  public get s3Logs(): CodeBuildResponsesStartBuildBuild2LogsS3Logs {
+    return new CodeBuildResponsesStartBuildBuild2LogsS3Logs(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesStartBuildBuildLogsCloudWatchLogs {
+export class CodeBuildResponsesStartBuildBuild2LogsCloudWatchLogs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -17824,7 +17824,7 @@ export class CodeBuildResponsesStartBuildBuildLogsCloudWatchLogs {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildLogsS3Logs {
+export class CodeBuildResponsesStartBuildBuild2LogsS3Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -18080,7 +18080,7 @@ export class CodeBuildResponsesStartBuildBuildLogsS3Logs {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildVpcConfig {
+export class CodeBuildResponsesStartBuildBuild2VpcConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -18336,7 +18336,7 @@ export class CodeBuildResponsesStartBuildBuildVpcConfig {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildNetworkInterface {
+export class CodeBuildResponsesStartBuildBuild2NetworkInterface {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -18509,7 +18509,7 @@ export class CodeBuildResponsesStartBuildBuildNetworkInterface {
 
 }
 
-export class CodeBuildResponsesStartBuildBuildDebugSession {
+export class CodeBuildResponsesStartBuildBuild2DebugSession {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStartBuildInput) {
   }
@@ -24601,13 +24601,13 @@ export class CodeBuildResponsesStopBuild {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
 
-  public get build(): CodeBuildResponsesStopBuildBuild {
-    return new CodeBuildResponsesStopBuildBuild(this.__scope, this.__resources, this.__input);
+  public get build2(): CodeBuildResponsesStopBuildBuild2 {
+    return new CodeBuildResponsesStopBuildBuild2(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesStopBuildBuild {
+export class CodeBuildResponsesStopBuildBuild2 {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -24799,8 +24799,8 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.phases') as unknown as shapes.CodeBuildBuildPhase[];
   }
 
-  public get source(): CodeBuildResponsesStopBuildBuildSource {
-    return new CodeBuildResponsesStopBuildBuildSource(this.__scope, this.__resources, this.__input);
+  public get source(): CodeBuildResponsesStopBuildBuild2Source {
+    return new CodeBuildResponsesStopBuildBuild2Source(this.__scope, this.__resources, this.__input);
   }
 
   public get secondarySources(): shapes.CodeBuildProjectSource[] {
@@ -24837,8 +24837,8 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.secondarySourceVersions') as unknown as shapes.CodeBuildProjectSourceVersion[];
   }
 
-  public get artifacts(): CodeBuildResponsesStopBuildBuildArtifacts {
-    return new CodeBuildResponsesStopBuildBuildArtifacts(this.__scope, this.__resources, this.__input);
+  public get artifacts(): CodeBuildResponsesStopBuildBuild2Artifacts {
+    return new CodeBuildResponsesStopBuildBuild2Artifacts(this.__scope, this.__resources, this.__input);
   }
 
   public get secondaryArtifacts(): shapes.CodeBuildBuildArtifacts[] {
@@ -24858,12 +24858,12 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.secondaryArtifacts') as unknown as shapes.CodeBuildBuildArtifacts[];
   }
 
-  public get cache(): CodeBuildResponsesStopBuildBuildCache {
-    return new CodeBuildResponsesStopBuildBuildCache(this.__scope, this.__resources, this.__input);
+  public get cache(): CodeBuildResponsesStopBuildBuild2Cache {
+    return new CodeBuildResponsesStopBuildBuild2Cache(this.__scope, this.__resources, this.__input);
   }
 
-  public get environment(): CodeBuildResponsesStopBuildBuildEnvironment {
-    return new CodeBuildResponsesStopBuildBuildEnvironment(this.__scope, this.__resources, this.__input);
+  public get environment(): CodeBuildResponsesStopBuildBuild2Environment {
+    return new CodeBuildResponsesStopBuildBuild2Environment(this.__scope, this.__resources, this.__input);
   }
 
   public get serviceRole(): string {
@@ -24883,8 +24883,8 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.serviceRole') as unknown as string;
   }
 
-  public get logs(): CodeBuildResponsesStopBuildBuildLogs {
-    return new CodeBuildResponsesStopBuildBuildLogs(this.__scope, this.__resources, this.__input);
+  public get logs(): CodeBuildResponsesStopBuildBuild2Logs {
+    return new CodeBuildResponsesStopBuildBuild2Logs(this.__scope, this.__resources, this.__input);
   }
 
   public get timeoutInMinutes(): number {
@@ -24955,12 +24955,12 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.initiator') as unknown as string;
   }
 
-  public get vpcConfig(): CodeBuildResponsesStopBuildBuildVpcConfig {
-    return new CodeBuildResponsesStopBuildBuildVpcConfig(this.__scope, this.__resources, this.__input);
+  public get vpcConfig(): CodeBuildResponsesStopBuildBuild2VpcConfig {
+    return new CodeBuildResponsesStopBuildBuild2VpcConfig(this.__scope, this.__resources, this.__input);
   }
 
-  public get networkInterface(): CodeBuildResponsesStopBuildBuildNetworkInterface {
-    return new CodeBuildResponsesStopBuildBuildNetworkInterface(this.__scope, this.__resources, this.__input);
+  public get networkInterface(): CodeBuildResponsesStopBuildBuild2NetworkInterface {
+    return new CodeBuildResponsesStopBuildBuild2NetworkInterface(this.__scope, this.__resources, this.__input);
   }
 
   public get encryptionKey(): string {
@@ -25031,8 +25031,8 @@ export class CodeBuildResponsesStopBuildBuild {
     return resource.getResponseField('build.fileSystemLocations') as unknown as shapes.CodeBuildProjectFileSystemLocation[];
   }
 
-  public get debugSession(): CodeBuildResponsesStopBuildBuildDebugSession {
-    return new CodeBuildResponsesStopBuildBuildDebugSession(this.__scope, this.__resources, this.__input);
+  public get debugSession(): CodeBuildResponsesStopBuildBuild2DebugSession {
+    return new CodeBuildResponsesStopBuildBuild2DebugSession(this.__scope, this.__resources, this.__input);
   }
 
   public get buildBatchArn(): string {
@@ -25054,7 +25054,7 @@ export class CodeBuildResponsesStopBuildBuild {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildSource {
+export class CodeBuildResponsesStopBuildBuild2Source {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25110,8 +25110,8 @@ export class CodeBuildResponsesStopBuildBuildSource {
     return resource.getResponseField('build.source.gitCloneDepth') as unknown as number;
   }
 
-  public get gitSubmodulesConfig(): CodeBuildResponsesStopBuildBuildSourceGitSubmodulesConfig {
-    return new CodeBuildResponsesStopBuildBuildSourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
+  public get gitSubmodulesConfig(): CodeBuildResponsesStopBuildBuild2SourceGitSubmodulesConfig {
+    return new CodeBuildResponsesStopBuildBuild2SourceGitSubmodulesConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get buildspec(): string {
@@ -25131,8 +25131,8 @@ export class CodeBuildResponsesStopBuildBuildSource {
     return resource.getResponseField('build.source.buildspec') as unknown as string;
   }
 
-  public get auth(): CodeBuildResponsesStopBuildBuildSourceAuth {
-    return new CodeBuildResponsesStopBuildBuildSourceAuth(this.__scope, this.__resources, this.__input);
+  public get auth(): CodeBuildResponsesStopBuildBuild2SourceAuth {
+    return new CodeBuildResponsesStopBuildBuild2SourceAuth(this.__scope, this.__resources, this.__input);
   }
 
   public get reportBuildStatus(): boolean {
@@ -25152,8 +25152,8 @@ export class CodeBuildResponsesStopBuildBuildSource {
     return resource.getResponseField('build.source.reportBuildStatus') as unknown as boolean;
   }
 
-  public get buildStatusConfig(): CodeBuildResponsesStopBuildBuildSourceBuildStatusConfig {
-    return new CodeBuildResponsesStopBuildBuildSourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
+  public get buildStatusConfig(): CodeBuildResponsesStopBuildBuild2SourceBuildStatusConfig {
+    return new CodeBuildResponsesStopBuildBuild2SourceBuildStatusConfig(this.__scope, this.__resources, this.__input);
   }
 
   public get insecureSsl(): boolean {
@@ -25192,7 +25192,7 @@ export class CodeBuildResponsesStopBuildBuildSource {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildSourceGitSubmodulesConfig {
+export class CodeBuildResponsesStopBuildBuild2SourceGitSubmodulesConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25216,7 +25216,7 @@ export class CodeBuildResponsesStopBuildBuildSourceGitSubmodulesConfig {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildSourceAuth {
+export class CodeBuildResponsesStopBuildBuild2SourceAuth {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25257,7 +25257,7 @@ export class CodeBuildResponsesStopBuildBuildSourceAuth {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildSourceBuildStatusConfig {
+export class CodeBuildResponsesStopBuildBuild2SourceBuildStatusConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25298,7 +25298,7 @@ export class CodeBuildResponsesStopBuildBuildSourceBuildStatusConfig {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildArtifacts {
+export class CodeBuildResponsesStopBuildBuild2Artifacts {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25407,7 +25407,7 @@ export class CodeBuildResponsesStopBuildBuildArtifacts {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildCache {
+export class CodeBuildResponsesStopBuildBuild2Cache {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25465,7 +25465,7 @@ export class CodeBuildResponsesStopBuildBuildCache {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildEnvironment {
+export class CodeBuildResponsesStopBuildBuild2Environment {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25572,8 +25572,8 @@ export class CodeBuildResponsesStopBuildBuildEnvironment {
     return resource.getResponseField('build.environment.certificate') as unknown as string;
   }
 
-  public get registryCredential(): CodeBuildResponsesStopBuildBuildEnvironmentRegistryCredential {
-    return new CodeBuildResponsesStopBuildBuildEnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
+  public get registryCredential(): CodeBuildResponsesStopBuildBuild2EnvironmentRegistryCredential {
+    return new CodeBuildResponsesStopBuildBuild2EnvironmentRegistryCredential(this.__scope, this.__resources, this.__input);
   }
 
   public get imagePullCredentialsType(): string {
@@ -25595,7 +25595,7 @@ export class CodeBuildResponsesStopBuildBuildEnvironment {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildEnvironmentRegistryCredential {
+export class CodeBuildResponsesStopBuildBuild2EnvironmentRegistryCredential {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25636,7 +25636,7 @@ export class CodeBuildResponsesStopBuildBuildEnvironmentRegistryCredential {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildLogs {
+export class CodeBuildResponsesStopBuildBuild2Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25743,17 +25743,17 @@ export class CodeBuildResponsesStopBuildBuildLogs {
     return resource.getResponseField('build.logs.s3LogsArn') as unknown as string;
   }
 
-  public get cloudWatchLogs(): CodeBuildResponsesStopBuildBuildLogsCloudWatchLogs {
-    return new CodeBuildResponsesStopBuildBuildLogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
+  public get cloudWatchLogs(): CodeBuildResponsesStopBuildBuild2LogsCloudWatchLogs {
+    return new CodeBuildResponsesStopBuildBuild2LogsCloudWatchLogs(this.__scope, this.__resources, this.__input);
   }
 
-  public get s3Logs(): CodeBuildResponsesStopBuildBuildLogsS3Logs {
-    return new CodeBuildResponsesStopBuildBuildLogsS3Logs(this.__scope, this.__resources, this.__input);
+  public get s3Logs(): CodeBuildResponsesStopBuildBuild2LogsS3Logs {
+    return new CodeBuildResponsesStopBuildBuild2LogsS3Logs(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CodeBuildResponsesStopBuildBuildLogsCloudWatchLogs {
+export class CodeBuildResponsesStopBuildBuild2LogsCloudWatchLogs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25811,7 +25811,7 @@ export class CodeBuildResponsesStopBuildBuildLogsCloudWatchLogs {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildLogsS3Logs {
+export class CodeBuildResponsesStopBuildBuild2LogsS3Logs {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25869,7 +25869,7 @@ export class CodeBuildResponsesStopBuildBuildLogsS3Logs {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildVpcConfig {
+export class CodeBuildResponsesStopBuildBuild2VpcConfig {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25927,7 +25927,7 @@ export class CodeBuildResponsesStopBuildBuildVpcConfig {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildNetworkInterface {
+export class CodeBuildResponsesStopBuildBuild2NetworkInterface {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }
@@ -25968,7 +25968,7 @@ export class CodeBuildResponsesStopBuildBuildNetworkInterface {
 
 }
 
-export class CodeBuildResponsesStopBuildBuildDebugSession {
+export class CodeBuildResponsesStopBuildBuild2DebugSession {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CodeBuildStopBuildInput) {
   }

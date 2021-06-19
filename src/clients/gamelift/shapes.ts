@@ -130,9 +130,9 @@ export interface GameLiftCreateBuildInput {
  */
 export interface GameLiftCreateBuildOutput {
   /**
-   * @schema GameLiftCreateBuildOutput#Build
+   * @schema GameLiftCreateBuildOutput#Build2
    */
-  readonly build?: GameLiftBuild;
+  readonly build2?: GameLiftBuild;
 
   /**
    * @schema GameLiftCreateBuildOutput#UploadCredentials
@@ -954,9 +954,9 @@ export interface GameLiftDescribeBuildInput {
  */
 export interface GameLiftDescribeBuildOutput {
   /**
-   * @schema GameLiftDescribeBuildOutput#Build
+   * @schema GameLiftDescribeBuildOutput#Build2
    */
-  readonly build?: GameLiftBuild;
+  readonly build2?: GameLiftBuild;
 
 }
 
@@ -2619,9 +2619,9 @@ export interface GameLiftUpdateBuildInput {
  */
 export interface GameLiftUpdateBuildOutput {
   /**
-   * @schema GameLiftUpdateBuildOutput#Build
+   * @schema GameLiftUpdateBuildOutput#Build2
    */
-  readonly build?: GameLiftBuild;
+  readonly build2?: GameLiftBuild;
 
 }
 

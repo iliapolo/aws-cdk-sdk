@@ -39,8 +39,15 @@ export class ResponseGenerator {
     }
 
     for (const member of Object.keys(shape.members ?? {})) {
+      let name = member;
+      if (['Build', 'build'].includes(name)) {
+        name = 'Build2'
+      }
+      if (['Equals', 'equals'].includes(name)) {
+        name = 'Equals2'
+      }
       this.properties.push({
-        name: member,
+        name: name,
         output: shape.members[member].shape,
         outputPath: [...this.props.outputPath, member],
         action: props.action,
