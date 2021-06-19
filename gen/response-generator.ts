@@ -131,9 +131,9 @@ export class ResponseGenerator {
 
   private isPrimitive(shape: string): boolean {
 
-    if (shape === this.props.client.className) {
-      return false;
-    }
+    // if (shape === this.props.client.className) {
+    //   return false;
+    // }
 
     const s = this.props.client.spec.shapes[shape];
 

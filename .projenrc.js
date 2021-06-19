@@ -1,4 +1,4 @@
-const { JsiiProject, UpgradeDependencies } = require('projen');
+const { JsiiProject, TypescriptConfig } = require('projen');
 
 const project = new JsiiProject({
   defaultReleaseBranch: 'main',
@@ -26,11 +26,21 @@ const project = new JsiiProject({
   stability: 'experimental',
 });
 
+// new TypescriptConfig(project, {
+//   fileName: 'config.t.json',
+//   compilerOptions: {
+//     experimentalDecorators: true,
+//   },
+//   include: ['src/**/*.ts'],
+// });
+
 project.gitignore.exclude('.sdk');
 
 const gen = project.tasks.addTask('gen');
 gen.env('NODE_OPTIONS', '--max_old_space_size=4096');
 gen.exec('ts-node --skip-project gen/gen.ts');
+
+project.compileTask.env('NODE_OPTIONS', '--max_old_space_size=8096');
 
 project.eslint.addIgnorePattern('gen/**');
 project.eslint.addRules({ 'max-len': ['error', { code: 2000 }] });

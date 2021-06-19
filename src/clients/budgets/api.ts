@@ -2557,8 +2557,23 @@ export class BudgetsResponsesDescribeBudgets {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.BudgetsDescribeBudgetsRequest) {
   }
 
-  public get budgets(): BudgetsResponsesDescribeBudgetsBudgets {
-    return new BudgetsResponsesDescribeBudgetsBudgets(this.__scope);
+  public get budgets(): shapes.BudgetsBudget[] {
+    const props: cr.AwsCustomResourceProps = {
+      policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
+      onUpdate: {
+        action: 'describeBudgets',
+        service: 'Budgets',
+        physicalResourceId: cr.PhysicalResourceId.of('Budgets.DescribeBudgets.Budgets'),
+        outputPath: 'Budgets',
+        parameters: {
+          AccountId: this.__input.accountId,
+          MaxResults: this.__input.maxResults,
+          NextToken: this.__input.nextToken,
+        },
+      },
+    };
+    const resource = new cr.AwsCustomResource(this.__scope, 'DescribeBudgets.Budgets', props);
+    return resource.getResponseField('Budgets') as unknown as shapes.BudgetsBudget[];
   }
 
   public get nextToken(): string {
@@ -2578,13 +2593,6 @@ export class BudgetsResponsesDescribeBudgets {
     };
     const resource = new cr.AwsCustomResource(this.__scope, 'DescribeBudgets.NextToken', props);
     return resource.getResponseField('NextToken') as unknown as string;
-  }
-
-}
-
-export class BudgetsResponsesDescribeBudgetsBudgets {
-
-  constructor(private readonly __scope: cdk.Construct) {
   }
 
 }
