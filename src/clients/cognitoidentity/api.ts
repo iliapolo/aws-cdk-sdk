@@ -79,7 +79,7 @@ export class CognitoIdentityClient extends cdk.Construct {
     return new CognitoIdentityResponsesMergeDeveloperIdentities(this, this.__resources, input);
   }
 
-  public setIdentityPoolRoles(input: shapes.CognitoIdentitySetIdentityPoolRolesInput): void {
+  public putIdentityPoolRoles(input: shapes.CognitoIdentitySetIdentityPoolRolesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

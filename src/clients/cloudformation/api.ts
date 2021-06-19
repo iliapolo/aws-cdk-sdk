@@ -299,7 +299,7 @@ export class CloudFormationClient extends cdk.Construct {
     return new CloudFormationResponsesRegisterType(this, this.__resources, input);
   }
 
-  public setStackPolicy(input: shapes.CloudFormationSetStackPolicyInput): void {
+  public putStackPolicy(input: shapes.CloudFormationSetStackPolicyInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -316,7 +316,7 @@ export class CloudFormationClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetStackPolicy', props);
   }
 
-  public setTypeDefaultVersion(input: shapes.CloudFormationSetTypeDefaultVersionInput): void {
+  public putTypeDefaultVersion(input: shapes.CloudFormationSetTypeDefaultVersionInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

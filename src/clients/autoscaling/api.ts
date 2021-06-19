@@ -581,7 +581,7 @@ export class AutoScalingClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'ResumeProcesses', props);
   }
 
-  public setDesiredCapacity(input: shapes.AutoScalingSetDesiredCapacityType): void {
+  public putDesiredCapacity(input: shapes.AutoScalingSetDesiredCapacityType): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -598,7 +598,7 @@ export class AutoScalingClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetDesiredCapacity', props);
   }
 
-  public setInstanceHealth(input: shapes.AutoScalingSetInstanceHealthQuery): void {
+  public putInstanceHealth(input: shapes.AutoScalingSetInstanceHealthQuery): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -615,7 +615,7 @@ export class AutoScalingClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetInstanceHealth', props);
   }
 
-  public setInstanceProtection(input: shapes.AutoScalingSetInstanceProtectionQuery): void {
+  public putInstanceProtection(input: shapes.AutoScalingSetInstanceProtectionQuery): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

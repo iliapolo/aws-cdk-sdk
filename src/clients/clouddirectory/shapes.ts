@@ -2380,14 +2380,14 @@ export interface CloudDirectoryBatchReadOperation {
   readonly listObjectParentPaths?: CloudDirectoryBatchListObjectParentPaths;
 
   /**
-   * @schema CloudDirectoryBatchReadOperation#GetObjectInformation
+   * @schema CloudDirectoryBatchReadOperation#FetchObjectInformation
    */
-  readonly getObjectInformation?: CloudDirectoryBatchGetObjectInformation;
+  readonly fetchObjectInformation?: CloudDirectoryBatchGetObjectInformation;
 
   /**
-   * @schema CloudDirectoryBatchReadOperation#GetObjectAttributes
+   * @schema CloudDirectoryBatchReadOperation#FetchObjectAttributes
    */
-  readonly getObjectAttributes?: CloudDirectoryBatchGetObjectAttributes;
+  readonly fetchObjectAttributes?: CloudDirectoryBatchGetObjectAttributes;
 
   /**
    * @schema CloudDirectoryBatchReadOperation#ListObjectParents
@@ -2425,9 +2425,9 @@ export interface CloudDirectoryBatchReadOperation {
   readonly listIncomingTypedLinks?: CloudDirectoryBatchListIncomingTypedLinks;
 
   /**
-   * @schema CloudDirectoryBatchReadOperation#GetLinkAttributes
+   * @schema CloudDirectoryBatchReadOperation#FetchLinkAttributes
    */
-  readonly getLinkAttributes?: CloudDirectoryBatchGetLinkAttributes;
+  readonly fetchLinkAttributes?: CloudDirectoryBatchGetLinkAttributes;
 
 }
 
@@ -3291,14 +3291,14 @@ export interface CloudDirectoryBatchReadSuccessfulResponse {
   readonly listObjectChildren?: CloudDirectoryBatchListObjectChildrenResponse;
 
   /**
-   * @schema CloudDirectoryBatchReadSuccessfulResponse#GetObjectInformation
+   * @schema CloudDirectoryBatchReadSuccessfulResponse#FetchObjectInformation
    */
-  readonly getObjectInformation?: CloudDirectoryBatchGetObjectInformationResponse;
+  readonly fetchObjectInformation?: CloudDirectoryBatchGetObjectInformationResponse;
 
   /**
-   * @schema CloudDirectoryBatchReadSuccessfulResponse#GetObjectAttributes
+   * @schema CloudDirectoryBatchReadSuccessfulResponse#FetchObjectAttributes
    */
-  readonly getObjectAttributes?: CloudDirectoryBatchGetObjectAttributesResponse;
+  readonly fetchObjectAttributes?: CloudDirectoryBatchGetObjectAttributesResponse;
 
   /**
    * @schema CloudDirectoryBatchReadSuccessfulResponse#ListAttachedIndices
@@ -3341,9 +3341,9 @@ export interface CloudDirectoryBatchReadSuccessfulResponse {
   readonly listIncomingTypedLinks?: CloudDirectoryBatchListIncomingTypedLinksResponse;
 
   /**
-   * @schema CloudDirectoryBatchReadSuccessfulResponse#GetLinkAttributes
+   * @schema CloudDirectoryBatchReadSuccessfulResponse#FetchLinkAttributes
    */
-  readonly getLinkAttributes?: CloudDirectoryBatchGetLinkAttributesResponse;
+  readonly fetchLinkAttributes?: CloudDirectoryBatchGetLinkAttributesResponse;
 
   /**
    * @schema CloudDirectoryBatchReadSuccessfulResponse#ListObjectParents

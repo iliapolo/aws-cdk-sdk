@@ -432,7 +432,7 @@ export class OpsWorksClient extends cdk.Construct {
     return new OpsWorksResponsesRegisterVolume(this, this.__resources, input);
   }
 
-  public setLoadBasedAutoScaling(input: shapes.OpsWorksSetLoadBasedAutoScalingRequest): void {
+  public putLoadBasedAutoScaling(input: shapes.OpsWorksSetLoadBasedAutoScalingRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -466,7 +466,7 @@ export class OpsWorksClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetLoadBasedAutoScaling', props);
   }
 
-  public setPermission(input: shapes.OpsWorksSetPermissionRequest): void {
+  public putPermission(input: shapes.OpsWorksSetPermissionRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -485,7 +485,7 @@ export class OpsWorksClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetPermission', props);
   }
 
-  public setTimeBasedAutoScaling(input: shapes.OpsWorksSetTimeBasedAutoScalingRequest): void {
+  public putTimeBasedAutoScaling(input: shapes.OpsWorksSetTimeBasedAutoScalingRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

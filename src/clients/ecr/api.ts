@@ -100,8 +100,8 @@ export class EcrClient extends cdk.Construct {
     return new ECRResponsesPutLifecyclePolicy(this, this.__resources, input);
   }
 
-  public setRepositoryPolicy(input: shapes.EcrSetRepositoryPolicyRequest): ECRResponsesSetRepositoryPolicy {
-    return new ECRResponsesSetRepositoryPolicy(this, this.__resources, input);
+  public putRepositoryPolicy(input: shapes.EcrSetRepositoryPolicyRequest): ECRResponsesPutRepositoryPolicy {
+    return new ECRResponsesPutRepositoryPolicy(this, this.__resources, input);
   }
 
   public startImageScan(input: shapes.EcrStartImageScanRequest): ECRResponsesStartImageScan {
@@ -2290,7 +2290,7 @@ export class ECRResponsesPutLifecyclePolicy {
 
 }
 
-export class ECRResponsesSetRepositoryPolicy {
+export class ECRResponsesPutRepositoryPolicy {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.EcrSetRepositoryPolicyRequest) {
   }

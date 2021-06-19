@@ -1644,11 +1644,11 @@ export class IotClient extends cdk.Construct {
     return new IotResponsesSearchIndex(this, this.__resources, input);
   }
 
-  public setDefaultAuthorizer(input: shapes.IotSetDefaultAuthorizerRequest): IotResponsesSetDefaultAuthorizer {
-    return new IotResponsesSetDefaultAuthorizer(this, this.__resources, input);
+  public putDefaultAuthorizer(input: shapes.IotSetDefaultAuthorizerRequest): IotResponsesPutDefaultAuthorizer {
+    return new IotResponsesPutDefaultAuthorizer(this, this.__resources, input);
   }
 
-  public setDefaultPolicyVersion(input: shapes.IotSetDefaultPolicyVersionRequest): void {
+  public putDefaultPolicyVersion(input: shapes.IotSetDefaultPolicyVersionRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -1664,7 +1664,7 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetDefaultPolicyVersion', props);
   }
 
-  public setLoggingOptions(input: shapes.IotSetLoggingOptionsRequest): void {
+  public putLoggingOptions(input: shapes.IotSetLoggingOptionsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -1682,7 +1682,7 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetLoggingOptions', props);
   }
 
-  public setV2LoggingLevel(input: shapes.IotSetV2LoggingLevelRequest): void {
+  public putV2LoggingLevel(input: shapes.IotSetV2LoggingLevelRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -1701,7 +1701,7 @@ export class IotClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetV2LoggingLevel', props);
   }
 
-  public setV2LoggingOptions(input: shapes.IotSetV2LoggingOptionsRequest): void {
+  public putV2LoggingOptions(input: shapes.IotSetV2LoggingOptionsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -15605,7 +15605,7 @@ export class IotResponsesSearchIndex {
 
 }
 
-export class IotResponsesSetDefaultAuthorizer {
+export class IotResponsesPutDefaultAuthorizer {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.IotSetDefaultAuthorizerRequest) {
   }

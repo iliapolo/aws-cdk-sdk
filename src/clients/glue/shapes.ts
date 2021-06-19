@@ -3237,9 +3237,9 @@ export interface GlueGetResourcePoliciesRequest {
  */
 export interface GlueGetResourcePoliciesResponse {
   /**
-   * @schema GlueGetResourcePoliciesResponse#GetResourcePoliciesResponseList
+   * @schema GlueGetResourcePoliciesResponse#FetchResourcePoliciesResponseList
    */
-  readonly getResourcePoliciesResponseList?: GlueGluePolicy[];
+  readonly fetchResourcePoliciesResponseList?: GlueGluePolicy[];
 
   /**
    * @schema GlueGetResourcePoliciesResponse#NextToken

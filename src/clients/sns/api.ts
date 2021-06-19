@@ -174,7 +174,7 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'RemovePermission', props);
   }
 
-  public setEndpointAttributes(input: shapes.SnsSetEndpointAttributesInput): void {
+  public putEndpointAttributes(input: shapes.SnsSetEndpointAttributesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -190,7 +190,7 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetEndpointAttributes', props);
   }
 
-  public setPlatformApplicationAttributes(input: shapes.SnsSetPlatformApplicationAttributesInput): void {
+  public putPlatformApplicationAttributes(input: shapes.SnsSetPlatformApplicationAttributesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -206,7 +206,7 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetPlatformApplicationAttributes', props);
   }
 
-  public setSmsAttributes(input: shapes.SnsSetSmsAttributesInput): void {
+  public putSmsAttributes(input: shapes.SnsSetSmsAttributesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -221,7 +221,7 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetSMSAttributes', props);
   }
 
-  public setSubscriptionAttributes(input: shapes.SnsSetSubscriptionAttributesInput): void {
+  public putSubscriptionAttributes(input: shapes.SnsSetSubscriptionAttributesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -238,7 +238,7 @@ export class SnsClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetSubscriptionAttributes', props);
   }
 
-  public setTopicAttributes(input: shapes.SnsSetTopicAttributesInput): void {
+  public putTopicAttributes(input: shapes.SnsSetTopicAttributesInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

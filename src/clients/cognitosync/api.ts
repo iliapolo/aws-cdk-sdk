@@ -56,7 +56,7 @@ export class CognitoSyncClient extends cdk.Construct {
     return new CognitoSyncResponsesRegisterDevice(this, this.__resources, input);
   }
 
-  public setCognitoEvents(input: shapes.CognitoSyncSetCognitoEventsRequest): void {
+  public putCognitoEvents(input: shapes.CognitoSyncSetCognitoEventsRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -72,8 +72,8 @@ export class CognitoSyncClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetCognitoEvents', props);
   }
 
-  public setIdentityPoolConfiguration(input: shapes.CognitoSyncSetIdentityPoolConfigurationRequest): CognitoSyncResponsesSetIdentityPoolConfiguration {
-    return new CognitoSyncResponsesSetIdentityPoolConfiguration(this, this.__resources, input);
+  public putIdentityPoolConfiguration(input: shapes.CognitoSyncSetIdentityPoolConfigurationRequest): CognitoSyncResponsesPutIdentityPoolConfiguration {
+    return new CognitoSyncResponsesPutIdentityPoolConfiguration(this, this.__resources, input);
   }
 
   public subscribeToDataset(input: shapes.CognitoSyncSubscribeToDatasetRequest): void {
@@ -1272,7 +1272,7 @@ export class CognitoSyncResponsesRegisterDevice {
 
 }
 
-export class CognitoSyncResponsesSetIdentityPoolConfiguration {
+export class CognitoSyncResponsesPutIdentityPoolConfiguration {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CognitoSyncSetIdentityPoolConfigurationRequest) {
   }
@@ -1303,17 +1303,17 @@ export class CognitoSyncResponsesSetIdentityPoolConfiguration {
     return resource.getResponseField('IdentityPoolId') as unknown as string;
   }
 
-  public get pushSync(): CognitoSyncResponsesSetIdentityPoolConfigurationPushSync {
-    return new CognitoSyncResponsesSetIdentityPoolConfigurationPushSync(this.__scope, this.__resources, this.__input);
+  public get pushSync(): CognitoSyncResponsesPutIdentityPoolConfigurationPushSync {
+    return new CognitoSyncResponsesPutIdentityPoolConfigurationPushSync(this.__scope, this.__resources, this.__input);
   }
 
-  public get cognitoStreams(): CognitoSyncResponsesSetIdentityPoolConfigurationCognitoStreams {
-    return new CognitoSyncResponsesSetIdentityPoolConfigurationCognitoStreams(this.__scope, this.__resources, this.__input);
+  public get cognitoStreams(): CognitoSyncResponsesPutIdentityPoolConfigurationCognitoStreams {
+    return new CognitoSyncResponsesPutIdentityPoolConfigurationCognitoStreams(this.__scope, this.__resources, this.__input);
   }
 
 }
 
-export class CognitoSyncResponsesSetIdentityPoolConfigurationPushSync {
+export class CognitoSyncResponsesPutIdentityPoolConfigurationPushSync {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CognitoSyncSetIdentityPoolConfigurationRequest) {
   }
@@ -1372,7 +1372,7 @@ export class CognitoSyncResponsesSetIdentityPoolConfigurationPushSync {
 
 }
 
-export class CognitoSyncResponsesSetIdentityPoolConfigurationCognitoStreams {
+export class CognitoSyncResponsesPutIdentityPoolConfigurationCognitoStreams {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.CognitoSyncSetIdentityPoolConfigurationRequest) {
   }

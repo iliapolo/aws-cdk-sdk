@@ -3000,9 +3000,9 @@ export interface DynamoDbCondition {
  */
 export interface DynamoDbTransactGetItem {
   /**
-   * @schema DynamoDbTransactGetItem#Get
+   * @schema DynamoDbTransactGetItem#Fetch
    */
-  readonly get: DynamoDbGet;
+  readonly fetch?: DynamoDbGet;
 
 }
 

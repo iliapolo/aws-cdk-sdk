@@ -132,7 +132,7 @@ export class DataPipelineClient extends cdk.Construct {
     return new DataPipelineResponsesReportTaskRunnerHeartbeat(this, this.__resources, input);
   }
 
-  public setStatus(input: shapes.DataPipelineSetStatusInput): void {
+  public putStatus(input: shapes.DataPipelineSetStatusInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -149,7 +149,7 @@ export class DataPipelineClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetStatus', props);
   }
 
-  public setTaskStatus(input: shapes.DataPipelineSetTaskStatusInput): void {
+  public putTaskStatus(input: shapes.DataPipelineSetTaskStatusInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

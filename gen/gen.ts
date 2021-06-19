@@ -6,13 +6,14 @@ import * as gen from './client-generator';
 import * as sdk from './sdk-repository';
 
 // const INCLUDE = [
-//   'GuardDuty',
-//   'ManagedBlockchain',
-//   'GameLift',
-//   'FSx',
-//   'CodeBuild',
-//   'CloudTrail',
-//   'CloudSearchDomain'
+//   // 'GuardDuty',
+//   // 'ManagedBlockchain',
+//   // 'GameLift',
+//   // 'FSx',
+//   // 'CodeBuild',
+//   // 'CloudTrail',
+//   // 'CloudSearchDomain',
+//   'Budgets'
 // ];
 const EXCLUDE = ['Kendra', 'Pinpoint'];
 

@@ -985,7 +985,7 @@ export class IamClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'ResyncMFADevice', props);
   }
 
-  public setDefaultPolicyVersion(input: shapes.IamSetDefaultPolicyVersionRequest): void {
+  public putDefaultPolicyVersion(input: shapes.IamSetDefaultPolicyVersionRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -1001,7 +1001,7 @@ export class IamClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetDefaultPolicyVersion', props);
   }
 
-  public setSecurityTokenServicePreferences(input: shapes.IamSetSecurityTokenServicePreferencesRequest): void {
+  public putSecurityTokenServicePreferences(input: shapes.IamSetSecurityTokenServicePreferencesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

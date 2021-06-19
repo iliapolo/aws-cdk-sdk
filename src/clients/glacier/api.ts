@@ -233,7 +233,7 @@ export class GlacierClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'RemoveTagsFromVault', props);
   }
 
-  public setDataRetrievalPolicy(input: shapes.GlacierSetDataRetrievalPolicyInput): void {
+  public putDataRetrievalPolicy(input: shapes.GlacierSetDataRetrievalPolicyInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -251,7 +251,7 @@ export class GlacierClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetDataRetrievalPolicy', props);
   }
 
-  public setVaultAccessPolicy(input: shapes.GlacierSetVaultAccessPolicyInput): void {
+  public putVaultAccessPolicy(input: shapes.GlacierSetVaultAccessPolicyInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
@@ -270,7 +270,7 @@ export class GlacierClient extends cdk.Construct {
     new cr.AwsCustomResource(this, 'SetVaultAccessPolicy', props);
   }
 
-  public setVaultNotifications(input: shapes.GlacierSetVaultNotificationsInput): void {
+  public putVaultNotifications(input: shapes.GlacierSetVaultNotificationsInput): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

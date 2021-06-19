@@ -272,12 +272,12 @@ export class StorageGatewayClient extends cdk.Construct {
     return new StorageGatewayResponsesRetrieveTapeRecoveryPoint(this, this.__resources, input);
   }
 
-  public setLocalConsolePassword(input: shapes.StorageGatewaySetLocalConsolePasswordInput): StorageGatewayResponsesSetLocalConsolePassword {
-    return new StorageGatewayResponsesSetLocalConsolePassword(this, this.__resources, input);
+  public putLocalConsolePassword(input: shapes.StorageGatewaySetLocalConsolePasswordInput): StorageGatewayResponsesPutLocalConsolePassword {
+    return new StorageGatewayResponsesPutLocalConsolePassword(this, this.__resources, input);
   }
 
-  public setSmbGuestPassword(input: shapes.StorageGatewaySetSmbGuestPasswordInput): StorageGatewayResponsesSetSmbGuestPassword {
-    return new StorageGatewayResponsesSetSmbGuestPassword(this, this.__resources, input);
+  public putSmbGuestPassword(input: shapes.StorageGatewaySetSmbGuestPasswordInput): StorageGatewayResponsesPutSmbGuestPassword {
+    return new StorageGatewayResponsesPutSmbGuestPassword(this, this.__resources, input);
   }
 
   public shutdownGateway(input: shapes.StorageGatewayShutdownGatewayInput): StorageGatewayResponsesShutdownGateway {
@@ -3462,7 +3462,7 @@ export class StorageGatewayResponsesRetrieveTapeRecoveryPoint {
 
 }
 
-export class StorageGatewayResponsesSetLocalConsolePassword {
+export class StorageGatewayResponsesPutLocalConsolePassword {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewaySetLocalConsolePasswordInput) {
   }
@@ -3487,7 +3487,7 @@ export class StorageGatewayResponsesSetLocalConsolePassword {
 
 }
 
-export class StorageGatewayResponsesSetSmbGuestPassword {
+export class StorageGatewayResponsesPutSmbGuestPassword {
 
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.StorageGatewaySetSmbGuestPasswordInput) {
   }

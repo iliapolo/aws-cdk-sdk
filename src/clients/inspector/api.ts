@@ -176,7 +176,7 @@ export class InspectorClient extends cdk.Construct {
     return new InspectorResponsesRemoveAttributesFromFindings(this, this.__resources, input);
   }
 
-  public setTagsForResource(input: shapes.InspectorSetTagsForResourceRequest): void {
+  public putTagsForResource(input: shapes.InspectorSetTagsForResourceRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

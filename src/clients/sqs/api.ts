@@ -149,7 +149,7 @@ export class SqsClient extends cdk.Construct {
     return new SQSResponsesSendMessageBatch(this, this.__resources, input);
   }
 
-  public setQueueAttributes(input: shapes.SqsSetQueueAttributesRequest): void {
+  public putQueueAttributes(input: shapes.SqsSetQueueAttributesRequest): void {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {
