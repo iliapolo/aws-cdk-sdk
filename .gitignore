@@ -12,6 +12,7 @@
 .nyc_output
 .sdk
 .yarn-integrity
+/.changelog.tmp.md
 /coverage
 /dist
 /lib
@@ -34,6 +35,8 @@ yarn-error.log*
 !/.gitattributes
 !/.github/pull_request_template.md
 !/.github/workflows/build.yml
+!/.github/workflows/release.yml
+!/.github/workflows/stale.yml
 !/.github/workflows/upgrade-dependencies.yml
 !/.mergify.yml
 !/.npmignore

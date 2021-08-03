@@ -108,6 +108,11 @@
       "type": "build"
     },
     {
+      "name": "standard-version",
+      "version": "^9",
+      "type": "build"
+    },
+    {
       "name": "ts-jest",
       "type": "build"
     },

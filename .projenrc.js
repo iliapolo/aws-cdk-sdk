@@ -2,7 +2,6 @@ const { JsiiProject } = require('projen');
 
 const project = new JsiiProject({
   defaultReleaseBranch: 'main',
-  release: false,
   authorName: 'Eli Polonsky',
   repository: 'https://github.com/iliapolo/aws-cdk-sdk',
   name: 'aws-cdk-sdk',
