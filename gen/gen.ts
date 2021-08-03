@@ -5,16 +5,6 @@ import * as maker from 'codemaker';
 import * as gen from './client-generator';
 import * as sdk from './sdk-repository';
 
-// const INCLUDE = [
-//   // 'GuardDuty',
-//   // 'ManagedBlockchain',
-//   // 'GameLift',
-//   // 'FSx',
-//   // 'CodeBuild',
-//   // 'CloudTrail',
-//   // 'CloudSearchDomain',
-//   'Budgets'
-// ];
 const EXCLUDE = ['Kendra', 'Pinpoint'];
 
 async function generate() {
@@ -45,10 +35,6 @@ async function generate() {
 
   for (const client of await repo.createClients()) {
 
-    // if (!INCLUDE.includes(path.basename(client.className))) {
-    //   continue;
-    // }
-
     if (EXCLUDE.includes(path.basename(client.className))) {
       continue;
     }
@@ -60,7 +46,7 @@ async function generate() {
     console.log(`Generating client for ${path.basename(client.className)}`);
 
     await generator.gen();
-    index.line(`export * from './clients/${clientBaseDir}';`);
+    index.line(`export * as ${clientBaseDir} from './clients/${clientBaseDir}';`);
 
     // child.execSync(`cd ${clientDir} && ${__dirname}/../node_modules/.bin/typescript-json-schema shapes.ts "*" > schema.json`);
 

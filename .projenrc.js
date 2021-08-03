@@ -1,4 +1,4 @@
-const { JsiiProject, TypescriptConfig } = require('projen');
+const { JsiiProject } = require('projen');
 
 const project = new JsiiProject({
   defaultReleaseBranch: 'main',
@@ -25,14 +25,6 @@ const project = new JsiiProject({
   ],
   stability: 'experimental',
 });
-
-// new TypescriptConfig(project, {
-//   fileName: 'config.t.json',
-//   compilerOptions: {
-//     experimentalDecorators: true,
-//   },
-//   include: ['src/**/*.ts'],
-// });
 
 project.gitignore.exclude('.sdk');
 
