@@ -9499,7 +9499,7 @@ export class GlueResponsesFetchResourcePolicies {
   constructor(private readonly __scope: cdk.Construct, private readonly __resources: string[], private readonly __input: shapes.GlueGetResourcePoliciesRequest) {
   }
 
-  public get getResourcePoliciesResponseList(): shapes.GlueGluePolicy[] {
+  public get fetchResourcePoliciesResponseList(): shapes.GlueGluePolicy[] {
     const props: cr.AwsCustomResourceProps = {
       policy: cr.AwsCustomResourcePolicy.fromSdkCalls({ resources: this.__resources }),
       onUpdate: {

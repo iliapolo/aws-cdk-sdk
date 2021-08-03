@@ -46,6 +46,9 @@ export class ResponseGenerator {
       if (['Equals', 'equals'].includes(name)) {
         name = 'Equals2'
       }
+      if (name.startsWith('Get')) {
+        name = name.replace('Get', 'Fetch');
+      }
       this.properties.push({
         name: name,
         output: shape.members[member].shape,
