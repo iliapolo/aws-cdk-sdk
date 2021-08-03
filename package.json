@@ -21,10 +21,11 @@
     "package": "npx projen package",
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
+    "publish:npm": "npx projen publish:npm",
     "docgen": "npx projen docgen",
     "gen": "npx projen gen",
-    "projen": "npx projen",
-    "start": "npx projen start"
+    "release": "npx projen release",
+    "projen": "npx projen"
   },
   "author": {
     "name": "Eli Polonsky",
@@ -56,7 +57,7 @@
     "json2jsii": "^0.1.122",
     "node-color-log": "^5.2.0",
     "npm-check-updates": "^11",
-    "projen": "^0.24.3",
+    "projen": "^0.27.13",
     "standard-version": "^9",
     "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
