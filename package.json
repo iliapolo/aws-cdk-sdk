@@ -59,7 +59,6 @@
     "npm-check-updates": "^11",
     "projen": "^0.27.13",
     "standard-version": "^9",
-    "ts-jest": "^26.4.4",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.5",
     "typescript-json-schema": "^0.45.0",
@@ -76,8 +75,7 @@
   "version": "0.0.0",
   "jest": {
     "testMatch": [
-      "**/__tests__/**/*.ts?(x)",
-      "**/?(*.)+(spec|test).ts?(x)"
+      "**/lib/__tests__/**/?(*.)+(spec|test).js?(x)"
     ],
     "clearMocks": true,
     "collectCoverage": true,
@@ -95,7 +93,8 @@
       "/node_modules/"
     ],
     "watchPathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "/src/"
     ],
     "reporters": [
       "default",
@@ -106,12 +105,7 @@
         }
       ]
     ],
-    "preset": "ts-jest",
-    "globals": {
-      "ts-jest": {
-        "tsconfig": "tsconfig.jest.json"
-      }
-    }
+    "snapshotResolver": "./.projen/jest-snapshot-resolver.js"
   },
   "types": "lib/index.d.ts",
   "stability": "experimental",
