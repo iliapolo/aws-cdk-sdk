@@ -29,8 +29,9 @@ const project = new JsiiProject({
 project.gitignore.exclude('.sdk');
 
 const gen = project.tasks.addTask('gen');
-gen.env('NODE_OPTIONS', '--max_old_space_size=4096');
 gen.exec('ts-node --skip-project gen/gen.ts');
+
+project.buildTask.prependSpawn(gen);
 
 project.eslint.addIgnorePattern('gen/**');
 project.eslint.addRules({ 'max-len': ['error', { code: 2000 }] });
