@@ -35,7 +35,13 @@
     "compile": {
       "name": "compile",
       "description": "Only compile",
+      "env": {
+        "NODE_OPTIONS": "--max_old_space_size=6144"
+      },
       "steps": [
+        {
+          "spawn": "gen"
+        },
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
         },
@@ -51,6 +57,9 @@
     "test": {
       "name": "test",
       "description": "Run tests",
+      "env": {
+        "NODE_OPTIONS": "--max_old_space_size=6144"
+      },
       "steps": [
         {
           "spawn": "test:compile"
@@ -67,9 +76,6 @@
       "name": "build",
       "description": "Full release build (test+compile)",
       "steps": [
-        {
-          "spawn": "gen"
-        },
         {
           "exec": "npx projen"
         },
@@ -245,7 +251,7 @@
     "gen": {
       "name": "gen",
       "env": {
-        "NODE_OPTIONS": "--max_old_space_size=4096"
+        "NODE_OPTIONS": "--max_old_space_size=6144"
       },
       "steps": [
         {
