@@ -35,13 +35,7 @@
     "compile": {
       "name": "compile",
       "description": "Only compile",
-      "env": {
-        "NODE_OPTIONS": "--max_old_space_size=8000"
-      },
       "steps": [
-        {
-          "spawn": "gen"
-        },
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
         },
@@ -57,9 +51,6 @@
     "test": {
       "name": "test",
       "description": "Run tests",
-      "env": {
-        "NODE_OPTIONS": "--max_old_space_size=8000"
-      },
       "steps": [
         {
           "spawn": "test:compile"
@@ -250,9 +241,6 @@
     },
     "gen": {
       "name": "gen",
-      "env": {
-        "NODE_OPTIONS": "--max_old_space_size=8000"
-      },
       "steps": [
         {
           "exec": "ts-node --skip-project gen/gen.ts"

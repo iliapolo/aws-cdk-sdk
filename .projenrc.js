@@ -32,13 +32,7 @@ const project = new JsiiProject({
 project.gitignore.exclude('.sdk');
 
 const gen = project.tasks.addTask('gen');
-gen.env('NODE_OPTIONS', NODE_OPTIONS);
 gen.exec('ts-node --skip-project gen/gen.ts');
-
-project.compileTask.prependSpawn(gen);
-project.compileTask.env('NODE_OPTIONS', NODE_OPTIONS);
-project.testTask.env('NODE_OPTIONS', NODE_OPTIONS);
-project.compileTask.env('NODE_OPTIONS', NODE_OPTIONS);
 
 project.eslint.addIgnorePattern('gen/**');
 project.eslint.addRules({ 'max-len': ['error', { code: 2000 }] });
