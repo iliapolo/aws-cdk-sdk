@@ -36,7 +36,7 @@
       "name": "compile",
       "description": "Only compile",
       "env": {
-        "NODE_OPTIONS": "--max_old_space_size=6144"
+        "NODE_OPTIONS": "--max_old_space_size=8000"
       },
       "steps": [
         {
@@ -58,7 +58,7 @@
       "name": "test",
       "description": "Run tests",
       "env": {
-        "NODE_OPTIONS": "--max_old_space_size=6144"
+        "NODE_OPTIONS": "--max_old_space_size=8000"
       },
       "steps": [
         {
@@ -251,7 +251,7 @@
     "gen": {
       "name": "gen",
       "env": {
-        "NODE_OPTIONS": "--max_old_space_size=6144"
+        "NODE_OPTIONS": "--max_old_space_size=8000"
       },
       "steps": [
         {
