@@ -1,4 +1,0 @@
-{
-  "types": "lib/clients/s3/index.d.ts",
-  "main": "lib/clients/s3/index.js"
-}

@@ -34,6 +34,8 @@ project.gitignore.exclude('.sdk');
 const gen = project.tasks.addTask('gen');
 gen.exec('ts-node --skip-project gen/gen.ts');
 
+project.buildTask.ste
+
 project.eslint.addIgnorePattern('gen/**');
 project.eslint.addRules({ 'max-len': ['error', { code: 2000 }] });
 project.synth();
