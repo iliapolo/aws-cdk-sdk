@@ -1,6 +1,11 @@
 const fs = require('fs');
 const path = require('path');
+const child = require('child_process');
 const { JsiiProject } = require('projen');
+
+// first off - generate the source code
+console.log('Generating source code...');
+child.execSync(`${__dirname}/node_modules/.bin/ts-node --skip-project ${__dirname}/gen/gen.ts`);
 
 const project = new JsiiProject({
 
@@ -39,12 +44,6 @@ const project = new JsiiProject({
 project.gitignore.exclude('.sdk');
 project.gitignore.exclude('package.overrides.json');
 project.gitignore.exclude('tsconfig.overrides.json');
-
-const gen = project.tasks.addTask('gen');
-gen.exec('ts-node --skip-project gen/gen.ts');
-gen.exec(project.projenCommand);
-
-project.buildTask.prependSpawn(gen);
 
 const compileSteps = project.compileTask.steps;
 project.compileTask.reset();
@@ -92,6 +91,9 @@ function compileTask(name, include, main, types) {
   // instruct jsii to use the overrides we created
   compile.env('JSII_TSCONFIG_OVERRIDES_PATH', tsConfigOverridesPath);
   compile.env('JSII_MANIFEST_OVERRIDES_PATH', manifestOverridesPath);
+
+  // event some individual clients are too big for the default memory limit
+  // compile.env('NODE_OPTIONS', '--max_old_space_size=4096');
 
   return compile;
 
