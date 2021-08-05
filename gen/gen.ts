@@ -5,7 +5,7 @@ import * as maker from 'codemaker';
 import * as gen from './client-generator';
 import * as sdk from './sdk-repository';
 
-const INCLUDE = ['ES', 'S3']
+const INCLUDE = ['ES', 'S3', 'SQS']
 // const EXCLUDE = ['Kendra', 'Pinpoint'];
 
 async function generate() {

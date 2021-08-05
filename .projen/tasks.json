@@ -37,10 +37,19 @@
       "description": "Only compile",
       "steps": [
         {
-          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "spawn": "compile:es"
         },
         {
-          "spawn": "docgen"
+          "spawn": "compile:s3"
+        },
+        {
+          "spawn": "compile:sqs"
+        },
+        {
+          "spawn": "compile:index"
+        },
+        {
+          "exec": "rm tsconfig.json"
         }
       ]
     },
@@ -57,9 +66,6 @@
         },
         {
           "exec": "jest --passWithNoTests --all --updateSnapshot"
-        },
-        {
-          "spawn": "eslint"
         }
       ]
     },
@@ -67,6 +73,9 @@
       "name": "build",
       "description": "Full release build (test+compile)",
       "steps": [
+        {
+          "spawn": "gen"
+        },
         {
           "exec": "npx projen"
         },
@@ -142,7 +151,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @aws-cdk/assert @aws-cdk/aws-elasticsearch @aws-cdk/core @aws-cdk/custom-resources @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-sdk codemaker constructs eslint eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import jest jest-junit jsii jsii-diff jsii-docgen jsii-pacmak json-schema json2jsii node-color-log npm-check-updates standard-version ts-node typescript typescript-json-schema typescript-parser @aws-cdk/core @aws-cdk/custom-resources constructs"
+          "exec": "yarn upgrade @aws-cdk/assert @aws-cdk/aws-elasticsearch @aws-cdk/core @aws-cdk/custom-resources @types/jest @types/node aws-sdk codemaker constructs jest jest-junit jsii jsii-diff jsii-pacmak json-schema json2jsii node-color-log npm-check-updates standard-version ts-node typescript typescript-json-schema typescript-parser @aws-cdk/core @aws-cdk/custom-resources constructs"
         },
         {
           "exec": "npx projen"
@@ -196,15 +205,6 @@
         }
       ]
     },
-    "eslint": {
-      "name": "eslint",
-      "description": "Runs eslint against the codebase",
-      "steps": [
-        {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src src/__tests__ build-tools .projenrc.js"
-        }
-      ]
-    },
     "compat": {
       "name": "compat",
       "description": "Perform API compatibility check against latest version",
@@ -230,20 +230,62 @@
         }
       ]
     },
-    "docgen": {
-      "name": "docgen",
-      "description": "Generate API.md from .jsii manifest",
-      "steps": [
-        {
-          "exec": "jsii-docgen"
-        }
-      ]
-    },
     "gen": {
       "name": "gen",
       "steps": [
         {
           "exec": "ts-node --skip-project gen/gen.ts"
+        },
+        {
+          "exec": "npx projen"
+        }
+      ]
+    },
+    "compile:es": {
+      "name": "compile:es",
+      "env": {
+        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/es/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/es/package.overrides.json"
+      },
+      "steps": [
+        {
+          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        }
+      ]
+    },
+    "compile:s3": {
+      "name": "compile:s3",
+      "env": {
+        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3/package.overrides.json"
+      },
+      "steps": [
+        {
+          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        }
+      ]
+    },
+    "compile:sqs": {
+      "name": "compile:sqs",
+      "env": {
+        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sqs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sqs/package.overrides.json"
+      },
+      "steps": [
+        {
+          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        }
+      ]
+    },
+    "compile:index": {
+      "name": "compile:index",
+      "env": {
+        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/package.overrides.json"
+      },
+      "steps": [
+        {
+          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
         }
       ]
     },
