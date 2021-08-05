@@ -2,7 +2,7 @@ import * as child from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as maker from 'codemaker';
-import * as gen from './client-generator';
+import * as gen from './client';
 import * as sdk from './sdk-repository';
 
 // const INCLUDE = ['ES', 'S3', 'SQS']
@@ -32,7 +32,7 @@ async function generate() {
   const index = new maker.CodeMaker();
   index.openFile('index.ts');
 
-  deleteFolderRecursive(clientsDirectory);
+  child.execSync(`rm -rf ${clientsDirectory}`);
 
   for (const client of await repo.createClients()) {
 
@@ -62,19 +62,5 @@ async function generate() {
   await index.save(src);
 
 }
-
-function deleteFolderRecursive(dir: string) {
-  if (fs.existsSync(dir)) {
-    fs.readdirSync(dir).forEach((file, _) => {
-      const curPath = path.join(dir, file);
-      if (fs.lstatSync(curPath).isDirectory()) {
-        deleteFolderRecursive(curPath);
-      } else {
-        fs.unlinkSync(curPath);
-      }
-    });
-    fs.rmdirSync(dir);
-  }
-};
 
 generate();

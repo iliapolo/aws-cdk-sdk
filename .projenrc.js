@@ -1,11 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const child = require('child_process');
 const { JsiiProject } = require('projen');
-
-// first off - generate the source code
-console.log('Generating source code...');
-child.execSync(`${__dirname}/node_modules/.bin/ts-node --skip-project ${__dirname}/gen/gen.ts`);
 
 const project = new JsiiProject({
 
@@ -41,6 +36,12 @@ const project = new JsiiProject({
   sampleCode: false,
 });
 
+const codegen = project.addTask('codegen');
+codegen.exec('ts-node --skip-project codegen/main.ts');
+
+const assemble = project.addTask('assemble');
+assemble.exec('ts-node --skip-project scripts/assemble.ts')
+
 project.gitignore.exclude('.sdk');
 project.gitignore.exclude('package.overrides.json');
 project.gitignore.exclude('tsconfig.overrides.json');
@@ -48,22 +49,26 @@ project.gitignore.exclude('tsconfig.overrides.json');
 const compileSteps = project.compileTask.steps;
 project.compileTask.reset();
 
+// compile all clients
 for (const client of fs.readdirSync(`${__dirname}/src/clients`)) {
-  const compileClient = compileTask(client, `src/clients/${client}/*.ts`, `lib/clients/${client}/index.js`, `lib/clients/${client}/index.d.ts`)
-  project.compileTask.spawn(compileClient);
+  project.compileTask.spawn(compileClient(client));
 }
 
-const compileIndex = compileTask('index', 'src/index.ts', 'lib/index.js', 'lib/index.d.ts');
+// compile index
+const compileIndex = project.addTask('compile:index');
+compileIndex.exec('ts-node --skip-project scripts/compile-index.ts')
 project.compileTask.spawn(compileIndex);
 
-// remove tsconfig
-project.compileTask.exec('rm tsconfig.json');
+// create the final assembly
+project.compileTask.spawn(assemble);
 
 project.synth();
 
-function compileTask(name, include, main, types) {
+function compileClient(client) {
 
-  const compile = project.addTask(`compile:${name}`);
+  const compile = project.addTask(`compile:${client}`);
+  const clientSrcPath = `src/clients/${client}`;
+  const clientLibPath = `lib/clients/${client}`;
 
   for (const step of compileSteps) {
     const options = { name: step.name, cwd: step.cwd };
@@ -81,19 +86,19 @@ function compileTask(name, include, main, types) {
     }
   }
 
-  const tsConfigOverridesPath = `${__dirname}/${path.dirname(include)}/tsconfig.overrides.json`;
-  const manifestOverridesPath = `${__dirname}/${path.dirname(include)}/package.overrides.json`;
+  const tsConfigOverridesPath = `${clientSrcPath}/tsconfig.overrides.json`;
+  const manifestOverridesPath = `${clientSrcPath}/package.overrides.json`;
 
-  // config overrides for specific submodule compilation
-  fs.writeFileSync(tsConfigOverridesPath, JSON.stringify({ include: [include] }));
-  fs.writeFileSync(manifestOverridesPath, JSON.stringify({ main, types }));
+  // config overrides for specific client compilation
+  fs.writeFileSync(tsConfigOverridesPath, JSON.stringify({ include: [`${clientSrcPath}/*.ts`] }));
+  fs.writeFileSync(manifestOverridesPath, JSON.stringify({ main: `${clientLibPath}/index.js`, types: `${clientLibPath}/index.d.ts` }));
 
   // instruct jsii to use the overrides we created
   compile.env('JSII_TSCONFIG_OVERRIDES_PATH', tsConfigOverridesPath);
   compile.env('JSII_MANIFEST_OVERRIDES_PATH', manifestOverridesPath);
 
-  // event some individual clients are too big for the default memory limit
-  // compile.env('NODE_OPTIONS', '--max_old_space_size=4096');
+  // save the sub assembly for later consolidation
+  compile.exec(`mv .jsii ${clientSrcPath}/.jsii`);
 
   return compile;
 

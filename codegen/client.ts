@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as sdk from './sdk-repository';
-import { ApiGenerator } from './api-generator';
-import { ShapesGenerator } from './shapes-generator';
-import { IndexGenerator } from './index-generator';
+import { ApiGenerator } from './api';
+import { ShapesGenerator } from './shapes';
+import { IndexGenerator } from '.';
 
 const SHAPES_FILENAME = 'shapes.ts'
 const API_FILENAME = 'api.ts';

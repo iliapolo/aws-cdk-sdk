@@ -1,6 +1,6 @@
 import { CodeMaker } from 'codemaker';
-import { responses } from './api-generator';
-import { AwsCustomResourceGenerator } from './custom-resource-generator';
+import { responses } from './api';
+import { AwsCustomResourceGenerator } from './cr';
 import * as sdk from './sdk-repository';
 import * as structs from './structs';
 

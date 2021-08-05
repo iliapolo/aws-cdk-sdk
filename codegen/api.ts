@@ -1,8 +1,8 @@
 
 import * as path from 'path';
 import { CodeMaker } from 'codemaker';
-import { AwsCustomResourceGenerator } from './custom-resource-generator';
-import { ResponseGenerator } from './response-generator';
+import { AwsCustomResourceGenerator } from './cr';
+import { ResponseGenerator } from './response';
 import * as sdk from './sdk-repository';
 import * as structs from './structs';
 

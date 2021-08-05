@@ -649,7 +649,7 @@
           "spawn": "compile:index"
         },
         {
-          "exec": "rm tsconfig.json"
+          "spawn": "assemble"
         }
       ]
     },
@@ -827,2451 +827,3072 @@
         }
       ]
     },
+    "codegen": {
+      "name": "codegen",
+      "steps": [
+        {
+          "exec": "ts-node --skip-project codegen/main.ts"
+        }
+      ]
+    },
+    "assemble": {
+      "name": "assemble",
+      "steps": [
+        {
+          "exec": "ts-node --skip-project scripts/assemble.ts"
+        }
+      ]
+    },
     "compile:accessanalyzer": {
       "name": "compile:accessanalyzer",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/accessanalyzer/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/accessanalyzer/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/accessanalyzer/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/accessanalyzer/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/accessanalyzer/.jsii"
         }
       ]
     },
     "compile:acm": {
       "name": "compile:acm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/acm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/acm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/acm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/acm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/acm/.jsii"
         }
       ]
     },
     "compile:acmpca": {
       "name": "compile:acmpca",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/acmpca/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/acmpca/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/acmpca/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/acmpca/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/acmpca/.jsii"
         }
       ]
     },
     "compile:alexaforbusiness": {
       "name": "compile:alexaforbusiness",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/alexaforbusiness/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/alexaforbusiness/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/alexaforbusiness/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/alexaforbusiness/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/alexaforbusiness/.jsii"
         }
       ]
     },
     "compile:amplify": {
       "name": "compile:amplify",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/amplify/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/amplify/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/amplify/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/amplify/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/amplify/.jsii"
         }
       ]
     },
     "compile:apigateway": {
       "name": "compile:apigateway",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigateway/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigateway/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/apigateway/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/apigateway/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/apigateway/.jsii"
         }
       ]
     },
     "compile:apigatewaymanagementapi": {
       "name": "compile:apigatewaymanagementapi",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigatewaymanagementapi/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigatewaymanagementapi/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/apigatewaymanagementapi/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/apigatewaymanagementapi/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/apigatewaymanagementapi/.jsii"
         }
       ]
     },
     "compile:apigatewayv2": {
       "name": "compile:apigatewayv2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigatewayv2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/apigatewayv2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/apigatewayv2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/apigatewayv2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/apigatewayv2/.jsii"
         }
       ]
     },
     "compile:appconfig": {
       "name": "compile:appconfig",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appconfig/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appconfig/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/appconfig/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/appconfig/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/appconfig/.jsii"
         }
       ]
     },
     "compile:appflow": {
       "name": "compile:appflow",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appflow/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appflow/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/appflow/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/appflow/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/appflow/.jsii"
         }
       ]
     },
     "compile:applicationautoscaling": {
       "name": "compile:applicationautoscaling",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/applicationautoscaling/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/applicationautoscaling/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/applicationautoscaling/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/applicationautoscaling/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/applicationautoscaling/.jsii"
         }
       ]
     },
     "compile:applicationinsights": {
       "name": "compile:applicationinsights",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/applicationinsights/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/applicationinsights/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/applicationinsights/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/applicationinsights/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/applicationinsights/.jsii"
         }
       ]
     },
     "compile:appmesh": {
       "name": "compile:appmesh",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appmesh/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appmesh/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/appmesh/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/appmesh/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/appmesh/.jsii"
         }
       ]
     },
     "compile:appstream": {
       "name": "compile:appstream",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appstream/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appstream/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/appstream/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/appstream/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/appstream/.jsii"
         }
       ]
     },
     "compile:appsync": {
       "name": "compile:appsync",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appsync/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/appsync/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/appsync/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/appsync/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/appsync/.jsii"
         }
       ]
     },
     "compile:athena": {
       "name": "compile:athena",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/athena/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/athena/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/athena/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/athena/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/athena/.jsii"
         }
       ]
     },
     "compile:autoscaling": {
       "name": "compile:autoscaling",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/autoscaling/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/autoscaling/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/autoscaling/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/autoscaling/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/autoscaling/.jsii"
         }
       ]
     },
     "compile:autoscalingplans": {
       "name": "compile:autoscalingplans",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/autoscalingplans/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/autoscalingplans/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/autoscalingplans/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/autoscalingplans/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/autoscalingplans/.jsii"
         }
       ]
     },
     "compile:backup": {
       "name": "compile:backup",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/backup/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/backup/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/backup/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/backup/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/backup/.jsii"
         }
       ]
     },
     "compile:batch": {
       "name": "compile:batch",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/batch/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/batch/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/batch/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/batch/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/batch/.jsii"
         }
       ]
     },
     "compile:braket": {
       "name": "compile:braket",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/braket/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/braket/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/braket/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/braket/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/braket/.jsii"
         }
       ]
     },
     "compile:budgets": {
       "name": "compile:budgets",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/budgets/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/budgets/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/budgets/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/budgets/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/budgets/.jsii"
         }
       ]
     },
     "compile:chime": {
       "name": "compile:chime",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/chime/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/chime/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/chime/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/chime/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/chime/.jsii"
         }
       ]
     },
     "compile:cloud9": {
       "name": "compile:cloud9",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloud9/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloud9/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloud9/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloud9/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloud9/.jsii"
         }
       ]
     },
     "compile:clouddirectory": {
       "name": "compile:clouddirectory",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/clouddirectory/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/clouddirectory/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/clouddirectory/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/clouddirectory/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/clouddirectory/.jsii"
         }
       ]
     },
     "compile:cloudformation": {
       "name": "compile:cloudformation",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudformation/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudformation/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudformation/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudformation/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudformation/.jsii"
         }
       ]
     },
     "compile:cloudfront": {
       "name": "compile:cloudfront",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudfront/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudfront/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudfront/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudfront/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudfront/.jsii"
         }
       ]
     },
     "compile:cloudhsm": {
       "name": "compile:cloudhsm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudhsm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudhsm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudhsm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudhsm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudhsm/.jsii"
         }
       ]
     },
     "compile:cloudhsmv2": {
       "name": "compile:cloudhsmv2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudhsmv2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudhsmv2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudhsmv2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudhsmv2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudhsmv2/.jsii"
         }
       ]
     },
     "compile:cloudsearch": {
       "name": "compile:cloudsearch",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudsearch/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudsearch/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudsearch/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudsearch/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudsearch/.jsii"
         }
       ]
     },
     "compile:cloudsearchdomain": {
       "name": "compile:cloudsearchdomain",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudsearchdomain/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudsearchdomain/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudsearchdomain/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudsearchdomain/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudsearchdomain/.jsii"
         }
       ]
     },
     "compile:cloudtrail": {
       "name": "compile:cloudtrail",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudtrail/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cloudtrail/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cloudtrail/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cloudtrail/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cloudtrail/.jsii"
         }
       ]
     },
     "compile:codeartifact": {
       "name": "compile:codeartifact",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codeartifact/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codeartifact/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codeartifact/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codeartifact/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codeartifact/.jsii"
         }
       ]
     },
     "compile:codebuild": {
       "name": "compile:codebuild",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codebuild/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codebuild/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codebuild/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codebuild/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codebuild/.jsii"
         }
       ]
     },
     "compile:codecommit": {
       "name": "compile:codecommit",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codecommit/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codecommit/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codecommit/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codecommit/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codecommit/.jsii"
         }
       ]
     },
     "compile:codedeploy": {
       "name": "compile:codedeploy",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codedeploy/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codedeploy/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codedeploy/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codedeploy/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codedeploy/.jsii"
         }
       ]
     },
     "compile:codeguruprofiler": {
       "name": "compile:codeguruprofiler",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codeguruprofiler/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codeguruprofiler/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codeguruprofiler/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codeguruprofiler/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codeguruprofiler/.jsii"
         }
       ]
     },
     "compile:codegurureviewer": {
       "name": "compile:codegurureviewer",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codegurureviewer/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codegurureviewer/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codegurureviewer/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codegurureviewer/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codegurureviewer/.jsii"
         }
       ]
     },
     "compile:codepipeline": {
       "name": "compile:codepipeline",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codepipeline/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codepipeline/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codepipeline/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codepipeline/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codepipeline/.jsii"
         }
       ]
     },
     "compile:codestar": {
       "name": "compile:codestar",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestar/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestar/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codestar/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codestar/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codestar/.jsii"
         }
       ]
     },
     "compile:codestarconnections": {
       "name": "compile:codestarconnections",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestarconnections/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestarconnections/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codestarconnections/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codestarconnections/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codestarconnections/.jsii"
         }
       ]
     },
     "compile:codestarnotifications": {
       "name": "compile:codestarnotifications",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestarnotifications/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/codestarnotifications/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/codestarnotifications/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/codestarnotifications/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/codestarnotifications/.jsii"
         }
       ]
     },
     "compile:cognitoidentity": {
       "name": "compile:cognitoidentity",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cognitoidentity/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cognitoidentity/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cognitoidentity/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cognitoidentity/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cognitoidentity/.jsii"
         }
       ]
     },
     "compile:cognitosync": {
       "name": "compile:cognitosync",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cognitosync/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cognitosync/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cognitosync/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cognitosync/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cognitosync/.jsii"
         }
       ]
     },
     "compile:comprehend": {
       "name": "compile:comprehend",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/comprehend/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/comprehend/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/comprehend/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/comprehend/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/comprehend/.jsii"
         }
       ]
     },
     "compile:comprehendmedical": {
       "name": "compile:comprehendmedical",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/comprehendmedical/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/comprehendmedical/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/comprehendmedical/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/comprehendmedical/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/comprehendmedical/.jsii"
         }
       ]
     },
     "compile:computeoptimizer": {
       "name": "compile:computeoptimizer",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/computeoptimizer/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/computeoptimizer/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/computeoptimizer/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/computeoptimizer/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/computeoptimizer/.jsii"
         }
       ]
     },
     "compile:connect": {
       "name": "compile:connect",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/connect/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/connect/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/connect/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/connect/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/connect/.jsii"
         }
       ]
     },
     "compile:connectparticipant": {
       "name": "compile:connectparticipant",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/connectparticipant/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/connectparticipant/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/connectparticipant/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/connectparticipant/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/connectparticipant/.jsii"
         }
       ]
     },
     "compile:cur": {
       "name": "compile:cur",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cur/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/cur/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/cur/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/cur/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/cur/.jsii"
         }
       ]
     },
     "compile:databrew": {
       "name": "compile:databrew",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/databrew/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/databrew/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/databrew/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/databrew/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/databrew/.jsii"
         }
       ]
     },
     "compile:dataexchange": {
       "name": "compile:dataexchange",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dataexchange/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dataexchange/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/dataexchange/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/dataexchange/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/dataexchange/.jsii"
         }
       ]
     },
     "compile:datapipeline": {
       "name": "compile:datapipeline",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/datapipeline/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/datapipeline/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/datapipeline/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/datapipeline/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/datapipeline/.jsii"
         }
       ]
     },
     "compile:datasync": {
       "name": "compile:datasync",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/datasync/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/datasync/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/datasync/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/datasync/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/datasync/.jsii"
         }
       ]
     },
     "compile:dax": {
       "name": "compile:dax",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dax/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dax/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/dax/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/dax/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/dax/.jsii"
         }
       ]
     },
     "compile:detective": {
       "name": "compile:detective",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/detective/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/detective/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/detective/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/detective/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/detective/.jsii"
         }
       ]
     },
     "compile:devicefarm": {
       "name": "compile:devicefarm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/devicefarm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/devicefarm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/devicefarm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/devicefarm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/devicefarm/.jsii"
         }
       ]
     },
     "compile:directconnect": {
       "name": "compile:directconnect",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/directconnect/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/directconnect/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/directconnect/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/directconnect/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/directconnect/.jsii"
         }
       ]
     },
     "compile:discovery": {
       "name": "compile:discovery",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/discovery/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/discovery/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/discovery/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/discovery/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/discovery/.jsii"
         }
       ]
     },
     "compile:dlm": {
       "name": "compile:dlm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dlm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dlm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/dlm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/dlm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/dlm/.jsii"
         }
       ]
     },
     "compile:dms": {
       "name": "compile:dms",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dms/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dms/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/dms/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/dms/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/dms/.jsii"
         }
       ]
     },
     "compile:docdb": {
       "name": "compile:docdb",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/docdb/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/docdb/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/docdb/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/docdb/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/docdb/.jsii"
         }
       ]
     },
     "compile:dynamodb": {
       "name": "compile:dynamodb",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dynamodb/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/dynamodb/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/dynamodb/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/dynamodb/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/dynamodb/.jsii"
         }
       ]
     },
     "compile:ebs": {
       "name": "compile:ebs",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ebs/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ebs/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ebs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ebs/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ebs/.jsii"
         }
       ]
     },
     "compile:ec2": {
       "name": "compile:ec2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ec2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ec2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ec2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ec2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ec2/.jsii"
         }
       ]
     },
     "compile:ec2instanceconnect": {
       "name": "compile:ec2instanceconnect",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ec2instanceconnect/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ec2instanceconnect/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ec2instanceconnect/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ec2instanceconnect/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ec2instanceconnect/.jsii"
         }
       ]
     },
     "compile:ecr": {
       "name": "compile:ecr",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ecr/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ecr/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ecr/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ecr/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ecr/.jsii"
         }
       ]
     },
     "compile:ecs": {
       "name": "compile:ecs",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ecs/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ecs/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ecs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ecs/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ecs/.jsii"
         }
       ]
     },
     "compile:eks": {
       "name": "compile:eks",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/eks/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/eks/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/eks/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/eks/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/eks/.jsii"
         }
       ]
     },
     "compile:elasticache": {
       "name": "compile:elasticache",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticache/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticache/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/elasticache/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/elasticache/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/elasticache/.jsii"
         }
       ]
     },
     "compile:elasticbeanstalk": {
       "name": "compile:elasticbeanstalk",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticbeanstalk/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticbeanstalk/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/elasticbeanstalk/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/elasticbeanstalk/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/elasticbeanstalk/.jsii"
         }
       ]
     },
     "compile:elasticinference": {
       "name": "compile:elasticinference",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticinference/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elasticinference/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/elasticinference/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/elasticinference/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/elasticinference/.jsii"
         }
       ]
     },
     "compile:elastictranscoder": {
       "name": "compile:elastictranscoder",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elastictranscoder/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/elastictranscoder/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/elastictranscoder/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/elastictranscoder/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/elastictranscoder/.jsii"
         }
       ]
     },
     "compile:es": {
       "name": "compile:es",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/es/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/es/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/es/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/es/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/es/.jsii"
         }
       ]
     },
     "compile:eventbridge": {
       "name": "compile:eventbridge",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/eventbridge/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/eventbridge/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/eventbridge/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/eventbridge/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/eventbridge/.jsii"
         }
       ]
     },
     "compile:firehose": {
       "name": "compile:firehose",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/firehose/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/firehose/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/firehose/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/firehose/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/firehose/.jsii"
         }
       ]
     },
     "compile:fms": {
       "name": "compile:fms",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/fms/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/fms/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/fms/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/fms/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/fms/.jsii"
         }
       ]
     },
     "compile:frauddetector": {
       "name": "compile:frauddetector",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/frauddetector/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/frauddetector/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/frauddetector/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/frauddetector/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/frauddetector/.jsii"
         }
       ]
     },
     "compile:fsx": {
       "name": "compile:fsx",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/fsx/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/fsx/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/fsx/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/fsx/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/fsx/.jsii"
         }
       ]
     },
     "compile:gamelift": {
       "name": "compile:gamelift",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/gamelift/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/gamelift/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/gamelift/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/gamelift/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/gamelift/.jsii"
         }
       ]
     },
     "compile:glacier": {
       "name": "compile:glacier",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/glacier/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/glacier/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/glacier/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/glacier/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/glacier/.jsii"
         }
       ]
     },
     "compile:globalaccelerator": {
       "name": "compile:globalaccelerator",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/globalaccelerator/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/globalaccelerator/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/globalaccelerator/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/globalaccelerator/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/globalaccelerator/.jsii"
         }
       ]
     },
     "compile:glue": {
       "name": "compile:glue",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/glue/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/glue/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/glue/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/glue/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/glue/.jsii"
         }
       ]
     },
     "compile:greengrass": {
       "name": "compile:greengrass",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/greengrass/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/greengrass/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/greengrass/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/greengrass/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/greengrass/.jsii"
         }
       ]
     },
     "compile:groundstation": {
       "name": "compile:groundstation",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/groundstation/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/groundstation/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/groundstation/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/groundstation/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/groundstation/.jsii"
         }
       ]
     },
     "compile:guardduty": {
       "name": "compile:guardduty",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/guardduty/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/guardduty/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/guardduty/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/guardduty/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/guardduty/.jsii"
         }
       ]
     },
     "compile:health": {
       "name": "compile:health",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/health/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/health/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/health/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/health/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/health/.jsii"
         }
       ]
     },
     "compile:honeycode": {
       "name": "compile:honeycode",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/honeycode/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/honeycode/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/honeycode/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/honeycode/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/honeycode/.jsii"
         }
       ]
     },
     "compile:iam": {
       "name": "compile:iam",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iam/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iam/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iam/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iam/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iam/.jsii"
         }
       ]
     },
     "compile:identitystore": {
       "name": "compile:identitystore",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/identitystore/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/identitystore/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/identitystore/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/identitystore/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/identitystore/.jsii"
         }
       ]
     },
     "compile:imagebuilder": {
       "name": "compile:imagebuilder",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/imagebuilder/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/imagebuilder/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/imagebuilder/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/imagebuilder/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/imagebuilder/.jsii"
         }
       ]
     },
     "compile:importexport": {
       "name": "compile:importexport",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/importexport/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/importexport/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/importexport/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/importexport/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/importexport/.jsii"
         }
       ]
     },
     "compile:inspector": {
       "name": "compile:inspector",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/inspector/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/inspector/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/inspector/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/inspector/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/inspector/.jsii"
         }
       ]
     },
     "compile:iot": {
       "name": "compile:iot",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iot/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iot/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iot/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iot/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iot/.jsii"
         }
       ]
     },
     "compile:iot1clickprojects": {
       "name": "compile:iot1clickprojects",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iot1clickprojects/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iot1clickprojects/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iot1clickprojects/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iot1clickprojects/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iot1clickprojects/.jsii"
         }
       ]
     },
     "compile:iotanalytics": {
       "name": "compile:iotanalytics",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotanalytics/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotanalytics/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotanalytics/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotanalytics/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotanalytics/.jsii"
         }
       ]
     },
     "compile:iotdata": {
       "name": "compile:iotdata",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotdata/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotdata/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotdata/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotdata/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotdata/.jsii"
         }
       ]
     },
     "compile:iotevents": {
       "name": "compile:iotevents",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotevents/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotevents/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotevents/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotevents/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotevents/.jsii"
         }
       ]
     },
     "compile:ioteventsdata": {
       "name": "compile:ioteventsdata",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ioteventsdata/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ioteventsdata/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ioteventsdata/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ioteventsdata/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ioteventsdata/.jsii"
         }
       ]
     },
     "compile:iotsecuretunneling": {
       "name": "compile:iotsecuretunneling",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotsecuretunneling/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotsecuretunneling/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotsecuretunneling/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotsecuretunneling/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotsecuretunneling/.jsii"
         }
       ]
     },
     "compile:iotsitewise": {
       "name": "compile:iotsitewise",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotsitewise/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotsitewise/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotsitewise/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotsitewise/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotsitewise/.jsii"
         }
       ]
     },
     "compile:iotthingsgraph": {
       "name": "compile:iotthingsgraph",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotthingsgraph/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/iotthingsgraph/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/iotthingsgraph/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/iotthingsgraph/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/iotthingsgraph/.jsii"
         }
       ]
     },
     "compile:ivs": {
       "name": "compile:ivs",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ivs/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ivs/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ivs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ivs/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ivs/.jsii"
         }
       ]
     },
     "compile:kafka": {
       "name": "compile:kafka",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kafka/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kafka/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kafka/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kafka/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kafka/.jsii"
         }
       ]
     },
     "compile:kinesis": {
       "name": "compile:kinesis",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesis/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesis/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesis/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesis/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesis/.jsii"
         }
       ]
     },
     "compile:kinesisanalytics": {
       "name": "compile:kinesisanalytics",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisanalytics/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisanalytics/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesisanalytics/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesisanalytics/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesisanalytics/.jsii"
         }
       ]
     },
     "compile:kinesisanalyticsv2": {
       "name": "compile:kinesisanalyticsv2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisanalyticsv2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisanalyticsv2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesisanalyticsv2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesisanalyticsv2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesisanalyticsv2/.jsii"
         }
       ]
     },
     "compile:kinesisvideo": {
       "name": "compile:kinesisvideo",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideo/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideo/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesisvideo/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesisvideo/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesisvideo/.jsii"
         }
       ]
     },
     "compile:kinesisvideoarchivedmedia": {
       "name": "compile:kinesisvideoarchivedmedia",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideoarchivedmedia/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideoarchivedmedia/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesisvideoarchivedmedia/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesisvideoarchivedmedia/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesisvideoarchivedmedia/.jsii"
         }
       ]
     },
     "compile:kinesisvideomedia": {
       "name": "compile:kinesisvideomedia",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideomedia/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kinesisvideomedia/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kinesisvideomedia/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kinesisvideomedia/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kinesisvideomedia/.jsii"
         }
       ]
     },
     "compile:kms": {
       "name": "compile:kms",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kms/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/kms/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/kms/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/kms/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/kms/.jsii"
         }
       ]
     },
     "compile:lakeformation": {
       "name": "compile:lakeformation",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lakeformation/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lakeformation/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/lakeformation/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/lakeformation/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/lakeformation/.jsii"
         }
       ]
     },
     "compile:lambda": {
       "name": "compile:lambda",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lambda/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lambda/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/lambda/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/lambda/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/lambda/.jsii"
         }
       ]
     },
     "compile:licensemanager": {
       "name": "compile:licensemanager",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/licensemanager/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/licensemanager/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/licensemanager/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/licensemanager/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/licensemanager/.jsii"
         }
       ]
     },
     "compile:lightsail": {
       "name": "compile:lightsail",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lightsail/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/lightsail/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/lightsail/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/lightsail/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/lightsail/.jsii"
         }
       ]
     },
     "compile:machinelearning": {
       "name": "compile:machinelearning",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/machinelearning/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/machinelearning/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/machinelearning/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/machinelearning/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/machinelearning/.jsii"
         }
       ]
     },
     "compile:macie": {
       "name": "compile:macie",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/macie/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/macie/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/macie/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/macie/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/macie/.jsii"
         }
       ]
     },
     "compile:macie2": {
       "name": "compile:macie2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/macie2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/macie2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/macie2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/macie2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/macie2/.jsii"
         }
       ]
     },
     "compile:managedblockchain": {
       "name": "compile:managedblockchain",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/managedblockchain/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/managedblockchain/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/managedblockchain/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/managedblockchain/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/managedblockchain/.jsii"
         }
       ]
     },
     "compile:marketplacecatalog": {
       "name": "compile:marketplacecatalog",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/marketplacecatalog/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/marketplacecatalog/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/marketplacecatalog/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/marketplacecatalog/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/marketplacecatalog/.jsii"
         }
       ]
     },
     "compile:marketplacecommerceanalytics": {
       "name": "compile:marketplacecommerceanalytics",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/marketplacecommerceanalytics/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/marketplacecommerceanalytics/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/marketplacecommerceanalytics/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/marketplacecommerceanalytics/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/marketplacecommerceanalytics/.jsii"
         }
       ]
     },
     "compile:mediaconnect": {
       "name": "compile:mediaconnect",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediaconnect/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediaconnect/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediaconnect/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediaconnect/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediaconnect/.jsii"
         }
       ]
     },
     "compile:medialive": {
       "name": "compile:medialive",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/medialive/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/medialive/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/medialive/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/medialive/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/medialive/.jsii"
         }
       ]
     },
     "compile:mediapackage": {
       "name": "compile:mediapackage",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediapackage/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediapackage/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediapackage/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediapackage/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediapackage/.jsii"
         }
       ]
     },
     "compile:mediapackagevod": {
       "name": "compile:mediapackagevod",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediapackagevod/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediapackagevod/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediapackagevod/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediapackagevod/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediapackagevod/.jsii"
         }
       ]
     },
     "compile:mediastore": {
       "name": "compile:mediastore",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediastore/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediastore/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediastore/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediastore/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediastore/.jsii"
         }
       ]
     },
     "compile:mediastoredata": {
       "name": "compile:mediastoredata",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediastoredata/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediastoredata/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediastoredata/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediastoredata/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediastoredata/.jsii"
         }
       ]
     },
     "compile:mediatailor": {
       "name": "compile:mediatailor",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediatailor/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mediatailor/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mediatailor/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mediatailor/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mediatailor/.jsii"
         }
       ]
     },
     "compile:migrationhubconfig": {
       "name": "compile:migrationhubconfig",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/migrationhubconfig/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/migrationhubconfig/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/migrationhubconfig/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/migrationhubconfig/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/migrationhubconfig/.jsii"
         }
       ]
     },
     "compile:mobile": {
       "name": "compile:mobile",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mobile/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mobile/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mobile/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mobile/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mobile/.jsii"
         }
       ]
     },
     "compile:mobileanalytics": {
       "name": "compile:mobileanalytics",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mobileanalytics/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mobileanalytics/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mobileanalytics/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mobileanalytics/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mobileanalytics/.jsii"
         }
       ]
     },
     "compile:mq": {
       "name": "compile:mq",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mq/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mq/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mq/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mq/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mq/.jsii"
         }
       ]
     },
     "compile:mwaa": {
       "name": "compile:mwaa",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mwaa/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/mwaa/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/mwaa/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/mwaa/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/mwaa/.jsii"
         }
       ]
     },
     "compile:neptune": {
       "name": "compile:neptune",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/neptune/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/neptune/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/neptune/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/neptune/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/neptune/.jsii"
         }
       ]
     },
     "compile:networkfirewall": {
       "name": "compile:networkfirewall",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/networkfirewall/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/networkfirewall/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/networkfirewall/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/networkfirewall/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/networkfirewall/.jsii"
         }
       ]
     },
     "compile:networkmanager": {
       "name": "compile:networkmanager",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/networkmanager/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/networkmanager/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/networkmanager/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/networkmanager/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/networkmanager/.jsii"
         }
       ]
     },
     "compile:opsworks": {
       "name": "compile:opsworks",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/opsworks/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/opsworks/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/opsworks/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/opsworks/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/opsworks/.jsii"
         }
       ]
     },
     "compile:opsworkscm": {
       "name": "compile:opsworkscm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/opsworkscm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/opsworkscm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/opsworkscm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/opsworkscm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/opsworkscm/.jsii"
         }
       ]
     },
     "compile:organizations": {
       "name": "compile:organizations",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/organizations/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/organizations/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/organizations/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/organizations/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/organizations/.jsii"
         }
       ]
     },
     "compile:outposts": {
       "name": "compile:outposts",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/outposts/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/outposts/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/outposts/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/outposts/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/outposts/.jsii"
         }
       ]
     },
     "compile:personalize": {
       "name": "compile:personalize",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalize/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalize/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/personalize/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/personalize/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/personalize/.jsii"
         }
       ]
     },
     "compile:personalizeevents": {
       "name": "compile:personalizeevents",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalizeevents/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalizeevents/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/personalizeevents/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/personalizeevents/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/personalizeevents/.jsii"
         }
       ]
     },
     "compile:personalizeruntime": {
       "name": "compile:personalizeruntime",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalizeruntime/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/personalizeruntime/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/personalizeruntime/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/personalizeruntime/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/personalizeruntime/.jsii"
         }
       ]
     },
     "compile:pi": {
       "name": "compile:pi",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pi/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pi/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/pi/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/pi/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/pi/.jsii"
         }
       ]
     },
     "compile:pinpointemail": {
       "name": "compile:pinpointemail",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pinpointemail/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pinpointemail/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/pinpointemail/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/pinpointemail/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/pinpointemail/.jsii"
         }
       ]
     },
     "compile:polly": {
       "name": "compile:polly",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/polly/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/polly/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/polly/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/polly/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/polly/.jsii"
         }
       ]
     },
     "compile:pricing": {
       "name": "compile:pricing",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pricing/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/pricing/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/pricing/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/pricing/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/pricing/.jsii"
         }
       ]
     },
     "compile:qldb": {
       "name": "compile:qldb",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/qldb/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/qldb/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/qldb/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/qldb/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/qldb/.jsii"
         }
       ]
     },
     "compile:qldbsession": {
       "name": "compile:qldbsession",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/qldbsession/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/qldbsession/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/qldbsession/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/qldbsession/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/qldbsession/.jsii"
         }
       ]
     },
     "compile:quicksight": {
       "name": "compile:quicksight",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/quicksight/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/quicksight/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/quicksight/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/quicksight/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/quicksight/.jsii"
         }
       ]
     },
     "compile:ram": {
       "name": "compile:ram",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ram/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ram/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ram/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ram/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ram/.jsii"
         }
       ]
     },
     "compile:rds": {
       "name": "compile:rds",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/rds/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/rds/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/rds/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/rds/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/rds/.jsii"
         }
       ]
     },
     "compile:redshift": {
       "name": "compile:redshift",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/redshift/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/redshift/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/redshift/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/redshift/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/redshift/.jsii"
         }
       ]
     },
     "compile:redshiftdata": {
       "name": "compile:redshiftdata",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/redshiftdata/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/redshiftdata/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/redshiftdata/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/redshiftdata/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/redshiftdata/.jsii"
         }
       ]
     },
     "compile:rekognition": {
       "name": "compile:rekognition",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/rekognition/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/rekognition/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/rekognition/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/rekognition/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/rekognition/.jsii"
         }
       ]
     },
     "compile:resourcegroups": {
       "name": "compile:resourcegroups",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/resourcegroups/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/resourcegroups/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/resourcegroups/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/resourcegroups/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/resourcegroups/.jsii"
         }
       ]
     },
     "compile:resourcegroupstaggingapi": {
       "name": "compile:resourcegroupstaggingapi",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/resourcegroupstaggingapi/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/resourcegroupstaggingapi/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/resourcegroupstaggingapi/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/resourcegroupstaggingapi/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/resourcegroupstaggingapi/.jsii"
         }
       ]
     },
     "compile:robomaker": {
       "name": "compile:robomaker",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/robomaker/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/robomaker/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/robomaker/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/robomaker/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/robomaker/.jsii"
         }
       ]
     },
     "compile:route53": {
       "name": "compile:route53",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/route53/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/route53/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/route53/.jsii"
         }
       ]
     },
     "compile:route53domains": {
       "name": "compile:route53domains",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53domains/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53domains/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/route53domains/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/route53domains/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/route53domains/.jsii"
         }
       ]
     },
     "compile:route53resolver": {
       "name": "compile:route53resolver",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53resolver/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/route53resolver/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/route53resolver/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/route53resolver/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/route53resolver/.jsii"
         }
       ]
     },
     "compile:s3": {
       "name": "compile:s3",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/s3/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/s3/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/s3/.jsii"
         }
       ]
     },
     "compile:s3control": {
       "name": "compile:s3control",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3control/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3control/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/s3control/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/s3control/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/s3control/.jsii"
         }
       ]
     },
     "compile:s3outposts": {
       "name": "compile:s3outposts",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3outposts/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/s3outposts/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/s3outposts/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/s3outposts/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/s3outposts/.jsii"
         }
       ]
     },
     "compile:sagemaker": {
       "name": "compile:sagemaker",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sagemaker/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sagemaker/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sagemaker/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sagemaker/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sagemaker/.jsii"
         }
       ]
     },
     "compile:savingsplans": {
       "name": "compile:savingsplans",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/savingsplans/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/savingsplans/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/savingsplans/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/savingsplans/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/savingsplans/.jsii"
         }
       ]
     },
     "compile:schemas": {
       "name": "compile:schemas",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/schemas/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/schemas/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/schemas/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/schemas/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/schemas/.jsii"
         }
       ]
     },
     "compile:secretsmanager": {
       "name": "compile:secretsmanager",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/secretsmanager/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/secretsmanager/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/secretsmanager/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/secretsmanager/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/secretsmanager/.jsii"
         }
       ]
     },
     "compile:securityhub": {
       "name": "compile:securityhub",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/securityhub/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/securityhub/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/securityhub/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/securityhub/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/securityhub/.jsii"
         }
       ]
     },
     "compile:servicecatalog": {
       "name": "compile:servicecatalog",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicecatalog/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicecatalog/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/servicecatalog/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/servicecatalog/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/servicecatalog/.jsii"
         }
       ]
     },
     "compile:servicecatalogappregistry": {
       "name": "compile:servicecatalogappregistry",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicecatalogappregistry/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicecatalogappregistry/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/servicecatalogappregistry/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/servicecatalogappregistry/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/servicecatalogappregistry/.jsii"
         }
       ]
     },
     "compile:servicediscovery": {
       "name": "compile:servicediscovery",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicediscovery/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicediscovery/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/servicediscovery/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/servicediscovery/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/servicediscovery/.jsii"
         }
       ]
     },
     "compile:servicequotas": {
       "name": "compile:servicequotas",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicequotas/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/servicequotas/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/servicequotas/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/servicequotas/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/servicequotas/.jsii"
         }
       ]
     },
     "compile:sesv2": {
       "name": "compile:sesv2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sesv2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sesv2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sesv2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sesv2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sesv2/.jsii"
         }
       ]
     },
     "compile:shield": {
       "name": "compile:shield",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/shield/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/shield/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/shield/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/shield/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/shield/.jsii"
         }
       ]
     },
     "compile:signer": {
       "name": "compile:signer",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/signer/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/signer/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/signer/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/signer/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/signer/.jsii"
         }
       ]
     },
     "compile:sms": {
       "name": "compile:sms",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sms/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sms/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sms/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sms/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sms/.jsii"
         }
       ]
     },
     "compile:snowball": {
       "name": "compile:snowball",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/snowball/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/snowball/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/snowball/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/snowball/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/snowball/.jsii"
         }
       ]
     },
     "compile:sns": {
       "name": "compile:sns",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sns/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sns/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sns/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sns/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sns/.jsii"
         }
       ]
     },
     "compile:sqs": {
       "name": "compile:sqs",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sqs/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sqs/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sqs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sqs/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sqs/.jsii"
         }
       ]
     },
     "compile:ssm": {
       "name": "compile:ssm",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssm/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssm/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ssm/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ssm/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ssm/.jsii"
         }
       ]
     },
     "compile:sso": {
       "name": "compile:sso",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sso/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sso/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sso/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sso/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sso/.jsii"
         }
       ]
     },
     "compile:ssoadmin": {
       "name": "compile:ssoadmin",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssoadmin/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssoadmin/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ssoadmin/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ssoadmin/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ssoadmin/.jsii"
         }
       ]
     },
     "compile:ssooidc": {
       "name": "compile:ssooidc",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssooidc/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/ssooidc/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/ssooidc/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/ssooidc/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/ssooidc/.jsii"
         }
       ]
     },
     "compile:storagegateway": {
       "name": "compile:storagegateway",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/storagegateway/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/storagegateway/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/storagegateway/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/storagegateway/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/storagegateway/.jsii"
         }
       ]
     },
     "compile:sts": {
       "name": "compile:sts",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sts/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/sts/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/sts/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/sts/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/sts/.jsii"
         }
       ]
     },
     "compile:support": {
       "name": "compile:support",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/support/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/support/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/support/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/support/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/support/.jsii"
         }
       ]
     },
     "compile:swf": {
       "name": "compile:swf",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/swf/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/swf/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/swf/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/swf/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/swf/.jsii"
         }
       ]
     },
     "compile:synthetics": {
       "name": "compile:synthetics",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/synthetics/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/synthetics/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/synthetics/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/synthetics/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/synthetics/.jsii"
         }
       ]
     },
     "compile:textract": {
       "name": "compile:textract",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/textract/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/textract/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/textract/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/textract/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/textract/.jsii"
         }
       ]
     },
     "compile:timestreamquery": {
       "name": "compile:timestreamquery",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/timestreamquery/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/timestreamquery/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/timestreamquery/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/timestreamquery/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/timestreamquery/.jsii"
         }
       ]
     },
     "compile:timestreamwrite": {
       "name": "compile:timestreamwrite",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/timestreamwrite/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/timestreamwrite/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/timestreamwrite/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/timestreamwrite/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/timestreamwrite/.jsii"
         }
       ]
     },
     "compile:transfer": {
       "name": "compile:transfer",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/transfer/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/transfer/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/transfer/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/transfer/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/transfer/.jsii"
         }
       ]
     },
     "compile:translate": {
       "name": "compile:translate",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/translate/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/translate/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/translate/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/translate/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/translate/.jsii"
         }
       ]
     },
     "compile:waf": {
       "name": "compile:waf",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/waf/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/waf/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/waf/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/waf/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/waf/.jsii"
         }
       ]
     },
     "compile:wafregional": {
       "name": "compile:wafregional",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/wafregional/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/wafregional/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/wafregional/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/wafregional/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/wafregional/.jsii"
         }
       ]
     },
     "compile:wafv2": {
       "name": "compile:wafv2",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/wafv2/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/wafv2/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/wafv2/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/wafv2/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/wafv2/.jsii"
         }
       ]
     },
     "compile:workdocs": {
       "name": "compile:workdocs",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workdocs/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workdocs/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/workdocs/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/workdocs/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/workdocs/.jsii"
         }
       ]
     },
     "compile:worklink": {
       "name": "compile:worklink",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/worklink/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/worklink/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/worklink/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/worklink/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/worklink/.jsii"
         }
       ]
     },
     "compile:workmail": {
       "name": "compile:workmail",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workmail/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workmail/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/workmail/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/workmail/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/workmail/.jsii"
         }
       ]
     },
     "compile:workmailmessageflow": {
       "name": "compile:workmailmessageflow",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workmailmessageflow/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workmailmessageflow/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/workmailmessageflow/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/workmailmessageflow/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/workmailmessageflow/.jsii"
         }
       ]
     },
     "compile:workspaces": {
       "name": "compile:workspaces",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workspaces/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/workspaces/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/workspaces/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/workspaces/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/workspaces/.jsii"
         }
       ]
     },
     "compile:xray": {
       "name": "compile:xray",
       "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/xray/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/clients/xray/package.overrides.json"
+        "JSII_TSCONFIG_OVERRIDES_PATH": "src/clients/xray/tsconfig.overrides.json",
+        "JSII_MANIFEST_OVERRIDES_PATH": "src/clients/xray/package.overrides.json"
       },
       "steps": [
         {
           "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+        },
+        {
+          "exec": "mv .jsii src/clients/xray/.jsii"
         }
       ]
     },
     "compile:index": {
       "name": "compile:index",
-      "env": {
-        "JSII_TSCONFIG_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/tsconfig.overrides.json",
-        "JSII_MANIFEST_OVERRIDES_PATH": "/Users/epolon/dev/src/github.com/iliapolo/aws-cdk-sdk/src/package.overrides.json"
-      },
       "steps": [
         {
-          "exec": "jsii --silence-warnings=reserved-word --no-fix-peer-dependencies"
+          "exec": "ts-node --skip-project scripts/compile-index.ts"
         }
       ]
     },
