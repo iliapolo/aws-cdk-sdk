@@ -909,6 +909,13 @@
   dependencies:
     jsonschema "^1.4.0"
 
+"@jsii/spec@^1.32.0":
+  version "1.32.0"
+  resolved "https://registry.yarnpkg.com/@jsii/spec/-/spec-1.32.0.tgz#e921afaa89e19a74abee2182ff259c9090f4c452"
+  integrity sha512-XjSnqvmBXvFork9w3ehacqaa0JmUVaEYubOzR1l6z67z2FDZ9C4KP7EqMqjnv/S+j+Ou3tWQPfLICnl6aK1iGA==
+  dependencies:
+    jsonschema "^1.4.0"
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -4288,12 +4295,11 @@ jsii-rosetta@^1.30.0:
     xmldom "^0.6.0"
     yargs "^16.2.0"
 
-jsii@^1.15.0:
-  version "1.30.0"
-  resolved "https://registry.yarnpkg.com/jsii/-/jsii-1.30.0.tgz#fe20f60e33d0beaae24bc6537fb623333e913da4"
-  integrity sha512-TfVHhGjP0QiTEkyfnxrDIE8Da+itxnNUK2YoD69qIPAzmZ58goKVqK4sbXrXz2urHSToGLDmWI8+H69cLeVjJw==
+jsii@./vendor/jsii.tgz:
+  version "1.32.0-forawscdksdk"
+  resolved "./vendor/jsii.tgz#bc88f2ed96f5fe3cbc21c1976d0a2f7bd01e038f"
   dependencies:
-    "@jsii/spec" "^1.30.0"
+    "@jsii/spec" "^1.32.0"
     case "^1.6.3"
     colors "^1.4.0"
     deep-equal "^2.0.5"
