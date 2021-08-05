@@ -5,11 +5,17 @@ import * as maker from 'codemaker';
 import * as gen from './client';
 import * as sdk from './sdk-repository';
 
-const INCLUDE = ['ES',
-//  'S3',
-//  'SQS'
-]
-// const EXCLUDE = ['Kendra', 'Pinpoint', 'MediaConvert'];
+const EXCLUDE = [
+
+  // don't remember why these are excluded
+  // there was some codegen problem with them
+  'Kendra',
+  'Pinpoint',
+
+  // enormous client (300,000+ lines of code)
+  // can't even compile it individually
+  'MediaConvert'
+];
 
 async function generate() {
 
@@ -39,13 +45,9 @@ async function generate() {
 
   for (const client of await repo.createClients()) {
 
-    if (!INCLUDE.includes(path.basename(client.className))) {
+    if (EXCLUDE.includes(path.basename(client.className))) {
       continue;
     }
-
-    // if (EXCLUDE.includes(path.basename(client.className))) {
-    //   continue;
-    // }
 
     const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
     const clientDir = path.join(clientsDirectory, clientBaseDir);
