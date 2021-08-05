@@ -38,6 +38,9 @@ const project = new JsiiProject({
 
 const codegen = project.addTask('codegen');
 codegen.exec('ts-node --skip-project codegen/main.ts');
+// codegen may change the task definitions so we need to resynth
+// immediately after.
+codegen.exec(project.projenCommand);
 
 const assemble = project.addTask('assemble');
 assemble.exec('ts-node --skip-project scripts/assemble.ts')
@@ -45,7 +48,9 @@ assemble.exec('ts-node --skip-project scripts/assemble.ts')
 project.gitignore.exclude('.sdk');
 project.gitignore.exclude('package.overrides.json');
 project.gitignore.exclude('tsconfig.overrides.json');
+project.gitignore.include('vendor/jsii.tgz');
 
+project.setScript('build', 'npx projen codegen && npx projen build')
 const compileSteps = project.compileTask.steps;
 project.compileTask.reset();
 

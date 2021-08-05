@@ -5,8 +5,11 @@ import * as maker from 'codemaker';
 import * as gen from './client';
 import * as sdk from './sdk-repository';
 
-// const INCLUDE = ['ES', 'S3', 'SQS']
-const EXCLUDE = ['Kendra', 'Pinpoint', 'MediaConvert'];
+const INCLUDE = ['ES',
+//  'S3',
+//  'SQS'
+]
+// const EXCLUDE = ['Kendra', 'Pinpoint', 'MediaConvert'];
 
 async function generate() {
 
@@ -36,13 +39,13 @@ async function generate() {
 
   for (const client of await repo.createClients()) {
 
-    // if (!INCLUDE.includes(path.basename(client.className))) {
-    //   continue;
-    // }
-
-    if (EXCLUDE.includes(path.basename(client.className))) {
+    if (!INCLUDE.includes(path.basename(client.className))) {
       continue;
     }
+
+    // if (EXCLUDE.includes(path.basename(client.className))) {
+    //   continue;
+    // }
 
     const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
     const clientDir = path.join(clientsDirectory, clientBaseDir);
