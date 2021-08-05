@@ -50,6 +50,10 @@ project.gitignore.exclude('package.overrides.json');
 project.gitignore.exclude('tsconfig.overrides.json');
 project.gitignore.include('vendor/jsii.tgz');
 
+// ideally we would just do project.buildTask.preSpawn(codegen)
+// however - projen preloads all task definitions when it starts up, meaning
+// that it doesn't see changes made in process.
+// TODO: we can change projen to lazy load tasks, should we?
 project.setScript('build', 'npx projen codegen && npx projen build')
 const compileSteps = project.compileTask.steps;
 project.compileTask.reset();
