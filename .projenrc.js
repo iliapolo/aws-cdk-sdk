@@ -7,6 +7,8 @@ const project = new JsiiProject({
   // per submodule. see scripts/docgen.ts
   docgen: false,
 
+  releaseToNpm: false,
+
   defaultReleaseBranch: 'main',
   authorName: 'Eli Polonsky',
   repository: 'https://github.com/iliapolo/aws-cdk-sdk',

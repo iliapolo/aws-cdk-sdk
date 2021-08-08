@@ -20,7 +20,6 @@
     "package": "npx projen package",
     "eslint": "npx projen eslint",
     "compat": "npx projen compat",
-    "publish:npm": "npx projen publish:npm",
     "codegen": "npx projen codegen",
     "docgen": "npx projen docgen",
     "integ:synth": "npx projen integ:synth",
