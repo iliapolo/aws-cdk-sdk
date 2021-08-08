@@ -44,12 +44,11 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assertions": "^1.117.0",
     "@aws-cdk/aws-elasticsearch": "^1.117.0",
     "@aws-cdk/aws-route53": "^1.117.0",
     "@aws-cdk/aws-s3": "^1.117.0",
-    "@aws-cdk/aws-ses": "^1.117.0",
     "@aws-cdk/aws-sqs": "^1.117.0",
+    "@aws-cdk/aws-ssm": "^1.117.0",
     "@aws-cdk/core": "^1.117.0",
     "@aws-cdk/custom-resources": "^1.117.0",
     "@types/jest": "^26.0.15",
@@ -72,13 +71,11 @@
     "jsii-pacmak": "^1.15.0",
     "json-schema": "^0.2.5",
     "json2jsii": "^0.1.122",
-    "node-color-log": "^5.2.0",
     "npm-check-updates": "^11",
     "projen": "^0.27.13",
     "standard-version": "^9",
     "ts-node": "^9.0.0",
     "typescript": "^3.9.5",
-    "typescript-json-schema": "^0.45.0",
     "typescript-parser": "^2.6.1"
   },
   "peerDependencies": {
