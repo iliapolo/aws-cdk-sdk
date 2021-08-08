@@ -27,11 +27,9 @@ lib-cov
 logs
 node_modules/
 npm-debug.log*
-package.overrides.json
 pids
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 tsconfig.json
-tsconfig.overrides.json
 yarn-debug.log*
 yarn-error.log*
 !/.eslintrc.json
@@ -52,4 +50,3 @@ yarn-error.log*
 !/src
 !/src/__tests__
 !/tsconfig.eslint.json
-!vendor/jsii.tgz
