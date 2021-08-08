@@ -2,21 +2,6 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assertions@^1.117.0":
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/assertions/-/assertions-1.117.0.tgz#aad8a0d3b01ae3aba969af7039fe520847e9f19e"
-  integrity sha512-1jFsR6rZXKp30HGn5jYD8tRfk2UBYqU2M2XGKpFvfVHMPv93Lu1H0VRnnSUTnfore8Jbm59wCvwLxIHctTXkUg==
-  dependencies:
-    "@aws-cdk/cloud-assembly-schema" "1.117.0"
-    "@aws-cdk/core" "1.117.0"
-    "@aws-cdk/cx-api" "1.117.0"
-    colors "^1.4.0"
-    constructs "^3.3.69"
-    diff "^5.0.0"
-    fast-deep-equal "^3.1.3"
-    string-width "^4.2.2"
-    table "^6.7.1"
-
 "@aws-cdk/assets@1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/assets/-/assets-1.117.0.tgz#fdd7ac223e6266e614f84cd99dfe729ad86cfd69"

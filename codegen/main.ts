@@ -62,9 +62,6 @@ async function generate() {
 
     await generator.gen();
     index.line(`export * as ${clientBaseDir} from './clients/${clientBaseDir}';`);
-
-    // child.execSync(`cd ${clientDir} && ${__dirname}/../node_modules/.bin/typescript-json-schema shapes.ts "*" > schema.json`);
-
   }
 
   index.closeFile('index.ts');
