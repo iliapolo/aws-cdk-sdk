@@ -261,6 +261,28 @@
         }
       ]
     },
+    "integ:synth": {
+      "name": "integ:synth",
+      "steps": [
+        {
+          "spawn": "integ:es:synth"
+        },
+        {
+          "spawn": "integ:s3:synth"
+        },
+        {
+          "spawn": "integ:sqs:synth"
+        }
+      ]
+    },
+    "integ:es:synth": {
+      "name": "integ:es:synth",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' synth"
+        }
+      ]
+    },
     "integ:deploy": {
       "name": "integ:deploy",
       "steps": [
@@ -272,6 +294,14 @@
         },
         {
           "spawn": "integ:sqs:deploy"
+        }
+      ]
+    },
+    "integ:es:deploy": {
+      "name": "integ:es:deploy",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' deploy"
         }
       ]
     },
@@ -289,19 +319,19 @@
         }
       ]
     },
-    "integ:es:deploy": {
-      "name": "integ:es:deploy",
-      "steps": [
-        {
-          "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' deploy"
-        }
-      ]
-    },
     "integ:es:destroy": {
       "name": "integ:es:destroy",
       "steps": [
         {
           "exec": "cdk -a 'node lib/__tests__/clients/es/es.integ.js' destroy"
+        }
+      ]
+    },
+    "integ:s3:synth": {
+      "name": "integ:s3:synth",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/s3/s3.integ.js' synth"
         }
       ]
     },
@@ -318,6 +348,14 @@
       "steps": [
         {
           "exec": "cdk -a 'node lib/__tests__/clients/s3/s3.integ.js' destroy"
+        }
+      ]
+    },
+    "integ:sqs:synth": {
+      "name": "integ:sqs:synth",
+      "steps": [
+        {
+          "exec": "cdk -a 'node lib/__tests__/clients/sqs/sqs.integ.js' synth"
         }
       ]
     },

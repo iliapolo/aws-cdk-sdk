@@ -65,22 +65,21 @@ project.synth();
 
 function discoverIntegrationTests() {
 
-  const integDeploy = project.addTask('integ:deploy');
-  const integDestroy = project.addTask('integ:destroy');
   const clients = 'src/__tests__/clients';
 
   for (const client of fs.readdirSync(clients)) {
+
     const integ = `${clients}/${client}/${client}.integ.ts`;
     if (fs.existsSync(integ)) {
+
       const cdk = `cdk -a 'node ${integ.replace('src', 'lib').replace('.ts', '.js')}'`;
-      const deploy = project.addTask(`integ:${client}:deploy`);
-      deploy.exec(`${cdk} deploy`);
 
-      const destroy = project.addTask(`integ:${client}:destroy`);
-      destroy.exec(`${cdk} destroy`);
-
-      integDeploy.spawn(deploy);
-      integDestroy.spawn(destroy);
+      for (const command of ['synth', 'deploy', 'destroy']) {
+        const task = project.tasks.tryFind(`integ:${command}`) ? project.tasks.tryFind(`integ:${command}`) : project.addTask(`integ:${command}`);
+        const subtask = project.addTask(`integ:${client}:${command}`);
+        subtask.exec(`${cdk} ${command}`);
+        task.spawn(subtask);
+      }
     }
   }
 }

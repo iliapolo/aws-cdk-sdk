@@ -1,6 +1,6 @@
 import * as es from '@aws-cdk/aws-elasticsearch';
 import { App, Stack, CfnOutput } from '@aws-cdk/core';
-import { es as runtime } from '../../..';
+import { EsClient } from '../../../clients/es';
 
 export function createStack(): Stack {
 
@@ -11,7 +11,7 @@ export function createStack(): Stack {
     version: es.ElasticsearchVersion.V7_10,
   });
 
-  const client = new runtime.EsClient(stack, 'Client', [domain.domainArn]);
+  const client = new EsClient(stack, 'Client', [domain.domainArn]);
 
   new CfnOutput(stack, 'DomainEndpoint', {
     value: client.describeElasticsearchDomain({ domainName: domain.domainName }).domainStatus.endpoint,
