@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@aws-cdk/assertions",
+      "type": "build"
+    },
+    {
       "name": "@aws-cdk/aws-elasticsearch",
       "type": "build"
     },

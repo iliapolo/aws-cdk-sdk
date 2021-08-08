@@ -18,11 +18,19 @@ const project = new JsiiProject({
   ],
   devDeps: [
     'aws-cdk',
+<<<<<<< HEAD
     '@aws-cdk/aws-ssm',
+=======
+    '@aws-cdk/aws-ses',
+>>>>>>> main
     '@aws-cdk/aws-route53',
     '@aws-cdk/aws-elasticsearch',
     '@aws-cdk/aws-s3',
     '@aws-cdk/aws-sqs',
+<<<<<<< HEAD
+=======
+    '@aws-cdk/assertions',
+>>>>>>> main
     'aws-sdk',
     'codemaker',
     'json-schema',
