@@ -44,6 +44,7 @@ project.compileTask.prependSpawn(codegen);
 project.compileTask.spawn(docgen);
 
 project.gitignore.exclude('.sdk');
+project.gitignore.exclude('.vscode/');
 
 // lots of code - need some more memory...
 project.compileTask.env('NODE_OPTIONS', '--max_old_space_size=5000');
