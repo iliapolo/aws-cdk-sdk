@@ -32,6 +32,12 @@ const project = new JsiiProject({
   ],
   stability: 'experimental',
   testdir: 'src/__tests__',
+  projenUpgradeSecret: 'CDK_AUTOMATION_GITHUB_TOKEN',
+  autoApproveOptions: {
+    allowedUsernames: ['aws-cdk-automation'],
+    secret: 'GITHUB_TOKEN',
+  },
+  autoApproveUpgrades: true,
 });
 
 const codegen = project.addTask('codegen');
