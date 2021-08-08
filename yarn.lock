@@ -2,21 +2,6 @@
 # yarn lockfile v1
 
 
-"@aws-cdk/assertions@^1.117.0":
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/assertions/-/assertions-1.117.0.tgz#aad8a0d3b01ae3aba969af7039fe520847e9f19e"
-  integrity sha512-1jFsR6rZXKp30HGn5jYD8tRfk2UBYqU2M2XGKpFvfVHMPv93Lu1H0VRnnSUTnfore8Jbm59wCvwLxIHctTXkUg==
-  dependencies:
-    "@aws-cdk/cloud-assembly-schema" "1.117.0"
-    "@aws-cdk/core" "1.117.0"
-    "@aws-cdk/cx-api" "1.117.0"
-    colors "^1.4.0"
-    constructs "^3.3.69"
-    diff "^5.0.0"
-    fast-deep-equal "^3.1.3"
-    string-width "^4.2.2"
-    table "^6.7.1"
-
 "@aws-cdk/assets@1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/assets/-/assets-1.117.0.tgz#fdd7ac223e6266e614f84cd99dfe729ad86cfd69"
@@ -294,16 +279,6 @@
     "@aws-cdk/cx-api" "1.117.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-ses@^1.117.0":
-  version "1.117.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ses/-/aws-ses-1.117.0.tgz#f530f1c8f65377ede085d7bb4022f1ca7f36fdb8"
-  integrity sha512-qN3g7ydMR1s8896XlTGoYQLCFK9CHpH2jTglNcaO3XDr5/YqZLN3hH0P5Jpg4UT8eMPj+JYrHEN0Rs9VQqHSBg==
-  dependencies:
-    "@aws-cdk/aws-iam" "1.117.0"
-    "@aws-cdk/aws-lambda" "1.117.0"
-    "@aws-cdk/core" "1.117.0"
-    constructs "^3.3.69"
-
 "@aws-cdk/aws-signer@1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-signer/-/aws-signer-1.117.0.tgz#d77627d33935d96d503727c086e5203df9b076b7"
@@ -337,7 +312,7 @@
     "@aws-cdk/core" "1.117.0"
     constructs "^3.3.69"
 
-"@aws-cdk/aws-ssm@1.117.0":
+"@aws-cdk/aws-ssm@*", "@aws-cdk/aws-ssm@1.117.0":
   version "1.117.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ssm/-/aws-ssm-1.117.0.tgz#38f63882db5ecad5c120bfcdb03201a934ed44f6"
   integrity sha512-oCUj+pBuLadFGDyDnGFJtcoB3bVYm2tLV2FBKH4qzdOlkhS+VkOkU55nYHhZHb7Kty2/p7A4mUmsG74Sikcg1Q==
@@ -1178,11 +1153,6 @@
   dependencies:
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
-
-"@types/json-schema@^7.0.6":
-  version "7.0.7"
-  resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
-  integrity sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA==
 
 "@types/json-schema@^7.0.7":
   version "7.0.9"
@@ -5114,13 +5084,6 @@ json-stable-stringify-without-jsonify@^1.0.1:
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
 
-json-stable-stringify@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz#9a759d39c5f2ff503fd5300646ed445f88c4f9af"
-  integrity sha1-mnWdOcXy/1A/1TAGRu1EX4jE+a8=
-  dependencies:
-    jsonify "~0.0.0"
-
 json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
@@ -5157,11 +5120,6 @@ jsonfile@^6.0.1:
     universalify "^2.0.0"
   optionalDependencies:
     graceful-fs "^4.1.6"
-
-jsonify@~0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
-  integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
 jsonlines@^0.1.1:
   version "0.1.1"
@@ -5780,11 +5738,6 @@ no-case@^3.0.4:
   dependencies:
     lower-case "^2.0.2"
     tslib "^2.0.3"
-
-node-color-log@^5.2.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/node-color-log/-/node-color-log-5.3.1.tgz#26156a8c02f9235f26a1e1d5d28c444e38b7f606"
-  integrity sha512-dO3OtV4F8dB3Ytxfg6H8qN1RqJ+KJRfIYjsfYLScm+pZ93vzDb2l5mVqRU8GDjTZCXTWeA3n8cV8aIHiV5htlQ==
 
 node-gyp@^7.1.0:
   version "7.1.2"
@@ -7783,17 +7736,6 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript-json-schema@^0.45.0:
-  version "0.45.1"
-  resolved "https://registry.yarnpkg.com/typescript-json-schema/-/typescript-json-schema-0.45.1.tgz#d3c1feea85b3bfeaf7e42a8c3bab80f2dc121a5d"
-  integrity sha512-Iz1NKVtJi09iZSzXj3J350GekBrZ1TiNw6Cbf42jLOGyooh9BWoi8XP6XlTIMOI3aMD8XxuL9hEvIEq8FD/WUw==
-  dependencies:
-    "@types/json-schema" "^7.0.6"
-    glob "^7.1.6"
-    json-stable-stringify "^1.0.1"
-    typescript "^4.1.3"
-    yargs "^16.2.0"
-
 typescript-parser@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/typescript-parser/-/typescript-parser-2.6.1.tgz#b5f86e3f9d35ad46a346a32068cab61bbd96f803"
@@ -7808,11 +7750,6 @@ typescript@^3.0.3, typescript@^3.9.5, typescript@~3.9.9:
   version "3.9.10"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
   integrity sha512-w6fIxVE/H1PkLKcCPsFqKE7Kv7QUwhU8qQY2MueZXWx5cPZdwFupLgKK3vntcK98BtNHZtAF4LA/yl2a7k8R6Q==
-
-typescript@^4.1.3:
-  version "4.3.4"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.4.tgz#3f85b986945bcf31071decdd96cf8bfa65f9dcbc"
-  integrity sha512-uauPG7XZn9F/mo+7MrsRjyvbxFpzemRjKEZXS4AK83oP2KKOJPvb+9cO/gmnv8arWZvhnjVOXz7B49m1l0e9Ew==
 
 uglify-js@^3.1.4:
   version "3.14.1"

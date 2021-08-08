@@ -1,7 +1,6 @@
-import { Template } from '@aws-cdk/assertions';
+import { synth } from '../cdk';
 import { createStack } from './stack';
 
 test('snapshot', () => {
-  expect(Template.fromStack(createStack())).toMatchSnapshot();
+  expect(synth(createStack())).toMatchSnapshot();
 });
-
