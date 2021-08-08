@@ -18,6 +18,8 @@ const project = new JsiiProject({
   ],
   devDeps: [
     'aws-cdk',
+    '@aws-cdk/aws-ses',
+    '@aws-cdk/aws-route53',
     '@aws-cdk/aws-elasticsearch',
     '@aws-cdk/aws-s3',
     '@aws-cdk/aws-sqs',
