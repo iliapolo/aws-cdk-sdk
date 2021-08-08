@@ -10,7 +10,7 @@ resources, or fetch deploy time information that isn't exposed as CloudFormation
 To that end, the core CDK framework offers the wonderful [`AwsCustomResource`](https://docs.aws.amazon.com/cdk/api/latest/docs/custom-resources-readme.html#custom-resources-for-aws-apis),
 which lets you configure the exact API call along with any necessary parameters.
 
-This library does the same, but in a **type-safe** manner that simulates direct usage of the API offered by SDK itself.
+This library does the same, but in a **type-safe** manner that simulates direct usage of the API offered by the SDK itself.
 
 ## Examples
 
