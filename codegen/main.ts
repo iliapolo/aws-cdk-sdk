@@ -5,6 +5,7 @@ import * as maker from 'codemaker';
 import * as gen from './client';
 import * as sdk from './sdk-repository';
 
+// empty means nothing
 const EXCLUDE = [
 
   // don't remember why these are excluded
@@ -15,6 +16,10 @@ const EXCLUDE = [
   // enormous client (300,000+ lines of code)
   // can't even compile it individually
   'MediaConvert'
+];
+
+// empty means all
+const INCLUDE = [
 ];
 
 async function generate() {
@@ -43,11 +48,11 @@ async function generate() {
 
   child.execSync(`rm -rf ${clientsDirectory}`);
 
-  for (const client of await repo.createClients()) {
+  const clients = (await repo.createClients())
+    .filter(c => INCLUDE.length > 0 ? INCLUDE.includes(path.basename(c.className)) : true)
+    .filter(c => EXCLUDE.length > 0 ? !EXCLUDE.includes(path.basename(c.className)): true)
 
-    if (EXCLUDE.includes(path.basename(client.className))) {
-      continue;
-    }
+  for (const client of clients) {
 
     const clientBaseDir = index.toSnakeCase(client.className).replace(/_/g, '');
     const clientDir = path.join(clientsDirectory, clientBaseDir);

@@ -34,6 +34,7 @@ tsconfig.json
 tsconfig.overrides.json
 yarn-debug.log*
 yarn-error.log*
+!/.eslintrc.json
 !/.gitattributes
 !/.github/pull_request_template.md
 !/.github/workflows/build.yml
@@ -50,4 +51,5 @@ yarn-error.log*
 !/package.json
 !/src
 !/src/__tests__
+!/tsconfig.eslint.json
 !vendor/jsii.tgz
